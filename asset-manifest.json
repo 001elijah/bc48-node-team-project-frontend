@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/bc48-node-team-project-frontend/static/css/main.7acaea2f.css",
+    "main.js": "/bc48-node-team-project-frontend/static/js/main.73c28e03.js",
+    "index.html": "/bc48-node-team-project-frontend/index.html",
+    "main.7acaea2f.css.map": "/bc48-node-team-project-frontend/static/css/main.7acaea2f.css.map",
+    "main.73c28e03.js.map": "/bc48-node-team-project-frontend/static/js/main.73c28e03.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7acaea2f.css",
+    "static/js/main.73c28e03.js"
+  ]
+}
