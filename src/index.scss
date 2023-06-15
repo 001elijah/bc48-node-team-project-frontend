@@ -1,4 +1,7 @@
 @import-normalize; /* bring in normalize.css styles */
+@import './assets/styles/reset';
+@import './assets/styles/vars';
+@import './assets/styles/mixins';
 
 body {
   margin: 0;
@@ -7,6 +10,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+body.no-scroll {
+  overflow: hidden;
 }
 
 code {
