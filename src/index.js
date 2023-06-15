@@ -10,5 +10,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <BrowserRouter basename="/bc48-node-team-project-frontend">
       <App />
     </BrowserRouter>
-  </React.StrictMode>
+  </React.StrictMode>,
 );
