@@ -1,0 +1,40 @@
+.container {
+  width: 335px;
+  height: 154px;
+  background: var(--black-color);
+  border-radius: 8px;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.description {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.33;
+}
+
+.subtitle {
+  font-weight: 400;
+  font-size: 8px;
+  line-height: 1.5;
+}
+
+.priorityBox {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.text {
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+.buttonList {
+  display: flex;
+}
