@@ -1,0 +1,20 @@
+@import '../../assets/styles/vars';
+
+.userMenu {
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+}
+
+.name {
+  font-family: 'Poppins-SemiBold';
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  color: $white-text-color;
+}
+
+.avatar {
+  border-radius: 8px;
+  object-fit: cover;
+}

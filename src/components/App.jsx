@@ -3,6 +3,7 @@ import { HomePage } from 'pages/HomePage';
 import { LoginPage } from 'pages/LoginPage';
 import { RegisterPage } from 'pages/RegisterPage';
 import { BoardPage } from 'pages/BoardPage';
+import { UserMenu } from './UserMenu/UserMenu';
 
 export const App = () => {
   return (
