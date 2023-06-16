@@ -1,0 +1,41 @@
+.Wrapper {
+  width: 335px;
+  height: 154px;
+  background: #121212;
+  border-radius: 8px;
+  padding: 14px 20px 14px 24px;
+}
+.TextBlock {
+}
+.CardTitle {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+.CardDisc {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.33;
+  letter-spacing: -0.02em;
+  color: rgba(255, 255, 255, 0.5);
+}
+.ModuleBlock {
+  display: flex;
+}
+.InfoBlock {
+}
+
+.ControlBlock{
+  display: flex;
+}
+
+.IconsItem{
+  margin-left: 8px;
+}
