@@ -1,3 +1,5 @@
+import { ModalBoard } from './ModalBoard/ModalBoard';
+
 export const App = () => {
   return (
     <div
@@ -10,7 +12,14 @@ export const App = () => {
         color: '#010101',
       }}
     >
-      React homework template
+      <ModalBoard
+        modalTitle="Add column"
+        inputTitle="Title"
+        titleModalButton="Add"
+      >
+        <h1>asasasas</h1>
+        <h1>asasasas</h1>
+      </ModalBoard>
     </div>
   );
 };

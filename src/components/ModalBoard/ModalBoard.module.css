@@ -1,0 +1,108 @@
+.Modal{
+    position: fixed;
+    width: 350px;
+    min-height: 221px;
+
+    background-color: #151515;
+    border: 1px solid rgba(190, 219, 176, 0.5);
+    border-radius: 8px;
+
+    padding: 24px;
+
+}
+
+.modalTitle{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+    /* identical to box height */
+
+    letter-spacing: -0.02em;
+
+    color: #FFFFFF;
+
+    margin-bottom: 24px;
+}
+
+
+
+.inputModal{
+    width: 302px;
+    height: 49px;
+    background-color: #1F1F1F;
+
+    opacity: 0.4;
+    box-shadow: 0px 4px 16px rgba(22, 22, 22, 0.08);
+    border: 1px solid #BEDBB0;
+    border-radius: 8px;;
+    margin-bottom: 24px;
+
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    /* identical to box height */
+
+    letter-spacing: -0.02em;
+    padding-left: 18px;
+}
+
+.inputModal::placeholder{
+    font-family: 'Poppins';
+    font-style: normal;
+    /* font-weight: 400;
+    font-size: 14px;
+    line-height: 21px; */
+    /* identical to box height */
+
+    /* letter-spacing: -0.02em; */
+
+    color: #FFFFFF;
+}
+
+.closeButton{
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    display: block;
+    margin: 0px;
+    top: 19px;
+    right: 19px;
+
+    cursor: pointer;
+}
+
+.buttonModal{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 302px;
+    height: 49px;
+    cursor: pointer;
+
+
+    background: #BEDBB0;
+    border-radius: 8px;
+    border: none;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    /* identical to box height */
+
+    letter-spacing: -0.02em;
+
+    color: #161616;
+
+    padding: 10px;
+}
+
+.iconButtonModal{
+    margin-right: 8px;
+}
