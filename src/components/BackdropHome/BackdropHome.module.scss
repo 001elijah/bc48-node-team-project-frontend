@@ -1,13 +1,12 @@
 @import '../../assets/styles/vars';
 
 .background {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    width: 100vw;
-    height: 100vh;
+  width: 100vw;
+  height: 100vh;
 
-    background: $start-background-color;
-
+  background: $start-background-color;
 }
