@@ -1,26 +1,26 @@
-@import-normalize; /* bring in normalize.css styles */
+// @import-normalize; /* bring in normalize.css styles */
 @import './assets/styles/reset';
 @import './assets/styles/vars';
 @import './assets/styles/mixins';
 
 @font-face {
-  font-family: "Poppins-Regular";
-  src: local("Poppins-Regular"),
-    url("./assets/fonts/Poppins/Poppins-Regular.ttf") format("truetype");
+  font-family: 'Poppins-Regular';
+  src: local('Poppins-Regular'),
+    url('./assets/fonts/Poppins/Poppins-Regular.ttf') format('truetype');
   font-weight: 400;
 }
 
 @font-face {
-  font-family: "Poppins-Medium";
-  src: local("Poppins-Medium"),
-    url("./assets/fonts/Poppins/Poppins-Medium.ttf") format("truetype");
+  font-family: 'Poppins-Medium';
+  src: local('Poppins-Medium'),
+    url('./assets/fonts/Poppins/Poppins-Medium.ttf') format('truetype');
   font-weight: 500;
 }
 
 @font-face {
-  font-family: "Poppins-SemiBold";
-  src: local("Poppins-SemiBold"),
-    url("./assets/fonts/Poppins/Poppins-SemiBold.ttf") format("truetype");
+  font-family: 'Poppins-SemiBold';
+  src: local('Poppins-SemiBold'),
+    url('./assets/fonts/Poppins/Poppins-SemiBold.ttf') format('truetype');
   font-weight: 500;
 }
 
@@ -32,8 +32,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
   color: $white-text-color;
-  
-  background-color: $dark-color;
 }
 
 body.no-scroll {
@@ -43,4 +41,8 @@ body.no-scroll {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.container {
+  @include container;
 }
