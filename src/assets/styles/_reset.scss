@@ -1,4 +1,5 @@
 @import '~modern-normalize/modern-normalize.css';
+@import './vars';
 
 html {
     box-sizing: border-box;
@@ -33,8 +34,4 @@ img {
 
 a {
     text-decoration: none;
-}
-
-body {
-    background-color: var($dark-color);
 }

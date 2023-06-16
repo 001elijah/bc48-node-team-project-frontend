@@ -3,13 +3,37 @@
 @import './assets/styles/vars';
 @import './assets/styles/mixins';
 
+@font-face {
+  font-family: "Poppins-Regular";
+  src: local("Poppins-Regular"),
+    url("./assets/fonts/Poppins/Poppins-Regular.ttf") format("truetype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Poppins-Medium";
+  src: local("Poppins-Medium"),
+    url("./assets/fonts/Poppins/Poppins-Medium.ttf") format("truetype");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Poppins-SemiBold";
+  src: local("Poppins-SemiBold"),
+    url("./assets/fonts/Poppins/Poppins-SemiBold.ttf") format("truetype");
+  font-weight: 500;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+
+  font-family: 'Poppins', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  color: $white-text-color;
+  
+  background-color: $dark-color;
 }
 
 body.no-scroll {

@@ -1,16 +1,22 @@
+import { Navigate, Route, Routes } from 'react-router-dom';
+import { HomePage } from 'pages/HomePage';
+import { LoginPage } from 'pages/LoginPage';
+import { RegisterPage } from 'pages/RegisterPage';
+import { BoardPage } from 'pages/BoardPage';
+
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101',
-      }}
-    >
-      React homework template
-    </div>
+    <>
+      {/* <SharedLayout /> */}
+      <Routes>
+        <Route path="/" element={<HomePage />}>
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+        </Route>
+        <Route path="/board" element={<BoardPage />} />
+
+        <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
+    </>
   );
 };
