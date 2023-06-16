@@ -44,13 +44,13 @@
 }
 
 @mixin mobile {
-  @media screen and (min-width: 375px) and (max-width: 767px) {
+  @media screen and (min-width: 375px) {
     @content;
   }
 }
 
 @mixin tablet {
-  @media screen and (min-width: 768px) and (max-width: 1279px) {
+  @media screen and (min-width: 768px) {
     @content;
   }
 }
