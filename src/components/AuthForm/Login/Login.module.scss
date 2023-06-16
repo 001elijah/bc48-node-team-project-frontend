@@ -1,6 +1,23 @@
 .error {
   position: absolute;
-  margin: 0;
-  color: red;
+  color: #ff0000;
   font-size: 12px;
+}
+
+.eye {
+  position: absolute;
+  width: 19px;
+  height: 19px;
+
+  stroke: currentColor;
+  fill: currentColor;
+
+  right: 18px;
+  bottom: 15px;
+
+  opacity: 0.4;
+}
+
+input:focus~eye{
+opacity: 1;
 }
