@@ -9,10 +9,10 @@ export const App = () => {
     <>
       {/* <SharedLayout /> */}
       <Routes>
-        <Route path="/welcome" element={<WelcomePage />} />
+        <Route path="/" element={<WelcomePage />} />
         <Route path="auth/:id" element={<AuthPage />} />
 
-        <Route path="/" element={<HomePage />} />
+        <Route path="/home" element={<HomePage />} />
         <Route path="/board" element={<BoardPage />} />
 
         <Route path="*" element={<Navigate to="/" />} />
