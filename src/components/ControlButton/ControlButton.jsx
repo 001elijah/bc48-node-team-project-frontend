@@ -4,8 +4,8 @@ import s from './ControlButton.module.scss';
 
 const ControlButton = ({ icon, onClick }) => {
   return (
-    <button className={s.button} onClick={onClick}>
-      <svg>
+    <button className={s.button} onClick={onClick} type="button">
+      <svg className={s.icon}>
         <use href={sprite + icon}></use>
       </svg>
     </button>
@@ -14,7 +14,7 @@ const ControlButton = ({ icon, onClick }) => {
 
 ControlButton.propTypes = {
   icon: PropTypes.string.isRequired,
-  onClick: PropTypes.function.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default ControlButton;

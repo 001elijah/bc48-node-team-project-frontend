@@ -1,9 +1,18 @@
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
+import sprite from '../../assets/icons/sprite.svg';
 import ControlButton from '../../components/ControlButton/ControlButton';
 import s from './Card.module.scss';
 
-const Card = ({ title, description, priority = 'Without' }) => {
+const Card = ({
+  title,
+  description,
+  priority = 'Without',
+  deadline,
+  changeColumn,
+  editCard,
+  removeCard,
+}) => {
   return (
     <div className={s.container}>
       <h4 className={s.title}>
@@ -32,20 +41,25 @@ const Card = ({ title, description, priority = 'Without' }) => {
       </div>
       <div>
         <h5 className={s.subtitle}>Deadline</h5>
-        <p className={s.text}>12/05/2023</p>
+        <p className={s.text}>
+          {deadline}
+          12/05/2023
+        </p>
       </div>
       <ul className={s.buttonList}>
         <li>
-          <ControlButton icon="#icon-bell" onClick={null} />
+          <svg className={s.icon}>
+            <use href={sprite + '#icon-bell'}></use>
+          </svg>
         </li>
         <li>
-          <ControlButton icon="#icon-arrow" onClick={null} />
+          <ControlButton icon="#icon-arrow" onClick={changeColumn} />
         </li>
         <li>
-          <ControlButton icon="#icon-pencil" onClick={null} />
+          <ControlButton icon="#icon-pencil" onClick={editCard} />
         </li>
         <li>
-          <ControlButton icon="#icon-trash" onClick={null} />
+          <ControlButton icon="#icon-trash" onClick={removeCard} />
         </li>
       </ul>
     </div>
@@ -55,7 +69,11 @@ const Card = ({ title, description, priority = 'Without' }) => {
 Card.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  priority: PropTypes.string,
+  priority: PropTypes.string.isRequired,
+  deadline: PropTypes.string.isRequired,
+  changeColumn: PropTypes.func.isRequired,
+  editCard: PropTypes.func.isRequired,
+  removeCard: PropTypes.func.isRequired,
 };
 
 export default Card;
