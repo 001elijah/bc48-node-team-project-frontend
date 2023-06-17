@@ -1,15 +1,17 @@
-$accent-color: #BEDBB0;
-$accent-bright-color: #5255BC;
+$accent-color: #bedbb0;
+$accent-bright-color: #5255bc;
 $black-color: #121212;
-$dark-color: #1F1F1F;
-$white-color: #FFFFFF;
-$off-white-color: #F6F6F7;
+$dark-color: #1f1f1f;
+$white-color: #ffffff;
+$off-white-color: #f6f6f7;
 $black-text-color: #161616;
 $white-text-color: #FFFFFF;
 $priority-low-color: #8FA1D0;
 $priority-medium-color: #E09CB5;
 $priority-high-color: #BEDBB0;
-
-
-
-$start-background-color: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(190, 219, 176, 1) 100%);
+$main-icon-color:#FFFFFF50;
+$start-background-color: linear-gradient(
+  180deg,
+  rgba(255, 255, 255, 1) 0%,
+  rgba(190, 219, 176, 1) 100%
+);
