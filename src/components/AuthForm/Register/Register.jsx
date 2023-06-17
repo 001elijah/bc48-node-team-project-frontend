@@ -1,11 +1,17 @@
 import { useFormik } from 'formik';
+import { useState } from 'react';
 
 import { ButtonAuth } from '../ButtonAuth/ButtonAuth';
 import { validationSchemaRegister } from '../schemaValidation';
 
+import icons from '../../../assets/icons/sprite.svg';
 import y from '../Login/Login.module.scss';
 
 export const Register = () => {
+  const [showPassword, setShowPassword] = useState(false);
+
+  const toggleShowPassword = () => setShowPassword(!showPassword);
+
   const formik = useFormik({
     initialValues: {
       name: '',
@@ -49,11 +55,16 @@ export const Register = () => {
         <input
           id="password"
           name="password"
-          type="text"
+          type={showPassword ? 'text' : 'password'}
           onChange={formik.handleChange}
           value={formik.values.password}
           placeholder="Create a password"
         />
+        <svg className={y.eye} onClick={toggleShowPassword}>
+          <use
+            href={showPassword ? `${icons}#icon-eye` : `${icons}#icon-antiEye`}
+          ></use>
+        </svg>
         {formik.touched.password && formik.errors.password && (
           <p className={y.error}>{formik.errors.password}</p>
         )}
