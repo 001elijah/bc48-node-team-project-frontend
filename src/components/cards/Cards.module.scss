@@ -1,41 +1,110 @@
+@import '../../assets//styles/vars';
+@import '../../assets/styles/mixins';
+
 .Wrapper {
   width: 335px;
   height: 154px;
-  background: #121212;
+  background: $black-color;
   border-radius: 8px;
   padding: 14px 20px 14px 24px;
+  margin-top: 8px;
 }
 .TextBlock {
+  &::after {
+    content: ' ';
+    display: block;
+    background-color: #ffffff1a;
+    width: 100%;
+    height: 1px;
+  }
 }
 .CardTitle {
-  font-family: 'Poppins';
-  font-style: normal;
   font-weight: 600;
   font-size: 14px;
   line-height: 21px;
   letter-spacing: -0.02em;
-  color: #ffffff;
+  color: $white-color;
   margin-bottom: 8px;
 }
 .CardDisc {
-  font-family: 'Poppins';
-  font-style: normal;
   font-weight: 400;
   font-size: 12px;
   line-height: 1.33;
   letter-spacing: -0.02em;
-  color: rgba(255, 255, 255, 0.5);
+
+  color: #FFFFFF7F ;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+
+  margin-bottom: 14px;
 }
 .ModuleBlock {
   display: flex;
+  align-items: flex-end;
+  margin-top: 14px;
+  justify-content: space-between;
 }
 .InfoBlock {
+  display: flex;
 }
+.TitleBlock {
+  font-weight: 400;
+  font-size: 8px;
+  line-height: 12px;
 
-.ControlBlock{
+  /* identical to box height */
+  letter-spacing: -0.02em;
+
+  color: #FFFFFF7F;
+  margin-bottom: 4px;
+}
+.PriorityBlock {
+  margin-right: 14px;
+}
+.PriorityStatus {
+  display: flex;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 15px;
+  letter-spacing: -0.02em;
+  color: $white-color;
+
+  &::before {
+    content: ' ';
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: $priority-low-color;
+    margin-right: 4px;
+  }
+}
+.DeadlineDate {
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 15px;
+
+  /* identical to box height */
+  letter-spacing: -0.02em;
+
+  color: $white-color;
+}
+.ControlBlock {
   display: flex;
 }
 
-.IconsItem{
+.IconsItem {
   margin-left: 8px;
 }
+.IconsStyle{
+  stroke:#FFFFFF80;
+  &:hover,
+  &:focus{
+    stroke: #BEDBB0;
+    cursor: pointer;
+  }
+}
+

@@ -1,16 +1,14 @@
-import iconSvg from './icons';
+import IconSvg from './Icons';
 import s  from './Cards.module.scss'
-
-
 
 
 export const IconsBlock = () => {
   return (
     <ul className={s.ControlBlock}>
-      <li className={s.IconsItem}>{iconSvg('bell', )}</li>
-      <li className={s.IconsItem}>{iconSvg('arrow', )}</li>
-      <li className={s.IconsItem}>{iconSvg('pencil', )}</li>
-      <li className={s.IconsItem}>{iconSvg('trash', )}</li>
+      <li className={s.IconsItem}>{IconSvg('bell', )}</li>
+      <li className={s.IconsItem}>{IconSvg('arrow', )}</li>
+      <li className={s.IconsItem}>{IconSvg('pencil', )}</li>
+      <li className={s.IconsItem}>{IconSvg('trash', )}</li>
     </ul>
   );
 };
