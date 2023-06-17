@@ -27,6 +27,17 @@
   width: 12px;
   height: 12px;
   border-radius: 50%;
+  background-color: rgba(22, 22, 22, 0.3);
+}
+
+.bg_low {
+  background-color: var(--priority-low-color);
+}
+.bg_medium {
+  background-color: var(--priority-medium-color);
+}
+.bg_high {
+  background-color: var(--priority-high-color);
 }
 
 .text {

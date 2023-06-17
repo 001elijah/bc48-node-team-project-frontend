@@ -1,11 +1,17 @@
+import clsx from 'clsx';
+import PropTypes from 'prop-types';
 import ControlButton from '../../components/ControlButton/ControlButton';
 import s from './Card.module.scss';
 
-const Card = () => {
+const Card = ({ title, description, priority = 'Without' }) => {
   return (
     <div className={s.container}>
-      <h4 className={s.title}>Lorem, ipsum dolor.</h4>
+      <h4 className={s.title}>
+        {title}
+        Lorem, ipsum dolor.
+      </h4>
       <p className={s.description}>
+        {description}
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid
         laboriosam numquam vero totam quidem nostrum deserunt harum voluptate,
         quaerat illum.
@@ -13,8 +19,15 @@ const Card = () => {
       <div>
         <h5 className={s.subtitle}>Priority</h5>
         <div>
-          <div className={s.priorityBox}></div>
-          <p className={s.text}>Low</p>
+          <div
+            className={clsx(
+              s.priorityBox,
+              priority === 'Low' && s.bg_low,
+              priority === 'Medium' && s.bg_medium,
+              priority === 'High' && s.bg_high,
+            )}
+          ></div>
+          <p className={s.text}>{priority}</p>
         </div>
       </div>
       <div>
@@ -23,20 +36,26 @@ const Card = () => {
       </div>
       <ul className={s.buttonList}>
         <li>
-          <ControlButton icon="#icon-bell" />
+          <ControlButton icon="#icon-bell" onClick={null} />
         </li>
         <li>
-          <ControlButton icon="#icon-arrow" />
+          <ControlButton icon="#icon-arrow" onClick={null} />
         </li>
         <li>
-          <ControlButton icon="#icon-pencil" />
+          <ControlButton icon="#icon-pencil" onClick={null} />
         </li>
         <li>
-          <ControlButton icon="#icon-trash" />
+          <ControlButton icon="#icon-trash" onClick={null} />
         </li>
       </ul>
     </div>
   );
+};
+
+Card.propTypes = {
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  priority: PropTypes.string,
 };
 
 export default Card;
