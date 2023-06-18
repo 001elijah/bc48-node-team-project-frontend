@@ -1,0 +1,33 @@
+@import '../../assets/styles/vars';
+
+.Button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 335px;
+  height: 56px;
+  background: $accent-color;
+  border-radius: 8px;
+}
+.TitleCard {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: -0.02em;
+
+  color: $black-text-color;
+}
+.BoxPlus {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 28px;
+  height: 28px;
+
+  margin-right: 8px;
+  background: $black-text-color;
+  border-radius: 6px;
+}
+// .IconsStyle {
+//   stroke: $white-color;
+// }

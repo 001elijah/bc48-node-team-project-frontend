@@ -3,6 +3,7 @@ import { Card } from 'components/Cards/Cards';
 import s from './Columns.module.scss';
 import PropTypes from 'prop-types';
 import { arrcard } from './data';
+import {AddButton} from '../Button/AddButton'
 
 export const ColumnItem = ({ title }) => {
 
@@ -24,6 +25,10 @@ export const ColumnItem = ({ title }) => {
         />
        ))}
        </div>
+       <AddButton 
+        title={"Add another card"}
+        stroke= {'#ffffff'}
+       />
       </div>
     </>
   );
