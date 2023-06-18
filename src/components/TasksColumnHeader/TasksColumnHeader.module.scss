@@ -1,9 +1,13 @@
 @import '../../assets/styles/vars';
 
 .columnHeaderWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   width: 335px;
   height: 56px;
-  background-color: var(--black-color);
+  padding: 18px 20px;
+  background-color: $black-color;
   border-radius: 8px;
 }
 
@@ -15,4 +19,13 @@
 
 .buttonList {
   display: flex;
+}
+
+.item {
+  width: 16px;
+  height: 16px;
+
+  &:not(:first-child) {
+    margin-left: 8px;
+  }
 }

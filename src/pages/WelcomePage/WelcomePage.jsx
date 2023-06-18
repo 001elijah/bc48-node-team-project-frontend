@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { BackdropHome } from 'components/BackdropHome/BackdropHome';
-import { TaskCard } from 'components/TaskCard/TaskCard';
+
 import icons from '../../assets/icons/sprite.svg';
 
 import s from './WelcomePage.module.scss';
@@ -26,7 +26,6 @@ export const WelcomePage = () => {
         <NavLink to="/auth/login" className={s.secondLink}>
           Log In
         </NavLink>
-        <TaskCard />
       </section>
     </BackdropHome>
   );
