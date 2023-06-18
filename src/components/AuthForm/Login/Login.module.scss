@@ -1,6 +1,8 @@
+@import '../../../assets/styles/vars';
+
 .error {
   position: absolute;
-  color: #ff0000;
+  color: $red-error-color;
   font-size: 12px;
 }
 
