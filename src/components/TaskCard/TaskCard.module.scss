@@ -5,8 +5,8 @@
   padding: 14px 21px;
   width: 335px;
   height: 154px;
-  background-color: rgb(18, 18, 18);
-  // background-color: var(--black-color);
+
+  background-color: $black-color;
   border-radius: 8px;
   overflow: hidden;
 }
@@ -32,7 +32,7 @@
   font-weight: 400;
   font-size: 12px;
   line-height: 1.33;
-  color: rgba(255, 255, 255, 0.5);
+  color: $icon-secondary-color;
 
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -58,7 +58,7 @@
   font-weight: 400;
   font-size: 8px;
   line-height: 1.5;
-  color: rgba(255, 255, 255, 0.5);
+  color: $icon-secondary-color;
 }
 
 .priorityWrapper {
@@ -78,16 +78,13 @@
 }
 
 .bg_low {
-  background-color: #8fa1d0;
-  // background-color: var(--priority-low-color);
+  background-color: $priority-low-color;
 }
 .bg_medium {
-  background-color: #e09cb5;
-  // background-color: var(--priority-medium-color);
+  background-color: $priority-medium-color;
 }
 .bg_high {
-  background-color: #bedbb0;
-  // background-color: var(--priority-high-color);
+  background-color: $priority-high-color;
 }
 
 .text {
@@ -112,4 +109,5 @@
 .icon {
   width: 16px;
   height: 16px;
+  stroke: $priority-high-color;
 }
