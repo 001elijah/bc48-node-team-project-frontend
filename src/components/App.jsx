@@ -3,11 +3,12 @@ import { HomePage } from 'pages/HomePage';
 import { BoardPage } from 'pages/BoardPage';
 import { WelcomePage } from 'pages/WelcomePage/WelcomePage';
 import AuthPage from '../pages/AuthPage/AuthPage';
+import { SharedLayout } from './SharedLayout/SharedLayout';
 
 export const App = () => {
   return (
     <>
-      {/* <SharedLayout /> */}
+      <SharedLayout />
       <Routes>
         <Route path="/" element={<WelcomePage />} />
         <Route path="auth/:id" element={<AuthPage />} />
