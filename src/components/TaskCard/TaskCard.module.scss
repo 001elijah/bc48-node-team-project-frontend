@@ -17,7 +17,7 @@
   left: 0;
   width: 4px;
   height: 100%;
-  background-color: rgba(22, 22, 22, 0.3);
+  background-color: $icon-secondary-color;
 }
 
 .title {
@@ -74,7 +74,7 @@
   height: 12px;
   margin-right: 4px;
   border-radius: 50%;
-  background-color: rgba(22, 22, 22, 0.3);
+  background-color: $icon-secondary-color;
 }
 
 .bg_low {
@@ -93,8 +93,13 @@
   line-height: 1.5;
 }
 
+.iconsWrapper {
+  display: flex;
+}
+
 .buttonList {
   display: flex;
+  margin-left: 8px;
 }
 
 .item {
