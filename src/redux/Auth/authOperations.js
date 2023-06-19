@@ -1,4 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { logOut } from './authSlice';
 
 import {
   registerUserApi,
@@ -40,7 +41,7 @@ export const currentUser = createAsyncThunk(
       return data;
     } catch (error) {
       setTimeout(() => {
-        dispatch(logoutUser(token));
+        dispatch(logOut());
       }, 0);
       return rejectWithValue(error.message);
     }

@@ -34,5 +34,5 @@ export const currentUserApi = async userToken => {
 export const logoutUserApi = async token => {
   const { data } = await axios.post('/logout', token);
   console.log(data);
-  return data;
+  return null;
 };
