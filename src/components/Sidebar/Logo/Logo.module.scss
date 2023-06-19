@@ -1,0 +1,36 @@
+@import '../../../assets/styles/vars';
+@import '../../../assets/styles/mixins';
+
+.link {
+  width: 197px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  color: $black-text-color;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.04em;
+
+  @include tablet {
+    width: 212px;
+  }
+
+  &.light {
+    color: $black-text-color;
+  }
+
+  &.dark {
+    color: $white-color;
+  }
+
+  &.colorful {
+    color: $white-color;
+  }
+}
+
+.icon {
+  width: 32px;
+  height: 32px;
+}

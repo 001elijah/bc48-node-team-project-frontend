@@ -1,5 +1,11 @@
 import React from 'react';
+import Sidebar from '../components/Sidebar/Sidebar';
 
 export const HomePage = () => {
-  return <div>HomePage</div>;
+  return (
+    <div style={{ display: 'flex' }}>
+      <Sidebar />
+      HomePage
+    </div>
+  );
 };

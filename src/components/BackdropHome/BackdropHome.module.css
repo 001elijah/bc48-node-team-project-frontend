@@ -1,0 +1,8 @@
+.background {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(180deg, rgb(255, 255, 255) 0%, rgb(190, 219, 176) 100%);
+}/*# sourceMappingURL=BackdropHome.module.css.map */

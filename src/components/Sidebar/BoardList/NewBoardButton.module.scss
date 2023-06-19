@@ -1,0 +1,92 @@
+@import '../../../assets/styles/vars';
+
+.button {
+  width: 197px;
+  height: 70px;
+  margin-top: 8px;
+  padding: 14px 4px 14px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: transparent;
+  border-right: none;
+  border-left: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+
+  &:hover .icon,
+  &:active .icon {
+    transform: rotate(1turn);
+    transition: all 1.5s;
+  }
+
+  &.light {
+    border-top: 1px solid rgba(22, 22, 22, 0.1);
+    border-bottom: 1px solid rgba(22, 22, 22, 0.1);
+  }
+  &.dark {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  &.colorful {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+.text {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  color: $black-text-color;
+  text-align: left;
+
+  &.light {
+    color: $black-text-color;
+  }
+  &.dark {
+    color: $white-color;
+  }
+  &.colorful {
+    color: $white-color;
+  }
+}
+
+.iconWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 36px;
+  background-color: $accent-color;
+  border-radius: 6px;
+
+  &.light {
+    background-color: $accent-color;
+  }
+  &.dark {
+    background-color: $accent-color;
+  }
+  &.colorful {
+    background-color: #b8bcfd;
+  }
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  stroke: $black-color;
+
+  &.light {
+    stroke: $black-color;
+  }
+  &.dark {
+    stroke: $black-color;
+  }
+  &.colorful {
+    stroke: $white-color;
+  }
+}
