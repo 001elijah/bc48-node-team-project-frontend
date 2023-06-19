@@ -1,3 +1,5 @@
+import { Notify } from 'notiflix';
+
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { logOut } from './authSlice';
 
@@ -13,8 +15,18 @@ export const registerUser = createAsyncThunk(
   async (dataUser, { rejectWithValue }) => {
     try {
       const data = await registerUserApi(dataUser);
+      Notify.success('Welcome');
       return data;
     } catch (error) {
+      const { status } = error.response.request;
+
+      if (status === 409) {
+        Notify.failure('Email already exists');
+      } else if (status === 400) {
+        Notify.failure(`Error`);
+      } else if (status === 500) {
+        Notify.failure('Server error');
+      }
       return rejectWithValue(error.message);
     }
   },
@@ -25,8 +37,18 @@ export const loginUser = createAsyncThunk(
   async (dataUser, { rejectWithValue }) => {
     try {
       const userData = await loginUserApi(dataUser);
+      Notify.success('Welcome');
       return userData;
     } catch (error) {
+      const { status } = error.response.request;
+      if (status === 401) {
+        Notify.failure('Email or password is wrong');
+      } else if (status === 400) {
+        Notify.failure(`Error`);
+      } else if (status === 500) {
+        Notify.failure('Server error');
+      }
+
       return rejectWithValue(error.message);
     }
   },
