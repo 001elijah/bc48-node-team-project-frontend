@@ -1,12 +1,12 @@
 import React from 'react';
-import { Column } from '../components/colums/Colums';
+import { useDispatch } from 'react-redux';
+import { logoutUser } from 'redux/Auth/authOperations';
 
 export const HomePage = () => {
-  return(
-    <>
-    <div>HomePage</div>;
-    <Column />
-  </>
+  const dispatch = useDispatch();
+  return (
+    <div>
+      <button onClick={() => dispatch(logoutUser())}>Log logOut</button>
+    </div>
   );
-
 };

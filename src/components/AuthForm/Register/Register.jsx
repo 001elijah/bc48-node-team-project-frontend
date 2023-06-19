@@ -1,34 +1,37 @@
 import { useFormik } from 'formik';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 
 import { ButtonAuth } from '../ButtonAuth/ButtonAuth';
 import { validationSchemaRegister } from '../schemaValidation';
+import { registerUser } from 'redux/Auth/authOperations';
 
 import icons from '../../../assets/icons/sprite.svg';
 import y from '../Login/Login.module.scss';
 
 export const Register = () => {
+  const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
 
   const toggleShowPassword = () => setShowPassword(!showPassword);
 
   const formik = useFormik({
     initialValues: {
-      name: '',
+      userName: '',
       email: '',
       password: '',
     },
     validationSchema: validationSchemaRegister,
     onSubmit: values => {
-      console.log(values);
+      dispatch(registerUser(values));
     },
   });
   return (
     <form onSubmit={formik.handleSubmit}>
       <label htmlFor="name">
         <input
-          id="name"
-          name="name"
+          id="userName"
+          name="userName"
           type="text"
           onChange={formik.handleChange}
           value={formik.values.name}
