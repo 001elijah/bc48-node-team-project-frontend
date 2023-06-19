@@ -23,25 +23,19 @@ const authSlice = createSlice({
       .addCase(registerUser.fulfilled, (state, { payload }) => {
         return {
           ...state,
-          isLoading: false,
           ...payload,
-          isAuth: true,
         };
       })
       .addCase(loginUser.fulfilled, (state, { payload }) => {
         return {
           ...state,
-          isLoading: false,
           ...payload,
-          isAuth: true,
         };
       })
       .addCase(currentUser.fulfilled, (state, { payload }) => {
         return {
           ...state,
-          isLoading: false,
           ...payload,
-          isAuth: true,
         };
       })
       .addCase(logoutUser.fulfilled, () => {
@@ -56,6 +50,15 @@ const authSlice = createSlice({
           error: null,
         };
       })
+      .addMatcher(
+        action =>
+          action.type.startsWith('auth') && action.type.endsWith('/fulfilled'),
+        state => {
+          state.isAuth = true;
+          state.isLoading = false;
+          state.error = null;
+        },
+      )
       .addMatcher(
         action =>
           action.type.startsWith('auth') && action.type.endsWith('/pending'),
