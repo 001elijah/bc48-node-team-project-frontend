@@ -2,86 +2,86 @@
 @import '../../assets/styles/mixins';
 
 @font-face {
-    font-family: 'Poppins-Medium';
-    src: local('Poppins-Medium'),
-        url('../../assets/fonts/Poppins/Poppins-Medium.ttf') format('truetype');
-    font-weight: 500;
+  font-family: 'Poppins-Medium';
+  src: local('Poppins-Medium'),
+    url('../../assets/fonts/Poppins/Poppins-Medium.ttf') format('truetype');
+  font-weight: 500;
 }
 
 .modalBackdrop {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .title {
-    font-family: 'Poppins-Medium';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 1.5em;
-    letter-spacing: -0.02em;
-    margin-bottom: 24px;
-    margin-top: 24px;
+  font-family: 'Poppins-Medium';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.5em;
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+  margin-top: 24px;
 
-    &.dark {
-        color: $white-text-color;
-    }
+  &.dark {
+    color: $white-text-color;
+  }
 
-    &.light,
-    &.colorful {
-        color: $black-text-color;
-    }
+  &.light,
+  &.colorful {
+    color: $black-text-color;
+  }
 }
 
 .modal {
-    padding: 0 0 24px 24px;
-    border-radius: 4px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-    width: 100%;
-    max-width: 335px;
-    border-radius: 8px;
+  padding: 0 0 24px 24px;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 335px;
+  border-radius: 8px;
 
-    &.dark {
-        background-color: $black-text-color;
-    }
+  &.dark {
+    background-color: $black-text-color;
+  }
 
-    &.light,
-    &.colorful {
-        background-color: $white-background-modal;
-    }
+  &.light,
+  &.colorful {
+    background-color: $white-background-modal;
+  }
 
-    @include tablet {
-        max-width: 350px;
-    }
+  @include tablet {
+    max-width: 350px;
+  }
 
-    @include desktop {
-        max-width: 350px;
-    }
+  @include desktop {
+    max-width: 350px;
+  }
 }
 
 .modalHeader {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .closeSvg {
-    background: none;
-    border: none;
-    cursor: pointer;
-    margin: 14px;
-    &.dark {
-        stroke: $white-text-color;
-    }
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin: 14px;
+  &.dark {
+    stroke: $white-text-color;
+  }
 
-    &.light,
-    &.colorful {
-        stroke: $black-text-color;
-    }
+  &.light,
+  &.colorful {
+    stroke: $black-text-color;
+  }
 }
