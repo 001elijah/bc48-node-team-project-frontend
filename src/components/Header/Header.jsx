@@ -18,7 +18,7 @@ export const Header = () => {
           <div className={s.dropDown}>
             <button className={s.dropBtn}>
               Theme
-              <svg width="16" height="16">
+              <svg className={s.arrowIcon}>
                 <use href={`${icons}#icon-arrow-down`} stroke="white"></use>
               </svg>
             </button>

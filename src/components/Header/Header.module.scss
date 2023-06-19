@@ -1,4 +1,5 @@
 @import '../../assets/styles/vars';
+@import '../../assets/styles/mixins';
 
 .header {
   background-color: $black-text-color;
@@ -37,6 +38,11 @@
         letter-spacing: -0.02em;
         color: $white-text-color;
         opacity: 0.8;
+
+        .arrowIcon {
+          width: 16px;
+          height: 16px;
+        }
       }
 
       .dropDownContent {
