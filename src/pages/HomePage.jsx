@@ -32,7 +32,7 @@ export const HomePage = () => {
 //       <button onClick={openModal}>Open Modal</button>
 
 //       {isModalOpen && (
-//         <Modal title="New board" theme="colorful" onClose={closeModal}>
+//         <Modal title="New board" theme="theme" onClose={closeModal}>
 //           <p>Content of the modal.</p>
 //         </Modal>
 //       )}
