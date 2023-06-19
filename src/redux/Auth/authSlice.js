@@ -15,7 +15,6 @@ const authSlice = createSlice({
     email: null,
     theme: null,
     avatarUrl: null,
-    isLoading: false,
     error: null,
   },
   reducers: {
@@ -27,7 +26,6 @@ const authSlice = createSlice({
         email: null,
         theme: null,
         avatarUrl: null,
-        isLoading: false,
         error: null,
       };
     },
@@ -38,18 +36,21 @@ const authSlice = createSlice({
         return {
           ...state,
           ...payload,
+          isAuth: true,
         };
       })
       .addCase(loginUser.fulfilled, (state, { payload }) => {
         return {
           ...state,
           ...payload,
+          isAuth: true,
         };
       })
       .addCase(currentUser.fulfilled, (state, { payload }) => {
         return {
           ...state,
           ...payload,
+          isAuth: true,
         };
       })
       .addCase(logoutUser.fulfilled, () => {
@@ -60,7 +61,6 @@ const authSlice = createSlice({
           email: null,
           theme: null,
           avatarUrl: null,
-          isLoading: false,
           error: null,
         };
       })
@@ -68,8 +68,6 @@ const authSlice = createSlice({
         action =>
           action.type.startsWith('auth') && action.type.endsWith('/fulfilled'),
         state => {
-          state.isAuth = true;
-          state.isLoading = false;
           state.error = null;
         },
       )
@@ -77,7 +75,6 @@ const authSlice = createSlice({
         action =>
           action.type.startsWith('auth') && action.type.endsWith('/pending'),
         state => {
-          state.isLoading = true;
           state.error = null;
         },
       )
@@ -85,7 +82,6 @@ const authSlice = createSlice({
         action =>
           action.type.startsWith('auth') && action.type.endsWith('/rejected'),
         (state, { payload }) => {
-          state.isLoading = false;
           state.error = payload;
         },
       );
