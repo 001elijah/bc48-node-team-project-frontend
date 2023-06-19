@@ -21,7 +21,7 @@ export const validationSchemaLogin = yup.object().shape({
 });
 
 export const validationSchemaRegister = yup.object().shape({
-  name: yup
+  userName: yup
     .string()
     .matches(
       /^[a-zA-Z0-9]+$/,

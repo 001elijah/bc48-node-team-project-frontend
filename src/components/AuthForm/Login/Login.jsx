@@ -1,13 +1,16 @@
 import { useFormik } from 'formik';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 
 import { ButtonAuth } from '../ButtonAuth/ButtonAuth';
 import { validationSchemaLogin } from '../schemaValidation';
+import { loginUser } from 'redux/Auth/authOperations';
 
 import icons from '../../../assets/icons/sprite.svg';
 import y from './Login.module.scss';
 
 export const Login = () => {
+  const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
 
   const toggleShowPassword = () => setShowPassword(!showPassword);
@@ -19,7 +22,7 @@ export const Login = () => {
     },
     validationSchema: validationSchemaLogin,
     onSubmit: values => {
-      console.log(values);
+      dispatch(loginUser(values));
     },
   });
   return (
