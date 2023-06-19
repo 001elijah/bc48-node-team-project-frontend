@@ -12,17 +12,15 @@ const token = {
 };
 
 export const registerUserApi = async userData => {
-  await axios.post('/register', userData);
-  const { email, password } = userData;
-  const login = await loginUserApi({ email, password });
-  return { ...login };
+  const { data } = await axios.post('/register', userData);
+  token.set(data.token);
+  return { ...data.user, token: data.token };
 };
 
 export const loginUserApi = async userData => {
   const { data } = await axios.post('/login', userData);
   token.set(data.token);
-  const user = await axios.get('/current');
-  return { ...user.data, token: data.token };
+  return { ...data.user, token: data.token };
 };
 
 export const currentUserApi = async userToken => {
@@ -31,8 +29,13 @@ export const currentUserApi = async userToken => {
   return data;
 };
 
-export const logoutUserApi = async token => {
-  const { data } = await axios.post('/logout', token);
-  console.log(data);
+export const logoutUserApi = async userToken => {
+  await axios.post('/logout', userToken);
+  token.unset();
   return null;
+};
+
+export const themeChangeUserApi = async theme => {
+  const { data } = await axios.patch('', theme);
+  return data;
 };
