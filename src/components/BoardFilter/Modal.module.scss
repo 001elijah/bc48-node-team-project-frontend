@@ -1,0 +1,155 @@
+@import '../../assets/styles/vars';
+
+.Wrapper {
+  box-sizing: border-box;
+  position: relative;
+  width: 300px;
+  height: 367px;
+  background: #151515;
+  border: 1px solid rgba(190, 219, 176, 0.5);
+  border-radius: 8px;
+  padding: 24px 20px 24px 24px;
+  z-index: 10;
+  opacity: 1;
+}
+.TitleBlock {
+  height: 41px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.HeadTitle {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 27px;
+  letter-spacing: -0.02em;
+
+  color: $white-color;
+}
+.Title {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: -0.02em;
+
+  color: $white-color;
+}
+.BackgroundBlock {
+  margin-top: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.Showall {
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: -0.02em;
+  text-decoration-line: underline;
+
+  color: rgba(255, 255, 255, 0.5);
+}
+.TextLine {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 24px;
+  margin-bottom: 14px;
+}
+.Button {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: transparent;
+}
+.Svg {
+}
+
+.InputField {
+  cursor: pointer;
+  margin-bottom: 8px;
+}
+.LabelField {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: -0.02em;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.5);
+  &:hover,
+  &:focus{
+  color: inherit;}
+}
+
+.InputField {
+  position: relative;
+  margin-left: 22px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+}
+
+.InputField::before {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: -16px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+.InputField {
+  &[id='without']::before {
+    background-color: #ffffff4d;
+  }
+  &[id='low']::before {
+    background-color: $priority-low-color;
+  }
+  &[id='medium']::before {
+    background-color: $priority-medium-color;
+  }
+  &[id='high']::before {
+    background-color: $priority-high-color;
+  }
+}
+
+.InputField:checked::after {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: -16px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  visibility: visible;
+}
+.InputField:checked {
+  & + .LabelField{
+    color:white;
+  }
+  &[id='without']::after {
+    background-color: #ffffff4d;
+    border: 1px solid $black-color;
+
+  }
+  &[id='low']::after {
+    background-color: $priority-low-color;
+    border: 1px solid $black-color;
+  }
+  &[id='medium']::after {
+    background-color: $priority-medium-color;
+    border: 1px solid $black-color;
+  }
+  &[id='high']::after {
+    background-color: $priority-high-color;
+    border: 1px solid $black-color;
+  }
+}
+.ImgBlock{
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+  margin-bottom: 14px;
+}

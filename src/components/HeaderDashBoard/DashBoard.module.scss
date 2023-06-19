@@ -1,0 +1,39 @@
+@import '../../assets/styles/vars';
+
+.HeaderDash {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  background-color: $black-color;
+  margin-bottom: 14px;
+}
+.HeaderTitle {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 27px;
+  letter-spacing: -0.02em;
+  color: $white-color;
+}
+.HeaderFilter {
+  background: transparent;
+  border: none;
+
+  outline: none;
+  color: rgba(255, 255, 255, 0.8);
+  stroke: rgba(255, 255, 255, 0.8);
+  &:hover,
+  &:focus {
+    color: $priority-high-color;
+    cursor: pointer;
+    stroke: $priority-high-color;
+  }
+}
+.HeaderFilterTitle {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: -0.02em;
+  margin-left: 8px;
+
+  color: inherit;
+}
