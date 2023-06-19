@@ -12,8 +12,10 @@ const token = {
 };
 
 export const registerUserApi = async userData => {
-  const { data } = await axios.post('/register', userData);
-  return { ...data.user, token: data.token };
+  await axios.post('/register', userData);
+  const { email, password } = userData;
+  const login = await loginUserApi({ email, password });
+  return { ...login };
 };
 
 export const loginUserApi = async userData => {
@@ -32,5 +34,5 @@ export const currentUserApi = async userToken => {
 export const logoutUserApi = async token => {
   const { data } = await axios.post('/logout', token);
   console.log(data);
-  return data;
+  return null;
 };
