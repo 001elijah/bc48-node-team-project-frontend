@@ -1,4 +1,5 @@
 import { useSelector } from 'react-redux';
+import clsx from 'clsx';
 import s from './UserInfo.module.scss';
 
 import icons from '../../assets/icons/sprite.svg';
@@ -10,7 +11,7 @@ export const UserInfo = () => {
 
   return (
     <div className={s.userInfo}>
-      <div className={s.name}>{userName || 'user'}</div>
+      <div className={clsx(s.name, s[theme])}>{userName || 'user'}</div>
       {userAvatar ? (
         <img className={s.avatar} src={userAvatar} alt="avatar" />
       ) : (

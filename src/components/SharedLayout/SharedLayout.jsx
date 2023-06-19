@@ -12,6 +12,7 @@ export const SharedLayout = () => {
       {isLoading && <Loader />}
 
       {/* {token && <Header />} */}
+      <Header/>
     </>
   );
 };
