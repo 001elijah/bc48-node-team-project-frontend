@@ -17,7 +17,7 @@ const HelpWindow = ({ theme }) => {
         />
       </div>
       <p className={clsx(s.text, s[theme])}>
-        If you need help with
+        If you need help with{' '}
         <span className={clsx(s.accent, s[theme])}>TaskPro</span>, check out our
         support resources or reach out to our customer support team.
       </p>
