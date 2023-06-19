@@ -34,3 +34,8 @@ export const logoutUserApi = async userToken => {
   token.unset();
   return null;
 };
+
+export const themeChangeUserApi = async theme => {
+  const { data } = await axios.patch('', theme);
+  return data;
+};

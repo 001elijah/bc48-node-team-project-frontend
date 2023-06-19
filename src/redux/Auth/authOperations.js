@@ -8,6 +8,8 @@ import {
   loginUserApi,
   currentUserApi,
   logoutUserApi,
+  themeChangeUserApi,
+  // themeChangeUserApi
 } from 'services/backendAPI';
 
 export const registerUser = createAsyncThunk(
@@ -78,11 +80,22 @@ export const currentUser = createAsyncThunk(
 
 export const logoutUser = createAsyncThunk(
   'auth/logout',
-  async (_, { getState, rejectWithValue }) => {
-    const { token } = getState().auth;
+  async (token, { rejectWithValue }) => {
     try {
       await logoutUserApi(token);
       return null;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  },
+);
+
+export const themeChangeUser = createAsyncThunk(
+  'auth/themeChange',
+  async (theme, { rejectWithValue }) => {
+    try {
+      await themeChangeUserApi({ theme });
+      return theme;
     } catch (error) {
       return rejectWithValue(error.message);
     }

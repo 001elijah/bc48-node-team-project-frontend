@@ -4,6 +4,7 @@ import {
   loginUser,
   currentUser,
   logoutUser,
+  themeChangeUser,
 } from './authOperations';
 
 const authSlice = createSlice({
@@ -63,6 +64,9 @@ const authSlice = createSlice({
           avatarUrl: null,
           error: null,
         };
+      })
+      .addCase(themeChangeUser.fulfilled, (state, { payload }) => {
+        state.theme = payload;
       })
       .addMatcher(
         action =>
