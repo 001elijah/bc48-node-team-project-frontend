@@ -7,7 +7,7 @@ import AuthPage from '../pages/AuthPage';
 import { HomePage } from 'pages/HomePage';
 import { BoardPage } from 'pages/BoardPage';
 import { SharedLayout } from './SharedLayout/SharedLayout';
-import { PrivateRoute, PublicRoute } from './AuthForm/route';
+import { PrivateRoute, PublicRoute } from './Route/route';
 
 import { currentUser } from 'redux/Auth/authOperations';
 

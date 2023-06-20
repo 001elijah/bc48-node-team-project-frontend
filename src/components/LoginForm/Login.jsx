@@ -3,10 +3,10 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { ButtonAuth } from '../ButtonAuth/ButtonAuth';
-import { validationSchemaLogin } from '../schemaValidation';
+import { validationSchemaLogin } from '../SchemaValidation/schemaValidation';
 import { loginUser } from 'redux/Auth/authOperations';
 
-import icons from '../../../assets/icons/sprite.svg';
+import icons from '../../assets/icons/sprite.svg';
 import y from './Login.module.scss';
 
 export const Login = () => {

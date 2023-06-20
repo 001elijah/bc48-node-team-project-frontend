@@ -3,11 +3,11 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { ButtonAuth } from '../ButtonAuth/ButtonAuth';
-import { validationSchemaRegister } from '../schemaValidation';
+import { validationSchemaRegister } from '../SchemaValidation/schemaValidation';
 import { registerUser } from 'redux/Auth/authOperations';
 
-import icons from '../../../assets/icons/sprite.svg';
-import y from '../Login/Login.module.scss';
+import icons from '../../assets/icons/sprite.svg';
+import y from '../LoginForm/Login.module.scss';
 
 export const Register = () => {
   const dispatch = useDispatch();

@@ -39,3 +39,9 @@ export const themeChangeUserApi = async theme => {
   const { data } = await axios.patch('', theme);
   return data;
 };
+
+
+export const updateUserApi = async userData => {
+  const { data } = await axios.patch('/updateUserInfo', userData);
+  return data;
+};
