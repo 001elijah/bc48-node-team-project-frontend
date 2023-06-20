@@ -1,0 +1,104 @@
+@import '../../assets/styles/vars';
+
+.header {
+  background-color: $black-text-color;
+  width: 100%;
+
+  .pageHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 20px;
+
+    .burgerMenu {
+      width: 24px;
+      height: 24px;
+      background-color: inherit;
+      border: none;
+
+      .burgerIcon {
+        width: 24px;
+        height: 24px;
+      }
+    }
+    .dropDown {
+      position: relative;
+      display: inline-block;
+      margin-left: auto;
+      margin-right: 14px;
+
+      .dropBtn {
+        display: flex;
+        align-items: center;
+        border: none;
+        background-color: inherit;
+        column-gap: 8px;
+        font-size: 14px;
+        letter-spacing: -0.02em;
+        color: $white-text-color;
+        opacity: 0.8;
+      }
+
+      .dropDownContent {
+        display: none;
+        position: absolute;
+        padding: 16px;
+        border-radius: 8px;
+        min-width: 100px;
+        background-color: $black-text-color;
+        z-index: 1;
+
+        & div {
+          cursor: pointer;
+          text-decoration: none;
+          display: block;
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 1.5;
+          margin: 2px;
+          letter-spacing: -0.02em;
+          background-color: $black-text-color;
+          color: #fff;
+          opacity: 0.5;
+        }
+
+        & div:hover {
+          color: #bedbb0;
+        }
+      }
+
+      &:hover .dropDownContent {
+        display: block;
+      }
+    }
+  }
+}
+
+@include tablet {
+  .header {
+    .pageHeader {
+      padding: 18px 32px;
+
+      .burgerMenu {
+        width: 32px;
+        height: 32px;
+
+        .burgerIcon {
+          width: 32px;
+          height: 32px;
+        }
+      }
+    }
+  }
+}
+
+@include desktop {
+  .header {
+    .pageHeader {
+      padding: 18px 24px;
+      .burgerMenu {
+        display: none;
+      }
+    }
+  }
+}
