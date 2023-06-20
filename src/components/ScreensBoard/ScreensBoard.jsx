@@ -1,12 +1,16 @@
 import s from './ScreensBoard.module.scss';
+import { Wrapper } from './ScreensBoard.styled';
 import PropTypes from 'prop-types';
 import {HeaderDashBoard} from '../HeaderDashBoard/HeaderDashBoard';
 import {AddButton} from '../ButtonAddColumn/ButtonAddColumn'
 
 export const Board = ({ boardtitle }) => {
+  
   return (
     <>
-    <div className={s.Wrapper}>
+    <Wrapper 
+        imgurl = {require('../../assets/images/desktop/11.png')}>
+
       <HeaderDashBoard 
         title = {boardtitle}
       />
@@ -25,7 +29,7 @@ export const Board = ({ boardtitle }) => {
         title = 'Add another column'
       />
       )}
-      </div>
+      </Wrapper>
     </>
   );
 };

@@ -4,6 +4,7 @@ import { useState } from 'react';
 import {Modal} from '../Modal/Modal';
 import {ModalFilter} from '../ModalFilter/ModalFilter';
 import PropTypes from 'prop-types';
+import {BackdropModal} from '../BackdropMain/BackdropMain'
 
 export const HeaderDashBoard = ({title}) => {
   const [showModalWindow, setShowModalWindow] = useState(false);
@@ -24,12 +25,12 @@ export const HeaderDashBoard = ({title}) => {
           </svg>Filter
         </button>
         {showModalWindow && (
-          <Modal closeModal={handleModalWindowClose}>
+          <BackdropModal closeModal={handleModalWindowClose}>
             <ModalFilter
               closeModal={handleModalWindowClose}
               color={setColor}
             />
-          </Modal>
+          </BackdropModal>
         )}
       </div>
     </>

@@ -2,6 +2,8 @@ import s from './Modal.module.scss';
 import {ImgWrap} from './ImgWrap';
 
 export const BackgroundBlock = () => {
+
+
   return (
     <>
       <div className={s.BackgroundBlock}>
