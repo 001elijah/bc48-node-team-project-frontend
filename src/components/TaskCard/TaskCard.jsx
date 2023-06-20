@@ -2,10 +2,12 @@ import { useState } from 'react';
 import clsx from 'clsx';
 import shortid from 'shortid';
 import PropTypes from 'prop-types';
+
 import sprite from '../../assets/icons/sprite.svg';
 import { TaskControlButton } from '../TaskControlButton/TaskControlButton';
-import s from './TaskCard.module.scss';
 import { ModalChangeColumn } from 'components/ModalChangeColumn/ModalChangeColumn';
+import { BackdropModal } from 'components/BackdropMain/BackdropMain';
+import s from './TaskCard.module.scss';
 
 export const TaskCard = ({
   title,
@@ -91,7 +93,11 @@ export const TaskCard = ({
           </ul>
         </div>
       </div>
-      {isModalOpen && <ModalChangeColumn closeModal={closeModalChangeColumn} />}
+      {isModalOpen && (
+        <BackdropModal closeModal={closeModalChangeColumn}>
+          <ModalChangeColumn closeModal={closeModalChangeColumn} />
+        </BackdropModal>
+      )}
     </div>
   );
 };
