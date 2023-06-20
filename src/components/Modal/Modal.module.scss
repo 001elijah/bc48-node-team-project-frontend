@@ -1,13 +1,6 @@
 @import '../../assets/styles/vars';
 @import '../../assets/styles/mixins';
 
-@font-face {
-  font-family: 'Poppins-Medium';
-  src: local('Poppins-Medium'),
-    url('../../assets/fonts/Poppins/Poppins-Medium.ttf') format('truetype');
-  font-weight: 500;
-}
-
 .modalBackdrop {
   position: fixed;
   top: 0;

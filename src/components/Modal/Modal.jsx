@@ -1,10 +1,13 @@
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 import React, { useEffect, useCallback, useState } from 'react';
 import { BackdropModal } from '../BackdropMain/BackdropMain';
+import { selectorTheme } from 'redux/Auth/authSelectors';
 import s from './Modal.module.scss';
 import svg from 'assets/icons/sprite.svg';
 
-export const Modal = ({ title, onClose, children, theme }) => {
+export const Modal = ({ title, onClose, children }) => {
+    const theme = useSelector(selectorTheme); 
   const [, setThemeClass] = useState('');
 
   useEffect(() => {
