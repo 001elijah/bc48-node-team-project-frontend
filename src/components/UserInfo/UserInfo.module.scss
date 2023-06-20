@@ -11,6 +11,16 @@
     line-height: 1.5px;
     letter-spacing: -0.02em;
     color: $white-text-color;
+
+    &.light {
+      color: $black-text-color;
+    }
+    &.dark {
+      color: $white-text-color;
+    }
+    &.colorful {
+      color: $black-text-color;
+    }
   }
 
   .avatar {
