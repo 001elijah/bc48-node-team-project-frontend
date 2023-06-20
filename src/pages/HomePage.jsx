@@ -2,9 +2,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { logoutUser } from 'redux/Auth/authOperations';
 import { themeChangeUser } from 'redux/Auth/authOperations';
 import { selectorTheme } from 'redux/Auth/authSelectors';
-import { TaskCard } from 'components/TaskCard/TaskCard';
+
 export const HomePage = () => {
-  const theme = useSelector(selectorTheme) || "";
+  const theme = useSelector(selectorTheme) || '';
   const dispatch = useDispatch();
 
   const handleChange = e => {
@@ -19,7 +19,6 @@ export const HomePage = () => {
         <option value="colorful">Colorful</option>
       </select>
       <button onClick={() => dispatch(logoutUser())}>Log logOut</button>
-      <TaskCard/>
     </div>
   );
 };

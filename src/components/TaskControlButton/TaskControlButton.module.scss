@@ -10,5 +10,8 @@
 .icon {
   width: 16px;
   height: 16px;
-  stroke: $icon-secondary-color;
+  stroke: $icon-main-color;
+  &.dark {
+    stroke: $icon-secondary-color;
+  }
 }
