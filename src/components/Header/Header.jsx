@@ -8,7 +8,7 @@ import s from './Header.module.scss';
 import icons from '../../assets/icons/sprite.svg';
 
 export const Header = () => {
-  const theme = useSelector(state => state.auth?.user?.theme) || 'colorful';
+  const theme = useSelector(state => state.auth?.user?.theme);
 
   return (
     <header className={clsx(s.header, s[theme])}>
