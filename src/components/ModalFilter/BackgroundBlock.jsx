@@ -1,7 +1,7 @@
 import s from './Modal.module.scss';
-import ImgWrap from './ImgWrap';
+import {ImgWrap} from './ImgWrap';
 
-const BackgroundBlock = () => {
+export const BackgroundBlock = () => {
   return (
     <>
       <div className={s.BackgroundBlock}>
@@ -28,4 +28,3 @@ const BackgroundBlock = () => {
     </>
   );
 };
-export default BackgroundBlock;

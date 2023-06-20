@@ -6,16 +6,26 @@
   align-items: center;
   width: 335px;
   height: 56px;
-  background: $accent-color;
   border-radius: 8px;
+&.Column{
+  background: $black-color;
+}
+&.Card{
+  background-color:  #BEDBB0;
+  ;
+}
 }
 .TitleCard {
   font-weight: 500;
   font-size: 14px;
   line-height: 21px;
   letter-spacing: -0.02em;
-
-  color: $black-text-color;
+  &.Column{
+  color: $white-color;
+  }
+  &.Card{
+    color:$black-color;
+  }
 }
 .BoxPlus {
   display: flex;
@@ -25,9 +35,16 @@
   height: 28px;
 
   margin-right: 8px;
-  background: $black-text-color;
   border-radius: 6px;
+  &.Column{
+    background-color: $white-color;
+    stroke:$black-color
+  }
+  &.Card{
+    background-color: $black-color;
+    stroke: $white-color;
+  }
 }
-// .IconsStyle {
-//   stroke: $white-color;
-// }
+.Svg{
+  stroke:inherit;
+}

@@ -1,10 +1,17 @@
 import s from './Modal.module.scss';
 import svg from '../../assets/icons/sprite.svg';
 import PropTypes from 'prop-types';
-import LabelBlock from './LabelBlock';
-import BackgroundBlock from './BackgroundBlock';
+import { LabelBlock } from './LabelBlock';
+import { BackgroundBlock } from './BackgroundBlock';
+import { useEffect, useState } from 'react';
 
-export const ModalFilter = ({ closeModal }) => {
+export const ModalFilter = ({ closeModal, color }) => {
+  const [colorFilter, setColorFilter] = useState('');
+
+  useEffect(() => {
+    color = colorFilter;
+  }, []);
+  console.log(colorFilter);
   return (
     <>
       <div className={s.Wrapper}>
@@ -17,15 +24,12 @@ export const ModalFilter = ({ closeModal }) => {
           <span className={s.HeadTitle}>Filters</span>
         </div>
         <BackgroundBlock />
-        <div className={s.TextLine}>
-          <span className={s.Title}>Label color</span>
-          <span className={s.Showall}>Show all</span>
-        </div>
-        <LabelBlock />
+        <LabelBlock newField={setColorFilter} />
       </div>
     </>
   );
 };
 ModalFilter.propTypes = {
   closeModal: PropTypes.func,
+  color: PropTypes.string,
 };

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-const ImgWrap = ({ type, image }) => {
+export const ImgWrap = ({ type, image }) => {
   return (
     <div className="tool-button">
       <img
@@ -16,5 +16,3 @@ ImgWrap.propTypes = {
   image: PropTypes.string,
   type: PropTypes.string,
 };
-
-export default ImgWrap

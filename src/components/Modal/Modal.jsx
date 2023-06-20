@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import s from './Modal.module.scss';
 import PropTypes from 'prop-types';
 
-const Modal = ({ children, closeModal }) => {
+export const Modal = ({ children, closeModal }) => {
     
     useEffect(() => {
         window.addEventListener("keydown", closeOnBackdropEscape);
@@ -38,6 +38,3 @@ Modal.propTypes = {
     children: PropTypes.object,
     closeModal: PropTypes.func,
   };
-
-
-export default Modal;
