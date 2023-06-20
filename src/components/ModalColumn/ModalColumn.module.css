@@ -73,8 +73,10 @@
     margin: 0px;
     top: 19px;
     right: 19px;
-
+    padding: 0;
     cursor: pointer;
+    background: none;
+    border: none;
 }
 
 .buttonModal{
@@ -106,4 +108,5 @@
 
 .iconButtonModal{
     margin-right: 8px;
+
 }

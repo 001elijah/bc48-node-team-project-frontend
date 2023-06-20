@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import s from './ModalColumn.module.css';
 import PropTypes from 'prop-types';
+import sprite from '../../assets/icons/sprite.svg';
 
 export const ModalColumn = ({
   inputTitle,
@@ -21,8 +22,8 @@ export const ModalColumn = ({
   return (
     <div className={s.Modal}>
       <button className={s.closeButton} onClick={handleToggleModal}>
-        <svg className={s.iconButtonModal} width="28" height="28">
-          <use href="../../assets/icons/sprite.svg#icon-star"></use>
+        <svg className={s.iconButtonModal} width="14" height="14">
+          <use href={sprite + '#icon-bell'}></use>
         </svg>
       </button>
       <h4 className={s.modalTitle}>{modalTitle}</h4>

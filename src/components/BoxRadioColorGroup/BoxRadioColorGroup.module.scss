@@ -1,0 +1,202 @@
+.radio {
+  display: flex;
+  background: inherit;
+  height: 40px;
+}
+
+.radio_container {
+  position: relative;
+  display: block;
+  margin-right: 22px;
+  background: inherit;
+}
+
+.radio_input1 {
+  -webkit-appearance: none;
+  appearance: none;
+  position: absolute;
+}
+
+.radio_label1 {
+  cursor: pointer;
+}
+
+.radio_label1::before {
+  content: '';
+  display: block;
+  width: 14px;
+  height: 14px;
+  background-color: red;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.radio_label1::after {
+  content: '';
+  display: block;
+  //   background: red;
+  //   background: ;
+  border: 2px solid #151515;
+  border-radius: 50%;
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  z-index: 1;
+
+  opacity: 0;
+  transition: opacity 0.1s linear;
+}
+
+.radio_input1:checked + .radio_label1::after {
+  opacity: 1;
+}
+
+// second input
+
+.radio_input2 {
+  -webkit-appearance: none;
+  appearance: none;
+  position: absolute;
+}
+
+.radio_label2 {
+  cursor: pointer;
+}
+
+.radio_label2::before {
+  content: '';
+  display: block;
+  width: 14px;
+  height: 14px;
+  background-color: red;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.radio_label2::after {
+  content: '';
+  display: block;
+  background: red;
+  //   background: ;
+  border: 2px solid rgba(21, 21, 21, 1);
+  border-radius: 50%;
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  z-index: 1;
+
+  opacity: 0;
+  transition: opacity 0.1s linear;
+}
+
+.radio_input2:checked + .radio_label2::after {
+  opacity: 1;
+}
+
+// three
+
+.radio_input3 {
+  -webkit-appearance: none;
+  appearance: none;
+  position: absolute;
+}
+
+.radio_label3 {
+  cursor: pointer;
+}
+
+.radio_label3::before {
+  content: '';
+  display: block;
+  width: 14px;
+  height: 14px;
+  background-color: red;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.radio_label3::after {
+  content: '';
+  display: block;
+  background: red;
+  border: 2px solid #151515;
+  border-radius: 50%;
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  z-index: 1;
+
+  opacity: 0;
+  transition: opacity 0.1s linear;
+}
+
+.radio_input3:checked + .radio_label3::after {
+  opacity: 1;
+}
+
+// for
+
+.radio_input4 {
+  -webkit-appearance: none;
+  appearance: none;
+  position: absolute;
+}
+
+.radio_label4 {
+  cursor: pointer;
+}
+
+.radio_label4::before {
+  content: '';
+  display: block;
+  width: 14px;
+  height: 14px;
+  background-color: red;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.radio_label4::after {
+  content: '';
+  display: block;
+  background: red;
+  border: 2px solid #151515;
+  border-radius: 50%;
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  z-index: 1;
+
+  opacity: 0;
+  transition: opacity 0.1s linear;
+}
+
+.radio_input4:checked + .radio_label4::after {
+  opacity: 1;
+}
+
+// background-image: url('../../assets/images/Vector.png');

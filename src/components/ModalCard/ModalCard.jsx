@@ -1,7 +1,9 @@
 import { ModalColumn } from 'components/ModalColumn/ModalColumn';
 import PropTypes from 'prop-types';
-import s from './ModalCard.module.css';
+import s from './ModalCard.module.scss';
 import { useState } from 'react';
+import { BoxRadioColorGroup } from 'components/BoxRadioColorGroup/BoxRadioColorGroup';
+// import { SelectData } from 'components/SelectData/SelectData';
 
 export const ModalCard = ({
   inputTitle,
@@ -20,6 +22,12 @@ export const ModalCard = ({
     };
     onClick(newCard);
   };
+  // const handleChangeColor = value => {
+  //   setIsColor(value);
+  // };
+  const handleChangeBackground = value => {
+    setIsColor(value);
+  };
 
   return (
     <ModalColumn
@@ -37,45 +45,8 @@ export const ModalCard = ({
         placeholder="Description"
         value={coment}
       ></textarea>
-      <div>
-        <p>What are your hobbies?</p>
-        <input
-          type="radio"
-          name="color"
-          value="music"
-          onChange={e => {
-            setIsColor(e.target.value);
-          }}
-          defaultChecked
-        />
-        <input
-          type="radio"
-          name="color"
-          value="sports"
-          onChange={e => {
-            setIsColor(e.target.value);
-          }}
-        />
-        <input
-          type="radio"
-          id="contactChoice3"
-          name="color"
-          value="mail"
-          onChange={e => {
-            setIsColor(e.target.value);
-          }}
-        />
-        <input
-          type="radio"
-          id="contactChoice3"
-          name="color"
-          value="4"
-          onChange={e => {
-            setIsColor(e.target.value);
-          }}
-        />
-      </div>
-      <input></input>
+      <BoxRadioColorGroup valueChange={handleChangeBackground} />
+      {/* <SelectData /> */}
     </ModalColumn>
   );
 };
