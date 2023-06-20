@@ -9,24 +9,26 @@ export const ModalChangeColumn = ({ closeModal }) => {
     { id: 3, name: 'done' },
   ];
   return (
-    <ul className={s.columnList}>
-      {columnList.map(({ id, name }) => (
-        <li key={id} className={s.item}>
-          <button
-            className={s.button}
-            onClick={() => {
-              closeModal();
-            }}
-            type="button"
-          >
-            {name}{' '}
-            <svg className={s.icon}>
-              <use href={sprite + '#icon-arrow'}></use>
-            </svg>
-          </button>
-        </li>
-      ))}
-    </ul>
+    <div className={s.modalWrapper}>
+      <ul>
+        {columnList.map(({ id, name }) => (
+          <li key={id} className={s.item}>
+            <button
+              className={s.button}
+              onClick={() => {
+                closeModal();
+              }}
+              type="button"
+            >
+              {name}{' '}
+              <svg className={s.icon}>
+                <use href={sprite + '#icon-arrow'}></use>
+              </svg>
+            </button>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 };
 

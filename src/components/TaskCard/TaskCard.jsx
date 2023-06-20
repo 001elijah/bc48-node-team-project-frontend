@@ -1,19 +1,28 @@
+import { useState } from 'react';
 import clsx from 'clsx';
 import shortid from 'shortid';
 import PropTypes from 'prop-types';
 import sprite from '../../assets/icons/sprite.svg';
 import { TaskControlButton } from '../TaskControlButton/TaskControlButton';
 import s from './TaskCard.module.scss';
+import { ModalChangeColumn } from 'components/ModalChangeColumn/ModalChangeColumn';
 
 export const TaskCard = ({
   title,
   description,
   priority = 'High',
   deadline,
-  changeColumn,
   editCard,
   removeCard,
 }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModalChangeColumn = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModalChangeColumn = () => setIsModalOpen(false);
+
   return (
     <div className={s.cardWrapper}>
       <div
@@ -66,7 +75,12 @@ export const TaskCard = ({
           </svg>
           <ul className={s.buttonList}>
             <li key={shortid.generate()} className={s.item}>
-              <TaskControlButton icon="#icon-arrow" onClick={changeColumn} />
+              <TaskControlButton
+                icon="#icon-arrow"
+                onClick={() => {
+                  openModalChangeColumn();
+                }}
+              />
             </li>
             <li key={shortid.generate()} className={s.item}>
               <TaskControlButton icon="#icon-pencil" onClick={editCard} />
@@ -77,6 +91,7 @@ export const TaskCard = ({
           </ul>
         </div>
       </div>
+      {isModalOpen && <ModalChangeColumn closeModal={closeModalChangeColumn} />}
     </div>
   );
 };
@@ -86,7 +101,6 @@ TaskCard.propTypes = {
   description: PropTypes.string.isRequired,
   priority: PropTypes.string.isRequired,
   deadline: PropTypes.string.isRequired,
-  changeColumn: PropTypes.func.isRequired,
   editCard: PropTypes.func.isRequired,
   removeCard: PropTypes.func.isRequired,
 };

@@ -1,11 +1,18 @@
 @import '../../assets/styles/vars';
 
-.columnList {
+.modalWrapper {
+  position: absolute;
+  top: 20px;
+  right: 10px;
   max-width: max-content;
   min-height: 86px;
   padding: 18px;
   border-radius: 8px;
   background-color: $black-text-color;
+  box-shadow: 0px 0px 15px 0px $priority-high-color;
+}
+
+.columnList {
 }
 
 .item {
