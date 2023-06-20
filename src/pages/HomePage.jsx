@@ -14,7 +14,6 @@ export const HomePage = () => {
     dispatch(themeChangeUser(e.target.value));
   };
 
-
   const openModal = () => {
     setIsModalOpen(true);
   };
@@ -35,10 +34,10 @@ export const HomePage = () => {
       <button onClick={openModal}>Open Modal</button>
 
       {isModalOpen && (
-       <Modal title="New board" onClose={closeModal}>
-         <p>Content of the modal.</p>
-       </Modal>
-       )}
+        <Modal title="New board" onClose={closeModal}>
+          <p>Content of the modal.</p>
+        </Modal>
+      )}
     </div>
   );
 };
