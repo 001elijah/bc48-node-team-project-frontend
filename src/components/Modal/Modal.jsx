@@ -53,5 +53,4 @@ Modal.propTypes = {
   title: PropTypes.string.isRequired,
   onClose: PropTypes.func.isRequired,
   children: PropTypes.node.isRequired,
-  theme: PropTypes.oneOf(['dark', 'light', 'colorful']).isRequired,
 };
