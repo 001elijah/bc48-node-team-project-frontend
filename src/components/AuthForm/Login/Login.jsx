@@ -1,11 +1,20 @@
 import { useFormik } from 'formik';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 
 import { ButtonAuth } from '../ButtonAuth/ButtonAuth';
 import { validationSchemaLogin } from '../schemaValidation';
+import { loginUser } from 'redux/Auth/authOperations';
 
+import icons from '../../../assets/icons/sprite.svg';
 import y from './Login.module.scss';
 
 export const Login = () => {
+  const dispatch = useDispatch();
+  const [showPassword, setShowPassword] = useState(false);
+
+  const toggleShowPassword = () => setShowPassword(!showPassword);
+
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -13,7 +22,7 @@ export const Login = () => {
     },
     validationSchema: validationSchemaLogin,
     onSubmit: values => {
-      console.log(values);
+      dispatch(loginUser(values));
     },
   });
   return (
@@ -35,11 +44,16 @@ export const Login = () => {
         <input
           id="password"
           name="password"
-          type="text"
+          type={showPassword ? 'text' : 'password'}
           onChange={formik.handleChange}
           value={formik.values.password}
           placeholder="Confirm a password"
         />
+        <svg className={y.eye} onClick={toggleShowPassword}>
+          <use
+            href={showPassword ? `${icons}#icon-eye` : `${icons}#icon-antiEye`}
+          ></use>
+        </svg>
         {formik.touched.password && formik.errors.password && (
           <p className={y.error}>{formik.errors.password}</p>
         )}

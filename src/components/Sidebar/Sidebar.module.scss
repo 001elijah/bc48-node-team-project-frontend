@@ -17,6 +17,10 @@ body {
     width: 260px;
     padding: 24px 0 24px;
   }
+  @include desktop {
+    width: 260px;
+    padding: 24px 0 24px;
+  }
 
   &.light {
     background-color: $white-color;

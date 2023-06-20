@@ -1,4 +1,5 @@
 @import '../../../assets/styles/vars';
+@import '../../../assets/styles/mixins';
 
 .container {
   width: 197px;
@@ -15,6 +16,12 @@
   }
   &.colorful {
     background-color: #ecedfd66;
+  }
+
+  @include tablet {
+    width: 212px;
+    height: 272px;
+    padding: 20px;
   }
 }
 
@@ -45,6 +52,13 @@
   }
   &.colorful {
     color: $white-color;
+  }
+
+  @include tablet {
+    width: 172px;
+    height: 102px;
+    font-size: 14px;
+    line-height: 1.42;
   }
 }
 

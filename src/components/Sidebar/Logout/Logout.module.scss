@@ -29,6 +29,14 @@
       color: $accent-color;
     }
   }
+  &.colorful {
+    &:hover .text {
+      color: $priority-low-color;
+    }
+    &:hover .icon {
+      stroke: $priority-low-color;
+    }
+  }
 }
 
 .icon {
