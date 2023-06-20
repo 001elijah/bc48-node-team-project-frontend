@@ -4,7 +4,7 @@ import { themeChangeUser } from 'redux/Auth/authOperations';
 import { selectorTheme } from 'redux/Auth/authSelectors';
 
 export const HomePage = () => {
-  const theme = useSelector(selectorTheme) || "";
+  const theme = useSelector(selectorTheme) || '';
   const dispatch = useDispatch();
 
   const handleChange = e => {

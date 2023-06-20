@@ -7,7 +7,7 @@ import s from './Modal.module.scss';
 import svg from 'assets/icons/sprite.svg';
 
 export const Modal = ({ title, onClose, children }) => {
-    const theme = useSelector(selectorTheme); 
+  const theme = useSelector(selectorTheme);
   const [, setThemeClass] = useState('');
 
   useEffect(() => {
