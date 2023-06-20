@@ -1,7 +1,6 @@
 import s from './HeaderDashBoard.module.scss';
 import svg from '../../assets/icons/sprite.svg';
 import { useState } from 'react';
-import {Modal} from '../Modal/Modal';
 import {ModalFilter} from '../ModalFilter/ModalFilter';
 import PropTypes from 'prop-types';
 import {BackdropModal} from '../BackdropMain/BackdropMain'

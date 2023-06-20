@@ -1,4 +1,3 @@
-import {Board} from 'components/ScreensBoard/ScreensBoard';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { logoutUser } from 'redux/Auth/authOperations';
@@ -6,7 +5,7 @@ import { themeChangeUser } from 'redux/Auth/authOperations';
 import { selectorTheme } from 'redux/Auth/authSelectors';
 
 export const HomePage = () => {
-  const theme = useSelector(selectorTheme) || "";
+  const theme = useSelector(selectorTheme) || '';
   const dispatch = useDispatch();
 
   const handleChange = e => {
@@ -15,11 +14,6 @@ export const HomePage = () => {
 
   return (
     <div>
-
-    <Board
-      boardtitle='test'
-    />
-
       <select name="priority" value={theme} onChange={handleChange}>
         <option value="light">Light</option>
         <option value="dark">Dark</option>
