@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
+import shortid from 'shortid';
 import { TaskControlButton } from 'components/TaskControlButton/TaskControlButton';
-import s from './ColumnHeader.module.scss';
+import s from './TasksColumnHeader.module.scss';
 
 export const TasksColumnHeader = ({ title, editColumn, removeColumn }) => {
   return (
@@ -9,11 +10,11 @@ export const TasksColumnHeader = ({ title, editColumn, removeColumn }) => {
         {title}
         Lorem, ipsum dolor.
       </h4>
-      <ul>
-        <li className={s.buttonList}>
+      <ul className={s.buttonList}>
+        <li key={shortid.generate()} className={s.item}>
           <TaskControlButton icon="#icon-pencil" onClick={editColumn} />
         </li>
-        <li>
+        <li key={shortid.generate()} className={s.item}>
           <TaskControlButton icon="#icon-trash" onClick={removeColumn} />
         </li>
       </ul>
