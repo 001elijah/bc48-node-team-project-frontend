@@ -2,8 +2,18 @@
 @import '../../assets/styles/mixins';
 
 .header {
-  background-color: $black-text-color;
   width: 100%;
+  background-color: $secondary-white-color;
+
+  &.light {
+    background-color: $secondary-white-color;
+  }
+  &.dark {
+    background-color: $black-text-color;
+  }
+  &.colorful {
+    background-color: $white-color;
+  }
 
   .pageHeader {
     display: flex;
@@ -20,6 +30,17 @@
       .burgerIcon {
         width: 24px;
         height: 24px;
+        stroke: $black-text-color;
+
+        &.light {
+          stroke: $black-text-color;
+        }
+        &.dark {
+          stroke: $white-color;
+        }
+        &.colorful {
+          stroke: $black-text-color;
+        }
       }
     }
     .dropDown {
@@ -36,20 +57,64 @@
         column-gap: 8px;
         font-size: 14px;
         letter-spacing: -0.02em;
-        color: $white-text-color;
         opacity: 0.8;
+        color: $black-text-color;
+
+        &.light {
+          color: $black-text-color;
+        }
+        &.dark {
+          color: $white-text-color;
+        }
+        &.colorful {
+          color: $black-text-color;
+        }
+
+        .arrowIcon {
+          width: 16px;
+          height: 16px;
+          stroke: $black-text-color;
+          fill: $secondary-white-color;
+
+          &.light {
+            stroke: $black-text-color;
+            fill: $secondary-white-color;
+          }
+          &.dark {
+            stroke: $white-text-color;
+            fill: $black-text-color;
+          }
+          &.colorful {
+            stroke: $black-text-color;
+            fill: $white-text-color;
+          }
+        }
       }
 
       .dropDownContent {
         display: none;
         position: absolute;
         padding: 16px;
+        border: 1px solid $accent-color;
         border-radius: 8px;
         min-width: 100px;
-        background-color: $black-text-color;
         z-index: 1;
+        background-color: $secondary-white-color;
 
-        & div {
+        &.light {
+          background-color: $secondary-white-color;
+          border-color: $accent-color;
+        }
+        &.dark {
+          background-color: $black-text-color;
+          border-color: $accent-color;
+        }
+        &.colorful {
+          background-color: $white-color;
+          border-color: $light-violet;
+        }
+
+        .dropDownItem {
           cursor: pointer;
           text-decoration: none;
           display: block;
@@ -58,13 +123,40 @@
           line-height: 1.5;
           margin: 2px;
           letter-spacing: -0.02em;
-          background-color: $black-text-color;
-          color: #fff;
-          opacity: 0.5;
+          background-color: inherit;
+          background-color: $secondary-white-color;
+          color: $black-text-color;
+          opacity: 1;
+
+          &.light {
+            background-color: $secondary-white-color;
+            color: $black-text-color;
+            opacity: 1;
+          }
+          &.dark {
+            background-color: $black-text-color;
+            color: $white-color;
+            opacity: 0.5;
+          }
+          &.colorful {
+            background-color: $white-color;
+            color: $black-text-color;
+            opacity: 1;
+          }
         }
 
-        & div:hover {
-          color: #bedbb0;
+        .dropDownItem:hover {
+          color: $accent-color;
+
+          &.light {
+            color: $accent-color;
+          }
+          &.dark {
+            color: $accent-color;
+          }
+          &.colorful {
+            color: $accent-bright-color;
+          }
         }
       }
 
