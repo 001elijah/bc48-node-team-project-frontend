@@ -1,9 +1,12 @@
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 import clsx from 'clsx';
+import { selectorTheme } from 'redux/Auth/authSelectors';
 import s from './ModalChangeColumn.module.scss';
 import sprite from '../../assets/icons/sprite.svg';
 
-export const ModalChangeColumn = ({ closeModal, theme = 'dark' }) => {
+export const ModalChangeColumn = ({ closeModal }) => {
+  const theme = useSelector(selectorTheme);
   const columnList = [
     { id: 1, name: 'to do' },
     { id: 2, name: 'in progress' },
@@ -35,5 +38,4 @@ export const ModalChangeColumn = ({ closeModal, theme = 'dark' }) => {
 
 ModalChangeColumn.propTypes = {
   closeModal: PropTypes.func.isRequired,
-  theme: PropTypes.string.isRequired,
 };

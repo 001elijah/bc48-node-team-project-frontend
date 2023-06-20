@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useState, useSelector } from 'react';
 import clsx from 'clsx';
 import shortid from 'shortid';
 import PropTypes from 'prop-types';
 
 import sprite from '../../assets/icons/sprite.svg';
+import { selectorTheme } from 'redux/Auth/authSelectors';
 import { TaskControlButton } from '../TaskControlButton/TaskControlButton';
 import { ModalChangeColumn } from 'components/ModalChangeColumn/ModalChangeColumn';
 import { BackdropModal } from 'components/BackdropMain/BackdropMain';
@@ -16,8 +17,8 @@ export const TaskCard = ({
   deadline,
   editCard,
   removeCard,
-  theme = 'dark',
 }) => {
+  const theme = useSelector(selectorTheme);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModalChangeColumn = () => {
