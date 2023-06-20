@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 
-import { Header } from 'components/Header/Header';
+// import { Header } from 'components/Header/Header';
 import { Loader } from 'components/Loader/Loader';
 
 export const SharedLayout = () => {
@@ -12,7 +12,7 @@ export const SharedLayout = () => {
       {isLoading && <Loader />}
 
       {/* {token && <Header />} */}
-      <Header/>
+      {/* <Header/> */}
     </>
   );
 };
