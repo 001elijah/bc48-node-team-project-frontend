@@ -23,7 +23,7 @@ export const ModalFilter = ({ closeModal, color }) => {
         <div className={s.TitleBlock}>
           <span className={s.HeadTitle}>Filters</span>
         </div>
-        <BackgroundBlock />
+        {/* <BackgroundBlock /> */}
         <LabelBlock newField={setColorFilter} />
       </div>
     </>
