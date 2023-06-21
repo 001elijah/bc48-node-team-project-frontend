@@ -1,3 +1,6 @@
+import { useSelector } from 'react-redux';
+import clsx from 'clsx';
+
 import { Container } from 'components/Container';
 import { UserInfo } from 'components/UserInfo/UserInfo';
 import s from './Header.module.scss';
@@ -5,27 +8,44 @@ import s from './Header.module.scss';
 import icons from '../../assets/icons/sprite.svg';
 
 export const Header = () => {
+  const theme = useSelector(state => state.auth?.user?.theme);
+
   return (
-    <header className={s.header}>
+    <header className={clsx(s.header, s[theme])}>
       <Container>
         <div className={s.pageHeader}>
           <button onClick={() => {}} className={s.burgerMenu}>
-            <svg className={s.burgerIcon}>
-              <use href={`${icons}#icon-burger-menu`} stroke="white"></use>
+            <svg className={clsx(s.burgerIcon, s[theme])}>
+              <use href={`${icons}#icon-burger-menu`}></use>
             </svg>
           </button>
 
           <div className={s.dropDown}>
-            <button className={s.dropBtn}>
+            <button className={clsx(s.dropBtn, s[theme])}>
               Theme
-              <svg width="16" height="16">
-                <use href={`${icons}#icon-arrow-down`} stroke="white"></use>
+              <svg className={clsx(s.arrowIcon, s[theme])}>
+                <use href={`${icons}#icon-arrow-down`}></use>
               </svg>
             </button>
-            <div className={s.dropDownContent}>
-              <div onClick={() => {}}>Light</div>
-              <div onClick={() => {}}>Dark</div>
-              <div onClick={() => {}}>Violet</div>
+            <div className={clsx(s.dropDownContent, s[theme])}>
+              <div
+                className={clsx(s.dropDownItem, s[theme])}
+                onClick={() => {}}
+              >
+                Light
+              </div>
+              <div
+                className={clsx(s.dropDownItem, s[theme])}
+                onClick={() => {}}
+              >
+                Dark
+              </div>
+              <div
+                className={clsx(s.dropDownItem, s[theme])}
+                onClick={() => {}}
+              >
+                Colorful
+              </div>
             </div>
           </div>
           <UserInfo />
