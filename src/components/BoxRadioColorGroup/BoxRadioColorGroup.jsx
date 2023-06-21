@@ -23,6 +23,7 @@ export const BoxRadioColorGroup = ({ valueChange }) => {
     <div className={s.radio}>
       <div className={s.radio_container}>
         <input
+          // className =  class .dark,  if class === ligth || fiolet => class .light
           className={s.radio_input1}
           type="radio"
           onChange={handleCheked}

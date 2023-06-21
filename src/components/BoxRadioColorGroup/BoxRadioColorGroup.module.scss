@@ -26,7 +26,7 @@
   display: block;
   width: 14px;
   height: 14px;
-  background-color: red;
+  background-color: rgba(143, 161, 208, 1);
   border-radius: 50%;
   position: absolute;
   top: 0;
@@ -37,8 +37,7 @@
 .radio_label1::after {
   content: '';
   display: block;
-  //   background: red;
-  //   background: ;
+
   border: 2px solid #151515;
   border-radius: 50%;
   height: 10px;
@@ -51,6 +50,10 @@
 
   opacity: 0;
   transition: opacity 0.1s linear;
+
+  & .light {
+    border: 2px solid #fcfcfc;
+  }
 }
 
 .radio_input1:checked + .radio_label1::after {
@@ -74,7 +77,7 @@
   display: block;
   width: 14px;
   height: 14px;
-  background-color: red;
+  background-color: rgba(224, 156, 181, 1);
   border-radius: 50%;
   position: absolute;
   top: 0;
@@ -85,8 +88,7 @@
 .radio_label2::after {
   content: '';
   display: block;
-  background: red;
-  //   background: ;
+
   border: 2px solid rgba(21, 21, 21, 1);
   border-radius: 50%;
   height: 10px;
@@ -99,6 +101,10 @@
 
   opacity: 0;
   transition: opacity 0.1s linear;
+
+  & .light {
+    border: 2px solid rgba(252, 252, 252, 1);
+  }
 }
 
 .radio_input2:checked + .radio_label2::after {
@@ -122,7 +128,7 @@
   display: block;
   width: 14px;
   height: 14px;
-  background-color: red;
+  background-color: rgba(190, 219, 176, 1);
   border-radius: 50%;
   position: absolute;
   top: 0;
@@ -133,7 +139,7 @@
 .radio_label3::after {
   content: '';
   display: block;
-  background: red;
+
   border: 2px solid #151515;
   border-radius: 50%;
   height: 10px;
@@ -146,6 +152,10 @@
 
   opacity: 0;
   transition: opacity 0.1s linear;
+
+  & .light {
+    border: 2px solid rgba(252, 252, 252, 1);
+  }
 }
 
 .radio_input3:checked + .radio_label3::after {
@@ -169,7 +179,7 @@
   display: block;
   width: 14px;
   height: 14px;
-  background-color: red;
+  background-color: rgba(255, 255, 255, 0.3);
   border-radius: 50%;
   position: absolute;
   top: 0;
@@ -180,7 +190,6 @@
 .radio_label4::after {
   content: '';
   display: block;
-  background: red;
   border: 2px solid #151515;
   border-radius: 50%;
   height: 10px;
@@ -193,6 +202,10 @@
 
   opacity: 0;
   transition: opacity 0.1s linear;
+
+  & .light {
+    border: 2px solid rgba(252, 252, 252, 1);
+  }
 }
 
 .radio_input4:checked + .radio_label4::after {

@@ -1,5 +1,9 @@
 import PropTypes from 'prop-types';
 import { ModalColumn } from 'components/ModalColumn/ModalColumn';
+import { useState } from 'react';
+import { BoxRadioIconGroup } from 'components/BoxRadioIconGroup/BoxRadioIconGroup';
+import { BoxRadioBackgroundGroup } from 'components/BoxRadioBackgroundGroup/BoxRadioBackgroundGroup';
+
 export const ModalBoard = ({
   inputTitle,
   modalTitle,
@@ -7,16 +11,28 @@ export const ModalBoard = ({
   onClick,
   handleToggleModal,
 }) => {
-  const input = inputTitle;
+  const [isBack, setIsBack] = useState('dark');
+  const [icon, setIcon] = useState('');
+
+  const handleAddBoard = value => {
+    const newCard = {
+      value,
+      icon,
+      isBack,
+    };
+    onClick(newCard);
+  };
+
   return (
     <ModalColumn
       inputTitle={inputTitle}
       modalTitle={modalTitle}
       titleModalButton={titleModalButton}
-      onClick={onClick}
+      onClick={handleAddBoard}
       handleToggleModal={handleToggleModal}
     >
-      <h1>{input}</h1>
+      <BoxRadioIconGroup valueChange={setIcon} />
+      <BoxRadioBackgroundGroup valueChange={setIsBack} />
     </ModalColumn>
   );
 };

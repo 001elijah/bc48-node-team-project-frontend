@@ -3,31 +3,32 @@ import s from './BoxRadioIconGroup.module.scss';
 import PropTypes from 'prop-types';
 import sprite from '../../assets/icons/sprite.svg';
 
-export const BoxRadioIconGroup = ({ onValue }) => {
-  const [icon, setIcon] = useState('super-happy');
+export const BoxRadioIconGroup = ({ valueChange }) => {
+  const [icon, setIcon] = useState('1');
 
   const handleChange = e => {
     setIcon(e.target.value);
+    console.log(e.target.value);
     // onValue(icon);
   };
 
   useEffect(() => {
-    onValue(icon);
-  }, [onValue, icon]);
+    valueChange(icon);
+  }, [valueChange, icon]);
 
   return (
     <div className={s.container}>
       <h1 className={s.title_icon}>Icons</h1>
       <form className={s.container__icons}>
-        <label htmlFor="super-happy">
+        <label htmlFor="1">
           <input
             type="radio"
             name="rating"
             className={s.inputIcon}
-            id="super-happy"
-            value="super-happy"
+            id="1"
+            value="super-1"
             onChange={handleChange}
-            checked={icon === 'super-happy'}
+            checked={icon === '1'}
           />
           <svg className={s.svg_dark} width="15" height="15">
             <use href={sprite + '#icon-project'}></use>
@@ -35,15 +36,15 @@ export const BoxRadioIconGroup = ({ onValue }) => {
         </label>
 
         {/* 2 */}
-        <label htmlFor="super-happy">
+        <label htmlFor="2">
           <input
             type="radio"
             name="rating"
             className={s.inputIcon}
-            id="super-happy"
-            value="super-happy"
+            id="2"
+            value="2"
             onChange={handleChange}
-            checked={icon === 'super-happy'}
+            checked={icon === '2'}
           />
           <svg className={s.svg_dark} width="15" height="15">
             <use href={sprite + '#icon-star'}></use>
@@ -51,15 +52,15 @@ export const BoxRadioIconGroup = ({ onValue }) => {
         </label>
 
         {/* 3 */}
-        <label htmlFor="super-happy">
+        <label htmlFor="3">
           <input
             type="radio"
             name="rating"
             className={s.inputIcon}
-            id="super-happy"
-            value="super-happy"
+            id="3"
+            value="3"
             onChange={handleChange}
-            checked={icon === 'super-happy'}
+            checked={icon === '3'}
           />
           <svg className={s.svg_dark} width="15" height="15">
             <use href={sprite + '#icon-loading'}></use>
@@ -67,15 +68,15 @@ export const BoxRadioIconGroup = ({ onValue }) => {
         </label>
 
         {/* 4 */}
-        <label htmlFor="super-happy">
+        <label htmlFor="4">
           <input
             type="radio"
             name="rating"
             className={s.inputIcon}
-            id="super-happy"
-            value="super-happy"
+            id="4"
+            value="4"
             onChange={handleChange}
-            checked={icon === 'super-happy'}
+            checked={icon === '4'}
           />
           <svg className={s.svg_dark} width="15" height="15">
             <use href={sprite + '#icon-puzzle-piece'}></use>
@@ -83,15 +84,15 @@ export const BoxRadioIconGroup = ({ onValue }) => {
         </label>
 
         {/* 5 */}
-        <label htmlFor="super-happy">
+        <label htmlFor="5">
           <input
             type="radio"
             name="rating"
             className={s.inputIcon}
-            id="super-happy"
-            value="super-happy"
+            id="5"
+            value="5"
             onChange={handleChange}
-            checked={icon === 'super-happy'}
+            checked={icon === '5'}
           />
           <svg className={s.svg_dark} width="15" height="15">
             <use href={sprite + '#icon-container'}></use>
@@ -99,15 +100,15 @@ export const BoxRadioIconGroup = ({ onValue }) => {
         </label>
 
         {/* 6 */}
-        <label htmlFor="super-happy">
+        <label htmlFor="6">
           <input
             type="radio"
             name="rating"
             className={s.inputIcon}
-            id="super-happy"
-            value="super-happy"
+            id="6"
+            value="6"
             onChange={handleChange}
-            checked={icon === 'super-happy'}
+            checked={icon === '6'}
           />
           <svg className={s.svg_dark} width="15" height="15">
             <use href={sprite + '#icon-lightning'}></use>
@@ -115,15 +116,15 @@ export const BoxRadioIconGroup = ({ onValue }) => {
         </label>
 
         {/* 7 */}
-        <label htmlFor="super-happy">
+        <label htmlFor="7">
           <input
             type="radio"
             name="rating"
             className={s.inputIcon}
-            id="super-happy"
-            value="super-happy"
+            id="7"
+            value="7"
             onChange={handleChange}
-            checked={icon === 'super-happy'}
+            checked={icon === '7'}
           />
           <svg className={s.svg_dark} width="15" height="15">
             <use href={sprite + '#icon-colors'}></use>
@@ -131,15 +132,15 @@ export const BoxRadioIconGroup = ({ onValue }) => {
         </label>
 
         {/* 8 */}
-        <label htmlFor="super-happy">
+        <label htmlFor="8">
           <input
             type="radio"
             name="rating"
             className={s.inputIcon}
-            id="super-happy"
-            value="super-happy"
+            id="8"
+            value="8"
             onChange={handleChange}
-            checked={icon === 'super-happy'}
+            checked={icon === '8'}
           />
           <svg className={s.svg_dark} width="15" height="15">
             <use href={sprite + '#icon-hexagon'}></use>
@@ -151,5 +152,5 @@ export const BoxRadioIconGroup = ({ onValue }) => {
 };
 
 BoxRadioIconGroup.propTypes = {
-  onValue: PropTypes.func.isRequired,
+  valueChange: PropTypes.func.isRequired,
 };

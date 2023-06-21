@@ -1,9 +1,9 @@
 .box__backgroung {
   display: block;
+  margin-bottom: 40px;
 }
 
-.title__backgroung__dark {
-  font-family: random($limit: 1);
+.title__backgroung {
   margin-bottom: 14px;
 
   font-family: 'Poppins';
@@ -15,7 +15,7 @@
 
   letter-spacing: -0.02em;
 
-  color: red;
+  color: #ffffff;
 }
 
 .radio {

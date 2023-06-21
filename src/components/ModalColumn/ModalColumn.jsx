@@ -1,15 +1,16 @@
 // import { useState } from 'react';
 import { useState } from 'react';
-import s from './ModalColumn.module.css';
+import s from './ModalColumn.module.scss';
 import PropTypes from 'prop-types';
 import sprite from '../../assets/icons/sprite.svg';
+import { Modal } from 'components/Modal/Modal';
 
 export const ModalColumn = ({
   inputTitle,
-  modalTitle,
   titleModalButton,
-  children,
+  modalTitle,
   onClick,
+  children,
   handleToggleModal,
 }) => {
   const [value, setValue] = useState('');
@@ -20,13 +21,7 @@ export const ModalColumn = ({
   };
 
   return (
-    <div className={s.Modal}>
-      <button className={s.closeButton} onClick={handleToggleModal}>
-        <svg className={s.iconButtonModal} width="14" height="14">
-          <use href={sprite + '#icon-bell'}></use>
-        </svg>
-      </button>
-      <h4 className={s.modalTitle}>{modalTitle}</h4>
+    <Modal title={modalTitle} onClose={onClick}>
       <input
         className={s.inputModal}
         value={value}
@@ -35,12 +30,14 @@ export const ModalColumn = ({
       />
       {children}
       <button className={s.buttonModal} type="button" onClick={handleClick}>
-        <svg className={s.iconButtonModal} width="28" height="28">
-          <use href="../../assets/icons/sprite.svg#icon-star"></use>
-        </svg>
+        <span className={s.spanButton}>
+          <svg className={s.iconButtonModal} width="14" height="14">
+            <use href={sprite + '#icon-plus'}></use>
+          </svg>
+        </span>
         {titleModalButton}
       </button>
-    </div>
+    </Modal>
   );
 };
 
@@ -48,7 +45,7 @@ ModalColumn.propTypes = {
   modalTitle: PropTypes.string.isRequired,
   inputTitle: PropTypes.string.isRequired,
   titleModalButton: PropTypes.string.isRequired,
-  children: PropTypes.array.isRequired,
   onClick: PropTypes.func.isRequired,
   handleToggleModal: PropTypes.func.isRequired,
+  children: PropTypes.array.isRequired,
 };

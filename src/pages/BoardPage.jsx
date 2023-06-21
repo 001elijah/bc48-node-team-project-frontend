@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { ModalCard } from 'components/ModalCard/ModalCard';
+// import { ModalColumn } from 'components/ModalColumn/ModalColumn';
+import { ModalBoard } from 'components/ModalBoard/ModalBoard';
 import { BackdropHome } from 'components/BackdropHome/BackdropHome';
 
 export const BoardPage = () => {
@@ -17,17 +19,31 @@ export const BoardPage = () => {
   };
 
   return (
-    <BackdropHome>
+    <BackdropHome closeModal={handleToggleModal}>
       <button onClick={handleToggleModal}>click</button>
       {isModal && (
         <>
+          {/* <ModalColumn
+            inputTitle="Title"
+            titleModalButton="Add"
+            onClick={handleAddColum}
+            handleToggleModal={handleToggleModal}
+          /> */}
+
           <ModalCard
-            modalTitle="Add column"
             inputTitle="Title"
             titleModalButton="Add"
             onClick={handleAddColum}
             handleToggleModal={handleToggleModal}
           />
+
+          {/* <ModalBoard
+            modalTitle="Add board"
+            inputTitle="Title"
+            titleModalButton="Add"
+            onClick={handleAddColum}
+            handleToggleModal={handleToggleModal}
+          /> */}
         </>
       )}
     </BackdropHome>

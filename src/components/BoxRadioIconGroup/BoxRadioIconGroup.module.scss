@@ -4,31 +4,45 @@
 
 .title_icon {
   color: red;
+  margin-bottom: 14px;
+
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 21px;
+  /* identical to box height */
+
+  letter-spacing: -0.02em;
+
+  color: #ffffff;
 }
 
 .svg_dark {
   margin-right: 8px;
   fill: #151515;
   stroke: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
 }
 
 .inputIcon {
+  cursor: pointer;
   position: absolute;
   opacity: 0;
 }
 
-.inputIcon + .svg {
+.inputIcon + svg {
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
 }
 
-.inputIcon + .svg {
+.inputIcon + svg {
   cursor: pointer;
 }
 
-.inputIcon:hover + .svg,
-.inputIcon:checked + .svg,
-.inputIcon:focus + .svg {
+.inputIcon:hover + svg,
+.inputIcon:checked + svg,
+.inputIcon:focus + svg {
   // fill: rgb(0, 109, 217);
   stroke: rgba(255, 255, 255, 1);
 }

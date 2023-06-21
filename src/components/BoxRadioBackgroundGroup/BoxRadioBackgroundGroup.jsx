@@ -29,9 +29,7 @@ export const BoxRadioBackgroundGroup = ({ valueChange }) => {
 
   return (
     <div className={s.box__backgroung}>
-      <h1 className={clsx(s.title__backgroung__, thema === 'dark' && 'dark')}>
-        Backgroung
-      </h1>
+      <h1 className={s.title__backgroung}>Backgroung</h1>
       <div className={s.radio}>
         <div className={s.radio_container}>
           <input
