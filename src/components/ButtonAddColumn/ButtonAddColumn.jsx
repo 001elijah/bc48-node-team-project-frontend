@@ -1,7 +1,7 @@
 import s from './ButtonAddColumn.module.scss';
 import svg from '../../assets/icons/sprite.svg';
 import { selectorTheme } from 'redux/Auth/authSelectors';
-import {  useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 

@@ -13,13 +13,15 @@ export const HeaderDashBoard = ({ title }) => {
   const [showModalWindow, setShowModalWindow] = useState(false);
   const handleModalWindowOpen = () => setShowModalWindow(true);
   const handleModalWindowClose = () => setShowModalWindow(false);
-  const [color, setColor] = useState('');
+  // const [color, setColor] = useState('');
   return (
     <>
-      <div className={clsx(s.HeaderDash,  s[theme])}>
-        {title && <span className={clsx(s.HeaderTitle,  s[theme])}>{title}</span>}
+      <div className={clsx(s.HeaderDash, s[theme])}>
+        {title && (
+          <span className={clsx(s.HeaderTitle, s[theme])}>{title}</span>
+        )}
         <button
-          className={clsx(s.HeaderFilter,  s[theme])}
+          className={clsx(s.HeaderFilter, s[theme])}
           onClick={handleModalWindowOpen}
           type="button"
         >
@@ -30,7 +32,9 @@ export const HeaderDashBoard = ({ title }) => {
         </button>
         {showModalWindow && (
           <BackdropModal closeModal={handleModalWindowClose}>
-            <ModalFilter closeModal={handleModalWindowClose} color={setColor} />
+            <ModalFilter closeModal={handleModalWindowClose}
+              // color={setColor}
+            />
           </BackdropModal>
         )}
       </div>
