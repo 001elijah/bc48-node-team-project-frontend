@@ -4,16 +4,15 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  background-color: $black-color;
   padding: 10px 24px;
 
-  &.dark {
-    background-color: $black-color;
-  }
-  &.light,
-  &.colorful {
-    background-color: $background-color;
-  }
+  // &.dark {
+  //   background-color: $black-color;
+  // }
+  // &.light,
+  // &.colorful {
+  //   background-color: $background-color;
+  // }
 }
 .HeaderTitle {
   font-weight: 500;
@@ -32,7 +31,7 @@
 .HeaderFilter {
   background: transparent;
   border: none;
-
+  margin-left: auto;
   outline: none;
 
   &.dark {
@@ -42,7 +41,7 @@
   &.light,
   &.colorful {
     color: $middle-color2;
-    stroke:$middle-color2;
+    stroke: $middle-color2;
   }
 
   &:hover,

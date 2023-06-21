@@ -5,7 +5,7 @@ import { logoutUser } from 'redux/Auth/authOperations';
 import React, { useState } from 'react';
 import { Modal } from '../components/Modal/Modal';
 import { Header } from 'components/Header/Header';
-import { Board } from 'components/ScreensBoard/ScreensBoard';
+import { Outlet } from 'react-router-dom';
 
 export const HomePage = () => {
   // const theme = useSelector(selectorTheme) || '';
@@ -33,9 +33,9 @@ export const HomePage = () => {
         <option value="dark">Dark</option>
         <option value="colorful">Colorful</option>
       </select> */}
-      <Board
+      {/* <Board
         boardtitle =""
-      />
+      /> */}
       <button onClick={() => dispatch(logoutUser())}>Log logOut</button>
 
       <button onClick={openModal}>Open Modal</button>
@@ -45,6 +45,7 @@ export const HomePage = () => {
           <p>Content of the modal.</p>
         </Modal>
       )}
+      <Outlet/>
     </div>
   );
 };
