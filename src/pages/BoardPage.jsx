@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { ModalCard } from 'components/ModalCard/ModalCard';
 // import { ModalColumn } from 'components/ModalColumn/ModalColumn';
-import { ModalBoard } from 'components/ModalBoard/ModalBoard';
-import { BackdropHome } from 'components/BackdropHome/BackdropHome';
+// import { ModalBoard } from 'components/ModalBoard/ModalBoard';
+import { Header } from 'components/Header/Header';
+
+// import { BackdropHome } from 'components/BackdropHome/BackdropHome';
 
 export const BoardPage = () => {
   const [isModal, setIsModal] = useState(false);
@@ -19,11 +21,14 @@ export const BoardPage = () => {
   };
 
   return (
-    <BackdropHome closeModal={handleToggleModal}>
+    // <BackdropHome closeModal={handleToggleModal}>
+    <>
+      <Header />
       <button onClick={handleToggleModal}>click</button>
       {isModal && (
         <>
           {/* <ModalColumn
+            modalTitle="Add column"
             inputTitle="Title"
             titleModalButton="Add"
             onClick={handleAddColum}
@@ -31,6 +36,7 @@ export const BoardPage = () => {
           /> */}
 
           <ModalCard
+            modalTitle="Add board"
             inputTitle="Title"
             titleModalButton="Add"
             onClick={handleAddColum}
@@ -46,6 +52,7 @@ export const BoardPage = () => {
           /> */}
         </>
       )}
-    </BackdropHome>
+    </>
+    // </BackdropHome>
   );
 };

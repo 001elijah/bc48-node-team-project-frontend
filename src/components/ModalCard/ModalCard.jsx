@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import s from './ModalCard.module.scss';
 import { useState } from 'react';
 import { BoxRadioColorGroup } from 'components/BoxRadioColorGroup/BoxRadioColorGroup';
-import { SelectData } from 'components/SelectData/SelectData';
+// import { SelectData } from 'components/SelectData/SelectData';
+import { selectorTheme } from 'redux/Auth/authSelectors';
+import { useSelector } from 'react-redux';
 
 export const ModalCard = ({
   inputTitle,
@@ -11,6 +13,8 @@ export const ModalCard = ({
   onClick,
   handleToggleModal,
 }) => {
+  const theme = useSelector(selectorTheme);
+
   const [coment, setComent] = useState('');
   const [isColor, setIsColor] = useState('dark');
   const [date, setDate] = useState('');
@@ -43,7 +47,7 @@ export const ModalCard = ({
     >
       <textarea
         onChange={e => setComent(e.target.value)}
-        className={s.description}
+        className={`${s.description} ${s[theme]}`}
         name="coments"
         id="coments"
         placeholder="Description"

@@ -1,8 +1,32 @@
+.titleColor {
+  // color: red;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  /* identical to box height */
+
+  letter-spacing: -0.02em;
+
+  margin-bottom: 4px;
+  &.colorful,
+  &.light {
+    color: rgba(22, 22, 22, 0.5);
+    // border: 2px solid #fcfcfc;
+  }
+}
+
 .radio {
   display: flex;
   background: inherit;
   height: 40px;
 }
+
+// height: 12px;
+// width: 12px;
+// top: 1px;
+// left: 1px;
 
 .radio_container {
   position: relative;
@@ -19,6 +43,14 @@
 
 .radio_label1 {
   cursor: pointer;
+
+  &.colorful::after {
+    border: 2px solid #fcfcfc;
+  }
+
+  &.light::after {
+    border: 2px solid #fcfcfc;
+  }
 }
 
 .radio_label1::before {
@@ -50,10 +82,6 @@
 
   opacity: 0;
   transition: opacity 0.1s linear;
-
-  & .light {
-    border: 2px solid #fcfcfc;
-  }
 }
 
 .radio_input1:checked + .radio_label1::after {
@@ -70,6 +98,13 @@
 
 .radio_label2 {
   cursor: pointer;
+
+  &.colorful::after {
+    border: 2px solid #fcfcfc;
+  }
+  &.light::after {
+    border: 2px solid #fcfcfc;
+  }
 }
 
 .radio_label2::before {
@@ -121,6 +156,13 @@
 
 .radio_label3 {
   cursor: pointer;
+
+  &.colorful::after {
+    border: 2px solid #fcfcfc;
+  }
+  &.light::after {
+    border: 2px solid #fcfcfc;
+  }
 }
 
 .radio_label3::before {
@@ -172,6 +214,21 @@
 
 .radio_label4 {
   cursor: pointer;
+  // rgba(22, 22, 22, 0.3)
+
+  &.colorful::before {
+    background: rgba(22, 22, 22, 0.3);
+  }
+  &.light::before {
+    background: rgba(22, 22, 22, 0.3);
+  }
+
+  &.colorful::after {
+    border: 2px solid #fcfcfc;
+  }
+  &.light::after {
+    border: 2px solid #fcfcfc;
+  }
 }
 
 .radio_label4::before {

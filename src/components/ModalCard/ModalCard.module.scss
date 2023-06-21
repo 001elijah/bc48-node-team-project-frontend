@@ -1,3 +1,5 @@
+@import '../../assets/styles/vars';
+
 .description {
   /* font-family: 'Poppins'; */
   font-family: inherit;
@@ -8,9 +10,9 @@
   /* identical to box height, or 129% */
 
   letter-spacing: -0.02em;
-
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0;
+  // margin-left: auto;
+  // margin-right: auto;
   margin-bottom: 24px;
   max-width: 302px;
   width: 100%;
@@ -23,36 +25,69 @@
   border: 1px solid rgba(190, 219, 176, 1);
   box-shadow: 0px 4px 16px rgba(22, 22, 22, 0.08);
   border-radius: 8px;
-  background-color: #1f1f1f;
+  // background-color: #1f1f1f;
 
   color: #ffffff;
 
   resize: none;
+
+  &.colorful {
+    border: 1px solid rgba(82, 85, 188, 1);
+    // color: rgba(22, 22, 22, 1);
+    color: #161616;
+    background-color: inherit;
+    opacity: 0.4;
+    &::placeholder {
+      color: rgba(22, 22, 22, 0.5);
+    }
+
+    &:focus {
+      opacity: initial;
+      border: 1px solid #5255bc;
+      filter: drop-shadow(0px 4px 16px rgba(22, 22, 22, 0.08));
+      outline: none;
+    }
+  }
+
+  &.dark {
+    color: rgba(255, 255, 255, 1);
+    background: #1f1f1f;
+    opacity: 0.4;
+    border: 1px solid #bedbb0;
+    box-shadow: 0px 4px 16px rgba(22, 22, 22, 0.08);
+
+    &::placeholder {
+      color: rgba(255, 255, 255, 1);
+    }
+    // opacity: initial;
+
+    &:focus {
+      border: 1px solid #bedbb0;
+      filter: drop-shadow(0px 4px 16px rgba(22, 22, 22, 0.08));
+      opacity: initial;
+      outline: none;
+    }
+  }
+
+  &.light {
+    color: $black-text-color;
+    opacity: 0.4;
+
+    &::placeholder {
+      color: rgba(22, 22, 22, 1);
+    }
+
+    &:focus {
+      border: 1px solid #bedbb0;
+      filter: drop-shadow(0px 4px 16px rgba(22, 22, 22, 0.08));
+      // background-color: #fcfcfc;
+      // color: #161616;
+      opacity: initial;
+      outline: none;
+    }
+  }
 }
 
 .description:focus {
   opacity: initial;
-}
-
-.colorPicker {
-  //   position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  width: 80px;
-  margin-bottom: 14px;
-}
-
-.colorPicker p {
-  width: 100%;
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 18px;
-  /* identical to box height */
-
-  letter-spacing: -0.02em;
-
-  color: rgba(255, 255, 255, 0.5);
-  margin-bottom: 4px;
 }

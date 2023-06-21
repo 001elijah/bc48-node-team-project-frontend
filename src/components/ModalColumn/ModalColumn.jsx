@@ -4,6 +4,8 @@ import s from './ModalColumn.module.scss';
 import PropTypes from 'prop-types';
 import sprite from '../../assets/icons/sprite.svg';
 import { Modal } from 'components/Modal/Modal';
+import { selectorTheme } from 'redux/Auth/authSelectors';
+import { useSelector } from 'react-redux';
 
 export const ModalColumn = ({
   inputTitle,
@@ -11,9 +13,9 @@ export const ModalColumn = ({
   modalTitle,
   onClick,
   children,
-  handleToggleModal,
 }) => {
   const [value, setValue] = useState('');
+  const theme = useSelector(selectorTheme);
 
   const handleClick = () => {
     onClick(value);
@@ -21,17 +23,26 @@ export const ModalColumn = ({
   };
 
   return (
+    // <div className={`${s.modal} ${s[theme]}`}>
     <Modal title={modalTitle} onClose={onClick}>
       <input
-        className={s.inputModal}
+        className={`${s.inputModal} ${s[theme]}`}
         value={value}
         placeholder={inputTitle}
         onChange={e => setValue(e.target.value)}
       />
       {children}
-      <button className={s.buttonModal} type="button" onClick={handleClick}>
-        <span className={s.spanButton}>
-          <svg className={s.iconButtonModal} width="14" height="14">
+      <button
+        className={`${s.buttonModal} ${s[theme]}`}
+        type="button"
+        onClick={handleClick}
+      >
+        <span className={`${s.spanButton} ${s[theme]}`}>
+          <svg
+            className={`${s.iconButtonModal} ${s[theme]}`}
+            width="14"
+            height="14"
+          >
             <use href={sprite + '#icon-plus'}></use>
           </svg>
         </span>
@@ -46,6 +57,5 @@ ModalColumn.propTypes = {
   inputTitle: PropTypes.string.isRequired,
   titleModalButton: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
-  handleToggleModal: PropTypes.func.isRequired,
   children: PropTypes.array.isRequired,
 };
