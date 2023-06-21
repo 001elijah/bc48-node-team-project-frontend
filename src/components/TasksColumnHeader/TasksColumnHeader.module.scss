@@ -1,20 +1,30 @@
 @import '../../assets/styles/vars';
 
 .columnHeaderWrapper {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   width: 335px;
   height: 56px;
   padding: 18px 20px;
-  background-color: $black-color;
+  background-color: $white-color;
   border-radius: 8px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &.dark {
+    background-color: $black-color;
+  }
 }
 
 .title {
   font-weight: 500;
   font-size: 14px;
   line-height: 1.5;
+  color: $black-text-color;
+
+  &.dark {
+    color: $white-color;
+  }
 }
 
 .buttonList {
