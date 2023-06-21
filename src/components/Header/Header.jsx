@@ -1,14 +1,19 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
-
 import { Container } from 'components/Container';
 import { UserInfo } from 'components/UserInfo/UserInfo';
+import { selectorTheme } from 'redux/Auth/authSelectors';
+import { themeChangeUser } from 'redux/Auth/authOperations';
 import s from './Header.module.scss';
-
 import icons from '../../assets/icons/sprite.svg';
 
 export const Header = () => {
-  const theme = useSelector(state => state.auth?.user?.theme);
+  const theme = useSelector(selectorTheme);
+  const dispatch = useDispatch();
+
+  const changeTheme = themeValue => {
+    dispatch(themeChangeUser(themeValue));
+  };
 
   return (
     <header className={clsx(s.header, s[theme])}>
@@ -30,19 +35,19 @@ export const Header = () => {
             <div className={clsx(s.dropDownContent, s[theme])}>
               <div
                 className={clsx(s.dropDownItem, s[theme])}
-                onClick={() => {}}
+                onClick={() => changeTheme('light')}
               >
                 Light
               </div>
               <div
                 className={clsx(s.dropDownItem, s[theme])}
-                onClick={() => {}}
+                onClick={() => changeTheme('dark')}
               >
                 Dark
               </div>
               <div
                 className={clsx(s.dropDownItem, s[theme])}
-                onClick={() => {}}
+                onClick={() => changeTheme('colorful')}
               >
                 Colorful
               </div>
