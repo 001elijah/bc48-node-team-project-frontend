@@ -1,0 +1,46 @@
+.calendar {
+  position: absolute;
+  top: 240px;
+  left: 120px;
+  z-index: 1;
+  width: 217px;
+  // @include tablet {
+  //   top: -54px;
+  //   left: 484px;
+  //   z-index: 1;
+  // }
+  // @include desktop {
+  //   top: -54px;
+  //   left: 550px;
+  //   z-index: 1;
+  // }
+}
+
+.input_field {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 127px;
+  height: 21px;
+  text-align: left;
+  padding-left: 18px;
+  padding-right: 18px;
+  margin-top: 50px;
+  margin-bottom: 18px;
+
+  /* background: inherit;     в проекті буде так */
+  background: red;
+  border-radius: 16px;
+  border: none;
+
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 21px;
+  /* identical to box height */
+
+  letter-spacing: -0.02em;
+
+  color: #bedbb0;
+}

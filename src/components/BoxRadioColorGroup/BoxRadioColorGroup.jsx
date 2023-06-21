@@ -12,7 +12,7 @@ export const BoxRadioColorGroup = ({ valueChange }) => {
 
   const handleCheked = e => {
     setColor(e.target.value);
-    valueChange(color);
+    // valueChange(color);
   };
 
   useEffect(() => {

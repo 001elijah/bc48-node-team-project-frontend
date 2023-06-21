@@ -2,8 +2,10 @@ import { ModalColumn } from 'components/ModalColumn/ModalColumn';
 import PropTypes from 'prop-types';
 import s from './ModalCard.module.scss';
 import { useState } from 'react';
-import { BoxRadioColorGroup } from 'components/BoxRadioColorGroup/BoxRadioColorGroup';
-// import { SelectData } from 'components/SelectData/SelectData';
+// import { BoxRadioColorGroup } from 'components/BoxRadioColorGroup/BoxRadioColorGroup';
+import { SelectData } from 'components/SelectData/SelectData';
+import { BoxRadioBackgroundGroup } from 'components/BoxRadioBackgroundGroup/BoxRadioBackgroundGroup';
+import { BoxRadioIconGroup } from 'components/BoxRadioIconGroup/BoxRadioIconGroup';
 
 export const ModalCard = ({
   inputTitle,
@@ -14,19 +16,29 @@ export const ModalCard = ({
 }) => {
   const [coment, setComent] = useState('');
   const [isColor, setIsColor] = useState('dark');
+  const [isBack, setIsBack] = useState('dark');
+  const [date, setDate] = useState('');
+  const [icon, setIcon] = useState('');
   const handleAddCard = value => {
     const newCard = {
       value,
       coment: coment,
       color: isColor,
+      isBack,
+      date,
     };
     onClick(newCard);
+  };
+
+  const handleChangeBackground = value => {
+    setIsBack(value);
   };
   // const handleChangeColor = value => {
   //   setIsColor(value);
   // };
-  const handleChangeBackground = value => {
-    setIsColor(value);
+
+  const handleChangeDate = value => {
+    setDate(value);
   };
 
   return (
@@ -37,16 +49,18 @@ export const ModalCard = ({
       onClick={handleAddCard}
       handleToggleModal={handleToggleModal}
     >
-      <textarea
+      <BoxRadioIconGroup onValue={setIcon} />
+      {/* <textarea
         onChange={e => setComent(e.target.value)}
         className={s.description}
         name="coments"
         id="coments"
         placeholder="Description"
         value={coment}
-      ></textarea>
-      <BoxRadioColorGroup valueChange={handleChangeBackground} />
-      {/* <SelectData /> */}
+      ></textarea> */}
+      {/* <BoxRadioColorGroup valueChange={handleChangeColor} /> */}
+      {/* <SelectData onDate={setDate} /> */}
+      {/* <BoxRadioBackgroundGroup valueChange={handleChangeBackground} /> */}
     </ModalColumn>
   );
 };

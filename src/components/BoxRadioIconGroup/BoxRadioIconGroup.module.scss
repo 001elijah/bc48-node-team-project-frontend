@@ -1,0 +1,34 @@
+.container {
+  margin-bottom: 24px;
+}
+
+.title_icon {
+  color: red;
+}
+
+.svg_dark {
+  margin-right: 8px;
+  fill: #151515;
+  stroke: rgba(255, 255, 255, 0.5);
+}
+
+.inputIcon {
+  position: absolute;
+  opacity: 0;
+}
+
+.inputIcon + .svg {
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.inputIcon + .svg {
+  cursor: pointer;
+}
+
+.inputIcon:hover + .svg,
+.inputIcon:checked + .svg,
+.inputIcon:focus + .svg {
+  // fill: rgb(0, 109, 217);
+  stroke: rgba(255, 255, 255, 1);
+}

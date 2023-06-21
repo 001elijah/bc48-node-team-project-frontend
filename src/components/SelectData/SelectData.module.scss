@@ -48,16 +48,16 @@
   left: 120px;
   z-index: 1;
   width: 217px;
-  @include tablet {
-    top: -54px;
-    left: 484px;
-    z-index: 1;
-  }
-  @include desktop {
-    top: -54px;
-    left: 550px;
-    z-index: 1;
-  }
+  // @include tablet {
+  //   top: -54px;
+  //   left: 484px;
+  //   z-index: 1;
+  // }
+  // @include desktop {
+  //   top: -54px;
+  //   left: 550px;
+  //   z-index: 1;
+  // }
 }
 
 .input_field {

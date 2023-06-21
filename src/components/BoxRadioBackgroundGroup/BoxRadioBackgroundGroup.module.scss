@@ -1,0 +1,755 @@
+.box__backgroung {
+  display: block;
+}
+
+.title__backgroung__dark {
+  font-family: random($limit: 1);
+  margin-bottom: 14px;
+
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 21px;
+  /* identical to box height */
+
+  letter-spacing: -0.02em;
+
+  color: red;
+}
+
+.radio {
+  display: flex;
+  flex-wrap: wrap;
+  background: inherit;
+  width: 256px;
+}
+
+.radio_container {
+  position: relative;
+  display: block;
+  margin-right: 32px;
+  margin-bottom: 28px;
+  background: inherit;
+}
+.radio_container:nth-child(-n + 5) {
+  position: relative;
+  display: block;
+  margin-right: 32px;
+  margin-bottom: 32px;
+  background: inherit;
+}
+
+.radio_input1 {
+  -webkit-appearance: none;
+  appearance: none;
+  position: absolute;
+}
+
+.radio_label1 {
+  cursor: pointer;
+}
+
+.radio_label1::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 28px;
+  background-image: url('../../assets/images/Vector.png');
+  position: absolute;
+  top: 0;
+  left: 0;
+  // opacity: 0;
+  z-index: 1;
+}
+
+.radio_label1::after {
+  content: '';
+  display: block;
+
+  width: 28px;
+  height: 28px;
+  // border: 1px solid red;
+  position: absolute;
+  background-image: url('../../assets/images/Vector.png');
+  background-size: 105%;
+  z-index: 1;
+
+  opacity: 0;
+  transition: opacity 0.1s linear;
+}
+
+.radio_input1:checked + .radio_label1::after {
+  opacity: 1;
+}
+
+// second input
+
+.radio_input2 {
+  -webkit-appearance: none;
+  appearance: none;
+  position: absolute;
+}
+
+.radio_label2 {
+  cursor: pointer;
+}
+
+.radio_label2::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 28px;
+  background-image: url('../../assets/images/Vector.png');
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.radio_label2::after {
+  content: '';
+  display: block;
+
+  width: 28px;
+  height: 28px;
+
+  position: absolute;
+
+  background-image: url('../../assets/images/Vector.png');
+  background-size: 105%;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.1s linear;
+}
+
+.radio_input2:checked + .radio_label2::after {
+  opacity: 1;
+}
+
+// three
+
+.radio_input3 {
+  -webkit-appearance: none;
+  appearance: none;
+  position: absolute;
+}
+
+.radio_label3 {
+  cursor: pointer;
+}
+
+.radio_label3::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 28px;
+  background-image: url('../../assets/images/Vector2.png');
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.radio_label3::after {
+  content: '';
+  display: block;
+
+  width: 28px;
+  height: 28px;
+  background-image: url('../../assets/images/Vector2.png');
+  background-size: 105%;
+  position: absolute;
+
+  z-index: 1;
+
+  opacity: 0;
+  transition: opacity 0.1s linear;
+}
+
+.radio_input3:checked + .radio_label3::after {
+  opacity: 1;
+}
+
+// for
+
+.radio_input4 {
+  -webkit-appearance: none;
+  appearance: none;
+  position: absolute;
+}
+
+.radio_label4 {
+  cursor: pointer;
+}
+
+.radio_label4::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 28px;
+  background-image: url('../../assets/images/Vector3.png');
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.radio_label4::after {
+  content: '';
+  display: block;
+
+  width: 28px;
+  height: 28px;
+  background-image: url('../../assets/images/Vector3.png');
+  background-size: 105%;
+
+  position: absolute;
+  z-index: 1;
+
+  opacity: 0;
+  transition: opacity 0.1s linear;
+}
+
+.radio_input4:checked + .radio_label4::after {
+  opacity: 1;
+}
+
+// 5-8
+
+.radio_input5 {
+  -webkit-appearance: none;
+  appearance: none;
+  position: absolute;
+}
+
+.radio_label5 {
+  cursor: pointer;
+}
+
+.radio_label5::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 28px;
+  background-image: url('../../assets/images/Vector4.png');
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.radio_label5::after {
+  content: '';
+  display: block;
+
+  width: 28px;
+  height: 28px;
+  background-image: url('../../assets/images/Vector4.png');
+  background-size: 105%;
+
+  position: absolute;
+
+  z-index: 1;
+
+  opacity: 0;
+  transition: opacity 0.1s linear;
+}
+
+.radio_input5:checked + .radio_label5::after {
+  opacity: 1;
+}
+
+// 6
+.radio_input6 {
+  -webkit-appearance: none;
+  appearance: none;
+  position: absolute;
+}
+
+.radio_label6 {
+  cursor: pointer;
+}
+
+.radio_label6::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 28px;
+  background-image: url('../../assets/images/Vector5.png');
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.radio_label6::after {
+  content: '';
+  display: block;
+
+  width: 28px;
+  height: 28px;
+
+  background-image: url('../../assets/images/Vector5.png');
+  background-size: 105%;
+  position: absolute;
+
+  z-index: 1;
+
+  opacity: 0;
+  transition: opacity 0.1s linear;
+}
+
+.radio_input6:checked + .radio_label6::after {
+  opacity: 1;
+}
+
+//   7
+
+.radio_input7 {
+  -webkit-appearance: none;
+  appearance: none;
+  position: absolute;
+}
+
+.radio_label7 {
+  cursor: pointer;
+}
+
+.radio_label7::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 28px;
+  background-image: url('../../assets/images/Vector6.png');
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.radio_label7::after {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 28px;
+
+  background-image: url('../../assets/images/Vector6.png');
+  background-size: 105%;
+  position: absolute;
+
+  z-index: 1;
+
+  opacity: 0;
+  transition: opacity 0.1s linear;
+}
+
+.radio_input7:checked + .radio_label7::after {
+  opacity: 1;
+}
+
+//   8
+.radio_input8 {
+  -webkit-appearance: none;
+  appearance: none;
+  position: absolute;
+}
+
+.radio_label8 {
+  cursor: pointer;
+}
+
+.radio_label8::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 28px;
+  background-image: url('../../assets/images/Vector7.png');
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.radio_label8::after {
+  content: '';
+  display: block;
+
+  width: 28px;
+  height: 28px;
+
+  background-image: url('../../assets/images/Vector7.png');
+  background-size: 105%;
+  position: absolute;
+
+  z-index: 1;
+
+  opacity: 0;
+  transition: opacity 0.1s linear;
+}
+
+.radio_input8:checked + .radio_label8::after {
+  opacity: 1;
+}
+
+//   9-12
+
+.radio_input9 {
+  -webkit-appearance: none;
+  appearance: none;
+  position: absolute;
+}
+
+.radio_label9 {
+  cursor: pointer;
+}
+
+.radio_label9::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 28px;
+  background-image: url('../../assets/images/Vector8.png');
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.radio_label9::after {
+  content: '';
+  display: block;
+
+  width: 28px;
+  height: 28px;
+
+  background-image: url('../../assets/images/Vector8.png');
+  background-size: 105%;
+  position: absolute;
+
+  z-index: 1;
+
+  opacity: 0;
+  transition: opacity 0.1s linear;
+}
+
+.radio_input9:checked + .radio_label9::after {
+  opacity: 1;
+}
+
+// 10
+
+.radio_input10 {
+  -webkit-appearance: none;
+  appearance: none;
+  position: absolute;
+}
+
+.radio_label10 {
+  cursor: pointer;
+}
+
+.radio_label10::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 28px;
+  background-image: url('../../assets/images/Vector9.png');
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.radio_label10::after {
+  content: '';
+  display: block;
+
+  width: 28px;
+  height: 28px;
+
+  background-image: url('../../assets/images/Vector9.png');
+  background-size: 105%;
+  position: absolute;
+
+  z-index: 1;
+
+  opacity: 0;
+  transition: opacity 0.1s linear;
+}
+
+.radio_input10:checked + .radio_label10::after {
+  opacity: 1;
+}
+
+// 11
+.radio_input11 {
+  -webkit-appearance: none;
+  appearance: none;
+  position: absolute;
+}
+
+.radio_label11 {
+  cursor: pointer;
+}
+
+.radio_label11::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 28px;
+  background-image: url('../../assets/images/Vector10.png');
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.radio_label11::after {
+  content: '';
+  display: block;
+
+  width: 28px;
+  height: 28px;
+
+  background-image: url('../../assets/images/Vector10.png');
+  background-size: 105%;
+  position: absolute;
+
+  z-index: 1;
+
+  opacity: 0;
+  transition: opacity 0.1s linear;
+}
+
+.radio_input11:checked + .radio_label11::after {
+  opacity: 1;
+}
+
+//   12
+.radio_input12 {
+  -webkit-appearance: none;
+  appearance: none;
+  position: absolute;
+}
+
+.radio_label12 {
+  cursor: pointer;
+}
+
+.radio_label12::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 28px;
+  background-image: url('../../assets/images/Vector11.png');
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.radio_label12::after {
+  content: '';
+  display: block;
+
+  width: 28px;
+  height: 28px;
+
+  background-image: url('../../assets/images/Vector11.png');
+  background-size: 105%;
+  position: absolute;
+  z-index: 1;
+
+  opacity: 0;
+  transition: opacity 0.1s linear;
+}
+
+.radio_input12:checked + .radio_label12::after {
+  opacity: 1;
+}
+
+// 13-16
+
+.radio_input13 {
+  -webkit-appearance: none;
+  appearance: none;
+  position: absolute;
+}
+
+.radio_label13 {
+  cursor: pointer;
+}
+
+.radio_label13::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 28px;
+  background-image: url('../../assets/images/Vector12.png');
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.radio_label13::after {
+  content: '';
+  display: block;
+  background-image: url('../../assets/images/Vector12.png');
+  background-size: 105%;
+  width: 28px;
+  height: 28px;
+
+  position: absolute;
+
+  z-index: 1;
+
+  opacity: 0;
+  transition: opacity 0.1s linear;
+}
+
+.radio_input13:checked + .radio_label13::after {
+  opacity: 1;
+}
+//   14
+.radio_input14 {
+  -webkit-appearance: none;
+  appearance: none;
+  position: absolute;
+}
+
+.radio_label14 {
+  cursor: pointer;
+}
+
+.radio_label14::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 28px;
+  background-image: url('../../assets/images/Vector13.png');
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.radio_label14::after {
+  content: '';
+  display: block;
+  background-image: url('../../assets/images/Vector13.png');
+  background-size: 105%;
+  width: 28px;
+  height: 28px;
+  position: absolute;
+  z-index: 1;
+
+  opacity: 0;
+  transition: opacity 0.1s linear;
+}
+
+.radio_input14:checked + .radio_label14::after {
+  opacity: 1;
+}
+
+//   15
+.radio_input15 {
+  -webkit-appearance: none;
+  appearance: none;
+  position: absolute;
+}
+
+.radio_label15 {
+  cursor: pointer;
+}
+
+.radio_label15::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 28px;
+  background-image: url('../../assets/images/Vector14.png');
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.radio_label15::after {
+  content: '';
+  display: block;
+  background-image: url('../../assets/images/Vector14.png');
+  background-size: 105%;
+
+  width: 28px;
+  height: 28px;
+
+  position: absolute;
+  z-index: 1;
+
+  opacity: 0;
+  transition: opacity 0.1s linear;
+}
+
+.radio_input15:checked + .radio_label15::after {
+  opacity: 1;
+}
+
+//   16
+.radio_input16 {
+  -webkit-appearance: none;
+  appearance: none;
+  position: absolute;
+}
+
+.radio_label16 {
+  cursor: pointer;
+}
+
+.radio_label16::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 28px;
+  background-image: url('../../assets/images/Vector15.png');
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.radio_label16::after {
+  content: '';
+  display: block;
+
+  width: 28px;
+  height: 28px;
+  background-image: url('../../assets/images/Vector15.png');
+  background-size: 105%;
+  position: absolute;
+
+  z-index: 1;
+
+  opacity: 0;
+  transition: opacity 0.1s linear;
+}
+
+.radio_input16:checked + .radio_label16::after {
+  opacity: 1;
+}
