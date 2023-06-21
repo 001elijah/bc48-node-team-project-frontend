@@ -7,31 +7,55 @@
   width: 335px;
   height: 56px;
   border-radius: 8px;
-&.Column{
-  &.dark{
-  background: $black-color;
+  &.Column {
+    &.dark {
+      background: $black-color;
+    }
+    &.light {
+      background: $white-color;
+    }
+    &.colorful {
+      background: $white-color;
+    }
   }
-  // &.light{
-  //   background: $white-color;
-  // }
-  // &.colorful{
-  //   background: $white-color;
-  // }
-}
-&.Card{
-  background-color:  #BEDBB0;
-}
+  &.Card {
+    &.dark {
+      background-color: $accent-color;
+    }
+    &.light {
+      background-color: $accent-color;
+    }
+    &.colorful {
+      background: $accent-bright-color;
+    }
+  }
 }
 .TitleCard {
   font-weight: 500;
   font-size: 14px;
   line-height: 21px;
   letter-spacing: -0.02em;
-  &.Column{
-  color: $white-color;
+  &.Column {
+    &.dark {
+      color: $white-color;
+    }
+    &.light {
+      color: $black-color;
+    }
+    &.colorful {
+      color: $black-color;
+    }
   }
-  &.Card{
-    color:$black-color;
+  &.Card {
+    &.dark {
+      color: $black-color;
+    }
+    &.light {
+      color: $black-color;
+    }
+    &.colorful {
+      color: $white-color;
+    }
   }
 }
 .BoxPlus {
@@ -43,15 +67,35 @@
 
   margin-right: 8px;
   border-radius: 6px;
-  &.Column{
-    background-color: $white-color;
-    stroke:$black-color
+  &.Column {
+    &.dark {
+      background-color: $white-color;
+      stroke: $black-color;
+    }
+    &.light {
+      background-color: $black-color;
+      stroke: $white-color;
+    }
+    &.colorful {
+      background-color: $accent-bright-color;
+      stroke: $white-color;
+    }
   }
-  &.Card{
-    background-color: $black-color;
-    stroke: $white-color;
+  &.Card {
+    &.dark {
+      background-color: $black-color;
+      stroke: $white-color;
+    }
+    &.light {
+      background-color: $black-color;
+      stroke: $white-color;
+    }
+    &.colorful {
+      background-color: $white-color;
+      stroke: $black-color;
+    }
   }
 }
-.Svg{
-  stroke:inherit;
+.Svg {
+  stroke: inherit;
 }

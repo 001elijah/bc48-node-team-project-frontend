@@ -24,7 +24,7 @@ export const Board = ({ boardtitle }) => {
           </p>
         )}
         {boardtitle && (
-          <AddButton typeOfButton="Column" title="Add another column" />
+          <AddButton typeOfButton="Card" title="Add another column" />
         )}
       </Wrapper>
     </>

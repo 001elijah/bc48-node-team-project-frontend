@@ -4,24 +4,28 @@ import PropTypes from 'prop-types';
 import { LabelBlock } from './LabelBlock';
 import { BackgroundBlock } from './BackgroundBlock';
 import { useEffect, useState } from 'react';
+import { selectorTheme } from 'redux/Auth/authSelectors';
+import {  useSelector } from 'react-redux';
+import clsx from 'clsx';
 
 export const ModalFilter = ({ closeModal, color }) => {
   const [colorFilter, setColorFilter] = useState('');
+  const theme = useSelector(selectorTheme);
 
   useEffect(() => {
     color = colorFilter;
   }, []);
-  console.log(colorFilter);
+
   return (
     <>
-      <div className={s.Wrapper}>
-        <button onClick={closeModal} className={s.Button}>
-          <svg className={s.Svg} width="18" height="18">
+      <div className={clsx(s.Wrapper, s[theme])}>
+        <button onClick={closeModal} className={clsx(s.Button, s[theme])}>
+          <svg className={clsx(s.Svg, s[theme])} width="18" height="18">
             <use href={`${svg}#icon-${'x-close'}`} />
           </svg>
         </button>
-        <div className={s.TitleBlock}>
-          <span className={s.HeadTitle}>Filters</span>
+        <div className={clsx(s.TitleBlock, s[theme])}>
+          <span className={clsx(s.HeadTitle, s[theme])}>Filters</span>
         </div>
         {/* <BackgroundBlock /> */}
         <LabelBlock newField={setColorFilter} />

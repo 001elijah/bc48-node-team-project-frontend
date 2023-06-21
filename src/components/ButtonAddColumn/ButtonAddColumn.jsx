@@ -1,19 +1,22 @@
 import s from './ButtonAddColumn.module.scss';
 import svg from '../../assets/icons/sprite.svg';
+import { selectorTheme } from 'redux/Auth/authSelectors';
+import {  useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 
 export const AddButton = ({ title, typeOfButton }) => {
-  const newClass = typeOfButton === 'Column' ? s.Column : s.Card;
+  const theme = useSelector(selectorTheme);
+
   return (
     <>
-      <div className={clsx(s.Button, newClass)}>
-        <div className={clsx(s.BoxPlus, newClass)}>
+      <div className={clsx(s.Button, s[typeOfButton], s[theme])}>
+        <div className={clsx(s.BoxPlus, s[typeOfButton], s[theme])}>
           <svg width="16" height="16" className={s.Svg}>
             <use href={`${svg}#icon-${'plus'}`} />
           </svg>
         </div>
-        <p className={clsx(s.TitleCard, newClass)}>{title}</p>
+        <p className={clsx(s.TitleCard, s[typeOfButton], s[theme])}>{title}</p>
       </div>
     </>
   );

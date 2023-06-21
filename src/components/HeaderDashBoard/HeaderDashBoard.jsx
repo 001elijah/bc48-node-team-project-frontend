@@ -1,34 +1,36 @@
 import s from './HeaderDashBoard.module.scss';
 import svg from '../../assets/icons/sprite.svg';
 import { useState } from 'react';
-import {ModalFilter} from '../ModalFilter/ModalFilter';
+import { ModalFilter } from '../ModalFilter/ModalFilter';
+import { selectorTheme } from 'redux/Auth/authSelectors';
+import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
-import {BackdropModal} from '../BackdropMain/BackdropMain'
+import clsx from 'clsx';
+import { BackdropModal } from '../BackdropMain/BackdropMain';
 
-export const HeaderDashBoard = ({title}) => {
+export const HeaderDashBoard = ({ title }) => {
+  const theme = useSelector(selectorTheme);
   const [showModalWindow, setShowModalWindow] = useState(false);
   const handleModalWindowOpen = () => setShowModalWindow(true);
   const handleModalWindowClose = () => setShowModalWindow(false);
-  const [color, setColor]=useState('')
+  const [color, setColor] = useState('');
   return (
     <>
-      <div className={s.HeaderDash}>
-        {title&&(<span className={s.HeaderTitle}>{title}</span>)}
+      <div className={clsx(s.HeaderDash,  s[theme])}>
+        {title && <span className={clsx(s.HeaderTitle,  s[theme])}>{title}</span>}
         <button
-          className={s.HeaderFilter}
+          className={clsx(s.HeaderFilter,  s[theme])}
           onClick={handleModalWindowOpen}
           type="button"
         >
           <svg className={s.Svg} width="16" height="16">
             <use href={`${svg}#icon-${'filter'}`} />
-          </svg>Filter
+          </svg>
+          Filter
         </button>
         {showModalWindow && (
           <BackdropModal closeModal={handleModalWindowClose}>
-            <ModalFilter
-              closeModal={handleModalWindowClose}
-              color={setColor}
-            />
+            <ModalFilter closeModal={handleModalWindowClose} color={setColor} />
           </BackdropModal>
         )}
       </div>
