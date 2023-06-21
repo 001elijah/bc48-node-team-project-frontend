@@ -5,6 +5,7 @@ import { logoutUser } from 'redux/Auth/authOperations';
 import React, { useState } from 'react';
 import { Modal } from '../components/Modal/Modal';
 import { Header } from 'components/Header/Header';
+import { Board } from 'components/ScreensBoard/ScreensBoard';
 
 export const HomePage = () => {
   // const theme = useSelector(selectorTheme) || '';
@@ -31,6 +32,7 @@ export const HomePage = () => {
         <option value="dark">Dark</option>
         <option value="colorful">Colorful</option>
       </select> */}
+      <Board boardtitle="" />
       <button onClick={() => dispatch(logoutUser())}>Log logOut</button>
 
       <button onClick={openModal}>Open Modal</button>

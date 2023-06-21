@@ -1,5 +1,9 @@
 import React from 'react';
 
 export const BoardPage = () => {
-  return <div>BoardPage</div>;
+  return (
+    <>
+      <div>BoardPage</div>
+    </>
+  );
 };
