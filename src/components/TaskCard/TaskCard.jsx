@@ -1,8 +1,13 @@
+import { useState, useSelector } from 'react';
 import clsx from 'clsx';
 import shortid from 'shortid';
 import PropTypes from 'prop-types';
+
 import sprite from '../../assets/icons/sprite.svg';
+import { selectorTheme } from 'redux/Auth/authSelectors';
 import { TaskControlButton } from '../TaskControlButton/TaskControlButton';
+import { ModalChangeColumn } from 'components/ModalChangeColumn/ModalChangeColumn';
+import { BackdropModal } from 'components/BackdropMain/BackdropMain';
 import s from './TaskCard.module.scss';
 
 export const TaskCard = ({
@@ -10,12 +15,20 @@ export const TaskCard = ({
   description,
   priority = 'High',
   deadline,
-  changeColumn,
   editCard,
   removeCard,
 }) => {
+  const theme = useSelector(selectorTheme);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModalChangeColumn = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModalChangeColumn = () => setIsModalOpen(false);
+
   return (
-    <div className={s.cardWrapper}>
+    <div className={clsx(s.cardWrapper, s[theme])}>
       <div
         className={clsx(
           s.priorityLine,
@@ -25,21 +38,21 @@ export const TaskCard = ({
         )}
       ></div>
       <div className={s.infoWrapper}>
-        <h4 className={s.title}>
+        <h4 className={clsx(s.title, s[theme])}>
           {title}
           Lorem, ipsum dolor.
         </h4>
-        <p className={s.description}>
+        <p className={clsx(s.description, s[theme])}>
           {description}
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid
           laboriosam numquam vero totam quidem nostrum deserunt harum voluptate,
           quaerat illum.
         </p>
       </div>
-      <div className={s.controlPanel}>
+      <div className={clsx(s.controlPanel, s[theme])}>
         <div className={s.statusInfo}>
           <div className={s.priorityWrapper}>
-            <h5 className={s.subtitle}>Priority</h5>
+            <h5 className={clsx(s.subtitle, s[theme])}>Priority</h5>
             <div className={s.priorityStatus}>
               <div
                 className={clsx(
@@ -49,24 +62,29 @@ export const TaskCard = ({
                   priority === 'High' && s.bg_high,
                 )}
               ></div>
-              <p className={s.text}>{priority}</p>
+              <p className={clsx(s.text, s[theme])}>{priority}</p>
             </div>
           </div>
           <div>
-            <h5 className={s.subtitle}>Deadline</h5>
-            <p className={s.text}>
+            <h5 className={clsx(s.subtitle, s[theme])}>Deadline</h5>
+            <p className={clsx(s.text, s[theme])}>
               {deadline}
               12/05/2023
             </p>
           </div>
         </div>
         <div className={s.iconsWrapper}>
-          <svg className={s.icon}>
+          <svg className={clsx(s.icon, s[theme])}>
             <use href={sprite + '#icon-bell'}></use>
           </svg>
           <ul className={s.buttonList}>
             <li key={shortid.generate()} className={s.item}>
-              <TaskControlButton icon="#icon-arrow" onClick={changeColumn} />
+              <TaskControlButton
+                icon="#icon-arrow"
+                onClick={() => {
+                  openModalChangeColumn();
+                }}
+              />
             </li>
             <li key={shortid.generate()} className={s.item}>
               <TaskControlButton icon="#icon-pencil" onClick={editCard} />
@@ -77,6 +95,11 @@ export const TaskCard = ({
           </ul>
         </div>
       </div>
+      {isModalOpen && (
+        <BackdropModal closeModal={closeModalChangeColumn}>
+          <ModalChangeColumn closeModal={closeModalChangeColumn} />
+        </BackdropModal>
+      )}
     </div>
   );
 };
@@ -86,7 +109,7 @@ TaskCard.propTypes = {
   description: PropTypes.string.isRequired,
   priority: PropTypes.string.isRequired,
   deadline: PropTypes.string.isRequired,
-  changeColumn: PropTypes.func.isRequired,
   editCard: PropTypes.func.isRequired,
   removeCard: PropTypes.func.isRequired,
+  theme: PropTypes.string.isRequire,
 };

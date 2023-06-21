@@ -1,12 +1,16 @@
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 import shortid from 'shortid';
+import clsx from 'clsx';
+import { selectorTheme } from 'redux/Auth/authSelectors';
 import { TaskControlButton } from 'components/TaskControlButton/TaskControlButton';
 import s from './TasksColumnHeader.module.scss';
 
 export const TasksColumnHeader = ({ title, editColumn, removeColumn }) => {
+  const theme = useSelector(selectorTheme);
   return (
-    <div className={s.columnHeaderWrapper}>
-      <h4 className={s.title}>
+    <div className={clsx(s.columnHeaderWrapper, s[theme])}>
+      <h4 className={clsx(s.title, s[theme])}>
         {title}
         Lorem, ipsum dolor.
       </h4>
