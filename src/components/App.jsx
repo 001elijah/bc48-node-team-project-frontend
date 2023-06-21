@@ -6,10 +6,10 @@ import WelcomePage from 'pages/WelcomePage';
 import AuthPage from '../pages/AuthPage';
 import { HomePage } from 'pages/HomePage';
 import { BoardPage } from 'pages/BoardPage';
-import { SharedLayout } from './SharedLayout/SharedLayout';
 import { PrivateRoute, PublicRoute } from './AuthForm/route';
 
 import { currentUser } from 'redux/Auth/authOperations';
+import { Loader } from './Loader/Loader';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -20,7 +20,8 @@ export const App = () => {
 
   return (
     <>
-      <SharedLayout />
+      <Loader />
+      {/* <SharedLayout /> */}
       <Routes>
         <Route path="/" element={<PublicRoute component={<WelcomePage />} />} />
         <Route
