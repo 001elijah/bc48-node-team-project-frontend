@@ -1,13 +1,17 @@
 import { useSelector } from 'react-redux';
 import clsx from 'clsx';
+import {
+  selectorAvatarURL,
+  selectorTheme,
+  selectorUserName,
+} from 'redux/Auth/authSelectors';
 import s from './UserInfo.module.scss';
-
 import icons from '../../assets/icons/sprite.svg';
 
 export const UserInfo = () => {
-  const theme = useSelector(state => state.auth?.user?.theme);
-  const userName = useSelector(state => state.auth?.user?.userName);
-  const userAvatar = useSelector(state => state.auth?.user?.avatarUrl);
+  const theme = useSelector(selectorTheme);
+  const userName = useSelector(selectorUserName);
+  const userAvatar = useSelector(selectorAvatarURL);
 
   return (
     <div className={s.userInfo}>
