@@ -17,7 +17,7 @@
 import { useFormik } from 'formik';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { resizeFile } from 'react-image-file-resizer';
+// import { resizeFile } from 'react-image-file-resizer';
 
 import { ButtonAuth } from '../ButtonAuth/ButtonAuth';
 import { validationSchemaRegister } from '../SchemaValidation/schemaValidation';
@@ -32,6 +32,7 @@ export const ModalEditProfile = () => {
     const [showPassword, setShowPassword] = useState(false);
     const [imageFile, setImageFile] = useState(null);
 
+    // eslint-disable-next-line
     const formData = new FormData()
 
   const name = useSelector(state => state.auth.userName);

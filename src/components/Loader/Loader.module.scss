@@ -11,17 +11,37 @@
   .tri {
     position: absolute;
     animation: pulse_51 750ms ease-in infinite;
-    border-top: 27px solid $black-color;
+    border-top: 27px solid $black-text-color;
     border-left: 15px solid transparent;
     border-right: 15px solid transparent;
     border-bottom: 0px;
+
+    &.light {
+      border-top-color: $black-text-color;
+    }
+    &.dark {
+      border-top-color: $white-color;
+    }
+    &.colorful {
+      border-top-color: $accent-bright-color;
+    }
   }
 
   .tri.invert {
     border-top: 0px;
-    border-bottom: 27px solid $black-color;
+    border-bottom: 27px solid $black-text-color;
     border-left: 15px solid transparent;
     border-right: 15px solid transparent;
+
+    &.light {
+      border-bottom-color: $black-text-color;
+    }
+    &.dark {
+      border-bottom-color: $white-color;
+    }
+    &.colorful {
+      border-bottom-color: $accent-bright-color;
+    }
   }
 
   .tri:nth-child(1) {

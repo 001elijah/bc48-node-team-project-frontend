@@ -1,19 +1,21 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { logoutUser } from 'redux/Auth/authOperations';
-import { themeChangeUser } from 'redux/Auth/authOperations';
-import { selectorTheme } from 'redux/Auth/authSelectors';
+// import { themeChangeUser } from 'redux/Auth/authOperations';
+// import { selectorTheme } from 'redux/Auth/authSelectors';
 import React, { useState } from 'react';
 import { Modal } from '../components/Modal/Modal';
 import { ModalEditProfile } from 'components/ModalEditProfile/ModalEditProfile';
+import { Header } from 'components/Header/Header';
+
 
 export const HomePage = () => {
-  const theme = useSelector(selectorTheme) || '';
+  // const theme = useSelector(selectorTheme) || '';
   const dispatch = useDispatch();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleChange = e => {
-    dispatch(themeChangeUser(e.target.value));
-  };
+  // const handleChange = e => {
+  //   dispatch(themeChangeUser(e.target.value));
+  // };
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -25,11 +27,12 @@ export const HomePage = () => {
 
   return (
     <div>
-      <select name="priority" value={theme} onChange={handleChange}>
+      <Header />
+      {/* <select name="priority" value={theme} onChange={handleChange}>
         <option value="light">Light</option>
         <option value="dark">Dark</option>
         <option value="colorful">Colorful</option>
-      </select>
+      </select> */}
       <button onClick={() => dispatch(logoutUser())}>Log logOut</button>
 
       <button onClick={openModal}>Open Modal</button>
