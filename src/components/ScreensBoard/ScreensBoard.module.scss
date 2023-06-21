@@ -11,19 +11,18 @@
   margin-right: auto;
 
   color: rgba(255, 255, 255, 0.5);
-@include mobileSmall{
+  @include mobileSmall {
     max-width: 335px;
-}
-@include mobile{
+  }
+  @include mobile {
     width: 335px;
-}
-@include tablet{
+  }
+  @include tablet {
     width: 486px;
+  }
 }
-
-};
-.DefaultLink{
-    color:$accent-color;
+.DefaultLink {
+  color: $accent-color;
 }
 // .Wrapper{
 //     background-color: #1F1F1F;

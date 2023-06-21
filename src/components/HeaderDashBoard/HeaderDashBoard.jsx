@@ -16,10 +16,12 @@ export const HeaderDashBoard = ({ title }) => {
   const [color, setColor] = useState('');
   return (
     <>
-      <div className={clsx(s.HeaderDash,  s[theme])}>
-        {title && <span className={clsx(s.HeaderTitle,  s[theme])}>{title}</span>}
+      <div className={clsx(s.HeaderDash, s[theme])}>
+        {title && (
+          <span className={clsx(s.HeaderTitle, s[theme])}>{title}</span>
+        )}
         <button
-          className={clsx(s.HeaderFilter,  s[theme])}
+          className={clsx(s.HeaderFilter, s[theme])}
           onClick={handleModalWindowOpen}
           type="button"
         >

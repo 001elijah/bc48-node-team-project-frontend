@@ -128,7 +128,7 @@
   cursor: pointer;
 
   &.dark {
-    color: #FFFFFF80;
+    color: #ffffff80;
     &:hover,
     &:focus {
       color: inherit;
@@ -164,7 +164,7 @@
 }
 .InputField {
   &[id='without']::before {
-    background-color: #FFFFFF4D;
+    background-color: #ffffff4d;
   }
   &[id='low']::before {
     background-color: $priority-low-color;
@@ -199,12 +199,10 @@
       color: $black-color;
     }
   }
-
 }
 .InputField:checked.dark {
   &[id='without']::after {
-    background-color:  rgba(255, 255, 255, 0.3);
-    ;
+    background-color: rgba(255, 255, 255, 0.3);
     border: 2px solid $black-color;
   }
   &[id='low']::after {
@@ -223,7 +221,7 @@
 .InputField:checked.light,
 .InputField:checked.colorful {
   &[id='without']::after {
-    background-color: #FFFFFF4D;
+    background-color: #ffffff4d;
     border: 2px solid $white-color;
   }
   &[id='low']::after {

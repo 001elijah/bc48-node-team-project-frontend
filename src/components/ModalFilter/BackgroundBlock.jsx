@@ -1,9 +1,7 @@
 import s from './Modal.module.scss';
-import {ImgWrap} from './ImgWrap';
+import { ImgWrap } from './ImgWrap';
 
 export const BackgroundBlock = () => {
-
-
   return (
     <>
       <div className={s.BackgroundBlock}>
@@ -24,7 +22,7 @@ export const BackgroundBlock = () => {
           <ImgWrap type="x1" image="22.png" />
           <ImgWrap type="x1" image="23.png" />
           <ImgWrap type="x1" image="24.png" />
-          <ImgWrap type="x1" image="25.png" />          
+          <ImgWrap type="x1" image="25.png" />
         </div>
       </div>
     </>

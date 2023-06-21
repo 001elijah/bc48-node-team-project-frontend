@@ -5,7 +5,7 @@ import { LabelBlock } from './LabelBlock';
 // import { BackgroundBlock } from './BackgroundBlock';
 import { useEffect, useState } from 'react';
 import { selectorTheme } from 'redux/Auth/authSelectors';
-import {  useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import clsx from 'clsx';
 
 export const ModalFilter = ({ closeModal, color }) => {

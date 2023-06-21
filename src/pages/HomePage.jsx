@@ -25,7 +25,6 @@ export const HomePage = () => {
   };
 
   return (
-
     <div>
       <Header />
       {/* <select name="priority" value={theme} onChange={handleChange}>
@@ -33,9 +32,7 @@ export const HomePage = () => {
         <option value="dark">Dark</option>
         <option value="colorful">Colorful</option>
       </select> */}
-      <Board
-        boardtitle =""
-      />
+      <Board boardtitle="" />
       <button onClick={() => dispatch(logoutUser())}>Log logOut</button>
 
       <button onClick={openModal}>Open Modal</button>
