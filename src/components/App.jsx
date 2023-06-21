@@ -23,7 +23,6 @@ export const App = () => {
       <Loader />
       {/* <SharedLayout /> */}
       <Routes>
-
         <Route path="/" element={<PublicRoute component={<WelcomePage />} />} />
         <Route
           path="/auth/:id"

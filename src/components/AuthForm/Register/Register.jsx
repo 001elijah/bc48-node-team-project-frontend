@@ -23,7 +23,6 @@ export const Register = () => {
     },
     validationSchema: validationSchemaRegister,
     onSubmit: values => {
-
       dispatch(registerUser(values));
     },
   });
@@ -31,7 +30,6 @@ export const Register = () => {
     <form onSubmit={formik.handleSubmit}>
       <label htmlFor="name">
         <input
-
           id="userName"
           name="userName"
           type="text"
@@ -60,7 +58,6 @@ export const Register = () => {
         <input
           id="password"
           name="password"
-
           type={showPassword ? 'text' : 'password'}
           onChange={formik.handleChange}
           value={formik.values.password}

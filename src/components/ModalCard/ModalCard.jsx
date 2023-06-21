@@ -40,6 +40,7 @@ export const ModalCard = ({
 
   return (
     <ModalColumn
+      modalTitle="Add card"
       inputTitle={inputTitle}
       titleModalButton={titleModalButton}
       onClick={handleAddCard}
