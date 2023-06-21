@@ -3,12 +3,15 @@
 .cardWrapper {
   position: relative;
   padding: 14px 21px;
-  width: 335px;
+  max-width: 335px;
   height: 154px;
-
-  background-color: $black-color;
+  background-color: $white-text-color;
   border-radius: 8px;
   overflow: hidden;
+
+  &.dark {
+    background-color: $black-color;
+  }
 }
 
 .priorityLine {
@@ -25,6 +28,11 @@
   font-weight: 600;
   font-size: 14px;
   line-height: 1.5;
+  color: $black-text-color;
+
+  &.dark {
+    color: $white-text-color;
+  }
 }
 
 .description {
@@ -32,21 +40,30 @@
   font-weight: 400;
   font-size: 12px;
   line-height: 1.33;
-  color: $icon-secondary-color;
+  color: $icon-main-color;
 
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+
+  &.dark {
+    color: $icon-secondary-color;
+  }
 }
 
 .controlPanel {
   padding-top: 14px;
+
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(22, 22, 22, 0.1);
+
+  &.dark {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
 }
 
 .statusInfo {
@@ -58,7 +75,11 @@
   font-weight: 400;
   font-size: 8px;
   line-height: 1.5;
-  color: $icon-secondary-color;
+  color: $icon-main-color;
+
+  &.dark {
+    color: $icon-secondary-color;
+  }
 }
 
 .priorityWrapper {
@@ -91,6 +112,11 @@
   font-weight: 400;
   font-size: 10px;
   line-height: 1.5;
+  color: $black-text-color;
+
+  &.dark {
+    color: $white-color;
+  }
 }
 
 .iconsWrapper {
@@ -115,4 +141,8 @@
   width: 16px;
   height: 16px;
   stroke: $priority-high-color;
+
+  &.violet {
+    stroke: $accent-bright-color;
+  }
 }
