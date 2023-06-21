@@ -4,6 +4,7 @@ import { themeChangeUser } from 'redux/Auth/authOperations';
 import { selectorTheme } from 'redux/Auth/authSelectors';
 import React, { useState } from 'react';
 import { Modal } from '../components/Modal/Modal';
+import { ModalEditProfile } from 'components/ModalEditProfile/ModalEditProfile';
 
 export const HomePage = () => {
   const theme = useSelector(selectorTheme) || '';
@@ -34,8 +35,8 @@ export const HomePage = () => {
       <button onClick={openModal}>Open Modal</button>
 
       {isModalOpen && (
-        <Modal title="New board" onClose={closeModal}>
-          <p>Content of the modal.</p>
+        <Modal title="Edit profile" onClose={closeModal}>
+          <ModalEditProfile/>
         </Modal>
       )}
     </div>
