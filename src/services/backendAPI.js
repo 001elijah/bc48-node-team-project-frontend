@@ -39,3 +39,10 @@ export const themeChangeUserApi = async theme => {
   const { data } = await axios.patch('', theme);
   return data;
 };
+
+// export const removeColumnApi = async id => {
+//   await axios.delete(`/column/${id}`);
+// };
+// export const removeCardApi = async id => {
+//   await axios.delete(`/card/${id}`);
+// };
