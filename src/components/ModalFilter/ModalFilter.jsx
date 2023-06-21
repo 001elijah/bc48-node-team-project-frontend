@@ -9,6 +9,7 @@ import { useSelector } from 'react-redux';
 import clsx from 'clsx';
 
 export const ModalFilter = ({ closeModal, color }) => {
+  console.log(color)
   const [colorFilter, setColorFilter] = useState('');
   const theme = useSelector(selectorTheme);
 

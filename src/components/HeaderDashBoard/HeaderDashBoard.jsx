@@ -13,7 +13,7 @@ export const HeaderDashBoard = ({ title }) => {
   const [showModalWindow, setShowModalWindow] = useState(false);
   const handleModalWindowOpen = () => setShowModalWindow(true);
   const handleModalWindowClose = () => setShowModalWindow(false);
-  const [color, setColor] = useState('');
+  // const [color, setColor] = useState('');
   return (
     <>
       <div className={clsx(s.HeaderDash, s[theme])}>
@@ -32,7 +32,9 @@ export const HeaderDashBoard = ({ title }) => {
         </button>
         {showModalWindow && (
           <BackdropModal closeModal={handleModalWindowClose}>
-            <ModalFilter closeModal={handleModalWindowClose} color={setColor} />
+            <ModalFilter closeModal={handleModalWindowClose}
+              // color={setColor}
+            />
           </BackdropModal>
         )}
       </div>
