@@ -8,11 +8,18 @@
   height: 56px;
   border-radius: 8px;
 &.Column{
+  &.dark{
   background: $black-color;
+  }
+  // &.light{
+  //   background: $white-color;
+  // }
+  // &.colorful{
+  //   background: $white-color;
+  // }
 }
 &.Card{
   background-color:  #BEDBB0;
-  ;
 }
 }
 .TitleCard {

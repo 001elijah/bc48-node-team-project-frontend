@@ -1,8 +1,10 @@
+import { Board } from 'components/ScreensBoard/ScreensBoard';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { logoutUser } from 'redux/Auth/authOperations';
 import { themeChangeUser } from 'redux/Auth/authOperations';
 import { selectorTheme } from 'redux/Auth/authSelectors';
+import { Header } from '../components/Header/Header';
 
 export const HomePage = () => {
   const theme = useSelector(selectorTheme) || '';
@@ -13,14 +15,22 @@ export const HomePage = () => {
   };
 
   return (
-    <div>
-      <select name="priority" value={theme} onChange={handleChange}>
-        <option value="light">Light</option>
-        <option value="dark">Dark</option>
-        <option value="colorful">Colorful</option>
-      </select>
+    <div style={{ display: 'flex' }}>
+      <div>
+        <select name="priority" value={theme} onChange={handleChange}>
+          <option value="light">Light</option>
+          <option value="dark">Dark</option>
+          <option value="colorful">Colorful</option>
+        </select>
 
-      <button onClick={() => dispatch(logoutUser())}>Log logOut</button>
+        <button onClick={() => dispatch(logoutUser())}>Log logOut</button>
+      </div>
+      <div>
+        <Header />
+        <Board 
+          boardtitle ='test'
+        />
+      </div>
     </div>
   );
 };

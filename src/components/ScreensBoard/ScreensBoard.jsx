@@ -5,10 +5,13 @@ import { HeaderDashBoard } from '../HeaderDashBoard/HeaderDashBoard';
 import { AddButton } from '../ButtonAddColumn/ButtonAddColumn';
 
 export const Board = ({ boardtitle }) => {
+  console.log(boardtitle)
+  const url = 'https://res.cloudinary.com/dg7gtqviy/image/upload/v1687337166/tb/x1/25_ygfh8n.jpg'
   return (
     <>
       <Wrapper
       // imgurl = {require('../../assets/images/desktop/11.png')}
+      imgurl={url}
       >
         <HeaderDashBoard title={boardtitle} />
         {!boardtitle && (
@@ -21,7 +24,7 @@ export const Board = ({ boardtitle }) => {
           </p>
         )}
         {boardtitle && (
-          <AddButton typeOfButton="Card" title="Add another column" />
+          <AddButton typeOfButton="Column" title="Add another column" />
         )}
       </Wrapper>
     </>

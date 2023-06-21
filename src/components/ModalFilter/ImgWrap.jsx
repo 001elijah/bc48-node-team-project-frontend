@@ -9,7 +9,7 @@ export const ImgWrap = ({ type, image }) => {
     <div>
       <button className={s.ImgButton} id={image} onClick={handleOnClick}>
       <img
-        src={require('../../assets/images/modalbg/'+type+'/'+ image)}
+        // src={require('../../assets/images/modalbg/'+type+'/'+ image)}
         alt=""
         width={28}
         height={28}
