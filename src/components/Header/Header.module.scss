@@ -19,7 +19,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 14px 20px;
+    padding-top: 14px;
+    padding-bottom: 14px;
 
     .burgerMenu {
       width: 24px;
@@ -53,6 +54,7 @@
         display: flex;
         align-items: center;
         border: none;
+        cursor: pointer;
         background-color: inherit;
         column-gap: 8px;
         font-size: 14px;
@@ -170,7 +172,8 @@
 @include tablet {
   .header {
     .pageHeader {
-      padding: 18px 32px;
+      padding-top: 18px;
+      padding-bottom: 18px;
 
       .burgerMenu {
         width: 32px;
@@ -188,7 +191,6 @@
 @include desktop {
   .header {
     .pageHeader {
-      padding: 18px 24px;
       .burgerMenu {
         display: none;
       }
