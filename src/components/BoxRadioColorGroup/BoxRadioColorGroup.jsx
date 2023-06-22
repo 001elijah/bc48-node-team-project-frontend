@@ -23,6 +23,8 @@ export const BoxRadioColorGroup = ({ valueChange }) => {
     valueChange(color);
   }, [valueChange, color]);
 
+  // зробити рендер по умові, дивлячись в якому компоненті рендериться
+
   return (
     <>
       <h2 className={`${s.titleColor} ${s[theme]}`}>Label color</h2>
