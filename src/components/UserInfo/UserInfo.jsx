@@ -1,18 +1,28 @@
-// import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
+import clsx from 'clsx';
+import {
+  selectorAvatarURL,
+  selectorTheme,
+  selectorUserName,
+} from 'redux/Auth/authSelectors';
 import s from './UserInfo.module.scss';
+import icons from '../../assets/icons/sprite.svg';
 
 export const UserInfo = () => {
-  // const userName = useSelector(state => state.auth?.user?.name);
-  // const userAvatar = useSelector(state => state.auth?.user?.avatar);
+  const theme = useSelector(selectorTheme);
+  const userName = useSelector(selectorUserName);
+  const userAvatar = useSelector(selectorAvatarURL);
 
   return (
     <div className={s.userInfo}>
-      <div className={s.name}>{'Name'}</div>
-      <img
-        className={s.avatar}
-        src="https://cdn.pixabay.com/photo/2023/05/20/16/48/dog-8006839_960_720.jpg"
-        alt="avatar"
-      />
+      <div className={clsx(s.name, s[theme])}>{userName || 'user'}</div>
+      {userAvatar ? (
+        <img className={s.avatar} src={userAvatar} alt="avatar" />
+      ) : (
+        <svg className={s.avatar}>
+          <use href={`${icons}#icon-user-${theme || 'light'}`}></use>
+        </svg>
+      )}
     </div>
   );
 };

@@ -1,31 +1,56 @@
+import { useDispatch, useSelector } from 'react-redux';
+import clsx from 'clsx';
 import { Container } from 'components/Container';
 import { UserInfo } from 'components/UserInfo/UserInfo';
+import { selectorTheme } from 'redux/Auth/authSelectors';
+import { themeChangeUser } from 'redux/Auth/authOperations';
 import s from './Header.module.scss';
-
 import icons from '../../assets/icons/sprite.svg';
 
 export const Header = () => {
+  const theme = useSelector(selectorTheme);
+  const dispatch = useDispatch();
+
+  const changeTheme = themeValue => {
+    dispatch(themeChangeUser(themeValue));
+  };
+
   return (
-    <header className={s.header}>
+    <header className={clsx(s.header, s[theme])}>
       <Container>
         <div className={s.pageHeader}>
           <button onClick={() => {}} className={s.burgerMenu}>
-            <svg className={s.burgerIcon}>
-              <use href={`${icons}#icon-burger-menu`} stroke="white"></use>
+            <svg className={clsx(s.burgerIcon, s[theme])}>
+              <use href={`${icons}#icon-burger-menu`}></use>
             </svg>
           </button>
 
           <div className={s.dropDown}>
-            <button className={s.dropBtn}>
+            <button className={clsx(s.dropBtn, s[theme])}>
               Theme
-              <svg width="16" height="16">
-                <use href={`${icons}#icon-arrow-down`} stroke="white"></use>
+              <svg className={clsx(s.arrowIcon, s[theme])}>
+                <use href={`${icons}#icon-arrow-down`}></use>
               </svg>
             </button>
-            <div className={s.dropDownContent}>
-              <div onClick={() => {}}>Light</div>
-              <div onClick={() => {}}>Dark</div>
-              <div onClick={() => {}}>Violet</div>
+            <div className={clsx(s.dropDownContent, s[theme])}>
+              <div
+                className={clsx(s.dropDownItem, s[theme])}
+                onClick={() => changeTheme('light')}
+              >
+                Light
+              </div>
+              <div
+                className={clsx(s.dropDownItem, s[theme])}
+                onClick={() => changeTheme('dark')}
+              >
+                Dark
+              </div>
+              <div
+                className={clsx(s.dropDownItem, s[theme])}
+                onClick={() => changeTheme('colorful')}
+              >
+                Colorful
+              </div>
             </div>
           </div>
           <UserInfo />

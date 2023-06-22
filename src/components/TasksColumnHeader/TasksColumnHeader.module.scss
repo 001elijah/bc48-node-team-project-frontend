@@ -3,16 +3,39 @@
 .columnHeaderWrapper {
   width: 335px;
   height: 56px;
-  background-color: var(--black-color);
+  padding: 18px 20px;
+  background-color: $white-color;
   border-radius: 8px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &.dark {
+    background-color: $black-color;
+  }
 }
 
 .title {
   font-weight: 500;
   font-size: 14px;
   line-height: 1.5;
+  color: $black-text-color;
+
+  &.dark {
+    color: $white-color;
+  }
 }
 
 .buttonList {
   display: flex;
+}
+
+.item {
+  width: 16px;
+  height: 16px;
+
+  &:not(:first-child) {
+    margin-left: 8px;
+  }
 }

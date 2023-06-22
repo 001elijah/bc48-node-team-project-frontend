@@ -1,62 +1,148 @@
 @import '../../assets/styles/vars';
 
 .cardWrapper {
-  width: 335px;
+  position: relative;
+  padding: 14px 21px;
+  max-width: 335px;
   height: 154px;
-  background-color: var(--black-color);
+  background-color: $white-text-color;
   border-radius: 8px;
+  overflow: hidden;
+
+  &.dark {
+    background-color: $black-color;
+  }
+}
+
+.priorityLine {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background-color: $icon-secondary-color;
 }
 
 .title {
+  margin-bottom: 8px;
   font-weight: 600;
   font-size: 14px;
   line-height: 1.5;
+  color: $black-text-color;
+
+  &.dark {
+    color: $white-text-color;
+  }
 }
 
 .description {
+  margin-bottom: 14px;
   font-weight: 400;
   font-size: 12px;
   line-height: 1.33;
+  color: $icon-main-color;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  &.dark {
+    color: $icon-secondary-color;
+  }
+}
+
+.controlPanel {
+  padding-top: 14px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-top: 1px solid rgba(22, 22, 22, 0.1);
+
+  &.dark {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+.statusInfo {
+  display: flex;
 }
 
 .subtitle {
+  margin-bottom: 4px;
   font-weight: 400;
   font-size: 8px;
   line-height: 1.5;
+  color: $icon-main-color;
+
+  &.dark {
+    color: $icon-secondary-color;
+  }
 }
 
-.priorityBox {
+.priorityWrapper {
+  margin-right: 14px;
+}
+
+.priorityStatus {
+  display: flex;
+}
+
+.priorityCircle {
   width: 12px;
   height: 12px;
+  margin-right: 4px;
   border-radius: 50%;
-  background-color: rgba(22, 22, 22, 0.3);
+  background-color: $icon-secondary-color;
 }
 
 .bg_low {
-  background-color: var(--priority-low-color);
+  background-color: $priority-low-color;
 }
 .bg_medium {
-  background-color: var(--priority-medium-color);
+  background-color: $priority-medium-color;
 }
 .bg_high {
-  background-color: var(--priority-high-color);
+  background-color: $priority-high-color;
 }
 
 .text {
   font-weight: 400;
   font-size: 10px;
   line-height: 1.5;
+  color: $black-text-color;
+
+  &.dark {
+    color: $white-color;
+  }
+}
+
+.iconsWrapper {
+  display: flex;
 }
 
 .buttonList {
   display: flex;
+  margin-left: 8px;
 }
 
-.item:not(:last-child) {
-  margin-left: 8px;
+.item {
+  width: 16px;
+  height: 16px;
+
+  &:not(:first-child) {
+    margin-left: 8px;
+  }
 }
 
 .icon {
   width: 16px;
   height: 16px;
+  stroke: $priority-high-color;
+
+  &.violet {
+    stroke: $accent-bright-color;
+  }
 }
