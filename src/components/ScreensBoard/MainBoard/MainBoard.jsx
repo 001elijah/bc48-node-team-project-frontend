@@ -1,20 +1,21 @@
 // import s from './MainBoard.module.scss';
 import { Wrapper } from './MainBoard.styled';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { HeaderDashBoard } from '../../HeaderDashBoard/HeaderDashBoard';
 import { AddButton } from '../../ButtonAddColumn/ButtonAddColumn';
+
+const BASE_URL_IMG = 'https://res.cloudinary.com/dblzpxfzb/image/upload/v1687449642/background/'
 // import { useParams } from 'react-router-dom';
 
-export const MainBoard = () => {
+export const MainBoard = ({imgid}) => {
   // const { boardName } = useParams();
 //робимо запит на бек за id дошки
-  const url =
-    'https://res.cloudinary.com/dg7gtqviy/image/upload/v1687337166/tb/x1/25_ygfh8n.jpg';
+
   return (
     <>
       <Wrapper
-        // imgurl = {require('../../assets/images/desktop/11.png')}
-        imgurl={url}
+        imgurl={BASE_URL_IMG}
+        imgid = {imgid}
       >
         <HeaderDashBoard title="test" />
 
@@ -24,6 +25,6 @@ export const MainBoard = () => {
   );
 };
 
-// MainBoard.propTypes = {
-//   boardtitle: PropTypes.string,
-// };
+MainBoard.propTypes = {
+  imgid: PropTypes.string,
+};
