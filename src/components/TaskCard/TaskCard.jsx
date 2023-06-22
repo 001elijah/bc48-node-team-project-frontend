@@ -11,6 +11,7 @@ import { BackdropModal } from 'components/BackdropMain/BackdropMain';
 import s from './TaskCard.module.scss';
 
 export const TaskCard = ({
+  id,
   title,
   description,
   priority = 'High',
@@ -28,7 +29,7 @@ export const TaskCard = ({
   const closeModalChangeColumn = () => setIsModalOpen(false);
 
   return (
-    <div className={clsx(s.cardWrapper, s[theme])}>
+    <li key={id} className={clsx(s.cardWrapper, s[theme])}>
       <div
         className={clsx(
           s.priorityLine,
@@ -100,16 +101,16 @@ export const TaskCard = ({
           <ModalChangeColumn closeModal={closeModalChangeColumn} />
         </BackdropModal>
       )}
-    </div>
+    </li>
   );
 };
 
 TaskCard.propTypes = {
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  priority: PropTypes.string.isRequired,
-  deadline: PropTypes.string.isRequired,
-  editCard: PropTypes.func.isRequired,
-  removeCard: PropTypes.func.isRequired,
-  theme: PropTypes.string.isRequire,
+  id: PropTypes.string,
+  title: PropTypes.string,
+  description: PropTypes.string,
+  priority: PropTypes.string,
+  deadline: PropTypes.string,
+  editCard: PropTypes.func,
+  removeCard: PropTypes.func,
 };
