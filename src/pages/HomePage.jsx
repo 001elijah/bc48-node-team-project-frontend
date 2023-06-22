@@ -10,7 +10,6 @@ export const HomePage = () => {
     <div>
       <Header />
 
-      
       <Board boardtitle="" />
 
       <button onClick={() => dispatch(logoutUser())}>Log logOut</button>

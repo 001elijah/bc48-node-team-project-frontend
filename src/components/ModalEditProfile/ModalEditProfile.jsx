@@ -69,20 +69,28 @@ export const ModalEditProfile = () => {
 
   return (
     <form onSubmit={formik.handleSubmit}>
-      <label htmlFor="image" className={s.image}>
-        <svg className={s.avatar}>
-          <use href={`${icons}#icon-user-${thema || 'light'}`}></use>
-        </svg>
-        <div className={`${s.button} ${s[thema]}`}>
+      <label htmlFor="image" className={s.wrapImage}>
+        <div>
+          {imageFile ? (
+            <img src={imageFile} alt="Selected Avatar" className={s.image} />
+          ) : (
+            <svg className={s.avatar}>
+              <use href={`${icons}#icon-user-${thema || 'light'}`}></use>
+            </svg>
+          )}
+        </div>
+        {/* <svg className={s.avatar}>
+        </svg> */}
+        <div className={`${s.buttonPlus} ${s[thema]}`}>
           +
           {/* <svg className={s.buttonPlus}>
             
           <use href={`${icons}#icon-plus`}></use>
         </svg> */}
         </div>
-        {imageFile && <img src={imageFile} alt="Selected Avatar" />}
+        {/* {imageFile && <img src={imageFile} alt="Selected Avatar" />} */}
         <input
-          className={s.close}
+          className={s.isHidden}
           id="image"
           name="image"
           type="file"
@@ -126,7 +134,7 @@ export const ModalEditProfile = () => {
           type={showPassword ? 'text' : 'password'}
           onChange={formik.handleChange}
           value={formik.values.password}
-          placeholder="Create a password"
+          placeholder="Password"
         />
         <svg className={y.eye} onClick={toggleShowPassword}>
           <use

@@ -54,7 +54,7 @@
   }
 }
 
-.image {
+.wrapImage {
   position: relative;
   display: block;
   width: 68px;
@@ -64,7 +64,7 @@
   cursor: pointer;
 }
 
-.close {
+.isHidden {
   position: absolute;
   width: 0;
   height: 0;
@@ -73,7 +73,7 @@
   opacity: 0;
 }
 
-.button {
+.buttonPlus {
   position: absolute;
   top: 55px;
   left: 50%;
@@ -95,8 +95,10 @@
   }
 }
 
-.send {
-  background-color: $light-violet;
+.image {
+  display: block;
+  width: 68px;
+  height: 68px;
 }
 
 // .buttonPlus {
