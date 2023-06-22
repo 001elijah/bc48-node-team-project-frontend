@@ -7,7 +7,7 @@ import HelpWindow from './HelpWindow/HelpWindow';
 import Logout from './Logout/Logout';
 
 const Sidebar = () => {
-  const theme = 'dark'; // change theme between dark, light and colorful to see how it works
+  const theme = 'colorful'; // change theme between dark, light and colorful to see how it works
   return (
     <div className={clsx(s.container, s[theme])}>
       <Logo theme={theme} />
