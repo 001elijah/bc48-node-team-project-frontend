@@ -1,0 +1,254 @@
+@import '../../assets/styles/vars';
+
+.Wrapper {
+  box-sizing: border-box;
+  position: relative;
+  width: 300px;
+  height: 367px;
+
+  border: 1px solid rgba(190, 219, 176, 0.5);
+  border-radius: 8px;
+  padding: 24px 20px 24px 24px;
+  z-index: 10;
+  opacity: 1;
+  &.dark {
+    background: #151515;
+  }
+  &.light {
+    background: $white-color;
+  }
+  &.colorful {
+    background: $white-color;
+  }
+}
+.TitleBlock {
+  height: 41px;
+
+  &.dark {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  &.light,
+  &.colorful {
+    border-bottom: 1px solid rgba(22, 22, 22, 0.1);
+  }
+}
+.HeadTitle {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 27px;
+  letter-spacing: -0.02em;
+
+  &.dark {
+    color: $white-color;
+  }
+  &.light,
+  &.colorful {
+    color: $black-color;
+  }
+}
+.Title {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: -0.02em;
+  &.dark {
+    color: $white-color;
+  }
+  &.light,
+  &.colorful {
+    color: $black-color;
+  }
+}
+.BackgroundBlock {
+  margin-top: 14px;
+  &.dark {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  &.light,
+  &.colorful {
+    border-bottom: 1px solid rgba(22, 22, 22, 0.1);
+  }
+}
+.ShowAll {
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: -0.02em;
+  text-decoration-line: underline;
+  cursor: pointer;
+  &.dark {
+    color: rgba(255, 255, 255, 0.5);
+    &.hover,
+    &:focus {
+      color: $accent-color;
+    }
+  }
+  &.light,
+  &.colorful {
+    color: #16161680;
+    &.hover,
+    &:focus {
+      color: $accent-color;
+    }
+  }
+}
+.TextLine {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 24px;
+  margin-bottom: 14px;
+}
+.Button {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: transparent;
+}
+.Svg {
+  &.dark {
+    stroke: $white-color;
+  }
+  &.light,
+  &.colorful {
+    stroke: $black-color;
+  }
+}
+.InputBlock {
+  margin-bottom: 12px;
+}
+.LabelField {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+  cursor: pointer;
+
+  &.dark {
+    color: #ffffff80;
+    &:hover,
+    &:focus {
+      color: inherit;
+    }
+  }
+  &.light,
+  &.colorful {
+    color: #16161680;
+    &:hover,
+    &:focus {
+      color: $black-color;
+    }
+  }
+}
+
+.InputField {
+  position: relative;
+  margin-left: 22px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+  &::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -16px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+.InputField {
+  &[id='without']::before {
+    background-color: #ffffff4d;
+  }
+  &[id='low']::before {
+    background-color: $priority-low-color;
+  }
+  &[id='medium']::before {
+    background-color: $priority-medium-color;
+  }
+  &[id='high']::before {
+    background-color: $priority-high-color;
+  }
+}
+
+.InputField:checked::after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -16px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  visibility: visible;
+}
+.InputField:checked {
+  & + .LabelField {
+    color: $white-color;
+    &.dark {
+      color: $white-color;
+    }
+    &.light,
+    &.colorful {
+      color: $black-color;
+    }
+  }
+}
+.InputField:checked.dark {
+  &[id='without']::after {
+    background-color: rgba(255, 255, 255, 0.3);
+    border: 2px solid $black-color;
+  }
+  &[id='low']::after {
+    background-color: $priority-low-color;
+    border: 2px solid $black-color;
+  }
+  &[id='medium']::after {
+    background-color: $priority-medium-color;
+    border: 2px solid $black-color;
+  }
+  &[id='high']::after {
+    background-color: $priority-high-color;
+    border: 2px solid $black-color;
+  }
+}
+.InputField:checked.light,
+.InputField:checked.colorful {
+  &[id='without']::after {
+    background-color: #ffffff4d;
+    border: 2px solid $white-color;
+  }
+  &[id='low']::after {
+    background-color: $priority-low-color;
+    border: 2px solid $white-color;
+  }
+  &[id='medium']::after {
+    background-color: $priority-medium-color;
+    border: 2px solid $white-color;
+  }
+  &[id='high']::after {
+    background-color: $priority-high-color;
+    border: 2px solid $white-color;
+  }
+}
+.ImgBlock {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+  margin-bottom: 14px;
+}
+.ImgButton {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+}
