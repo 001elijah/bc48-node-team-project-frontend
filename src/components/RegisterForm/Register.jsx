@@ -28,17 +28,17 @@ export const Register = () => {
   });
   return (
     <form onSubmit={formik.handleSubmit}>
-      <label htmlFor="name">
+      <label htmlFor="userName">
         <input
           id="userName"
           name="userName"
           type="text"
           onChange={formik.handleChange}
-          value={formik.values.name}
+          value={formik.values.userName}
           placeholder="Enter your name"
         />
-        {formik.touched.name && formik.errors.name && (
-          <p className={y.error}>{formik.errors.name}</p>
+        {formik.touched.userName && formik.errors.userName && (
+          <p className={y.error}>{formik.errors.userName}</p>
         )}
       </label>
       <label htmlFor="email">

@@ -9,8 +9,6 @@ import { BoardPage } from 'pages/BoardPage';
 
 import { PrivateRoute, PublicRoute } from './Route/route';
 
-
-
 import { currentUser } from 'redux/Auth/authOperations';
 import { Loader } from './Loader/Loader';
 

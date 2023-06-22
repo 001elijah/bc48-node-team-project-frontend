@@ -5,7 +5,7 @@ import {
   currentUser,
   logoutUser,
   themeChangeUser,
-  updateUser
+  updateUser,
 } from './authOperations';
 
 const authSlice = createSlice({
@@ -73,7 +73,7 @@ const authSlice = createSlice({
         return {
           ...state,
           ...payload,
-        }
+        };
       })
       .addMatcher(
         action =>

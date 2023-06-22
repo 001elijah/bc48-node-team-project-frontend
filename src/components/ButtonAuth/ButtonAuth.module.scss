@@ -19,6 +19,11 @@
 
   cursor: pointer;
 
+  &.colorful {
+    background-color: $accent-bright-color;
+    color: $white-text-color;
+  }
+
   @include mobile {
     min-width: 288px;
   }
