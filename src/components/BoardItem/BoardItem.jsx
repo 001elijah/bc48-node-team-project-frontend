@@ -1,11 +1,14 @@
 import s from './BoardItem.module.scss';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import sprite from '../../../assets/icons/sprite.svg';
+import sprite from 'assets/icons/sprite.svg';
 
-const BoardItem = ({ boardName, icon, theme, current }) => {
+export const BoardItem = ({ boardName, icon, theme, onClick, isCurrent }) => {
   return (
-    <li className={clsx(s.item, s[theme], current && s.current)}>
+    <li
+      onClick={onClick}
+      className={clsx(s.item, s[theme], isCurrent && s.current)}
+    >
       <div className={s.projectNameWrapper}>
         <svg className={clsx(s.iconProject, s[theme])}>
           <use href={icon}></use>
@@ -32,7 +35,6 @@ BoardItem.propTypes = {
   boardName: PropTypes.string.isRequired,
   icon: PropTypes.string.isRequired,
   theme: PropTypes.string.isRequired,
-  current: PropTypes.bool,
+  onClick: PropTypes.func.isRequired,
+  isCurrent: PropTypes.bool.isRequired,
 };
-
-export default BoardItem;

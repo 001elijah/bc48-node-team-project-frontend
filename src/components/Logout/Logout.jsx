@@ -1,11 +1,11 @@
 import s from './Logout.module.scss';
-import sprite from '../../../assets/icons/sprite.svg';
+import sprite from 'assets/icons/sprite.svg';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { logoutUser } from '../../../redux/Auth/authOperations';
+import { logoutUser } from '../../redux/Auth/authOperations';
 
-const Logout = ({ theme }) => {
+export const Logout = ({ theme }) => {
   const dispatch = useDispatch();
 
   return (
@@ -27,5 +27,3 @@ const Logout = ({ theme }) => {
 Logout.propTypes = {
   theme: PropTypes.string.isRequired,
 };
-
-export default Logout;

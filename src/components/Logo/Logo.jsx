@@ -1,9 +1,9 @@
 import s from './Logo.module.scss';
-import sprite from '../../../assets/icons/sprite.svg';
+import sprite from 'assets/icons/sprite.svg';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 
-const Logo = ({ theme }) => {
+export const Logo = ({ theme }) => {
   return (
     <a
       href="/bc48-node-team-project-frontend/home"
@@ -20,5 +20,3 @@ const Logo = ({ theme }) => {
 Logo.propTypes = {
   theme: PropTypes.string.isRequired,
 };
-
-export default Logo;

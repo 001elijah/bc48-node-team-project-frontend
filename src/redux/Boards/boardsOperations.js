@@ -13,4 +13,9 @@ export const getListOfBoards = createAsyncThunk(
       rejectWithValue(error.message);
     }
   },
+  {
+    condition(_, { getState }) {
+      return Boolean(getState().boards.length <= 0);
+    },
+  },
 );

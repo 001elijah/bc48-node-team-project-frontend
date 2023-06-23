@@ -5,10 +5,12 @@ import { BackdropModal } from '../BackdropMain/BackdropMain';
 import { selectorTheme } from 'redux/Auth/authSelectors';
 import s from './Modal.module.scss';
 import svg from 'assets/icons/sprite.svg';
+import clsx from 'clsx';
 
-export const Modal = ({ title, onClose, children }) => {
+export const Modal = ({ title, onClose, children, className = '' }) => {
   const theme = useSelector(selectorTheme);
   const [, setThemeClass] = useState('');
+  console.log();
 
   useEffect(() => {
     setThemeClass(s[theme]);
@@ -53,4 +55,5 @@ Modal.propTypes = {
   title: PropTypes.string.isRequired,
   onClose: PropTypes.func.isRequired,
   children: PropTypes.node.isRequired,
+  className: PropTypes.string,
 };

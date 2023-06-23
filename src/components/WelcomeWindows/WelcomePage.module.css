@@ -11,14 +11,14 @@
   width: 124px;
   height: 124px;
   margin-bottom: 14px;
-  background-image: url("../../assets/images/welcome-page-mob-1x.png");
+  background-image: url('../../assets/images/welcome-page-mob-1x.png');
 }
 @media screen and (min-width: 768px) {
   .image {
     margin-bottom: 24px;
     width: 162px;
     height: 162px;
-    background-image: url("../../assets/images/welcome-page-1x.png");
+    background-image: url('../../assets/images/welcome-page-1x.png');
   }
 }
 
@@ -111,4 +111,4 @@
   font-weight: 500;
   font-size: 14px;
   line-height: 1.5;
-}/*# sourceMappingURL=WelcomePage.module.css.map */
+} /*# sourceMappingURL=WelcomePage.module.css.map */

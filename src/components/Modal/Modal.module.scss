@@ -51,11 +51,8 @@
   }
 
   @include tablet {
-    max-width: 350px;
-  }
-
-  @include desktop {
-    max-width: 350px;
+    min-width: 350px;
+    max-width: min-content;
   }
 }
 

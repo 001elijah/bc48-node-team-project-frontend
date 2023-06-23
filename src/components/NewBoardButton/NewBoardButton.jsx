@@ -1,9 +1,9 @@
 import s from './NewBoardButton.module.scss';
-import sprite from '../../../assets/icons/sprite.svg';
+import sprite from 'assets/icons/sprite.svg';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 
-const NewBoardButton = ({ theme }) => {
+export const NewBoardButton = ({ theme }) => {
   return (
     <button type="button" className={clsx(s.button, s[theme])}>
       <span className={clsx(s.text, s[theme])}>
@@ -21,5 +21,3 @@ const NewBoardButton = ({ theme }) => {
 NewBoardButton.propTypes = {
   theme: PropTypes.string.isRequired,
 };
-
-export default NewBoardButton;

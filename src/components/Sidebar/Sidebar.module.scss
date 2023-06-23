@@ -1,9 +1,5 @@
 @import '../../assets/styles/vars';
 @import '../../assets/styles/mixins';
-
-body {
-  background-color: $off-white-color;
-}
 .container {
   width: 225px;
   background-color: $white-color;
@@ -12,13 +8,14 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow-y: scroll;
 
   @include tablet {
-    width: 260px;
+    min-width: 260px;
     padding: 24px 0 24px;
   }
   @include desktop {
-    width: 260px;
+    min-width: 260px;
     padding: 24px 0 24px;
   }
 
@@ -33,6 +30,15 @@ body {
   &.colorful {
     background-color: $accent-bright-color;
   }
+
+  // transform: translateX(-100%);
+  // transform: translateX(0%);
+  // transition-duration: 1250ms;
+  // transition-property: transform;
+  // transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+  // opacity: 0;
+  // transition: opacity 0.3s ease-in;
 }
 
 .text {

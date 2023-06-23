@@ -1,9 +1,10 @@
-@import '../../../assets/styles/vars';
-@import '../../../assets/styles/mixins';
+@import 'assets/styles/vars';
+@import 'assets/styles/mixins';
 
 .container {
   width: 197px;
   height: 238px;
+  margin-top: 40px;
   background-color: $off-white-color;
   border-radius: 8px;
   padding: 14px;
@@ -160,5 +161,68 @@
   }
   &.colorful {
     color: $white-color;
+  }
+}
+
+.emailInput {
+  width: 287px;
+  height: 49px;
+  border: 1px solid $accent-color;
+  border-radius: 8px;
+  padding: 14px 0 14px 18px;
+  background-color: transparent;
+
+  color: $white-color;
+  font-family: 'Poppins-Regular';
+  font-size: 14px;
+  letter-spacing: -0.28px;
+
+  @include tablet {
+    width: 352px;
+    height: 49px;
+    margin-right: 24px;
+  }
+  &:focus-visible {
+    outline: none;
+  }
+}
+
+.commentInput {
+  margin-top: 14px;
+  width: 287px;
+  height: 120px;
+  border: 1px solid $accent-color;
+  border-radius: 8px;
+  padding: 14px 0 14px 18px;
+  background-color: transparent;
+
+  color: $white-color;
+  font-family: 'Poppins-Regular';
+  font-size: 14px;
+  letter-spacing: -0.28px;
+
+  @include tablet {
+    width: 352px;
+    height: 120px;
+    margin-right: 24px;
+  }
+
+  &:focus-visible {
+    outline: none;
+  }
+}
+
+.sendButton {
+  margin-top: 24px;
+  width: 287px;
+  height: 49px;
+  border-radius: 8px;
+  border: none;
+  background-color: $accent-color;
+  cursor: pointer;
+
+  @include tablet {
+    width: 352px;
+    height: 49px;
   }
 }
