@@ -1,17 +1,16 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
+import { createAsyncThunk } from '@reduxjs/toolkit';
 
-import {
-    getListOfBoardsApi,
-} from "../../services/backendAPI";
+import { getListOfBoardsApi } from '../../services/backendAPI';
 
-export const getListOfBoards = createAsyncThunk('boards/getListOfBoards',
-    async (_, { getState, rejectWithValue }) => {
-        const { token } = getState().auth;
-        try {
-            const boardsList = await getListOfBoardsApi(token);
-            return boardsList;
-        } catch (error) {
-            rejectWithValue(error.message);
-        }
+export const getListOfBoards = createAsyncThunk(
+  'boards/getListOfBoards',
+  async (_, { getState, rejectWithValue }) => {
+    const { token } = getState().auth;
+    try {
+      const boardsList = await getListOfBoardsApi(token);
+      return boardsList;
+    } catch (error) {
+      rejectWithValue(error.message);
     }
-)
+  },
+);

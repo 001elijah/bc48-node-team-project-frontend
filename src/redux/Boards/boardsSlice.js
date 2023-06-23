@@ -1,7 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import {
-  getListOfBoards
-} from './boardsOperations';
+import { getListOfBoards } from './boardsOperations';
 
 const boardsSlice = createSlice({
   name: 'boards',
