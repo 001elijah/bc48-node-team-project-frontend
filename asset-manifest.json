@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/bc48-node-team-project-frontend/static/css/main.e58167e7.css",
-    "main.js": "/bc48-node-team-project-frontend/static/js/main.a5507a13.js",
+    "main.css": "/bc48-node-team-project-frontend/static/css/main.ddc28291.css",
+    "main.js": "/bc48-node-team-project-frontend/static/js/main.220816b9.js",
     "static/media/Poppins-Regular.ttf": "/bc48-node-team-project-frontend/static/media/Poppins-Regular.35d26b781dc5fda684cc.ttf",
     "static/media/Poppins-Medium.ttf": "/bc48-node-team-project-frontend/static/media/Poppins-Medium.673ed42382ab264e0bf5.ttf",
     "static/media/Poppins-SemiBold.ttf": "/bc48-node-team-project-frontend/static/media/Poppins-SemiBold.ac8d04b620e54be9b0f0.ttf",
-    "static/media/sprite.svg": "/bc48-node-team-project-frontend/static/media/sprite.73574fd3f11d23fe7b71fde3c0a194ff.svg",
+    "static/media/sprite.svg": "/bc48-node-team-project-frontend/static/media/sprite.e2eea997b674a46bf81baf0ec8b1b9c4.svg",
     "static/media/welcome-page-1x.png": "/bc48-node-team-project-frontend/static/media/welcome-page-1x.abcacf1d2213219c6bdf.png",
     "static/media/welcome-page-mob-1x.png": "/bc48-node-team-project-frontend/static/media/welcome-page-mob-1x.170ac35e3bc68fd8ecd2.png",
     "index.html": "/bc48-node-team-project-frontend/index.html",
-    "main.e58167e7.css.map": "/bc48-node-team-project-frontend/static/css/main.e58167e7.css.map",
-    "main.a5507a13.js.map": "/bc48-node-team-project-frontend/static/js/main.a5507a13.js.map"
+    "main.ddc28291.css.map": "/bc48-node-team-project-frontend/static/css/main.ddc28291.css.map",
+    "main.220816b9.js.map": "/bc48-node-team-project-frontend/static/js/main.220816b9.js.map"
   },
   "entrypoints": [
-    "static/css/main.e58167e7.css",
-    "static/js/main.a5507a13.js"
+    "static/css/main.ddc28291.css",
+    "static/js/main.220816b9.js"
   ]
 }
