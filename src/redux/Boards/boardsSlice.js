@@ -6,7 +6,7 @@ const boardsSlice = createSlice({
   initialState: [],
   extraReducers: builder => {
     builder.addCase(getListOfBoards.fulfilled, (state, { payload }) => {
-      state.boards = payload;
+      state.push(payload)
     });
   },
 });
