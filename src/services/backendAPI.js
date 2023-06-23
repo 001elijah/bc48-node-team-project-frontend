@@ -41,7 +41,7 @@ export const themeChangeUserApi = async theme => {
 };
 //---------------------------------------------BOARDS---------------------//
 
-export const getListOfCategoryApi = async userToken => {
+export const getListOfBoardsApi = async userToken => {
   token.set(userToken);
   const { data } = await axios.get('/board/');
   return data;
