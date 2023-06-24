@@ -1,38 +1,48 @@
 @import '../../assets/styles/vars';
 
-.calendar {
-  // position: absolute;
-  // top: 240px;
-  // left: 120px;
-  // z-index: 1;
-  // width: 217px;
-  // @include tablet {
-  //   top: -54px;
-  //   left: 484px;
-  //   z-index: 1;
-  // }
-  // @include desktop {
-  //   top: -54px;
-  //   left: 550px;
-  //   z-index: 1;
-  // }
-}
+// .calendar {
+//   // position: absolute;
+//   // top: 240px;
+//   // left: 120px;
+//   // z-index: 1;
+//   // width: 217px;
+//   // @include tablet {
+//   //   top: -54px;
+//   //   left: 484px;
+//   //   z-index: 1;
+//   // }
+//   // @include desktop {
+//   //   top: -54px;
+//   //   left: 550px;
+//   //   z-index: 1;
+//   // }
+// }
+
 .headerWrapper {
+  width: 201px;
   display: flex;
-  margin-top: 18px;
   margin-bottom: 28px;
   justify-content: space-between;
-  font-family: "Poppins-Medium";
+  font-family: 'Poppins-Medium';
   font-size: 16px;
   color: $white-text-color;
+
+  & + div {
+    width: 201px;
+
+    & > * {
+      max-width: 23px;
+      max-height: 23px;
+      color: $white-text-color;
+    }
+  }
 
   &::after {
     content: '';
     position: absolute;
-    width: 70%;
+    width: 100%;
     height: 1px;
-    left: 15%;
-    top: 54px;
+    top: 48px;
     background-color: rgb(255, 255, 255, 0.2);
     border-radius: 2px;
   }
@@ -46,7 +56,7 @@
 }
 
 .calendarConatiner {
-  width: 233px;
+  width: 201px;
   height: 254px;
   padding-top: 0;
 
@@ -61,89 +71,89 @@
   padding: 18px;
 
   overflow: hidden;
-  
+
   border: 1px solid $accent-color;
   border-radius: 8px;
   background-color: $dark-color;
 
-  &>div{
+  & > div {
     width: 100%;
     height: 100%;
   }
 
   & > div * {
-    border:none;
+    border: none;
     background-color: $dark-color;
   }
 }
 
-  // & > div {
+// & > div {
 
-  // }
+// }
 
-  // & > div * {
-  //   background: inherit;
-  //   border: none;
-  // }
+// & > div * {
+//   background: inherit;
+//   border: none;
+// }
 
-  // & > div > div > div:first-child {
-  //   // strelka up
-  //   display: none;
-  // }
+// & > div > div > div:first-child {
+//   // strelka up
+//   display: none;
+// }
 
-  // & > div > div > div:last-child {
-  //   // background: red;
+// & > div > div > div:last-child {
+//   // background: red;
 
-  //   & > div {
-  //     border: none;
-  //     background-color: blue;
-  //     & > div:nth-child(1) {
-  //       // назва мысяця
-  //       color: white;
-  //       margin-bottom: 24px;
-  //     }
-  //   }
+//   & > div {
+//     border: none;
+//     background-color: blue;
+//     & > div:nth-child(1) {
+//       // назва мысяця
+//       color: white;
+//       margin-bottom: 24px;
+//     }
+//   }
 
-  //   & > div:last-child {
-  //     // дати 1-31
-  //     background: green;
-  //     color: white;
-  //     & > * {
-  //       // react-datepicker__week
-  //       // color: red;
+//   & > div:last-child {
+//     // дати 1-31
+//     background: green;
+//     color: white;
+//     & > * {
+//       // react-datepicker__week
+//       // color: red;
 
-  //       & > * .react-datepicker__day--disabled {
-  //         color: green;
-  //       }
+//       & > * .react-datepicker__day--disabled {
+//         color: green;
+//       }
 
-  //       & > * {
-  //         // color: #161616;
-  //         color: white;
-  //       }
-  //     }
-  //   }
+//       & > * {
+//         // color: #161616;
+//         color: white;
+//       }
+//     }
+//   }
 
-    // & > div > div {
-      // & > div:nth-child(1) {
-      //   color: red;
-      // }
-      // & > * {
-        // назви тижня
-        // color: rgba(22, 22, 22, 0.5);
+// & > div > div {
+// & > div:nth-child(1) {
+//   color: red;
+// }
+// & > * {
+// назви тижня
+// color: rgba(22, 22, 22, 0.5);
 
-  //       color: red;
-  //       font-size: 14px;
-  //       font-family: Poppins;
-  //       font-weight: 500;
-  //       letter-spacing: -0.28px;
-  //     }
-  //   }
-  // }
+//       color: red;
+//       font-size: 14px;
+//       font-family: Poppins;
+//       font-weight: 500;
+//       letter-spacing: -0.28px;
+//     }
+//   }
+// }
 
-  // & > div > div > div.react-datepicker__triangle {
-  //   // strelka up
-  //   display: none;
-  // }
+// & > div > div > div.react-datepicker__triangle {
+//   // strelka up
+//   display: none;
+// }
 // }
 
 // .popper {

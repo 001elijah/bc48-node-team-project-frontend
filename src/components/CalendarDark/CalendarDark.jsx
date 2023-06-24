@@ -11,18 +11,18 @@ import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 export const CalendarDark = ({ onDate }) => {
   const [startDate, setStartDate] = useState(new Date());
   const months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
   ];
   useEffect(() => {
     onDate(startDate);
@@ -34,6 +34,7 @@ export const CalendarDark = ({ onDate }) => {
       selected={startDate}
       calendarClassName={s.calendarConatiner}
       popperClassName={s.popperCustomClass}
+      // formatWeekDay={day => day.substr(0, 2)}
       customInput={
         <CalendarButton
           onClick={e => {
@@ -53,13 +54,15 @@ export const CalendarDark = ({ onDate }) => {
       }) => (
         <div className={s.headerWrapper}>
           <button onClick={decreaseMonth} disabled={prevMonthButtonDisabled}>
-            {"<"}
+            {'<'}
           </button>
           <div>
-            <span>{getYear(date)} {months[getMonth(date)]}</span>
+            <span>
+              {getYear(date)} {months[getMonth(date)]}
+            </span>
           </div>
           <button onClick={increaseMonth} disabled={nextMonthButtonDisabled}>
-            {">"}
+            {'>'}
           </button>
         </div>
       )}
