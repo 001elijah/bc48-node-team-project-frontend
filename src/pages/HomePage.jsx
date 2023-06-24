@@ -1,7 +1,6 @@
 import { Sidebar } from '../components/Sidebar/Sidebar';
 import React from 'react';
 import { Header } from 'components/Header/Header';
-import { Board } from 'components/ScreensBoard/ScreensBoard';
 import { useMediaQuery } from 'react-responsive';
 
 export const HomePage = () => {
@@ -13,7 +12,6 @@ export const HomePage = () => {
 
       <div>
         <Header />
-        <Board boardtitle="" />
       </div>
     </div>
   );
