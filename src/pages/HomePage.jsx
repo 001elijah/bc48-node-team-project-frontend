@@ -1,8 +1,10 @@
 import { Sidebar } from '../components/Sidebar/Sidebar';
 import React from 'react';
 import { Header } from 'components/Header/Header';
-import { Board } from 'components/ScreensBoard/ScreensBoard';
+// import { Board } from 'components/ScreensBoard/ScreensBoard';
 import { useMediaQuery } from 'react-responsive';
+import { ModalBoard } from 'components/ModalBoard/ModalBoard';
+import { ModalCard } from 'components/ModalCard/ModalCard';
 
 export const HomePage = () => {
   const isDesktopSize = useMediaQuery({ query: '(min-width: 1280px)' });
@@ -18,7 +20,9 @@ export const HomePage = () => {
           <option value="dark">Dark</option>
           <option value="colorful">Colorful</option>
         </select> */}
-        <Board boardtitle="" />
+        {/* <Board boardtitle="" /> */}
+        {/* <ModalBoard modalTitle='New board' titleModalButton="Create"/> */}
+        <ModalCard inputTitle='New card' titleModalButton="Add"/>
       </div>
     </div>
   );

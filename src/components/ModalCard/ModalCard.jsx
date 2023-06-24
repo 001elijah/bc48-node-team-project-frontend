@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import s from './ModalCard.module.scss';
 import { useState } from 'react';
 import { BoxRadioColorGroup } from 'components/BoxRadioColorGroup/BoxRadioColorGroup';
+import { CalendarDark } from 'components/CalendarDark/CalendarDark';
 // import { SelectData } from 'components/SelectData/SelectData';
 import { selectorTheme } from 'redux/Auth/authSelectors';
 import { useSelector } from 'react-redux';
@@ -56,6 +57,7 @@ export const ModalCard = ({
       ></textarea>
       <BoxRadioColorGroup valueChange={handleChangeColor} />
       {/* <SelectData onDate={setDate} /> */}
+      <CalendarDark onDate={setDate} />
     </ModalColumn>
   );
 };
@@ -63,6 +65,6 @@ export const ModalCard = ({
 ModalCard.propTypes = {
   inputTitle: PropTypes.string.isRequired,
   titleModalButton: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired,
-  handleToggleModal: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
+  handleToggleModal: PropTypes.func,
 };
