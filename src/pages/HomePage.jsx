@@ -12,12 +12,6 @@ export const HomePage = () => {
 
       <div>
         <Header />
-        {/* <Board boardtitle="" /> */}
-
-        {/* Приклади модалок створення/редагування дошок/колонок/карток */}
-        {/* <CardModalWindow inputTitle='Title' titleModalButton="Add" modalTitle="Add card"/> */}
-        {/* <ReusableColumnModalWindow inputTitle='Title' titleModalButton="Add" modalTitle="Add column"/> */}
-        {/* <BoardModalWindow inputTitle='Title' titleModalButton="Create" modalTitle="New board"/> */}
       </div>
     </div>
   );

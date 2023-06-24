@@ -3,13 +3,13 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { ButtonAuth } from '../ButtonAuth/ButtonAuth';
-import { validationSchemaLogin } from '../schemaValidation';
-import { loginUser } from 'redux/Auth/authOperations';
+import { validationSchemaRegister } from '../SchemaValidation/schemaValidation';
+import { registerUser } from 'redux/Auth/authOperations';
 
-import icons from 'assets/icons/sprite.svg';
-import y from './Login.module.scss';
+import icons from '../../assets/icons/sprite.svg';
+import y from '../LoginForm/Login.module.scss';
 
-export const Login = () => {
+export const Register = () => {
   const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
 
@@ -17,16 +17,30 @@ export const Login = () => {
 
   const formik = useFormik({
     initialValues: {
+      userName: '',
       email: '',
       password: '',
     },
-    validationSchema: validationSchemaLogin,
+    validationSchema: validationSchemaRegister,
     onSubmit: values => {
-      dispatch(loginUser(values));
+      dispatch(registerUser(values));
     },
   });
   return (
     <form onSubmit={formik.handleSubmit}>
+      <label htmlFor="userName">
+        <input
+          id="userName"
+          name="userName"
+          type="text"
+          onChange={formik.handleChange}
+          value={formik.values.userName}
+          placeholder="Enter your name"
+        />
+        {formik.touched.userName && formik.errors.userName && (
+          <p className={y.error}>{formik.errors.userName}</p>
+        )}
+      </label>
       <label htmlFor="email">
         <input
           id="email"
@@ -47,7 +61,7 @@ export const Login = () => {
           type={showPassword ? 'text' : 'password'}
           onChange={formik.handleChange}
           value={formik.values.password}
-          placeholder="Confirm a password"
+          placeholder="Create a password"
         />
 
         <svg className={y.eye} onClick={toggleShowPassword}>
@@ -59,7 +73,7 @@ export const Login = () => {
           <p className={y.error}>{formik.errors.password}</p>
         )}
       </label>
-      <ButtonAuth title="Log In Now" />
+      <ButtonAuth title="Register Now" />
     </form>
   );
 };

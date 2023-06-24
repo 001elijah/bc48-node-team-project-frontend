@@ -1,5 +1,5 @@
-@import 'assets/styles/vars';
-@import 'assets/styles/mixins';
+@import '../../assets/styles/vars';
+@import '../../assets/styles/mixins';
 
 .button {
   width: 100%;
@@ -18,6 +18,11 @@
   border-radius: 8px;
 
   cursor: pointer;
+
+  &.colorful {
+    background-color: $accent-bright-color;
+    color: $white-text-color;
+  }
 
   @include mobile {
     min-width: 288px;
