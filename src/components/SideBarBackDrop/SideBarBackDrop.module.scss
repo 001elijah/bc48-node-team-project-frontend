@@ -1,0 +1,17 @@
+@import 'assets/styles/mixins';
+
+.backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100%;
+  overflow-y: scroll;
+
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 500;
+
+  @include desktop {
+    overflow-y: hidden;
+  }
+}

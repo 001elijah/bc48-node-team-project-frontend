@@ -6,7 +6,7 @@ import { ButtonAuth } from '../ButtonAuth/ButtonAuth';
 import { validationSchemaRegister } from '../schemaValidation';
 import { registerUser } from 'redux/Auth/authOperations';
 
-import icons from '../../../assets/icons/sprite.svg';
+import icons from 'assets/icons/sprite.svg';
 import y from '../Login/Login.module.scss';
 
 export const Register = () => {
