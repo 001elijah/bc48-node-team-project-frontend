@@ -42,7 +42,7 @@ export const themeChangeUserApi = async theme => {
 
 export const updateUserApi = async userData => {
   const { data } = await axios.patch('user/updateUserInfo', userData);
-  return data
+  return data;
 };
 //---------------------------------------------BOARDS---------------------//
 
@@ -62,4 +62,3 @@ export const getListOfBoardsApi = async userToken => {
 //   const { data } = await axios.post('/board');
 //   return data;
 // };
-

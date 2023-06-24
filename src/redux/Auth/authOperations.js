@@ -108,10 +108,10 @@ export const themeChangeUser = createAsyncThunk(
 
 export const updateUser = createAsyncThunk(
   'auth/updateUser',
-  async (userData, {rejectWithValue }) => {
+  async (userData, { rejectWithValue }) => {
     try {
       const { data } = await updateUserApi(userData);
-      return data
+      return data;
     } catch (error) {
       return rejectWithValue(error.message);
     }

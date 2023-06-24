@@ -13,7 +13,7 @@ import icons from '../../assets/icons/sprite.svg';
 import s from './ModalEditProfile.module.scss';
 import y from '../LoginForm/Login.module.scss';
 
-export const ModalEditProfile = ({onClose}) => {
+export const ModalEditProfile = ({ onClose }) => {
   const dispatch = useDispatch();
 
   const [showPassword, setShowPassword] = useState(false);
@@ -37,7 +37,7 @@ export const ModalEditProfile = ({onClose}) => {
     },
     validationSchema: validationSchemaRegister,
     onSubmit: values => {
-      onClose()
+      onClose();
       console.log(values);
       dispatch(updateUser(values));
     },
@@ -151,7 +151,6 @@ export const ModalEditProfile = ({onClose}) => {
     </form>
   );
 };
-
 
 ModalEditProfile.propTypes = {
   onClose: PropTypes.node.isRequired,
