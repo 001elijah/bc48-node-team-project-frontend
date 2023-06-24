@@ -99,3 +99,16 @@
 .description:focus {
   opacity: initial;
 }
+
+// &[id='without']::before {
+//   background-color: #ffffff4d;
+// }
+// &[id='low']::before {
+//   background-color: $priority-low-color;
+// }
+// &[id='medium']::before {
+//   background-color: $priority-medium-color;
+// }
+// &[id='high']::before {
+//   background-color: $priority-high-color;
+// }

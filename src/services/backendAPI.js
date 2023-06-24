@@ -39,3 +39,16 @@ export const themeChangeUserApi = async theme => {
   const { data } = await axios.patch('', theme);
   return data;
 };
+
+// add Board
+// board/column
+export const addColumn = async board => {
+  const { data } = await axios.post('board/column');
+  console.log(data);
+  return data;
+};
+
+export const editColumn = async board => {
+  const { data } = await axios.post('/board');
+  return data;
+};

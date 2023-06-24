@@ -8,7 +8,7 @@
   padding-left: 0px;
   margin: 0 auto 0 auto;
   /* margin-left: auto;
-  margin-right: auto; */
+    margin-right: auto; */
 }
 
 .item {
@@ -98,7 +98,7 @@
 }
 
 :global .react-datepicker {
-  width: 196px;
+  width: 233px;
   min-height: 254px;
 
   background: #1f1f1f;
@@ -161,7 +161,7 @@
 
 :global .react-datepicker__day {
   /* margin-left: auto;
-margin-right: auto; */
+  margin-right: auto; */
   margin-top: 0;
   margin-bottom: 11px;
 }
