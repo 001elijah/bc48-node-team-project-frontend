@@ -45,13 +45,11 @@
     background-color: $white-background-modal;
   }
 
-  // @include tablet {
-  //   max-width: 350px;
-  // }
 
-  // @include desktop {
-  //   max-width: 350px;
-  // }
+  @include tablet {
+    min-width: 350px;
+    max-width: min-content;
+  }
 }
 
 .modalHeader {

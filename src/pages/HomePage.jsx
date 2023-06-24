@@ -1,18 +1,20 @@
-import { useDispatch } from 'react-redux';
-import { logoutUser } from 'redux/Auth/authOperations';
+import { Sidebar } from '../components/Sidebar/Sidebar';
+import React from 'react';
 import { Header } from 'components/Header/Header';
 import { Board } from 'components/ScreensBoard/ScreensBoard';
+import { useMediaQuery } from 'react-responsive';
 
 export const HomePage = () => {
-  const dispatch = useDispatch();
+  const isDesktopSize = useMediaQuery({ query: '(min-width: 1280px)' });
 
   return (
-    <div>
-      <Header />
+    <div style={{ display: 'flex' }}>
+      {isDesktopSize && <Sidebar />}
 
-      <Board boardtitle="" />
-
-      <button onClick={() => dispatch(logoutUser())}>Log logOut</button>
+      <div>
+        <Header />
+        <Board boardtitle="" />
+      </div>
     </div>
   );
 };

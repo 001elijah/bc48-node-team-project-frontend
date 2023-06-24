@@ -1,0 +1,73 @@
+@import 'assets/styles/vars';
+
+.buttonWrapper {
+  width: 100%;
+  padding: 24px 0 0 24px;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  gap: 14px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
+  &:hover .text {
+    color: $accent-color;
+    transition: all 0.5s;
+  }
+
+  &.light {
+    &:hover .text {
+      color: $accent-color;
+    }
+  }
+  &.dark {
+    &:hover .text {
+      color: $accent-color;
+    }
+  }
+  &.colorful {
+    &:hover .text {
+      color: $priority-low-color;
+    }
+    &:hover .icon {
+      stroke: $priority-low-color;
+    }
+  }
+}
+
+.icon {
+  width: 32px;
+  height: 32px;
+  stroke: $accent-color;
+
+  &.light {
+    stroke: $accent-color;
+  }
+  &.dark {
+    stroke: $accent-color;
+  }
+  &.colorful {
+    stroke: $white-color;
+  }
+}
+
+.text {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.5;
+  color: $black-text-color;
+
+  &.light {
+    color: $black-text-color;
+  }
+  &.dark {
+    color: $white-color;
+  }
+  &.colorful {
+    color: $white-color;
+  }
+}
