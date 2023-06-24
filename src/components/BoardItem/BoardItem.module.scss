@@ -1,0 +1,186 @@
+@import 'assets/styles/vars';
+@import 'assets/styles/mixins';
+
+.item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 14px;
+  cursor: pointer;
+
+  @include tablet {
+    padding: 20px 24px;
+  }
+
+  &:hover .iconProject {
+    transform: rotate(1turn);
+    transition: all 1.5s;
+  }
+}
+
+.projectNameWrapper {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.iconProject {
+  width: 18px;
+  height: 18px;
+  stroke: #16161680;
+
+  &.light {
+    stroke: #16161680;
+  }
+  &.dark {
+    stroke: #ffffff80;
+  }
+  &.colorful {
+    stroke: #ffffff80;
+  }
+}
+
+.text {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  color: #ffffff80;
+
+  &.light {
+    color: #16161680;
+  }
+  &.dark {
+    color: #ffffff80;
+  }
+  &.colorful {
+    color: #ffffff80;
+  }
+}
+
+.iconList {
+  display: none;
+  gap: 8px;
+
+  & li {
+    pointer-events: none;
+  }
+
+  & li:hover .actionIcon,
+  & li:active .actionIcon {
+    stroke: $black-color;
+
+    transition: all 0.5s;
+  }
+
+  &.light {
+    & li:hover .actionIcon,
+    & li:active .actionIcon {
+      stroke: $black-color;
+    }
+  }
+  &.dark {
+    & li:hover .actionIcon,
+    & li:active .actionIcon {
+      stroke: $white-color;
+    }
+  }
+  &.colorful {
+    & li:hover .actionIcon,
+    & li:active .actionIcon {
+      stroke: $white-color;
+    }
+  }
+}
+
+.actionIcon {
+  width: 16px;
+  height: 16px;
+  stroke: #16161680;
+
+  &.light {
+    stroke: #16161680;
+  }
+  &.dark {
+    stroke: #ffffff80;
+  }
+  &.colorful {
+    stroke: #ffffff80;
+  }
+}
+
+.current {
+  background-color: $dark-color;
+  color: #ffffff80;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 4px;
+    height: 100%;
+    background: $accent-color;
+    border-radius: 4px 0px 0px 4px;
+  }
+
+  &.light {
+    background-color: $off-white-color;
+
+    &::after {
+      background: $accent-color;
+    }
+  }
+  &.dark {
+    background-color: $dark-color;
+
+    &::after {
+      background: $accent-color;
+    }
+  }
+  &.colorful {
+    background-color: rgba(255, 255, 255, 0.5);
+
+    &::after {
+      background: $white-color;
+    }
+  }
+
+  & .iconProject {
+    stroke: $black-text-color;
+
+    &.light {
+      stroke: $black-text-color;
+    }
+    &.dark {
+      stroke: $white-color;
+    }
+    &.colorful {
+      stroke: $white-color;
+    }
+  }
+
+  & .text {
+    color: $black-text-color;
+
+    &.light {
+      color: $black-text-color;
+    }
+    &.dark {
+      color: $white-color;
+    }
+    &.colorful {
+      color: $white-color;
+    }
+  }
+
+  & .iconList {
+    display: flex;
+  }
+
+  & .iconList li {
+    pointer-events: auto;
+  }
+}

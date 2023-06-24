@@ -1,0 +1,68 @@
+@import '../../assets/styles/vars';
+@import '../../assets/styles/mixins';
+.container {
+  width: 225px;
+  background-color: $white-color;
+  padding: 14px 0 24px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: scroll;
+
+  @include tablet {
+    min-width: 260px;
+    padding: 24px 0 24px;
+  }
+  @include desktop {
+    min-width: 260px;
+    padding: 24px 0 24px;
+  }
+
+  &.light {
+    background-color: $white-color;
+  }
+
+  &.dark {
+    background-color: $black-color;
+  }
+
+  &.colorful {
+    background-color: $accent-bright-color;
+  }
+
+  // transform: translateX(-100%);
+  // transform: translateX(0%);
+  // transition-duration: 1250ms;
+  // transition-property: transform;
+  // transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+  // opacity: 0;
+  // transition: opacity 0.3s ease-in;
+}
+
+.text {
+  margin-top: 70px;
+  width: 197px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  color: #16161680;
+
+  @include tablet {
+    width: 212px;
+  }
+
+  &.light {
+    color: #16161680;
+  }
+
+  &.dark {
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  &.colorful {
+    color: rgba(255, 255, 255, 0.5);
+  }
+}
