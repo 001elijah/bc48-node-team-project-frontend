@@ -1,0 +1,228 @@
+@import 'assets/styles/vars';
+@import 'assets/styles/mixins';
+
+.container {
+  width: 197px;
+  height: 238px;
+  margin-top: 40px;
+  background-color: $off-white-color;
+  border-radius: 8px;
+  padding: 14px;
+
+  &.light {
+    background-color: $off-white-color;
+  }
+  &.dark {
+    background-color: $dark-color;
+  }
+  &.colorful {
+    background-color: #ecedfd66;
+  }
+
+  @include tablet {
+    width: 212px;
+    height: 272px;
+    padding: 20px;
+  }
+}
+
+.imageContainer {
+  width: 54px;
+  height: 78px;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+}
+
+.text {
+  width: 168px;
+  height: 80px;
+  margin-top: 14px;
+  font-size: 12px;
+  line-height: 1.33;
+  letter-spacing: -0.02em;
+  color: $black-text-color;
+
+  &.light {
+    color: $black-text-color;
+  }
+  &.dark {
+    color: $white-color;
+  }
+  &.colorful {
+    color: $white-color;
+  }
+
+  @include tablet {
+    width: 172px;
+    height: 102px;
+    font-size: 14px;
+    line-height: 1.42;
+  }
+}
+
+.accent {
+  color: $accent-color;
+
+  &.light {
+    color: $accent-color;
+  }
+  &.dark {
+    color: $accent-color;
+  }
+  &.colorful {
+    color: $accent-bright-color;
+  }
+}
+
+.button {
+  margin-top: 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  color: $white-color;
+
+  &:hover .icon,
+  &:active .icon {
+    stroke: $accent-color;
+    transform: rotate(1turn);
+    transition: all 1s;
+  }
+  &:hover .helpText,
+  &:active .helpText {
+    color: $accent-color;
+    transition: all 1s;
+  }
+
+  &.light {
+    &:hover .icon,
+    &:active .icon {
+      stroke: $accent-color;
+    }
+    &:hover .helpText,
+    &:active .helpText {
+      color: $accent-color;
+    }
+  }
+  &.dark {
+    &:hover .icon,
+    &:active .icon {
+      stroke: $accent-color;
+    }
+    &:hover .helpText,
+    &:active .helpText {
+      color: $accent-color;
+    }
+  }
+  &.colorful {
+    &:hover .icon,
+    &:active .icon {
+      stroke: $accent-bright-color;
+    }
+    &:hover .helpText,
+    &:active .helpText {
+      color: $accent-bright-color;
+    }
+  }
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  stroke: $black-text-color;
+
+  &.light {
+    stroke: $black-text-color;
+  }
+  &.dark {
+    stroke: $white-color;
+  }
+  &.colorful {
+    stroke: $white-color;
+  }
+}
+
+.helpText {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+
+  &.light {
+    color: $black-text-color;
+  }
+  &.dark {
+    color: $white-color;
+  }
+  &.colorful {
+    color: $white-color;
+  }
+}
+
+.emailInput {
+  width: 287px;
+  height: 49px;
+  border: 1px solid $accent-color;
+  border-radius: 8px;
+  padding: 14px 0 14px 18px;
+  background-color: transparent;
+
+  color: $white-color;
+  font-family: 'Poppins-Regular';
+  font-size: 14px;
+  letter-spacing: -0.28px;
+
+  @include tablet {
+    width: 352px;
+    height: 49px;
+    margin-right: 24px;
+  }
+  &:focus-visible {
+    outline: none;
+  }
+}
+
+.commentInput {
+  margin-top: 14px;
+  width: 287px;
+  height: 120px;
+  border: 1px solid $accent-color;
+  border-radius: 8px;
+  padding: 14px 0 14px 18px;
+  background-color: transparent;
+
+  color: $white-color;
+  font-family: 'Poppins-Regular';
+  font-size: 14px;
+  letter-spacing: -0.28px;
+
+  @include tablet {
+    width: 352px;
+    height: 120px;
+    margin-right: 24px;
+  }
+
+  &:focus-visible {
+    outline: none;
+  }
+}
+
+.sendButton {
+  margin-top: 24px;
+  width: 287px;
+  height: 49px;
+  border-radius: 8px;
+  border: none;
+  background-color: $accent-color;
+  cursor: pointer;
+
+  @include tablet {
+    width: 352px;
+    height: 49px;
+  }
+}
