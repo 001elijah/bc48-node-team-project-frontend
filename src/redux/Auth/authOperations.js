@@ -112,6 +112,7 @@ export const updateUser = createAsyncThunk(
     try {
       const { data } = await updateUserApi(userData);
       console.log(data);
+      return data
     } catch (error) {
       return rejectWithValue(error.message);
     }

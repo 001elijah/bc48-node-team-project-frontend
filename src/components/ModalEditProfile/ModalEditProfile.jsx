@@ -32,7 +32,7 @@ export const ModalEditProfile = () => {
       userName: name,
       email: email,
       password: '',
-      avatarUrl: null,
+      // avatarUrl: null,
     },
     validationSchema: validationSchemaRegister,
     onSubmit: values => {
