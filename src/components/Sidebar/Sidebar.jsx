@@ -18,9 +18,9 @@ export const Sidebar = () => {
   const theme = useSelector(selectorTheme);
   const [showModalWindow, setShowModalWindow] = useState(false);
   const handleModalWindowOpen = () => setShowModalWindow(true);
-  // const handleModalWindowClose = () => setShowModalWindow(false);
+  const handleModalWindowClose = () => setShowModalWindow(false);
   if (!theme) return;
-  console.log(showModalWindow);
+  
   return (
     <div className={clsx(s.container, s[theme])}>
       <Logo theme={theme} />
@@ -29,17 +29,13 @@ export const Sidebar = () => {
       <BoardList theme={theme} boards={boards} />
       <HelpWindow theme={theme} />
       <Logout theme={theme} />
-
-     
-        {/* <BackdropModal closeModal={handleModalWindowClose}> */}
         {showModalWindow && ( <BoardModalWindow
             inputTitle="Title"
             titleModalButton="Create"
             modalTitle="New board"
+            onClick = {handleModalWindowClose}
           />
-
       )}
-              {/* </BackdropModal> */}
     </div>
   );
 };
