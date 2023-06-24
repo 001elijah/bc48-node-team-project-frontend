@@ -5,12 +5,13 @@ import { useDispatch } from 'react-redux';
 import WelcomePage from 'pages/WelcomePage';
 import AuthPage from '../pages/AuthPage';
 import { HomePage } from 'pages/HomePage';
-import { BoardPage } from 'pages/BoardPage';
 
 import { PrivateRoute, PublicRoute } from './Route/route';
 
 import { currentUser } from 'redux/Auth/authOperations';
 import { Loader } from './Loader/Loader';
+import { DefaultDashBoard } from './DefaultBoard/DefaultBoard';
+import { MainBoard } from './MainBoard/MainBoard';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -29,14 +30,16 @@ export const App = () => {
           path="/auth/:id"
           element={<PublicRoute component={<AuthPage />} />}
         />
-        <Route
-          path="/home"
-          element={<PrivateRoute component={<HomePage />} />}
-        />
-        <Route
-          path="/board"
-          element={<PrivateRoute component={<BoardPage />} />}
-        />
+        <Route path="/home" element={<PrivateRoute component={<HomePage />} />}>
+          <Route
+            index
+            element={<PrivateRoute component={<DefaultDashBoard />} />}
+          />
+          <Route
+            path=":boardName"
+            element={<PrivateRoute component={<MainBoard />} />}
+          />
+        </Route>
         <Route path="*" element={<Navigate to="/home" />} />
       </Routes>
     </>

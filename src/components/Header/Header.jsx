@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
-import { Container } from 'components/Container';
+// import { Container } from 'components/Container';
 import { UserInfo } from 'components/UserInfo/UserInfo';
 import { selectorTheme } from 'redux/Auth/authSelectors';
 import { themeChangeUser } from 'redux/Auth/authOperations';
@@ -35,7 +35,7 @@ export const Header = () => {
   return (
     <>
       <header className={clsx(s.header, s[theme])}>
-        <Container>
+        {/* <Container> */}
           <div className={s.pageHeader}>
             <button onClick={toggleSidebar} className={s.burgerMenu}>
               <svg className={clsx(s.burgerIcon, s[theme])}>
@@ -73,7 +73,7 @@ export const Header = () => {
             </div>
             <UserInfo />
           </div>
-        </Container>
+        {/* </Container> */}
       </header>
       {showSidebar && (
         <SideBarBackDrop toggleSidebar={toggleSidebar}>
