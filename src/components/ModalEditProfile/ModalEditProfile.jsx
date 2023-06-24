@@ -1,6 +1,7 @@
 import { useFormik } from 'formik';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 // import { resizeFile } from 'react-image-file-resizer';
 
 import { ButtonAuth } from '../ButtonAuth/ButtonAuth';
@@ -12,7 +13,7 @@ import icons from '../../assets/icons/sprite.svg';
 import s from './ModalEditProfile.module.scss';
 import y from '../LoginForm/Login.module.scss';
 
-export const ModalEditProfile = () => {
+export const ModalEditProfile = ({onClose}) => {
   const dispatch = useDispatch();
 
   const [showPassword, setShowPassword] = useState(false);
@@ -36,6 +37,7 @@ export const ModalEditProfile = () => {
     },
     validationSchema: validationSchemaRegister,
     onSubmit: values => {
+      onClose()
       console.log(values);
       dispatch(updateUser(values));
     },
@@ -148,4 +150,9 @@ export const ModalEditProfile = () => {
       <ButtonAuth title="Send" />
     </form>
   );
+};
+
+
+ModalEditProfile.propTypes = {
+  onClose: PropTypes.node.isRequired,
 };

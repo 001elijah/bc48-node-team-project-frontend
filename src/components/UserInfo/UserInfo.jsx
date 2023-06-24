@@ -33,7 +33,7 @@ export const UserInfo = () => {
       </div>
       {isModalOpen && (
         <Modal title="Edit profile" onClose={() => setIsModalOpen(false)}>
-          <ModalEditProfile />
+          <ModalEditProfile onClose={() => setIsModalOpen(false)} />
         </Modal>
       )}
     </>
