@@ -10,7 +10,7 @@ import {
   currentUserApi,
   logoutUserApi,
   themeChangeUserApi,
-  // themeChangeUserApi
+  updateUserApi,
 } from 'services/backendAPI';
 
 export const registerUser = createAsyncThunk(
@@ -100,6 +100,18 @@ export const themeChangeUser = createAsyncThunk(
     try {
       await themeChangeUserApi({ theme });
       return theme;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  },
+);
+
+export const updateUser = createAsyncThunk(
+  'auth/updateUser',
+  async (userData, { rejectWithValue }) => {
+    try {
+      const { data } = await updateUserApi(userData);
+      return data;
     } catch (error) {
       return rejectWithValue(error.message);
     }

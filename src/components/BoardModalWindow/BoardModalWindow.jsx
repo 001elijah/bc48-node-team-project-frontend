@@ -30,8 +30,9 @@ export const BoardModalWindow = ({
       inputTitle={inputTitle}
       modalTitle={modalTitle}
       titleModalButton={titleModalButton}
-      onClick={handleAddBoard}
+      onSubmit={handleAddBoard}
       handleToggleModal={handleToggleModal}
+      onClick={onClick}
     >
       <BoxRadioIconGroup valueChange={setIcon} />
       <BoxRadioBackgroundGroup valueChange={setBackground} />

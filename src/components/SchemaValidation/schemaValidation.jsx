@@ -24,8 +24,8 @@ export const validationSchemaRegister = yup.object().shape({
   userName: yup
     .string()
     .matches(
-      /^[a-zA-Z0-9]+$/,
-      'Can only contain Latin letters, numbers and signs',
+      /^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)?$/,
+      'Only letters, numbers, underscores, and spaces are allowed',
     )
     .min(2, 'Minimum length 2 characters')
     .max(32, 'Maximum length 32 characters')

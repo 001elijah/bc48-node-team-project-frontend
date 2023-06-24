@@ -3,13 +3,13 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { ButtonAuth } from '../ButtonAuth/ButtonAuth';
-import { validationSchemaRegister } from '../schemaValidation';
-import { registerUser } from 'redux/Auth/authOperations';
+import { validationSchemaLogin } from '../SchemaValidation/schemaValidation';
+import { loginUser } from 'redux/Auth/authOperations';
 
-import icons from 'assets/icons/sprite.svg';
-import y from '../Login/Login.module.scss';
+import icons from '../../assets/icons/sprite.svg';
+import y from './Login.module.scss';
 
-export const Register = () => {
+export const Login = () => {
   const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
 
@@ -17,30 +17,16 @@ export const Register = () => {
 
   const formik = useFormik({
     initialValues: {
-      userName: '',
       email: '',
       password: '',
     },
-    validationSchema: validationSchemaRegister,
+    validationSchema: validationSchemaLogin,
     onSubmit: values => {
-      dispatch(registerUser(values));
+      dispatch(loginUser(values));
     },
   });
   return (
     <form onSubmit={formik.handleSubmit}>
-      <label htmlFor="name">
-        <input
-          id="userName"
-          name="userName"
-          type="text"
-          onChange={formik.handleChange}
-          value={formik.values.name}
-          placeholder="Enter your name"
-        />
-        {formik.touched.name && formik.errors.name && (
-          <p className={y.error}>{formik.errors.name}</p>
-        )}
-      </label>
       <label htmlFor="email">
         <input
           id="email"
@@ -61,7 +47,7 @@ export const Register = () => {
           type={showPassword ? 'text' : 'password'}
           onChange={formik.handleChange}
           value={formik.values.password}
-          placeholder="Create a password"
+          placeholder="Confirm a password"
         />
 
         <svg className={y.eye} onClick={toggleShowPassword}>
@@ -73,7 +59,7 @@ export const Register = () => {
           <p className={y.error}>{formik.errors.password}</p>
         )}
       </label>
-      <ButtonAuth title="Register Now" />
+      <ButtonAuth title="Log In Now" />
     </form>
   );
 };

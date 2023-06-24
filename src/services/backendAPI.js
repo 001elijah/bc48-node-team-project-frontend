@@ -39,6 +39,11 @@ export const themeChangeUserApi = async theme => {
   const { data } = await axios.patch('user/', theme);
   return data;
 };
+
+export const updateUserApi = async userData => {
+  const { data } = await axios.patch('user/updateUserInfo', userData);
+  return data;
+};
 //---------------------------------------------BOARDS---------------------//
 
 export const getListOfBoardsApi = async userToken => {
