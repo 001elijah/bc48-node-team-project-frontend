@@ -8,8 +8,8 @@ import { HomePage } from 'pages/HomePage';
 import { PrivateRoute, PublicRoute } from './AuthForm/route';
 import { currentUser } from 'redux/Auth/authOperations';
 import { Loader } from './Loader/Loader';
-import { DefaultDashBoard } from './ScreensBoard/DefaultBoard/DefaultBoard';
-import { MainBoard } from './ScreensBoard/MainBoard/MainBoard';
+import { DefaultDashBoard } from './DefaultBoard/DefaultBoard';
+import { MainBoard } from './MainBoard/MainBoard';
 
 export const App = () => {
   const dispatch = useDispatch();

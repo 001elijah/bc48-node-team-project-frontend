@@ -1,8 +1,8 @@
 // import s from './MainBoard.module.scss';
 import { Wrapper } from './MainBoard.styled';
 import PropTypes from 'prop-types';
-import { HeaderDashBoard } from '../../HeaderDashBoard/HeaderDashBoard';
-import { AddButton } from '../../ButtonAddColumn/ButtonAddColumn';
+import { HeaderDashBoard } from '../HeaderDashBoard/HeaderDashBoard';
+import { AddButton } from '../ButtonAddColumn/ButtonAddColumn';
 // import {TaskCard} from '../../TaskCard/TaskCard'
 // import {TasksColumnHeader} from '../../TasksColumnHeader/TasksColumnHeader'
 
