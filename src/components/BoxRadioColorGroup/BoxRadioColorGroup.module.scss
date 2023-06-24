@@ -1,19 +1,17 @@
 .titleColor {
-  // color: red;
-  font-family: 'Poppins';
+  margin-bottom: 4px;
+
+  font-family: 'Poppins-Medium';
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
-  line-height: 18px;
-  /* identical to box height */
-
+  line-height: 1.5;
   letter-spacing: -0.02em;
+  color: rgba(255, 255, 255, 0.5);
 
-  margin-bottom: 4px;
   &.colorful,
   &.light {
     color: rgba(22, 22, 22, 0.5);
-    // border: 2px solid #fcfcfc;
   }
 }
 
@@ -23,25 +21,20 @@
   height: 40px;
 }
 
-// height: 12px;
-// width: 12px;
-// top: 1px;
-// left: 1px;
-
-.radio_container {
+.radioContainer {
   position: relative;
   display: block;
   margin-right: 22px;
   background: inherit;
 }
 
-.radio_input1 {
+.radioInput {
   -webkit-appearance: none;
   appearance: none;
   position: absolute;
 }
 
-.radio_label1 {
+.radioLabelHigh {
   cursor: pointer;
 
   &.colorful::after {
@@ -53,7 +46,7 @@
   }
 }
 
-.radio_label1::before {
+.radioLabelHigh::before {
   content: '';
   display: block;
   width: 14px;
@@ -66,7 +59,7 @@
   z-index: 1;
 }
 
-.radio_label1::after {
+.radioLabelHigh::after {
   content: '';
   display: block;
 
@@ -76,27 +69,21 @@
   width: 12px;
   border-radius: 50%;
   position: absolute;
-  top: 2px;
-  left: 2px;
+  top: 1px;
+  left: 1px;
   z-index: 1;
 
   opacity: 0;
   transition: opacity 0.1s linear;
 }
 
-.radio_input1:checked + .radio_label1::after {
+.radioInput:checked + .radioLabelHigh::after {
   opacity: 1;
 }
 
-// second input
 
-.radio_input2 {
-  -webkit-appearance: none;
-  appearance: none;
-  position: absolute;
-}
 
-.radio_label2 {
+.radioLabelMedium {
   cursor: pointer;
 
   &.colorful::after {
@@ -107,7 +94,7 @@
   }
 }
 
-.radio_label2::before {
+.radioLabelMedium::before {
   content: '';
   display: block;
   width: 14px;
@@ -120,18 +107,18 @@
   z-index: 1;
 }
 
-.radio_label2::after {
+.radioLabelMedium::after {
   content: '';
   display: block;
 
   border: 2px solid rgba(21, 21, 21, 1);
   border-radius: 50%;
-  height: 10px;
-  width: 10px;
+  height: 12px;
+  width: 12px;
   border-radius: 50%;
   position: absolute;
-  top: 2px;
-  left: 2px;
+  top: 1px;
+  left: 1px;
   z-index: 1;
 
   opacity: 0;
@@ -142,19 +129,15 @@
   }
 }
 
-.radio_input2:checked + .radio_label2::after {
+.radioInput:checked + .radioLabelMedium::after {
   opacity: 1;
 }
 
 // three
 
-.radio_input3 {
-  -webkit-appearance: none;
-  appearance: none;
-  position: absolute;
-}
 
-.radio_label3 {
+
+.radioLabelLow {
   cursor: pointer;
 
   &.colorful::after {
@@ -165,7 +148,7 @@
   }
 }
 
-.radio_label3::before {
+.radioLabelLow::before {
   content: '';
   display: block;
   width: 14px;
@@ -178,18 +161,18 @@
   z-index: 1;
 }
 
-.radio_label3::after {
+.radioLabelLow::after {
   content: '';
   display: block;
 
   border: 2px solid #151515;
   border-radius: 50%;
-  height: 10px;
-  width: 10px;
+  height: 12px;
+  width: 12px;
   border-radius: 50%;
   position: absolute;
-  top: 2px;
-  left: 2px;
+  top: 1px;
+  left: 1px;
   z-index: 1;
 
   opacity: 0;
@@ -200,21 +183,14 @@
   }
 }
 
-.radio_input3:checked + .radio_label3::after {
+.radioInput:checked + .radioLabelLow::after {
   opacity: 1;
 }
 
-// for
 
-.radio_input4 {
-  -webkit-appearance: none;
-  appearance: none;
-  position: absolute;
-}
 
-.radio_label4 {
+.radioLabelWithout {
   cursor: pointer;
-  // rgba(22, 22, 22, 0.3)
 
   &.colorful::before {
     background: rgba(22, 22, 22, 0.3);
@@ -231,7 +207,7 @@
   }
 }
 
-.radio_label4::before {
+.radioLabelWithout::before {
   content: '';
   display: block;
   width: 14px;
@@ -244,17 +220,17 @@
   z-index: 1;
 }
 
-.radio_label4::after {
+.radioLabelWithout::after {
   content: '';
   display: block;
   border: 2px solid #151515;
   border-radius: 50%;
-  height: 10px;
-  width: 10px;
+  height: 12px;
+  width: 12px;
   border-radius: 50%;
   position: absolute;
-  top: 2px;
-  left: 2px;
+  top: 1px;
+  left: 1px;
   z-index: 1;
 
   opacity: 0;
@@ -265,8 +241,6 @@
   }
 }
 
-.radio_input4:checked + .radio_label4::after {
+.radioInput:checked + .radioLabelWithout::after {
   opacity: 1;
 }
-
-// background-image: url('../../assets/images/Vector.png');

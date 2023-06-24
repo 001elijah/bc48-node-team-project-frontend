@@ -1,41 +1,25 @@
 @import '../../assets/styles/vars';
 @import '../../assets/styles/mixins';
 
-.Modal {
-  position: fixed;
-  width: 350px;
-  min-height: 221px;
-
-  background-color: #151515;
-  border: 1px solid rgba(190, 219, 176, 0.5);
-  border-radius: 8px;
-
-  // padding: 24px;
-}
-
 .inputModal {
   width: 287px;
-  // width: 100;
   height: 49px;
-  // background-color: #1f1f1f;
+  padding-left: 18px;
 
-  // box-shadow: 0px 4px 16px rgba(22, 22, 22, 0.08);
   border: 1px solid #bedbb0;
   border-radius: 8px;
   margin-bottom: 24px;
 
-  font-family: 'Poppins';
+  font-family: 'Poppins-Regular';
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
-  line-height: 21px;
+  line-height: calc(21/14);
 
   letter-spacing: -0.02em;
-  padding-left: 18px;
 
   &.colorful {
     border: 1px solid rgba(82, 85, 188, 1);
-    // color: rgba(22, 22, 22, 1);
     color: #161616;
     background-color: inherit;
     opacity: 0.4;
@@ -44,30 +28,29 @@
     }
 
     &:focus {
-      opacity: initial;
       border: 1px solid #5255bc;
-      filter: drop-shadow(0px 4px 16px rgba(22, 22, 22, 0.08));
       outline: none;
+      filter: drop-shadow(0px 4px 16px rgba(22, 22, 22, 0.08));
+      opacity: initial;
     }
   }
 
   &.dark {
     color: rgba(255, 255, 255, 1);
     background: #1f1f1f;
-    opacity: 0.4;
     border: 1px solid #bedbb0;
     box-shadow: 0px 4px 16px rgba(22, 22, 22, 0.08);
+    opacity: 0.4;
 
     &::placeholder {
       color: rgba(255, 255, 255, 1);
     }
-    // opacity: initial;
 
     &:focus {
       border: 1px solid #bedbb0;
       filter: drop-shadow(0px 4px 16px rgba(22, 22, 22, 0.08));
-      opacity: initial;
       outline: none;
+      opacity: initial;
     }
   }
 
@@ -100,20 +83,6 @@
   }
 }
 
-.closeButton {
-  position: absolute;
-  width: 15px;
-  height: 15px;
-  display: block;
-  margin: 0px;
-  top: 19px;
-  right: 19px;
-  padding: 0;
-  cursor: pointer;
-  background: none;
-  border: none;
-}
-
 .buttonModal {
   display: flex;
   justify-content: center;
@@ -127,12 +96,10 @@
   border-radius: 8px;
   border: none;
 
-  font-family: 'Poppins';
-  font-style: normal;
+  font-family: 'Poppins-Regular';
   font-weight: 500;
   font-size: 14px;
-  line-height: 21px;
-  /* identical to box height */
+  line-height: calc(21/14);
 
   letter-spacing: -0.02em;
 
@@ -146,7 +113,6 @@
   }
 
   &.dark {
-    // color: rgba(255, 255, 255, 1);
     color: rgba(22, 22, 22, 1);
   }
 
@@ -174,27 +140,25 @@
   }
 }
 
-.spanButton {
+.iconButtonModalWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 28px;
   height: 28px;
   margin-right: 8px;
-  display: flex;
   background-color: rgba(22, 22, 22, 1);
   border-radius: 6px;
-  align-items: center;
-  justify-content: center;
 
   &.colorful {
     background-color: rgba(255, 255, 255, 1);
   }
 
   &.dark {
-    // background-color: rgba(255, 255, 255, 1);
     color: rgba(255, 255, 255, 1);
   }
 
   &.light {
-    // background-color: rgba(255, 255, 255, 1);
     color: rgba(22, 22, 22, 1);
   }
 }

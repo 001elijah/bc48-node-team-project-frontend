@@ -1,10 +1,7 @@
 import { Sidebar } from '../components/Sidebar/Sidebar';
 import React from 'react';
 import { Header } from 'components/Header/Header';
-// import { Board } from 'components/ScreensBoard/ScreensBoard';
 import { useMediaQuery } from 'react-responsive';
-import { ModalBoard } from 'components/ModalBoard/ModalBoard';
-import { ModalCard } from 'components/ModalCard/ModalCard';
 
 export const HomePage = () => {
   const isDesktopSize = useMediaQuery({ query: '(min-width: 1280px)' });
@@ -15,14 +12,12 @@ export const HomePage = () => {
 
       <div>
         <Header />
-        {/* <select name="priority" value={theme} onChange={handleChange}>
-          <option value="light">Light</option>
-          <option value="dark">Dark</option>
-          <option value="colorful">Colorful</option>
-        </select> */}
         {/* <Board boardtitle="" /> */}
-        {/* <ModalBoard modalTitle='New board' titleModalButton="Create"/> */}
-        <ModalCard inputTitle='New card' titleModalButton="Add"/>
+
+        {/* Приклади модалок створення/редагування дошок/колонок/карток */}
+        {/* <CardModalWindow inputTitle='Title' titleModalButton="Add" modalTitle="Add card"/> */}
+        {/* <ReusableColumnModalWindow inputTitle='Title' titleModalButton="Add" modalTitle="Add column"/> */}
+        {/* <BoardModalWindow inputTitle='Title' titleModalButton="Create" modalTitle="New board"/> */}
       </div>
     </div>
   );

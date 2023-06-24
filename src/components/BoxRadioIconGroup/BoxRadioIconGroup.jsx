@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
-import s from './BoxRadioIconGroup.module.scss';
 import PropTypes from 'prop-types';
+import { useEffect, useState } from 'react';
 import sprite from '../../assets/icons/sprite.svg';
+import s from './BoxRadioIconGroup.module.scss';
 
 export const BoxRadioIconGroup = ({ valueChange }) => {
   const [icon, setIcon] = useState('1');
@@ -18,8 +18,8 @@ export const BoxRadioIconGroup = ({ valueChange }) => {
 
   return (
     <div className={s.container}>
-      <h1 className={s.title_icon}>Icons</h1>
-      <form className={s.container__icons}>
+      <h1 className={s.iconTitle}>Icons</h1>
+      <div className={s.container__icons}>
         <label htmlFor="1">
           <input
             type="radio"
@@ -30,7 +30,7 @@ export const BoxRadioIconGroup = ({ valueChange }) => {
             onChange={handleChange}
             checked={icon === '1'}
           />
-          <svg className={s.svg_dark} width="15" height="15">
+          <svg className={s.svg} width="15" height="15">
             <use href={sprite + '#icon-project'}></use>
           </svg>
         </label>
@@ -46,7 +46,7 @@ export const BoxRadioIconGroup = ({ valueChange }) => {
             onChange={handleChange}
             checked={icon === '2'}
           />
-          <svg className={s.svg_dark} width="15" height="15">
+          <svg className={s.svg} width="15" height="15">
             <use href={sprite + '#icon-star'}></use>
           </svg>
         </label>
@@ -62,7 +62,7 @@ export const BoxRadioIconGroup = ({ valueChange }) => {
             onChange={handleChange}
             checked={icon === '3'}
           />
-          <svg className={s.svg_dark} width="15" height="15">
+          <svg className={s.svg} width="15" height="15">
             <use href={sprite + '#icon-loading'}></use>
           </svg>
         </label>
@@ -78,7 +78,7 @@ export const BoxRadioIconGroup = ({ valueChange }) => {
             onChange={handleChange}
             checked={icon === '4'}
           />
-          <svg className={s.svg_dark} width="15" height="15">
+          <svg className={s.svg} width="15" height="15">
             <use href={sprite + '#icon-puzzle-piece'}></use>
           </svg>
         </label>
@@ -94,7 +94,7 @@ export const BoxRadioIconGroup = ({ valueChange }) => {
             onChange={handleChange}
             checked={icon === '5'}
           />
-          <svg className={s.svg_dark} width="15" height="15">
+          <svg className={s.svg} width="15" height="15">
             <use href={sprite + '#icon-container'}></use>
           </svg>
         </label>
@@ -110,7 +110,7 @@ export const BoxRadioIconGroup = ({ valueChange }) => {
             onChange={handleChange}
             checked={icon === '6'}
           />
-          <svg className={s.svg_dark} width="15" height="15">
+          <svg className={s.svg} width="15" height="15">
             <use href={sprite + '#icon-lightning'}></use>
           </svg>
         </label>
@@ -126,7 +126,7 @@ export const BoxRadioIconGroup = ({ valueChange }) => {
             onChange={handleChange}
             checked={icon === '7'}
           />
-          <svg className={s.svg_dark} width="15" height="15">
+          <svg className={s.svg} width="15" height="15">
             <use href={sprite + '#icon-colors'}></use>
           </svg>
         </label>
@@ -142,11 +142,11 @@ export const BoxRadioIconGroup = ({ valueChange }) => {
             onChange={handleChange}
             checked={icon === '8'}
           />
-          <svg className={s.svg_dark} width="15" height="15">
+          <svg className={s.svg} width="15" height="15">
             <use href={sprite + '#icon-hexagon'}></use>
           </svg>
         </label>
-      </form>
+      </div>
     </div>
   );
 };

@@ -1,18 +1,12 @@
-import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import s from './BoxRadioColorGroup.module.scss';
-import { selectorTheme } from 'redux/Auth/authSelectors';
+import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import { selectorTheme } from 'redux/Auth/authSelectors';
+import s from './BoxRadioColorGroup.module.scss';
 
 export const BoxRadioColorGroup = ({ valueChange }) => {
   const [color, setColor] = useState('dark');
   const theme = useSelector(selectorTheme);
-
-  // const handleChange = e => {
-  //   setColor(e.target.value);
-  //   valueColor(color);
-  //   console.log(color);
-  // };
 
   const handleCheked = e => {
     setColor(e.target.value);
@@ -23,17 +17,13 @@ export const BoxRadioColorGroup = ({ valueChange }) => {
     valueChange(color);
   }, [valueChange, color]);
 
-  // зробити рендер по умові, дивлячись в якому компоненті рендериться
-
   return (
     <>
       <h2 className={`${s.titleColor} ${s[theme]}`}>Label color</h2>
       <div className={s.radio}>
-        <div className={s.radio_container}>
+        <div className={s.radioContainer}>
           <input
-            // className =  class .dark,  if class === ligth || fiolet => class .light
-            className={s.radio_input1}
-            // className={s.radio_input1}
+            className={s.radioInput}
             type="radio"
             onChange={handleCheked}
             value="dark"
@@ -43,13 +33,12 @@ export const BoxRadioColorGroup = ({ valueChange }) => {
           />
           <label
             htmlFor="dark"
-            className={`${s.radio_label1} ${s[theme]}`}
-            // className={s.radio_label1}
+            className={`${s.radioLabelHigh} ${s[theme]}`}
           ></label>
         </div>
-        <div className={s.radio_container}>
+        <div className={s.radioContainer}>
           <input
-            className={s.radio_input2}
+            className={s.radioInput}
             type="radio"
             onChange={handleCheked}
             value="white"
@@ -59,12 +48,12 @@ export const BoxRadioColorGroup = ({ valueChange }) => {
           />
           <label
             htmlFor="white"
-            className={`${s.radio_label2} ${s[theme]}`}
+            className={`${s.radioLabelMedium} ${s[theme]}`}
           ></label>
         </div>
-        <div className={s.radio_container}>
+        <div className={s.radioContainer}>
           <input
-            className={s.radio_input3}
+            className={s.radioInput}
             type="radio"
             onChange={handleCheked}
             value="red"
@@ -74,12 +63,12 @@ export const BoxRadioColorGroup = ({ valueChange }) => {
           />
           <label
             htmlFor="red"
-            className={`${s.radio_label3} ${s[theme]}`}
+            className={`${s.radioLabelLow} ${s[theme]}`}
           ></label>
         </div>
-        <div className={s.radio_container}>
+        <div className={s.radioContainer}>
           <input
-            className={s.radio_input4}
+            className={s.radioInput}
             type="radio"
             onChange={handleCheked}
             value="blue"
@@ -89,7 +78,7 @@ export const BoxRadioColorGroup = ({ valueChange }) => {
           />
           <label
             htmlFor="blue"
-            className={`${s.radio_label4} ${s[theme]}`}
+            className={`${s.radioLabelWithout} ${s[theme]}`}
           ></label>
         </div>
       </div>
@@ -100,16 +89,3 @@ export const BoxRadioColorGroup = ({ valueChange }) => {
 BoxRadioColorGroup.propTypes = {
   valueChange: PropTypes.func.isRequired,
 };
-
-// MuiSvgIcon-root
-
-{
-  /* <input type="radio" name="topping" value="Regular" id="regular" />
-<label htmlFor="regular">Regular</label>
-
-<input type="radio" name="topping" value="Medium" id="medium" />
-<label htmlFor="medium">Medium</label>
-
-<input type="radio" name="topping" value="Large" id="large" />
-<label htmlFor="large">Large</label> */
-}

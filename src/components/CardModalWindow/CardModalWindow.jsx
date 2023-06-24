@@ -1,14 +1,14 @@
-import { ModalColumn } from 'components/ModalColumn/ModalColumn';
 import PropTypes from 'prop-types';
-import s from './ModalCard.module.scss';
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { selectorTheme } from 'redux/Auth/authSelectors';
+import { ModalColumn } from 'components/ReusableColumnModalWindow/ReusableColumnModalWindow';
 import { BoxRadioColorGroup } from 'components/BoxRadioColorGroup/BoxRadioColorGroup';
 import { CalendarDark } from 'components/CalendarDark/CalendarDark';
-// import { SelectData } from 'components/SelectData/SelectData';
-import { selectorTheme } from 'redux/Auth/authSelectors';
-import { useSelector } from 'react-redux';
+import s from './CardModalWindow.module.scss';
 
-export const ModalCard = ({
+export const CardModalWindow = ({
+  modalTitle,
   inputTitle,
   titleModalButton,
   onClick,
@@ -19,8 +19,7 @@ export const ModalCard = ({
   const [coment, setComent] = useState('');
   const [isColor, setIsColor] = useState('dark');
   const [date, setDate] = useState('');
-  // const [isBack, setIsBack] = useState('dark');
-  // const [icon, setIcon] = useState('');
+  
   const handleAddCard = value => {
     const newCard = {
       value,
@@ -28,12 +27,9 @@ export const ModalCard = ({
       color: isColor,
       date,
     };
-    onClick(newCard);
+    console.log(newCard)
+    // onclick(dispatch(addNewCard());
   };
-
-  // const handleChangeBackground = value => {
-  //   setIsBack(value);
-  // };
 
   const handleChangeColor = value => {
     setIsColor(value);
@@ -41,7 +37,7 @@ export const ModalCard = ({
 
   return (
     <ModalColumn
-      modalTitle="Add card"
+      modalTitle={modalTitle}
       inputTitle={inputTitle}
       titleModalButton={titleModalButton}
       onClick={handleAddCard}
@@ -49,20 +45,20 @@ export const ModalCard = ({
     >
       <textarea
         onChange={e => setComent(e.target.value)}
-        className={`${s.description} ${s[theme]}`}
+        className={`${s.textAreaStyle} ${s[theme]}`}
         name="coments"
         id="coments"
         placeholder="Description"
         value={coment}
       ></textarea>
       <BoxRadioColorGroup valueChange={handleChangeColor} />
-      {/* <SelectData onDate={setDate} /> */}
       <CalendarDark onDate={setDate} />
     </ModalColumn>
   );
 };
 
-ModalCard.propTypes = {
+CardModalWindow.propTypes = {
+  modalTitle: PropTypes.string.isRequired,
   inputTitle: PropTypes.string.isRequired,
   titleModalButton: PropTypes.string.isRequired,
   onClick: PropTypes.func,

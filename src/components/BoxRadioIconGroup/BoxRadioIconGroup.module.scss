@@ -2,23 +2,20 @@
   margin-bottom: 24px;
 }
 
-.title_icon {
-  color: red;
+.iconTitle {
   margin-bottom: 14px;
 
-  font-family: 'Poppins';
-  font-style: normal;
+  font-family: 'Poppins-Medium';
   font-weight: 500;
   font-size: 14px;
-  line-height: 21px;
-  /* identical to box height */
+  line-height: calc(21/14);
 
   letter-spacing: -0.02em;
 
   color: #ffffff;
 }
 
-.svg_dark {
+.svg {
   margin-right: 8px;
   fill: #151515;
   stroke: rgba(255, 255, 255, 0.5);
@@ -29,20 +26,16 @@
   cursor: pointer;
   position: absolute;
   opacity: 0;
-}
 
-.inputIcon + svg {
-  -webkit-transition: all 0.2s;
-  transition: all 0.2s;
-}
+  & + svg {
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
 
-.inputIcon + svg {
-  cursor: pointer;
-}
-
-.inputIcon:hover + svg,
-.inputIcon:checked + svg,
-.inputIcon:focus + svg {
-  // fill: rgb(0, 109, 217);
-  stroke: rgba(255, 255, 255, 1);
+  &:hover + svg,
+    &:checked+svg,
+        &:focus+svg {
+    stroke: rgba(255, 255, 255, 1);
+  }
 }

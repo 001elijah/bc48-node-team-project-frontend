@@ -1,234 +1,225 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import s from './BoxRadioBackgroundGroup.module.scss';
-import clsx from 'clsx';
 
 export const BoxRadioBackgroundGroup = ({ valueChange }) => {
-  const [bachground, setBachground] = useState('one');
+  const [background, setBackground] = useState('one');
   // const handleChange = e => {
   //   setColor(e.target.value);
   //   valueColor(color);
   //   console.log(color);
   // };
 
-  const thema = 'dark';
   const handleCheked = e => {
-    setBachground(e.target.value);
+    setBackground(e.target.value);
   };
 
   useEffect(() => {
-    valueChange(bachground);
-  }, [valueChange, bachground]);
-
-  // Strings (variadic)
-  // clsx('foo', true && 'bar', 'baz');
-  //=> 'foo bar baz'
-
-  // console.log(clsx(s.title__backgroung__, thema === 'dark' && 'dark'));
-  // console.log(clsx('foo', true && 'bar', 'baz'));
+    valueChange(background);
+  }, [valueChange, background]);
 
   return (
-    <div className={s.box__backgroung}>
-      <h1 className={s.title__backgroung}>Backgroung</h1>
-      <div className={s.radio}>
-        <div className={s.radio_container}>
+    <div className={s.backgroundGroupWrapper}>
+      <h1 className={s.label}>Background</h1>
+      <div className={s.radioWrapper}>
+        <div className={s.radioContainer}>
           <input
-            className={s.radio_input1}
+            className={s.radioInput1}
             type="radio"
             onChange={handleCheked}
             value="one"
-            name="bachground"
+            name="background"
             id="one"
-            checked={bachground === 'one'}
+            checked={background === 'one'}
           />
-          <label htmlFor="one" className={s.radio_label1}></label>
+          <label htmlFor="one" className={s.radioLabel1}></label>
         </div>
 
-        <div className={s.radio_container}>
+        <div className={s.radioContainer}>
           <input
-            className={s.radio_input2}
+            className={s.radioInput2}
             type="radio"
             onChange={handleCheked}
-            value="second"
-            name="bachground"
-            id="second"
-            checked={bachground === 'second'}
+            value="two"
+            name="background"
+            id="two"
+            checked={background === 'two'}
           />
-          <label htmlFor="second" className={s.radio_label2}></label>
+          <label htmlFor="two" className={s.radioLabel2}></label>
         </div>
 
-        <div className={s.radio_container}>
+        <div className={s.radioContainer}>
           <input
-            className={s.radio_input3}
+            className={s.radioInput3}
             type="radio"
             onChange={handleCheked}
-            value="tree"
-            name="bachground"
-            id="tree"
-            checked={bachground === 'tree'}
+            value="three"
+            name="background"
+            id="three"
+            checked={background === 'three'}
           />
-          <label htmlFor="tree" className={s.radio_label3}></label>
+          <label htmlFor="three" className={s.radioLabel3}></label>
         </div>
 
-        <div className={s.radio_container}>
+        <div className={s.radioContainer}>
           <input
-            className={s.radio_input4}
+            className={s.radioInput4}
             type="radio"
             onChange={handleCheked}
-            value="4"
-            name="bachground"
-            id="4"
-            checked={bachground === '4'}
+            value="four"
+            name="background"
+            id="four"
+            checked={background === 'four'}
           />
-          <label htmlFor="4" className={s.radio_label4}></label>
+          <label htmlFor="four" className={s.radioLabel4}></label>
         </div>
         {/* 4 */}
-        <div className={s.radio_container}>
+        <div className={s.radioContainer}>
           <input
-            className={s.radio_input5}
+            className={s.radioInput5}
             type="radio"
             onChange={handleCheked}
-            value="5"
-            name="bachground"
-            id="5"
-            checked={bachground === '5'}
+            value="five"
+            name="background"
+            id="five"
+            checked={background === 'five'}
           />
-          <label htmlFor="5" className={s.radio_label5}></label>
+          <label htmlFor="five" className={s.radioLabel5}></label>
         </div>
-        <div className={s.radio_container}>
+        <div className={s.radioContainer}>
           <input
-            className={s.radio_input6}
+            className={s.radioInput6}
             type="radio"
             onChange={handleCheked}
-            value="6"
-            name="bachground"
-            id="6"
-            checked={bachground === '6'}
+            value="six"
+            name="background"
+            id="six"
+            checked={background === 'six'}
           />
-          <label htmlFor="6" className={s.radio_label6}></label>
+          <label htmlFor="six" className={s.radioLabel6}></label>
         </div>
 
-        <div className={s.radio_container}>
+        <div className={s.radioContainer}>
           <input
-            className={s.radio_input7}
+            className={s.radioInput7}
             type="radio"
             onChange={handleCheked}
-            value="7"
-            name="bachground"
-            id="7"
-            checked={bachground === '7'}
+            value="seven"
+            name="background"
+            id="seven"
+            checked={background === 'seven'}
           />
-          <label htmlFor="7" className={s.radio_label7}></label>
+          <label htmlFor="seven" className={s.radioLabel7}></label>
         </div>
-        <div className={s.radio_container}>
+        <div className={s.radioContainer}>
           <input
-            className={s.radio_input8}
+            className={s.radioInput8}
             type="radio"
             onChange={handleCheked}
-            value="8"
-            name="bachground"
-            id="8"
-            checked={bachground === '8'}
+            value="eight"
+            name="background"
+            id="eight"
+            checked={background === 'eight'}
           />
-          <label htmlFor="8" className={s.radio_label8}></label>
+          <label htmlFor="eight" className={s.radioLabel8}></label>
         </div>
         {/* 8 */}
-        <div className={s.radio_container}>
+        <div className={s.radioContainer}>
           <input
-            className={s.radio_input9}
+            className={s.radioInput9}
             type="radio"
             onChange={handleCheked}
-            value="девять"
-            name="bachground"
-            id="девять"
-            checked={bachground === 'девять'}
+            value="nine"
+            name="background"
+            id="nine"
+            checked={background === 'nine'}
           />
-          <label htmlFor="девять" className={s.radio_label9}></label>
+          <label htmlFor="nine" className={s.radioLabel9}></label>
         </div>
-        <div className={s.radio_container}>
+        <div className={s.radioContainer}>
           <input
-            className={s.radio_input10}
+            className={s.radioInput10}
             type="radio"
             onChange={handleCheked}
-            value="десять"
-            name="bachground"
-            id="десять"
-            checked={bachground === 'десять'}
+            value="ten"
+            name="background"
+            id="ten"
+            checked={background === 'ten'}
           />
-          <label htmlFor="десять" className={s.radio_label10}></label>
+          <label htmlFor="ten" className={s.radioLabel10}></label>
         </div>
-        <div className={s.radio_container}>
+        <div className={s.radioContainer}>
           <input
-            className={s.radio_input11}
+            className={s.radioInput11}
             type="radio"
             onChange={handleCheked}
-            value="11"
-            name="bachground"
-            id="11"
-            checked={bachground === '11'}
+            value="eleven"
+            name="background"
+            id="eleven"
+            checked={background === 'eleven'}
           />
-          <label htmlFor="11" className={s.radio_label11}></label>
+          <label htmlFor="eleven" className={s.radioLabel11}></label>
         </div>
-        <div className={s.radio_container}>
+        <div className={s.radioContainer}>
           <input
-            className={s.radio_input12}
+            className={s.radioInput12}
             type="radio"
             onChange={handleCheked}
-            value="12"
-            name="bachground"
-            id="12"
-            checked={bachground === '12'}
+            value="twelve"
+            name="background"
+            id="twelve"
+            checked={background === 'twelve'}
           />
-          <label htmlFor="12" className={s.radio_label12}></label>
+          <label htmlFor="twelve" className={s.radioLabel12}></label>
         </div>
         {/* 12 */}
-        <div className={s.radio_container}>
+        <div className={s.radioContainer}>
           <input
-            className={s.radio_input13}
+            className={s.radioInput13}
             type="radio"
             onChange={handleCheked}
-            value="13"
-            name="bachground"
-            id="13"
-            checked={bachground === '13'}
+            value="thirteen"
+            name="background"
+            id="thirteen"
+            checked={background === 'thirteen'}
           />
-          <label htmlFor="13" className={s.radio_label13}></label>
+          <label htmlFor="thirteen" className={s.radioLabel13}></label>
         </div>
-        <div className={s.radio_container}>
+        <div className={s.radioContainer}>
           <input
-            className={s.radio_input14}
+            className={s.radioInput14}
             type="radio"
             onChange={handleCheked}
-            value="14"
-            name="bachground"
-            id="14"
-            checked={bachground === '14'}
+            value="fourteen"
+            name="background"
+            id="fourteen"
+            checked={background === 'fourteen'}
           />
-          <label htmlFor="14" className={s.radio_label14}></label>
+          <label htmlFor="fourteen" className={s.radioLabel14}></label>
         </div>
-        <div className={s.radio_container}>
+        <div className={s.radioContainer}>
           <input
-            className={s.radio_input15}
+            className={s.radioInput15}
             type="radio"
             onChange={handleCheked}
-            value="15"
-            name="bachground"
-            id="15"
-            checked={bachground === '15'}
+            value="fifteen"
+            name="background"
+            id="fifteen"
+            checked={background === 'fifteen'}
           />
-          <label htmlFor="15" className={s.radio_label15}></label>
+          <label htmlFor="fifteen" className={s.radioLabel15}></label>
         </div>
-        <div className={s.radio_container}>
+        <div className={s.radioContainer}>
           <input
-            className={s.radio_input16}
+            className={s.radioInput16}
             type="radio"
             onChange={handleCheked}
-            value="16"
-            name="bachground"
-            id="16"
-            checked={bachground === '16'}
+            value="sixteen"
+            name="background"
+            id="sixteen"
+            checked={background === 'sixteen'}
           />
-          <label htmlFor="16" className={s.radio_label16}></label>
+          <label htmlFor="sixteen" className={s.radioLabel16}></label>
         </div>
         {/* 16 */}
       </div>

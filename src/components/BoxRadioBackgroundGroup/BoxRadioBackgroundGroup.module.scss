@@ -1,38 +1,35 @@
-.box__backgroung {
+.backgroundGroupWrapper {
   display: block;
   margin-bottom: 40px;
 }
 
-.title__backgroung {
+.label {
   margin-bottom: 14px;
 
-  font-family: 'Poppins';
-  font-style: normal;
+  font-family: 'Poppins-Medium';
   font-weight: 500;
   font-size: 14px;
-  line-height: 21px;
-  /* identical to box height */
+  line-height: calc(21/14);
 
   letter-spacing: -0.02em;
-
   color: #ffffff;
 }
 
-.radio {
+.radioWrapper {
   display: flex;
   flex-wrap: wrap;
-  background: inherit;
   width: 256px;
+  background: inherit;
 }
 
-.radio_container {
+.radioContainer {
   position: relative;
   display: block;
   margin-right: 32px;
   margin-bottom: 28px;
   background: inherit;
 }
-.radio_container:nth-child(-n + 5) {
+.radioContainer:nth-child(-n + 5) {
   position: relative;
   display: block;
   margin-right: 32px;
@@ -40,17 +37,17 @@
   background: inherit;
 }
 
-.radio_input1 {
+.radioInput1 {
   -webkit-appearance: none;
   appearance: none;
   position: absolute;
 }
 
-.radio_label1 {
+.radioLabel1 {
   cursor: pointer;
 }
 
-.radio_label1::before {
+.radioLabel1::before {
   content: '';
   display: block;
   width: 28px;
@@ -59,17 +56,17 @@
   position: absolute;
   top: 0;
   left: 0;
-  // opacity: 0;
+
   z-index: 1;
 }
 
-.radio_label1::after {
+.radioLabel1::after {
   content: '';
   display: block;
 
   width: 28px;
   height: 28px;
-  // border: 1px solid red;
+
   position: absolute;
   background-image: url('../../assets/images/Vector.png');
   background-size: 105%;
@@ -79,23 +76,23 @@
   transition: opacity 0.1s linear;
 }
 
-.radio_input1:checked + .radio_label1::after {
+.radioInput1:checked + .radioLabel1::after {
   opacity: 1;
 }
 
 // second input
 
-.radio_input2 {
+.radioInput2 {
   -webkit-appearance: none;
   appearance: none;
   position: absolute;
 }
 
-.radio_label2 {
+.radioLabel2 {
   cursor: pointer;
 }
 
-.radio_label2::before {
+.radioLabel2::before {
   content: '';
   display: block;
   width: 28px;
@@ -108,7 +105,7 @@
   z-index: 1;
 }
 
-.radio_label2::after {
+.radioLabel2::after {
   content: '';
   display: block;
 
@@ -124,23 +121,23 @@
   transition: opacity 0.1s linear;
 }
 
-.radio_input2:checked + .radio_label2::after {
+.radioInput2:checked + .radioLabel2::after {
   opacity: 1;
 }
 
 // three
 
-.radio_input3 {
+.radioInput3 {
   -webkit-appearance: none;
   appearance: none;
   position: absolute;
 }
 
-.radio_label3 {
+.radioLabel3 {
   cursor: pointer;
 }
 
-.radio_label3::before {
+.radioLabel3::before {
   content: '';
   display: block;
   width: 28px;
@@ -153,7 +150,7 @@
   z-index: 1;
 }
 
-.radio_label3::after {
+.radioLabel3::after {
   content: '';
   display: block;
 
@@ -169,23 +166,23 @@
   transition: opacity 0.1s linear;
 }
 
-.radio_input3:checked + .radio_label3::after {
+.radioInput3:checked + .radioLabel3::after {
   opacity: 1;
 }
 
 // for
 
-.radio_input4 {
+.radioInput4 {
   -webkit-appearance: none;
   appearance: none;
   position: absolute;
 }
 
-.radio_label4 {
+.radioLabel4 {
   cursor: pointer;
 }
 
-.radio_label4::before {
+.radioLabel4::before {
   content: '';
   display: block;
   width: 28px;
@@ -198,7 +195,7 @@
   z-index: 1;
 }
 
-.radio_label4::after {
+.radioLabel4::after {
   content: '';
   display: block;
 
@@ -214,23 +211,23 @@
   transition: opacity 0.1s linear;
 }
 
-.radio_input4:checked + .radio_label4::after {
+.radioInput4:checked + .radioLabel4::after {
   opacity: 1;
 }
 
 // 5-8
 
-.radio_input5 {
+.radioInput5 {
   -webkit-appearance: none;
   appearance: none;
   position: absolute;
 }
 
-.radio_label5 {
+.radioLabel5 {
   cursor: pointer;
 }
 
-.radio_label5::before {
+.radioLabel5::before {
   content: '';
   display: block;
   width: 28px;
@@ -243,7 +240,7 @@
   z-index: 1;
 }
 
-.radio_label5::after {
+.radioLabel5::after {
   content: '';
   display: block;
 
@@ -260,22 +257,22 @@
   transition: opacity 0.1s linear;
 }
 
-.radio_input5:checked + .radio_label5::after {
+.radioInput5:checked + .radioLabel5::after {
   opacity: 1;
 }
 
 // 6
-.radio_input6 {
+.radioInput6 {
   -webkit-appearance: none;
   appearance: none;
   position: absolute;
 }
 
-.radio_label6 {
+.radioLabel6 {
   cursor: pointer;
 }
 
-.radio_label6::before {
+.radioLabel6::before {
   content: '';
   display: block;
   width: 28px;
@@ -288,7 +285,7 @@
   z-index: 1;
 }
 
-.radio_label6::after {
+.radioLabel6::after {
   content: '';
   display: block;
 
@@ -305,23 +302,23 @@
   transition: opacity 0.1s linear;
 }
 
-.radio_input6:checked + .radio_label6::after {
+.radioInput6:checked + .radioLabel6::after {
   opacity: 1;
 }
 
 //   7
 
-.radio_input7 {
+.radioInput7 {
   -webkit-appearance: none;
   appearance: none;
   position: absolute;
 }
 
-.radio_label7 {
+.radioLabel7 {
   cursor: pointer;
 }
 
-.radio_label7::before {
+.radioLabel7::before {
   content: '';
   display: block;
   width: 28px;
@@ -334,7 +331,7 @@
   z-index: 1;
 }
 
-.radio_label7::after {
+.radioLabel7::after {
   content: '';
   display: block;
   width: 28px;
@@ -350,22 +347,22 @@
   transition: opacity 0.1s linear;
 }
 
-.radio_input7:checked + .radio_label7::after {
+.radioInput7:checked + .radioLabel7::after {
   opacity: 1;
 }
 
 //   8
-.radio_input8 {
+.radioInput8 {
   -webkit-appearance: none;
   appearance: none;
   position: absolute;
 }
 
-.radio_label8 {
+.radioLabel8 {
   cursor: pointer;
 }
 
-.radio_label8::before {
+.radioLabel8::before {
   content: '';
   display: block;
   width: 28px;
@@ -378,7 +375,7 @@
   z-index: 1;
 }
 
-.radio_label8::after {
+.radioLabel8::after {
   content: '';
   display: block;
 
@@ -395,23 +392,23 @@
   transition: opacity 0.1s linear;
 }
 
-.radio_input8:checked + .radio_label8::after {
+.radioInput8:checked + .radioLabel8::after {
   opacity: 1;
 }
 
 //   9-12
 
-.radio_input9 {
+.radioInput9 {
   -webkit-appearance: none;
   appearance: none;
   position: absolute;
 }
 
-.radio_label9 {
+.radioLabel9 {
   cursor: pointer;
 }
 
-.radio_label9::before {
+.radioLabel9::before {
   content: '';
   display: block;
   width: 28px;
@@ -424,7 +421,7 @@
   z-index: 1;
 }
 
-.radio_label9::after {
+.radioLabel9::after {
   content: '';
   display: block;
 
@@ -441,23 +438,23 @@
   transition: opacity 0.1s linear;
 }
 
-.radio_input9:checked + .radio_label9::after {
+.radioInput9:checked + .radioLabel9::after {
   opacity: 1;
 }
 
 // 10
 
-.radio_input10 {
+.radioInput10 {
   -webkit-appearance: none;
   appearance: none;
   position: absolute;
 }
 
-.radio_label10 {
+.radioLabel10 {
   cursor: pointer;
 }
 
-.radio_label10::before {
+.radioLabel10::before {
   content: '';
   display: block;
   width: 28px;
@@ -470,7 +467,7 @@
   z-index: 1;
 }
 
-.radio_label10::after {
+.radioLabel10::after {
   content: '';
   display: block;
 
@@ -487,22 +484,22 @@
   transition: opacity 0.1s linear;
 }
 
-.radio_input10:checked + .radio_label10::after {
+.radioInput10:checked + .radioLabel10::after {
   opacity: 1;
 }
 
 // 11
-.radio_input11 {
+.radioInput11 {
   -webkit-appearance: none;
   appearance: none;
   position: absolute;
 }
 
-.radio_label11 {
+.radioLabel11 {
   cursor: pointer;
 }
 
-.radio_label11::before {
+.radioLabel11::before {
   content: '';
   display: block;
   width: 28px;
@@ -515,7 +512,7 @@
   z-index: 1;
 }
 
-.radio_label11::after {
+.radioLabel11::after {
   content: '';
   display: block;
 
@@ -532,22 +529,22 @@
   transition: opacity 0.1s linear;
 }
 
-.radio_input11:checked + .radio_label11::after {
+.radioInput11:checked + .radioLabel11::after {
   opacity: 1;
 }
 
 //   12
-.radio_input12 {
+.radioInput12 {
   -webkit-appearance: none;
   appearance: none;
   position: absolute;
 }
 
-.radio_label12 {
+.radioLabel12 {
   cursor: pointer;
 }
 
-.radio_label12::before {
+.radioLabel12::before {
   content: '';
   display: block;
   width: 28px;
@@ -560,7 +557,7 @@
   z-index: 1;
 }
 
-.radio_label12::after {
+.radioLabel12::after {
   content: '';
   display: block;
 
@@ -576,23 +573,23 @@
   transition: opacity 0.1s linear;
 }
 
-.radio_input12:checked + .radio_label12::after {
+.radioInput12:checked + .radioLabel12::after {
   opacity: 1;
 }
 
 // 13-16
 
-.radio_input13 {
+.radioInput13 {
   -webkit-appearance: none;
   appearance: none;
   position: absolute;
 }
 
-.radio_label13 {
+.radioLabel13 {
   cursor: pointer;
 }
 
-.radio_label13::before {
+.radioLabel13::before {
   content: '';
   display: block;
   width: 28px;
@@ -605,7 +602,7 @@
   z-index: 1;
 }
 
-.radio_label13::after {
+.radioLabel13::after {
   content: '';
   display: block;
   background-image: url('../../assets/images/Vector12.png');
@@ -621,21 +618,21 @@
   transition: opacity 0.1s linear;
 }
 
-.radio_input13:checked + .radio_label13::after {
+.radioInput13:checked + .radioLabel13::after {
   opacity: 1;
 }
 //   14
-.radio_input14 {
+.radioInput14 {
   -webkit-appearance: none;
   appearance: none;
   position: absolute;
 }
 
-.radio_label14 {
+.radioLabel14 {
   cursor: pointer;
 }
 
-.radio_label14::before {
+.radioLabel14::before {
   content: '';
   display: block;
   width: 28px;
@@ -648,7 +645,7 @@
   z-index: 1;
 }
 
-.radio_label14::after {
+.radioLabel14::after {
   content: '';
   display: block;
   background-image: url('../../assets/images/Vector13.png');
@@ -662,22 +659,22 @@
   transition: opacity 0.1s linear;
 }
 
-.radio_input14:checked + .radio_label14::after {
+.radioInput14:checked + .radioLabel14::after {
   opacity: 1;
 }
 
 //   15
-.radio_input15 {
+.radioInput15 {
   -webkit-appearance: none;
   appearance: none;
   position: absolute;
 }
 
-.radio_label15 {
+.radioLabel15 {
   cursor: pointer;
 }
 
-.radio_label15::before {
+.radioLabel15::before {
   content: '';
   display: block;
   width: 28px;
@@ -690,7 +687,7 @@
   z-index: 1;
 }
 
-.radio_label15::after {
+.radioLabel15::after {
   content: '';
   display: block;
   background-image: url('../../assets/images/Vector14.png');
@@ -706,22 +703,22 @@
   transition: opacity 0.1s linear;
 }
 
-.radio_input15:checked + .radio_label15::after {
+.radioInput15:checked + .radioLabel15::after {
   opacity: 1;
 }
 
 //   16
-.radio_input16 {
+.radioInput16 {
   -webkit-appearance: none;
   appearance: none;
   position: absolute;
 }
 
-.radio_label16 {
+.radioLabel16 {
   cursor: pointer;
 }
 
-.radio_label16::before {
+.radioLabel16::before {
   content: '';
   display: block;
   width: 28px;
@@ -734,7 +731,7 @@
   z-index: 1;
 }
 
-.radio_label16::after {
+.radioLabel16::after {
   content: '';
   display: block;
 
@@ -750,6 +747,6 @@
   transition: opacity 0.1s linear;
 }
 
-.radio_input16:checked + .radio_label16::after {
+.radioInput16:checked + .radioLabel16::after {
   opacity: 1;
 }

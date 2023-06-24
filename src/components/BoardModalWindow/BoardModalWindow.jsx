@@ -1,30 +1,32 @@
 import PropTypes from 'prop-types';
-import { ModalColumn } from 'components/ModalColumn/ModalColumn';
 import { useState } from 'react';
+import { ReusableColumnModalWindow } from 'components/ReusableColumnModalWindow/ReusableColumnModalWindow';
 import { BoxRadioIconGroup } from 'components/BoxRadioIconGroup/BoxRadioIconGroup';
 import { BoxRadioBackgroundGroup } from 'components/BoxRadioBackgroundGroup/BoxRadioBackgroundGroup';
 
-export const ModalBoard = ({
+export const BoardModalWindow = ({
   inputTitle,
   modalTitle,
   titleModalButton,
   onClick,
   handleToggleModal,
 }) => {
-  const [isBack, setIsBack] = useState('dark');
+  const [Background, setBackground] = useState('dark');
   const [icon, setIcon] = useState('');
 
   const handleAddBoard = value => {
     const newCard = {
       value,
       icon,
-      isBack,
+      Background,
     };
-    onClick(newCard);
+    console.log(newCard)
+    console.log(onClick)
+    // onclick(dispatch(addNewCard());
   };
 
   return (
-    <ModalColumn
+    <ReusableColumnModalWindow
       inputTitle={inputTitle}
       modalTitle={modalTitle}
       titleModalButton={titleModalButton}
@@ -32,15 +34,15 @@ export const ModalBoard = ({
       handleToggleModal={handleToggleModal}
     >
       <BoxRadioIconGroup valueChange={setIcon} />
-      <BoxRadioBackgroundGroup valueChange={setIsBack} />
-    </ModalColumn>
+      <BoxRadioBackgroundGroup valueChange={setBackground} />
+    </ReusableColumnModalWindow>
   );
 };
 
-ModalBoard.propTypes = {
+BoardModalWindow.propTypes = {
   modalTitle: PropTypes.string.isRequired,
   inputTitle: PropTypes.string.isRequired,
   titleModalButton: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired,
-  handleToggleModal: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
+  handleToggleModal: PropTypes.func,
 };
