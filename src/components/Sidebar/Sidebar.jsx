@@ -20,7 +20,7 @@ export const Sidebar = () => {
   const handleModalWindowOpen = () => setShowModalWindow(true);
   const handleModalWindowClose = () => setShowModalWindow(false);
   if (!theme) return;
-  
+
   return (
     <div className={clsx(s.container, s[theme])}>
       <Logo theme={theme} />
@@ -29,12 +29,13 @@ export const Sidebar = () => {
       <BoardList theme={theme} boards={boards} />
       <HelpWindow theme={theme} />
       <Logout theme={theme} />
-        {showModalWindow && ( <BoardModalWindow
-            inputTitle="Title"
-            titleModalButton="Create"
-            modalTitle="New board"
-            onClick = {handleModalWindowClose}
-          />
+      {showModalWindow && (
+        <BoardModalWindow
+          inputTitle="Title"
+          titleModalButton="Create"
+          modalTitle="New board"
+          onClick={handleModalWindowClose}
+        />
       )}
     </div>
   );

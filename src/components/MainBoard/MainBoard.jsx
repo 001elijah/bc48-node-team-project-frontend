@@ -6,22 +6,20 @@ import { AddButton } from '../ButtonAddColumn/ButtonAddColumn';
 // import {TaskCard} from '../../TaskCard/TaskCard'
 // import {TasksColumnHeader} from '../../TasksColumnHeader/TasksColumnHeader'
 
-const BASE_URL_IMG = 'https://res.cloudinary.com/dblzpxfzb/image/upload/v1687449642/background/'
+const BASE_URL_IMG =
+  'https://res.cloudinary.com/dblzpxfzb/image/upload/v1687449642/background/';
 // import { useParams } from 'react-router-dom';
 
-export const MainBoard = ({imgid}) => {
+export const MainBoard = ({ imgid }) => {
   // const { boardName } = useParams();
-//робимо запит на бек за id дошки
+  //робимо запит на бек за id дошки
 
   return (
     <>
-      <Wrapper
-        imgurl={BASE_URL_IMG}
-        imgid = {imgid}
-      >
+      <Wrapper imgurl={BASE_URL_IMG} imgid={imgid}>
         <HeaderDashBoard title="test" />
         <div>
-        {/* <TasksColumnHeader/>
+          {/* <TasksColumnHeader/>
         <TaskCard/> */}
         </div>
 

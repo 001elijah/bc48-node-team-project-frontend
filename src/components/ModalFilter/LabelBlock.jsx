@@ -41,7 +41,7 @@ export const LabelBlock = ({ newField }) => {
   const handleOnClickAll = () => {
     setField('');
   };
-console.log(newField, field)
+  console.log(newField, field);
   return (
     <>
       <div className={clsx(s.TextLine, s[theme])}>
