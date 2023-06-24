@@ -9,7 +9,7 @@ import s from './ModalChangeColumn.module.scss';
 
 
 
-export const ModalChangeColumn = ({ closeModal }) => {
+export const ModalChangeColumn = ({ closeModal,boardId,columnId }) => {
   const dispatch =useDispatch()
   const theme = useSelector(selectorTheme);
   const columnList = [
@@ -19,7 +19,7 @@ export const ModalChangeColumn = ({ closeModal }) => {
   ];
 
   useEffect(() => {
-  dispatch(getAllColumns())
+  dispatch(getAllColumns(boardId))
 },[dispatch])
 
   return (
@@ -48,5 +48,6 @@ export const ModalChangeColumn = ({ closeModal }) => {
 
 ModalChangeColumn.propTypes = {
   closeModal: PropTypes.func.isRequired,
+  boardId: PropTypes.string.isRequired,
   columnId: PropTypes.string.isRequired,
 };

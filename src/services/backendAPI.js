@@ -47,10 +47,10 @@ export const getListOfBoardsApi = async userToken => {
   return data;
 };
 
-// export const getBoardInfoApi = async () => {
-//   const { data } = await axios.get('/board');
-//   return data;
-// };
+export const getBoardByIdApi = async boardId => {
+  const { data } = await axios.get(`board/${boardId}`);
+  return data;
+};
 
 export const removeColumnApi = async columnId => {
   await axios.delete(`/board/column/${columnId}`);

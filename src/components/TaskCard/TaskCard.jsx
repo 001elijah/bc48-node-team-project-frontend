@@ -17,8 +17,9 @@ export const TaskCard = ({
   description,
   priority = 'High',
   deadline,
+  boardId,
   columnId,
- }) => {
+}) => {
   const theme = useSelector(selectorTheme);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -88,17 +89,26 @@ export const TaskCard = ({
               />
             </li>
             <li key={shortid.generate()} className={s.item}>
-              <TaskControlButton icon="#icon-pencil" onClick={()=>{}} />
+              <TaskControlButton icon="#icon-pencil" onClick={() => {}} />
             </li>
             <li key={shortid.generate()} className={s.item}>
-              <TaskControlButton icon="#icon-trash" onClick={()=>{removeCard(id)}} />
+              <TaskControlButton
+                icon="#icon-trash"
+                onClick={() => {
+                  removeCard(id);
+                }}
+              />
             </li>
           </ul>
         </div>
       </div>
       {isModalOpen && (
         <BackdropModal closeModal={closeModalChangeColumn}>
-          <ModalChangeColumn closeModal={closeModalChangeColumn} />
+          <ModalChangeColumn
+            closeModal={closeModalChangeColumn}
+            boardId={boardId}
+            columnId={columnId}
+          />
         </BackdropModal>
       )}
     </li>
@@ -111,5 +121,6 @@ TaskCard.propTypes = {
   description: PropTypes.string,
   priority: PropTypes.string,
   deadline: PropTypes.string,
+  boardId: PropTypes.string,
   columnId: PropTypes.string,
- };
+};
