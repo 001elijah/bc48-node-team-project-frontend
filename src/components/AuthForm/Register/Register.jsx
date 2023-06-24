@@ -63,6 +63,7 @@ export const Register = () => {
           value={formik.values.password}
           placeholder="Create a password"
         />
+
         <svg className={y.eye} onClick={toggleShowPassword}>
           <use
             href={showPassword ? `${icons}#icon-eye` : `${icons}#icon-antiEye`}

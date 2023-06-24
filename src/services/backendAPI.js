@@ -47,6 +47,17 @@ export const getListOfBoardsApi = async userToken => {
   return data;
 };
 
+// export const addColumn = async board => {
+//   const { data } = await axios.post('board/column');
+//   console.log(data);
+//   return data;
+// };
+
+// export const editColumn = async board => {
+//   const { data } = await axios.post('/board');
+//   return data;
+// };
+
 export const getBoardByIdApi = async boardId => {
   const { data } = await axios.get(`board/${boardId}`);
   return data;
