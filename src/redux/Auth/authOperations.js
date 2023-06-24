@@ -2,6 +2,7 @@ import { Notify } from 'notiflix';
 
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { logOut } from './authSlice';
+import { getListOfBoards } from '../Boards/boardsOperations';
 
 import {
   registerUserApi,
@@ -62,6 +63,9 @@ export const currentUser = createAsyncThunk(
     const { token } = getState().auth;
     try {
       const data = await currentUserApi(token);
+      setTimeout(() => {
+        dispatch(getListOfBoards());
+      }, 0);
       return data;
     } catch (error) {
       setTimeout(() => {

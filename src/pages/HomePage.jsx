@@ -1,32 +1,20 @@
-import { useDispatch } from 'react-redux';
-import { logoutUser } from 'redux/Auth/authOperations';
-// import { themeChangeUser } from 'redux/Auth/authOperations';
-// import { selectorTheme } from 'redux/Auth/authSelectors';
-import React, { useState } from 'react';
-import { Modal } from '../components/Modal/Modal';
+import { Sidebar } from '../components/Sidebar/Sidebar';
+import React from 'react';
 import { Header } from 'components/Header/Header';
+import { useMediaQuery } from 'react-responsive';
+
+import { Container } from 'components/Container';
+import { DefaultDashBoard } from 'components/ScreensBoard/DefaultBoard/DefaultBoard';
 import { Outlet } from 'react-router-dom';
 
+
 export const HomePage = () => {
-  // const theme = useSelector(selectorTheme) || '';
-  const dispatch = useDispatch();
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  // const handleChange = e => {
-  //   dispatch(themeChangeUser(e.target.value));
-  // };
-
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
+  const isDesktopSize = useMediaQuery({ query: '(min-width: 1280px)' });
 
   return (
-    <div>
-      <Header />
+    <div >
+    <Container>
+      {/* <Header /> */}
       {/* <select name="priority" value={theme} onChange={handleChange}>
         <option value="light">Light</option>
         <option value="dark">Dark</option>
@@ -37,7 +25,7 @@ export const HomePage = () => {
         boardtitle =""
       /> */}
 
-      <button onClick={() => dispatch(logoutUser())}>Log logOut</button>
+      {/* <button onClick={() => dispatch(logoutUser())}>Log logOut</button>
 
       <button onClick={openModal}>Open Modal</button>
 
@@ -46,7 +34,23 @@ export const HomePage = () => {
           <p>Content of the modal.</p>
         </Modal>
       )}
-      <Outlet/>
+      <Outlet/> */}
+
+    <div style={{ display: 'flex' }}>
+      {isDesktopSize && <Sidebar />}
+
+      <div style={{ width: '100%' }}>
+        <Header />
+        {/* <select name="priority" value={theme} onChange={handleChange}>
+          <option value="light">Light</option>
+          <option value="dark">Dark</option>
+          <option value="colorful">Colorful</option>
+        </select> */}
+        <Outlet/>
+      </div>
+
+    </div>
+    </Container>
     </div>
   );
 };

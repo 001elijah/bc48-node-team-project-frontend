@@ -1,12 +1,16 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
-import { Container } from 'components/Container';
+// import { Container } from 'components/Container';
 import { UserInfo } from 'components/UserInfo/UserInfo';
 import { selectorTheme } from 'redux/Auth/authSelectors';
 import { themeChangeUser } from 'redux/Auth/authOperations';
 import s from './Header.module.scss';
 import icons from '../../assets/icons/sprite.svg';
+import { SideBarBackDrop } from '../SideBarBackDrop/SideBarBackDrop';
+import { Sidebar } from '../Sidebar/Sidebar';
+
+// import sidebarStyles from '../Sidebar/Sidebar.module.scss';
 
 export const Header = () => {
   const [showSidebar, setShowSidebar] = useState(false);
@@ -14,6 +18,12 @@ export const Header = () => {
   const toggleSidebar = () => {
     setShowSidebar(prev => !prev);
   };
+
+  // const openSidebar = () => {
+  //   setShowSidebar(true);
+  //   const sidebar = document.querySelector('#sidebar');
+  //   sidebar.classList.add(sidebarStyles.visible);
+  // };
 
   const theme = useSelector(selectorTheme);
   const dispatch = useDispatch();
@@ -25,7 +35,7 @@ export const Header = () => {
   return (
     <>
       <header className={clsx(s.header, s[theme])}>
-        <Container>
+        {/* <Container> */}
           <div className={s.pageHeader}>
             <button onClick={toggleSidebar} className={s.burgerMenu}>
               <svg className={clsx(s.burgerIcon, s[theme])}>
@@ -63,9 +73,13 @@ export const Header = () => {
             </div>
             <UserInfo />
           </div>
-        </Container>
+        {/* </Container> */}
       </header>
-      {showSidebar && <div> SIDEBAR </div>}
+      {showSidebar && (
+        <SideBarBackDrop toggleSidebar={toggleSidebar}>
+          <Sidebar />
+        </SideBarBackDrop>
+      )}
     </>
   );
 };
