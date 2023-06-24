@@ -19,7 +19,7 @@ export const CardModalWindow = ({
   const [coment, setComent] = useState('');
   const [isColor, setIsColor] = useState('dark');
   const [date, setDate] = useState('');
-  
+
   const handleAddCard = value => {
     const newCard = {
       value,
@@ -27,7 +27,7 @@ export const CardModalWindow = ({
       color: isColor,
       date,
     };
-    console.log(newCard)
+    console.log(newCard);
     // onclick(dispatch(addNewCard());
   };
 

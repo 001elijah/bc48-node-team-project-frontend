@@ -20,8 +20,8 @@ export const BoardModalWindow = ({
       icon,
       Background,
     };
-    console.log(newCard)
-    console.log(onClick)
+    console.log(newCard);
+    console.log(onClick);
     // onclick(dispatch(addNewCard());
   };
 

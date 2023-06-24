@@ -17,7 +17,7 @@ export const ReusableColumnModalWindow = ({
   const theme = useSelector(selectorTheme);
 
   const handleSubmit = () => {
-    console.log(value)
+    console.log(value);
     // dispatch(addNewColumn(value));
     setValue('');
   };
@@ -32,10 +32,7 @@ export const ReusableColumnModalWindow = ({
           onChange={e => setValue(e.target.value)}
         />
         {children}
-        <button
-          className={`${s.buttonModal} ${s[theme]}`}
-          type="submit"
-        >
+        <button className={`${s.buttonModal} ${s[theme]}`} type="submit">
           <span className={`${s.iconButtonModalWrapper} ${s[theme]}`}>
             <svg
               className={`${s.iconButtonModal} ${s[theme]}`}
