@@ -1,4 +1,5 @@
-import { useState, useSelector } from 'react';
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import clsx from 'clsx';
 import shortid from 'shortid';
 import PropTypes from 'prop-types';
@@ -15,13 +16,19 @@ export const TaskCard = ({
   id,
   title,
   description,
-  priority = 'High',
-  deadline,
+  label = 'Low',
+  deadline = '2023-06-24 00:58',
   boardId,
   columnId,
 }) => {
   const theme = useSelector(selectorTheme);
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const date = new Date();
+  const currentTime = `${date.toISOString().split('T')[0]} ${
+    date.toTimeString().split(' ')[0]
+  }`;
+  const isDeadline = deadline === currentTime.slice(0, -3);
 
   const openModalChangeColumn = () => {
     setIsModalOpen(true);
@@ -34,9 +41,9 @@ export const TaskCard = ({
       <div
         className={clsx(
           s.priorityLine,
-          priority === 'Low' && s.bg_low,
-          priority === 'Medium' && s.bg_medium,
-          priority === 'High' && s.bg_high,
+          label === 'Medium' && s.bg_medium,
+          label === 'High' && s.bg_high,
+          label === 'Low' && s.bg_low,
         )}
       ></div>
       <div className={s.infoWrapper}>
@@ -59,26 +66,25 @@ export const TaskCard = ({
               <div
                 className={clsx(
                   s.priorityCircle,
-                  priority === 'Low' && s.bg_low,
-                  priority === 'Medium' && s.bg_medium,
-                  priority === 'High' && s.bg_high,
+                  label === 'Low' && s.bg_low,
+                  label === 'Medium' && s.bg_medium,
+                  label === 'High' && s.bg_high,
                 )}
               ></div>
-              <p className={clsx(s.text, s[theme])}>{priority}</p>
+              <p className={clsx(s.text, s[theme])}>{label}</p>
             </div>
           </div>
           <div>
             <h5 className={clsx(s.subtitle, s[theme])}>Deadline</h5>
-            <p className={clsx(s.text, s[theme])}>
-              {deadline}
-              12/05/2023
-            </p>
+            <p className={clsx(s.text, s[theme])}>{deadline}</p>
           </div>
         </div>
         <div className={s.iconsWrapper}>
-          <svg className={clsx(s.icon, s[theme])}>
-            <use href={sprite + '#icon-bell'}></use>
-          </svg>
+          {isDeadline && (
+            <svg className={clsx(s.icon, s[theme])}>
+              <use href={sprite + '#icon-bell'}></use>
+            </svg>
+          )}
           <ul className={s.buttonList}>
             <li key={shortid.generate()} className={s.item}>
               <TaskControlButton
@@ -119,7 +125,7 @@ TaskCard.propTypes = {
   id: PropTypes.string,
   title: PropTypes.string,
   description: PropTypes.string,
-  priority: PropTypes.string,
+  label: PropTypes.string,
   deadline: PropTypes.string,
   boardId: PropTypes.string,
   columnId: PropTypes.string,
