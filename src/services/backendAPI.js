@@ -46,3 +46,14 @@ export const getListOfBoardsApi = async userToken => {
   const { data } = await axios.get('/board/');
   return data;
 };
+
+// export const addColumn = async board => {
+//   const { data } = await axios.post('board/column');
+//   console.log(data);
+//   return data;
+// };
+
+// export const editColumn = async board => {
+//   const { data } = await axios.post('/board');
+//   return data;
+// };
