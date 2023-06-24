@@ -4,6 +4,7 @@ import shortid from 'shortid';
 import PropTypes from 'prop-types';
 
 import sprite from '../../assets/icons/sprite.svg';
+import { removeCard } from 'redux/Card/cardOperations';
 import { selectorTheme } from 'redux/Auth/authSelectors';
 import { TaskControlButton } from '../TaskControlButton/TaskControlButton';
 import { ModalChangeColumn } from 'components/ModalChangeColumn/ModalChangeColumn';
@@ -16,9 +17,8 @@ export const TaskCard = ({
   description,
   priority = 'High',
   deadline,
-  editCard,
-  removeCard,
-}) => {
+  columnId,
+ }) => {
   const theme = useSelector(selectorTheme);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -88,10 +88,10 @@ export const TaskCard = ({
               />
             </li>
             <li key={shortid.generate()} className={s.item}>
-              <TaskControlButton icon="#icon-pencil" onClick={editCard} />
+              <TaskControlButton icon="#icon-pencil" onClick={()=>{}} />
             </li>
             <li key={shortid.generate()} className={s.item}>
-              <TaskControlButton icon="#icon-trash" onClick={removeCard} />
+              <TaskControlButton icon="#icon-trash" onClick={()=>{removeCard(id)}} />
             </li>
           </ul>
         </div>
@@ -111,6 +111,5 @@ TaskCard.propTypes = {
   description: PropTypes.string,
   priority: PropTypes.string,
   deadline: PropTypes.string,
-  editCard: PropTypes.func,
-  removeCard: PropTypes.func,
-};
+  columnId: PropTypes.string,
+ };

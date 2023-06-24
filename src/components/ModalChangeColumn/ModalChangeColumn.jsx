@@ -1,17 +1,27 @@
+import { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 import { selectorTheme } from 'redux/Auth/authSelectors';
-import s from './ModalChangeColumn.module.scss';
 import sprite from '../../assets/icons/sprite.svg';
+import { getAllColumns } from 'redux/Column/columnOperations';
+import s from './ModalChangeColumn.module.scss';
+
+
 
 export const ModalChangeColumn = ({ closeModal }) => {
+  const dispatch =useDispatch()
   const theme = useSelector(selectorTheme);
   const columnList = [
     { id: 1, name: 'to do' },
     { id: 2, name: 'in progress' },
     { id: 3, name: 'done' },
   ];
+
+  useEffect(() => {
+  dispatch(getAllColumns())
+},[dispatch])
+
   return (
     <div className={clsx(s.modalWrapper, s[theme])}>
       <ul>
@@ -38,4 +48,5 @@ export const ModalChangeColumn = ({ closeModal }) => {
 
 ModalChangeColumn.propTypes = {
   closeModal: PropTypes.func.isRequired,
+  columnId: PropTypes.string.isRequired,
 };
