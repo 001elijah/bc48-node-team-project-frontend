@@ -16,7 +16,7 @@ export const ModalFilter = ({ closeModal, color }) => {
   useEffect(() => {
     color = colorFilter;
   }, []);
-console.log(color)
+  
   return (
     <>
       <div className={clsx(s.Wrapper, s[theme])}>

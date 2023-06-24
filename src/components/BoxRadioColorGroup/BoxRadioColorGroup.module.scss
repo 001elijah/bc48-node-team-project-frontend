@@ -1,0 +1,240 @@
+.titleColor {
+  margin-bottom: 4px;
+
+  font-family: 'Poppins-Medium';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  color: rgba(255, 255, 255, 0.5);
+
+  &.colorful,
+  &.light {
+    color: rgba(22, 22, 22, 0.5);
+  }
+}
+
+.radio {
+  display: flex;
+  background: inherit;
+  height: 40px;
+}
+
+.radioContainer {
+  position: relative;
+  display: block;
+  margin-right: 22px;
+  background: inherit;
+}
+
+.radioInput {
+  -webkit-appearance: none;
+  appearance: none;
+  position: absolute;
+}
+
+.radioLabelHigh {
+  cursor: pointer;
+
+  &.colorful::after {
+    border: 2px solid #fcfcfc;
+  }
+
+  &.light::after {
+    border: 2px solid #fcfcfc;
+  }
+}
+
+.radioLabelHigh::before {
+  content: '';
+  display: block;
+  width: 14px;
+  height: 14px;
+  background-color: rgba(143, 161, 208, 1);
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.radioLabelHigh::after {
+  content: '';
+  display: block;
+
+  border: 2px solid #151515;
+  border-radius: 50%;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  z-index: 1;
+
+  opacity: 0;
+  transition: opacity 0.1s linear;
+}
+
+.radioInput:checked + .radioLabelHigh::after {
+  opacity: 1;
+}
+
+.radioLabelMedium {
+  cursor: pointer;
+
+  &.colorful::after {
+    border: 2px solid #fcfcfc;
+  }
+  &.light::after {
+    border: 2px solid #fcfcfc;
+  }
+}
+
+.radioLabelMedium::before {
+  content: '';
+  display: block;
+  width: 14px;
+  height: 14px;
+  background-color: rgba(224, 156, 181, 1);
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.radioLabelMedium::after {
+  content: '';
+  display: block;
+
+  border: 2px solid rgba(21, 21, 21, 1);
+  border-radius: 50%;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  z-index: 1;
+
+  opacity: 0;
+  transition: opacity 0.1s linear;
+
+  & .light {
+    border: 2px solid rgba(252, 252, 252, 1);
+  }
+}
+
+.radioInput:checked + .radioLabelMedium::after {
+  opacity: 1;
+}
+
+// three
+
+.radioLabelLow {
+  cursor: pointer;
+
+  &.colorful::after {
+    border: 2px solid #fcfcfc;
+  }
+  &.light::after {
+    border: 2px solid #fcfcfc;
+  }
+}
+
+.radioLabelLow::before {
+  content: '';
+  display: block;
+  width: 14px;
+  height: 14px;
+  background-color: rgba(190, 219, 176, 1);
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.radioLabelLow::after {
+  content: '';
+  display: block;
+
+  border: 2px solid #151515;
+  border-radius: 50%;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  z-index: 1;
+
+  opacity: 0;
+  transition: opacity 0.1s linear;
+
+  & .light {
+    border: 2px solid rgba(252, 252, 252, 1);
+  }
+}
+
+.radioInput:checked + .radioLabelLow::after {
+  opacity: 1;
+}
+
+.radioLabelWithout {
+  cursor: pointer;
+
+  &.colorful::before {
+    background: rgba(22, 22, 22, 0.3);
+  }
+  &.light::before {
+    background: rgba(22, 22, 22, 0.3);
+  }
+
+  &.colorful::after {
+    border: 2px solid #fcfcfc;
+  }
+  &.light::after {
+    border: 2px solid #fcfcfc;
+  }
+}
+
+.radioLabelWithout::before {
+  content: '';
+  display: block;
+  width: 14px;
+  height: 14px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.radioLabelWithout::after {
+  content: '';
+  display: block;
+  border: 2px solid #151515;
+  border-radius: 50%;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  z-index: 1;
+
+  opacity: 0;
+  transition: opacity 0.1s linear;
+
+  & .light {
+    border: 2px solid rgba(252, 252, 252, 1);
+  }
+}
+
+.radioInput:checked + .radioLabelWithout::after {
+  opacity: 1;
+}

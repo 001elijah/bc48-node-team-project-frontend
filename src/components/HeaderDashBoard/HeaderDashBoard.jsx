@@ -34,7 +34,6 @@ export const HeaderDashBoard = ({ title }) => {
           <BackdropModal closeModal={handleModalWindowClose}>
             <ModalFilter
               closeModal={handleModalWindowClose}
-              // color={setColor}
             />
           </BackdropModal>
         )}
