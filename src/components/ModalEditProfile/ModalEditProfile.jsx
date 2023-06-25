@@ -138,7 +138,7 @@ export const ModalEditProfile = ({ onClose }) => {
           value={formik.values.password}
           placeholder="Password"
         />
-        <svg className={y.eye} onClick={toggleShowPassword}>
+        <svg className={`${s.eye} ${s[thema]}`} onClick={toggleShowPassword}>
           <use
             href={showPassword ? `${icons}#icon-eye` : `${icons}#icon-antiEye`}
           ></use>
@@ -153,5 +153,5 @@ export const ModalEditProfile = ({ onClose }) => {
 };
 
 ModalEditProfile.propTypes = {
-  onClose: PropTypes.node.isRequired,
+  onClose: PropTypes.func.isRequired,
 };
