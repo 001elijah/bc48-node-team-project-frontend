@@ -1,4 +1,4 @@
-// @import-normalize; /* bring in normalize.css styles */
+@import-normalize; /* bring in normalize.css styles */
 @import './assets/styles/reset';
 @import './assets/styles/vars';
 @import './assets/styles/mixins';
@@ -27,7 +27,7 @@
 body {
   margin: 0;
 
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins-Regular', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;

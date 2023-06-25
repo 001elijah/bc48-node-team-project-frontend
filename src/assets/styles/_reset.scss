@@ -3,6 +3,7 @@
 
 html {
   box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 *,
@@ -18,6 +19,7 @@ h3,
 h4,
 h5,
 h6 {
+  margin: 0;
   margin: 0;
 }
 
@@ -35,7 +37,7 @@ img {
 a {
   text-decoration: none;
 }
-
 button {
+  font-family: 'Poppins-Medium';
   padding: 0;
 }

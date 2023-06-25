@@ -31,17 +31,17 @@ InputBlock.propTypes = {
 };
 
 export const LabelBlock = ({ newField }) => {
-  console.log(newField)
+  console.log(newField);
   const theme = useSelector(selectorTheme);
   const [field, setField] = useState(' ');
-  console.log(field)
+  console.log(field);
   const handleOnClick = e => {
     setField(e.currentTarget.value);
   };
   const handleOnClickAll = () => {
     setField('');
   };
-
+  console.log(newField, field);
   return (
     <>
       <div className={clsx(s.TextLine, s[theme])}>
