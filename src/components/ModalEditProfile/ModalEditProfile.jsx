@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 // import { resizeFile } from 'react-image-file-resizer';
 
 import { ButtonAuth } from '../ButtonAuth/ButtonAuth';
-import { validationSchemaRegister } from '../SchemaValidation/schemaValidation';
+import { validationSchemaEditProfile } from '../SchemaValidation/schemaValidation';
 import { updateUser } from 'redux/Auth/authOperations';
 import { selectorTheme } from 'redux/Auth/authSelectors';
 
@@ -33,9 +33,9 @@ export const ModalEditProfile = ({ onClose }) => {
       userName: name,
       email: email,
       password: '',
-      // avatarUrl: null,
+      // avatarUrl: '',
     },
-    validationSchema: validationSchemaRegister,
+    validationSchema: validationSchemaEditProfile,
     onSubmit: values => {
       onClose();
       dispatch(updateUser(values));
