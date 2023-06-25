@@ -2,6 +2,7 @@ import { useFormik } from 'formik';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
+import { Notify } from 'notiflix';
 
 import { ButtonAuth } from '../ButtonAuth/ButtonAuth';
 import { validationSchemaEditProfile } from '../SchemaValidation/schemaValidation';
@@ -53,7 +54,17 @@ export const ModalEditProfile = ({ onClose }) => {
   });
 
   const handleImageChange = event => {
-    setImageFile(event.currentTarget.files[0]);
+    const file = event.currentTarget.files[0];
+
+    const imageFormat = ['image/png', 'image/jpeg', 'image/jpg'];
+
+    if (file) {
+      if (!imageFormat.includes(file.type)) {
+        Notify.failure('Invalid image format');
+      } else {
+        setImageFile(file);
+      }
+    }
   };
 
   return (
@@ -90,9 +101,6 @@ export const ModalEditProfile = ({ onClose }) => {
           type="file"
           onChange={handleImageChange}
         />
-        {formik.touched.avatarUrl && formik.errors.avatarUrl && (
-          <p className={y.error}>{formik.errors.avatarUrl}</p>
-        )}
       </label>
 
       <label className={s.label} htmlFor="userName">
