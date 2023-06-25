@@ -37,12 +37,14 @@ export const logoutUserApi = async userToken => {
 
 export const themeChangeUserApi = async theme => {
   const { data } = await axios.patch('user/', theme);
+  console.log(data)
   return data;
 };
 
 export const updateUserApi = async userData => {
   const { data } = await axios.patch('user/updateUserInfo', userData);
-  return data;
+  console.log(data.user)
+  return data.user;
 };
 //---------------------------------------------BOARDS---------------------//
 

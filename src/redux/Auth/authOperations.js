@@ -110,8 +110,8 @@ export const updateUser = createAsyncThunk(
   'auth/updateUser',
   async (userData, { rejectWithValue }) => {
     try {
-      const { data } = await updateUserApi(userData);
-      return data;
+      await updateUserApi(userData);
+      return userData;
     } catch (error) {
       return rejectWithValue(error.message);
     }

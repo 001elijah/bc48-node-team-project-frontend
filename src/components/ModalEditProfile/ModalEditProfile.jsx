@@ -38,7 +38,6 @@ export const ModalEditProfile = ({ onClose }) => {
     validationSchema: validationSchemaRegister,
     onSubmit: values => {
       onClose();
-      console.log(values);
       dispatch(updateUser(values));
     },
   });
