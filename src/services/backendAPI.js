@@ -1,6 +1,9 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://taskpro.onrender.com/user';
+// axios.defaults.baseURL = 'https://taskpro.onrender.com/user';
+
+axios.defaults.baseURL = 'http://localhost:3000/user';
+
 
 const token = {
   set(token) {
@@ -39,3 +42,23 @@ export const themeChangeUserApi = async theme => {
   const { data } = await axios.patch('', theme);
   return data;
 };
+
+export const registerWithGoogleApi = async (data) => {
+  const { credential } = data;
+  const { idToken } = credential;
+  const response = await axios.post('/register/google', { credential, idToken });
+  token.set(response.data.token);
+  return { ...response.data.user, token: response.data.token };
+};
+
+export const loginWithGoogleApi = async (data) => {
+  const { credential } = data;
+  const { idToken } = credential;
+  const response = await axios.post('/login/google', { credential, idToken });
+  token.set(response.data.token);
+  return { ...response.data.user, token: response.data.token };
+};
+
+
+
+

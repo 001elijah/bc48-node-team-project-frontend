@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import { ButtonAuth } from '../ButtonAuth/ButtonAuth';
 import { validationSchemaLogin } from '../schemaValidation';
 import { loginUser } from 'redux/Auth/authOperations';
+import { LoginWithGoogle } from '../RegisterWithGoogle/RegisterWithGoogle';
 
 import icons from '../../../assets/icons/sprite.svg';
 import y from './Login.module.scss';
@@ -59,6 +60,7 @@ export const Login = () => {
         )}
       </label>
       <ButtonAuth title="Log In Now" />
+      <LoginWithGoogle></LoginWithGoogle>
     </form>
   );
 };

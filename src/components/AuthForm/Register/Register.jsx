@@ -8,7 +8,7 @@ import { registerUser } from 'redux/Auth/authOperations';
 
 import icons from '../../../assets/icons/sprite.svg';
 import y from '../Login/Login.module.scss';
-
+import { LoginWithGoogle } from '../RegisterWithGoogle/RegisterWithGoogle';
 export const Register = () => {
   const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
@@ -73,6 +73,7 @@ export const Register = () => {
         )}
       </label>
       <ButtonAuth title="Register Now" />
+      <LoginWithGoogle></LoginWithGoogle>
     </form>
   );
 };
