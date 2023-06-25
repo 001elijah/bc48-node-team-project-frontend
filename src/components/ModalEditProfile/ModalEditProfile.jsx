@@ -2,12 +2,16 @@ import { useFormik } from 'formik';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
-// import { resizeFile } from 'react-image-file-resizer';
 
 import { ButtonAuth } from '../ButtonAuth/ButtonAuth';
 import { validationSchemaEditProfile } from '../SchemaValidation/schemaValidation';
 import { updateUser } from 'redux/Auth/authOperations';
-import { selectorTheme } from 'redux/Auth/authSelectors';
+import {
+  selectorTheme,
+  selectorUserName,
+  selectorAvatarURL,
+  selectorEmail,
+} from 'redux/Auth/authSelectors';
 
 import icons from '../../assets/icons/sprite.svg';
 import s from './ModalEditProfile.module.scss';
@@ -19,12 +23,10 @@ export const ModalEditProfile = ({ onClose }) => {
   const [showPassword, setShowPassword] = useState(false);
   const [imageFile, setImageFile] = useState(null);
 
-  // eslint-disable-next-line
-  const formData = new FormData();
-
-  const name = useSelector(state => state.auth.userName);
-  const email = useSelector(state => state.auth.email);
+  const name = useSelector(selectorUserName);
+  const email = useSelector(selectorEmail);
   const thema = useSelector(selectorTheme);
+  const avatar = useSelector(selectorAvatarURL);
 
   const toggleShowPassword = () => setShowPassword(!showPassword);
 
@@ -33,47 +35,39 @@ export const ModalEditProfile = ({ onClose }) => {
       userName: name,
       email: email,
       password: '',
-      // avatarUrl: '',
+      avatarUrl: '',
     },
     validationSchema: validationSchemaEditProfile,
     onSubmit: values => {
       onClose();
-      dispatch(updateUser(values));
+
+      const formData = new FormData();
+
+      formData.append('userName', values.userName);
+      formData.append('email', values.email);
+      formData.append('password', values.password);
+      formData.append('avatarUrl', imageFile);
+
+      dispatch(updateUser(formData));
     },
   });
 
-  //   const handleImageChange = event => {
-  //     // formik.setFieldValue('image', event.currentTarget.files[0]);
-  //    const file = event.currentTarget.files[0];
-  //   formik.setFieldValue('image', file);
-  //   setSelectedImage(URL.createObjectURL(file));
-  //   };
-
   const handleImageChange = event => {
-    console.log(event.currentTarget.files[0]);
-    // setImageFile(event.currentTarget.files[0])
-    const file = event.currentTarget.files[0];
-    setImageFile(URL.createObjectURL(file));
+    setImageFile(event.currentTarget.files[0]);
   };
-  //     const handleImageChange = async event => {
-  //   const file = event.currentTarget.files[0];
-
-  //         try {
-  //       console.log("gogogo")
-  //     const resizedFile = await resizeFile(file, 300, 300, 'PNG', 80);
-  //     formik.setFieldValue('image', resizedFile);
-  //     setSelectedImage(URL.createObjectURL(resizedFile));
-  //   } catch (error) {
-  //     console.log('Ошибка при изменении размера изображения:', error);
-  //   }
-  // };
 
   return (
     <form onSubmit={formik.handleSubmit}>
-      <label htmlFor="image" className={s.wrapImage}>
+      <label htmlFor="avatarUrl" className={s.wrapImage}>
         <div>
           {imageFile ? (
-            <img src={imageFile} alt="Selected Avatar" className={s.image} />
+            <img
+              src={URL.createObjectURL(imageFile)}
+              alt="Selected Avatar"
+              className={s.image}
+            />
+          ) : avatar ? (
+            <img src={avatar} alt="Avatar" className={s.image} />
           ) : (
             <svg className={s.avatar}>
               <use href={`${icons}#icon-user-${thema || 'light'}`}></use>
@@ -89,14 +83,16 @@ export const ModalEditProfile = ({ onClose }) => {
           <use href={`${icons}#icon-plus`}></use>
         </svg> */}
         </div>
-        {/* {imageFile && <img src={imageFile} alt="Selected Avatar" />} */}
         <input
           className={s.isHidden}
-          id="image"
-          name="image"
+          id="avatarUrl"
+          name="avatarUrl"
           type="file"
           onChange={handleImageChange}
         />
+        {formik.touched.avatarUrl && formik.errors.avatarUrl && (
+          <p className={y.error}>{formik.errors.avatarUrl}</p>
+        )}
       </label>
 
       <label className={s.label} htmlFor="userName">

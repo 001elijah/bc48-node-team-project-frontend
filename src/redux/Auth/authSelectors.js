@@ -5,3 +5,5 @@ export const selectorTheme = state => state.auth.theme;
 export const selectorUserName = state => state.auth.userName;
 
 export const selectorAvatarURL = state => state.auth.avatarUrl;
+
+export const selectorEmail = state => state.auth.email;
