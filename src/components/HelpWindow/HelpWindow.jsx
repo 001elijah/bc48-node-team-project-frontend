@@ -4,15 +4,40 @@ import flower1x from 'assets/images/flower-min.png';
 import flower2x from 'assets/images/flower@2x-min.png';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import { useState } from 'react';
 import { Modal } from '../Modal/Modal';
+import { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { sendEmail } from 'redux/Auth/authOperations';
 
 export const HelpWindow = ({ theme }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const dispatch = useDispatch();
+
+  const onOpen = () => {
+    setIsModalOpen(true);
+  };
 
   const onClose = () => {
     setIsModalOpen(false);
   };
+
+  const onSubmit = e => {
+    e.preventDefault();
+
+    const email = e.target.email.value;
+    const comment = e.target.comment.value;
+
+    dispatch(sendEmail({ email, comment }));
+    onClose();
+  };
+
+  useEffect(() => {
+    document.body.classList.toggle('no-scroll', isModalOpen);
+
+    return () => {
+      document.body.classList.remove('body-scroll-lock');
+    };
+  }, [isModalOpen]);
 
   return (
     <div className={clsx(s.container, s[theme])}>
@@ -32,9 +57,7 @@ export const HelpWindow = ({ theme }) => {
       <button
         type="button"
         className={clsx(s.button, s[theme])}
-        onClick={() => {
-          setIsModalOpen(true);
-        }}
+        onClick={onOpen}
       >
         <svg className={clsx(s.icon, s[theme])}>
           <use href={`${sprite}#icon-help`}></use>
@@ -43,14 +66,16 @@ export const HelpWindow = ({ theme }) => {
       </button>
       {isModalOpen && (
         <Modal title="Need help" onClose={onClose} className={s.modal}>
-          <form>
+          <form onSubmit={onSubmit}>
             <input
               type="email"
+              name="email"
               placeholder="Email address"
               className={s.emailInput}
             />
             <textarea
               type="text"
+              name="comment"
               placeholder="Comment"
               className={s.commentInput}
             />

@@ -46,3 +46,10 @@ export const getListOfBoardsApi = async userToken => {
   const { data } = await axios.get('/board/');
   return data;
 };
+
+//---------------------------------------------EMAIL---------------------//
+
+export const sendEmailApi = async userEmail => {
+  const { data } = await axios.post('user/sendEmail', userEmail);
+  return data.message;
+};
