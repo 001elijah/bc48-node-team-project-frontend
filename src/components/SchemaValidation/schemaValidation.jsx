@@ -76,5 +76,5 @@ export const validationSchemaEditProfile = yup.object().shape({
     .min(8, 'Minimum length 8 characters')
     .max(64, 'Maximum length 64 characters')
     .required('Password required'),
-  // avatarUrl: yup.string(),
+  avatarUrl: yup.string(),
 });

@@ -67,7 +67,6 @@ const authSlice = createSlice({
         };
       })
       .addCase(themeChangeUser.fulfilled, (state, { payload }) => {
-        console.log(payload);
         state.theme = payload;
       })
       .addCase(updateUser.fulfilled, (state, { payload }) => {

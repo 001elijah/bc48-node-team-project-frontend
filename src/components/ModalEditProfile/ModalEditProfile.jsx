@@ -36,7 +36,7 @@ export const ModalEditProfile = ({ onClose }) => {
       userName: name,
       email: email,
       password: '',
-      avatarUrl: '',
+      // avatarUrl: avatar,
     },
     validationSchema: validationSchemaEditProfile,
     onSubmit: values => {
@@ -47,7 +47,10 @@ export const ModalEditProfile = ({ onClose }) => {
       formData.append('userName', values.userName);
       formData.append('email', values.email);
       formData.append('password', values.password);
-      formData.append('avatarUrl', imageFile);
+
+      if (imageFile) {
+        formData.append('avatarUrl', imageFile);
+      }
 
       dispatch(updateUser(formData));
     },
@@ -55,7 +58,6 @@ export const ModalEditProfile = ({ onClose }) => {
 
   const handleImageChange = event => {
     const file = event.currentTarget.files[0];
-
     const imageFormat = ['image/png', 'image/jpeg', 'image/jpg'];
 
     if (file) {

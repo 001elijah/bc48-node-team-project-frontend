@@ -42,7 +42,6 @@ export const themeChangeUserApi = async theme => {
 
 export const updateUserApi = async userData => {
   const { data } = await axios.patch('user/updateUserInfo', userData);
-  console.log(userData);
   return data.user;
 };
 //---------------------------------------------BOARDS---------------------//
