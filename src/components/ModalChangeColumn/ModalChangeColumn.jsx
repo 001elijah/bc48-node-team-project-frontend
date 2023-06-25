@@ -1,12 +1,15 @@
 import PropTypes from 'prop-types';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import clsx from 'clsx';
+
 import { selectorTheme } from 'redux/Auth/authSelectors';
+import { selectorColumns } from 'redux/Column/columnSelectors';
+import { updateCardColumn } from 'redux/Card/cardOperations';
 import sprite from '../../assets/icons/sprite.svg';
 import s from './ModalChangeColumn.module.scss';
-import { selectorColumns } from 'redux/Column/columnSelectors';
 
-export const ModalChangeColumn = ({ closeModal, columnId = 2 }) => {
+export const ModalChangeColumn = ({ closeModal, columnId = 3 }) => {
+  const dispatch = useDispatch();
   // const columnList = useSelector(selectorColumns);
   const theme = useSelector(selectorTheme);
   const columnList = [
@@ -23,6 +26,7 @@ export const ModalChangeColumn = ({ closeModal, columnId = 2 }) => {
             <button
               className={clsx(s.button, s[theme], id === columnId && s.current)}
               onClick={() => {
+                dispatch(updateCardColumn(id));
                 closeModal();
               }}
               type="button"
@@ -42,6 +46,6 @@ export const ModalChangeColumn = ({ closeModal, columnId = 2 }) => {
 };
 
 ModalChangeColumn.propTypes = {
-  closeModal: PropTypes.func.isRequired,
-  columnId: PropTypes.string.isRequired,
+  closeModal: PropTypes.func,
+  columnId: PropTypes.string,
 };

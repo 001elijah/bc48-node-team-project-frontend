@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import clsx from 'clsx';
 import shortid from 'shortid';
 import PropTypes from 'prop-types';
@@ -21,20 +21,29 @@ export const TaskCard = ({
   boardId,
   columnId,
 }) => {
+  const dispatch = useDispatch();
   const theme = useSelector(selectorTheme);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalChangeOpen, setIsModalChangeOpen] = useState(false);
+  const [isModalEditOpen, setIsModalEditOpen] = useState(false);
 
   const date = new Date();
   const currentTime = `${date.toISOString().split('T')[0]} ${
     date.toTimeString().split(' ')[0]
   }`;
   const isDeadline = deadline === currentTime.slice(0, -3);
-
+  console.log(date.toLocaleDateString('en-GB'));
   const openModalChangeColumn = () => {
-    setIsModalOpen(true);
+    setIsModalChangeOpen(true);
   };
 
-  const closeModalChangeColumn = () => setIsModalOpen(false);
+  const closeModalChangeColumn = () => setIsModalChangeOpen(false);
+
+  const openModalEditCard = () => {
+    setIsModalEditOpen(true);
+  };
+  const closeModalEditCard = () => {
+    setIsModalEditOpen(false);
+  };
 
   return (
     <li key={id} className={clsx(s.cardWrapper, s[theme])}>
@@ -95,20 +104,23 @@ export const TaskCard = ({
               />
             </li>
             <li key={shortid.generate()} className={s.item}>
-              <TaskControlButton icon="#icon-pencil" onClick={() => {}} />
+              <TaskControlButton
+                icon="#icon-pencil"
+                onClick={() => {
+                  openModalEditCard();
+                }}
+              />
             </li>
             <li key={shortid.generate()} className={s.item}>
               <TaskControlButton
                 icon="#icon-trash"
-                onClick={() => {
-                  removeCard(id);
-                }}
+                onClick={() => dispatch(removeCard(id))}
               />
             </li>
           </ul>
         </div>
       </div>
-      {isModalOpen && (
+      {isModalChangeOpen && (
         <BackdropModal closeModal={closeModalChangeColumn}>
           <ModalChangeColumn
             closeModal={closeModalChangeColumn}
@@ -117,6 +129,7 @@ export const TaskCard = ({
           />
         </BackdropModal>
       )}
+      {/* {isModalEditOpen && <ModalEditCard closeModal={closeModalEditCard} />} */}
     </li>
   );
 };
