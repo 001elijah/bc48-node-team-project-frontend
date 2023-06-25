@@ -9,12 +9,10 @@ import { selectorTheme } from 'redux/Auth/authSelectors';
 import { selectBoards } from 'redux/Boards/boardsSelectors';
 import { useSelector } from 'react-redux';
 import { BoardModalWindow } from '../BoardModalWindow/BoardModalWindow';
-
 import { useState } from 'react';
 
 export const Sidebar = () => {
   const boards = useSelector(selectBoards);
-
   const theme = useSelector(selectorTheme);
   const [showModalWindow, setShowModalWindow] = useState(false);
   const handleModalWindowOpen = () => setShowModalWindow(true);

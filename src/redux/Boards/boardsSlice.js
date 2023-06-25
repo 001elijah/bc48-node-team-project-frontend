@@ -1,13 +1,24 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getListOfBoards } from './boardsOperations';
+import { getListOfBoards, addNewBoard } from './boardsOperations';
 
 const boardsSlice = createSlice({
   name: 'boards',
   initialState: [],
   extraReducers: builder => {
-    builder.addCase(getListOfBoards.fulfilled, (state, { payload }) => {
-      state.push(...payload);
-    });
+    builder
+      .addCase(getListOfBoards.fulfilled, (state, { payload }) => {
+        state.push(...payload);
+      })
+      .addCase(addNewBoard.fulfilled, (state, { payload }) => {
+        console.log(payload)
+        // return {
+        //           payload,
+        // };
+      })
+      // .addCase(getBoardById.fulfilled, (state, { payload }) => {
+      //   console.log('slice', payload);
+
+      // });
   },
 });
 

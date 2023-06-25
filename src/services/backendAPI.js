@@ -40,6 +40,17 @@ export const themeChangeUserApi = async theme => {
   return data;
 };
 //---------------------------------------------BOARDS---------------------//
+export const addBoardApi = async (dataBoard, userToken) => {
+  token.set(userToken);
+  const { data } = await axios.post('/board/', dataBoard);
+  return data;
+};
+export const getBoardByIdApi = async (boardName, userToken) => {
+  token.set(userToken);  
+  const { data } = await axios.get(`/board/${boardName}`, );
+  console.log('data',data)
+  return data;
+};
 
 export const getListOfBoardsApi = async userToken => {
   token.set(userToken);
@@ -47,11 +58,12 @@ export const getListOfBoardsApi = async userToken => {
   return data;
 };
 
-// export const addColumn = async board => {
-//   const { data } = await axios.post('board/column');
-//   console.log(data);
-//   return data;
-// };
+export const addColumnApi = async (dataColumn, userToken) => {
+  token.set(userToken);
+  const { data } = await axios.post('board/column', dataColumn);
+  console.log(data);
+  return data;
+};
 
 // export const editColumn = async board => {
 //   const { data } = await axios.post('/board');
