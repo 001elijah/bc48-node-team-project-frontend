@@ -4,9 +4,12 @@ import clsx from 'clsx';
 import PropTypes from 'prop-types';
 
 export const NewBoardButton = ({ theme, onClick }) => {
-
   return (
-    <button type="button" className={clsx(s.button, s[theme])} onClick={onClick}>
+    <button
+      type="button"
+      className={clsx(s.button, s[theme])}
+      onClick={onClick}
+    >
       <span className={clsx(s.text, s[theme])}>
         Create a <br /> new board
       </span>
@@ -21,5 +24,5 @@ export const NewBoardButton = ({ theme, onClick }) => {
 
 NewBoardButton.propTypes = {
   theme: PropTypes.string.isRequired,
-  onClick:PropTypes.func
+  onClick: PropTypes.func,
 };

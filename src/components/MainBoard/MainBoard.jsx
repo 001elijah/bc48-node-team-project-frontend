@@ -20,6 +20,7 @@ export const MainBoard = () => {
   const handleModalWindowOpen = () => setShowModalWindow(true);
   const handleModalWindowClose = () => setShowModalWindow(false);
 
+
   const { boardName } = useParams();
   const boards = useSelector(selectBoards);
   if (boards.length === 0) return;
@@ -39,8 +40,6 @@ export const MainBoard = () => {
             />
           })} */}
         {/* <TaskCard/> */}
-
-
         <AddButton
           typeOfButton="Column"
           title="Add another column"

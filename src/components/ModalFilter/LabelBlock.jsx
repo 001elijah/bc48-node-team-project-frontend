@@ -40,6 +40,7 @@ export const LabelBlock = ({ newField }) => {
     setField('');
   };
   console.log(newField, field)
+
   return (
     <>
       <div className={clsx(s.TextLine, s[theme])}>

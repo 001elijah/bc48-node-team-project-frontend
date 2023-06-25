@@ -36,43 +36,43 @@ export const Header = () => {
     <>
       <header className={clsx(s.header, s[theme])}>
         {/* <Container> */}
-          <div className={s.pageHeader}>
-            <button onClick={toggleSidebar} className={s.burgerMenu}>
-              <svg className={clsx(s.burgerIcon, s[theme])}>
-                <use href={`${icons}#icon-burger-menu`}></use>
+        <div className={s.pageHeader}>
+          <button onClick={toggleSidebar} className={s.burgerMenu}>
+            <svg className={clsx(s.burgerIcon, s[theme])}>
+              <use href={`${icons}#icon-burger-menu`}></use>
+            </svg>
+          </button>
+
+          <div className={s.dropDown}>
+            <button className={clsx(s.dropBtn, s[theme])}>
+              Theme
+              <svg className={clsx(s.arrowIcon, s[theme])}>
+                <use href={`${icons}#icon-arrow-down`}></use>
               </svg>
             </button>
-
-            <div className={s.dropDown}>
-              <button className={clsx(s.dropBtn, s[theme])}>
-                Theme
-                <svg className={clsx(s.arrowIcon, s[theme])}>
-                  <use href={`${icons}#icon-arrow-down`}></use>
-                </svg>
-              </button>
-              <div className={clsx(s.dropDownContent, s[theme])}>
-                <div
-                  className={clsx(s.dropDownItem, s[theme])}
-                  onClick={() => changeTheme('light')}
-                >
-                  Light
-                </div>
-                <div
-                  className={clsx(s.dropDownItem, s[theme])}
-                  onClick={() => changeTheme('dark')}
-                >
-                  Dark
-                </div>
-                <div
-                  className={clsx(s.dropDownItem, s[theme])}
-                  onClick={() => changeTheme('colorful')}
-                >
-                  Colorful
-                </div>
+            <div className={clsx(s.dropDownContent, s[theme])}>
+              <div
+                className={clsx(s.dropDownItem, s[theme])}
+                onClick={() => changeTheme('light')}
+              >
+                Light
+              </div>
+              <div
+                className={clsx(s.dropDownItem, s[theme])}
+                onClick={() => changeTheme('dark')}
+              >
+                Dark
+              </div>
+              <div
+                className={clsx(s.dropDownItem, s[theme])}
+                onClick={() => changeTheme('colorful')}
+              >
+                Colorful
               </div>
             </div>
-            <UserInfo />
           </div>
+          <UserInfo />
+        </div>
         {/* </Container> */}
       </header>
       {showSidebar && (
