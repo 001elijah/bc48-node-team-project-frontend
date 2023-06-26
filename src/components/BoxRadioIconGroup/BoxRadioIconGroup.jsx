@@ -26,7 +26,7 @@ export const BoxRadioIconGroup = ({ valueChange }) => {
             name="rating"
             className={s.inputIcon}
             id="1"
-            value="super-1"
+            value="icon-project"
             onChange={handleChange}
             checked={icon === '1'}
           />
@@ -42,7 +42,7 @@ export const BoxRadioIconGroup = ({ valueChange }) => {
             name="rating"
             className={s.inputIcon}
             id="2"
-            value="2"
+            value="icon-star"
             onChange={handleChange}
             checked={icon === '2'}
           />
@@ -58,7 +58,7 @@ export const BoxRadioIconGroup = ({ valueChange }) => {
             name="rating"
             className={s.inputIcon}
             id="3"
-            value="3"
+            value="icon-loading"
             onChange={handleChange}
             checked={icon === '3'}
           />
@@ -74,7 +74,7 @@ export const BoxRadioIconGroup = ({ valueChange }) => {
             name="rating"
             className={s.inputIcon}
             id="4"
-            value="4"
+            value="icon-puzzle-piece"
             onChange={handleChange}
             checked={icon === '4'}
           />
@@ -90,7 +90,7 @@ export const BoxRadioIconGroup = ({ valueChange }) => {
             name="rating"
             className={s.inputIcon}
             id="5"
-            value="5"
+            value="icon-container"
             onChange={handleChange}
             checked={icon === '5'}
           />
@@ -106,7 +106,7 @@ export const BoxRadioIconGroup = ({ valueChange }) => {
             name="rating"
             className={s.inputIcon}
             id="6"
-            value="6"
+            value="icon-lightning"
             onChange={handleChange}
             checked={icon === '6'}
           />
@@ -122,7 +122,7 @@ export const BoxRadioIconGroup = ({ valueChange }) => {
             name="rating"
             className={s.inputIcon}
             id="7"
-            value="7"
+            value="icon-colors"
             onChange={handleChange}
             checked={icon === '7'}
           />
@@ -138,7 +138,7 @@ export const BoxRadioIconGroup = ({ valueChange }) => {
             name="rating"
             className={s.inputIcon}
             id="8"
-            value="8"
+            value="icon-hexagon"
             onChange={handleChange}
             checked={icon === '8'}
           />

@@ -10,6 +10,7 @@ import {
   currentUserApi,
   logoutUserApi,
   themeChangeUserApi,
+  sendEmailApi,
   updateUserApi,
 } from 'services/backendAPI';
 
@@ -114,6 +115,18 @@ export const updateUser = createAsyncThunk(
       Notify.success('Successful editing');
 
       return data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  },
+);
+
+export const sendEmail = createAsyncThunk(
+  'auth/sendEmail',
+  async (email, { rejectWithValue }) => {
+    try {
+      await sendEmailApi(email);
+      return Notify.success('Email sent');
     } catch (error) {
       return rejectWithValue(error.message);
     }
