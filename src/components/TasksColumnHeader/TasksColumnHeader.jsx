@@ -1,4 +1,4 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 import shortid from 'shortid';
@@ -13,13 +13,13 @@ export const TasksColumnHeader = ({ title, id }) => {
   const dispatch = useDispatch();
 
   const theme = useSelector(selectorTheme);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  // const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModalEditColumn = () => {
     setIsModalOpen(true);
   };
 
-  const closeModalEditColumn = () => setIsModalOpen(false);
+  // const closeModalEditColumn = () => setIsModalOpen(false);
   return (
     <div className={clsx(s.columnHeaderWrapper, s[theme])}>
       <h4 className={clsx(s.title, s[theme])}>

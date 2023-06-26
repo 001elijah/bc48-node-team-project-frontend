@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { getMonth, getYear, getDate } from 'date-fns';
+import { getMonth, getYear } from 'date-fns';
 import s from './CalendarColorful.module.scss';
 import PropTypes from 'prop-types';
 import { CalendarButton } from '../CalendarButton/CalendarButton';

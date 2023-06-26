@@ -1,27 +1,24 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { selectorTheme } from 'redux/Auth/authSelectors';
 import { Modal } from 'components/Modal/Modal';
 import sprite from '../../assets/icons/sprite.svg';
 import s from './ReusableColumnModalWindow.module.scss';
-import { addNewBoard } from '../../redux/Boards/boardsOperations';
 
 export const ReusableColumnModalWindow = ({
   inputTitle,
   titleModalButton,
   handleToggleModal,
   modalTitle,
-  onClick,
 }) => {
-  const dispatch = useDispatch();
   const [title, setTitle] = useState('');
   const theme = useSelector(selectorTheme);
 
   const handleSubmit = () => {
     console.log(title);
     // dispatch(addNewColumn(title));
-    setValue('');
+    setTitle('');
   };
 
   return (

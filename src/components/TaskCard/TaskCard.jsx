@@ -24,7 +24,7 @@ export const TaskCard = ({
   const dispatch = useDispatch();
   const theme = useSelector(selectorTheme);
   const [isModalChangeOpen, setIsModalChangeOpen] = useState(false);
-  const [isModalEditOpen, setIsModalEditOpen] = useState(false);
+  // const [isModalEditOpen, setIsModalEditOpen] = useState(false);
 
   const date = new Date();
   // const currentTime = `${date.toISOString().split('T')[0]} ${
@@ -42,9 +42,9 @@ export const TaskCard = ({
   const openModalEditCard = () => {
     setIsModalEditOpen(true);
   };
-  const closeModalEditCard = () => {
-    setIsModalEditOpen(false);
-  };
+  // const closeModalEditCard = () => {
+  //   setIsModalEditOpen(false);
+  // };
 
   return (
     <li key={id} className={clsx(s.cardWrapper, s[theme])}>
