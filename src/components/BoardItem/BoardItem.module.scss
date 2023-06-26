@@ -94,9 +94,17 @@
   }
 }
 
-.actionIcon {
+.actionButton {
   width: 16px;
   height: 16px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.actionIcon {
+  width: 100%;
+  height: 100%;
   stroke: #16161680;
 
   &.light {

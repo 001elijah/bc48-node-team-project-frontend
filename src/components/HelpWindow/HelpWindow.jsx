@@ -79,7 +79,7 @@ export const HelpWindow = ({ theme }) => {
               placeholder="Comment"
               className={s.commentInput}
             />
-            <button className={s.sendButton}>Send</button>
+            <button className={clsx(s.sendButton, s[theme])}>Send</button>
           </form>
         </Modal>
       )}

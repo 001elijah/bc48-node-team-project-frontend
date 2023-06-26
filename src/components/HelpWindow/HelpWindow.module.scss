@@ -219,10 +219,24 @@
   border-radius: 8px;
   border: none;
   background-color: $accent-color;
+  color: $black-text-color;
   cursor: pointer;
 
   @include tablet {
     width: 352px;
     height: 49px;
+  }
+
+  &.light {
+    background-color: $accent-color;
+    color: $black-text-color;
+  }
+  &.dark {
+    background-color: $accent-color;
+    color: $black-text-color;
+  }
+  &.colorful {
+    background-color: $accent-bright-color;
+    color: $white-color;
   }
 }
