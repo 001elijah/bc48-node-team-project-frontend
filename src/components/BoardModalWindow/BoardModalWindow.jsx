@@ -11,17 +11,16 @@ export const BoardModalWindow = ({
   onClick,
   handleToggleModal,
 }) => {
-  const [Background, setBackground] = useState('dark');
+  const [background, setBackground] = useState('dark');
   const [icon, setIcon] = useState('');
 
   const handleAddBoard = value => {
     const newCard = {
       value,
       icon,
-      Background,
+      background,
     };
     console.log(newCard);
-    console.log(onClick);
     // onclick(dispatch(addNewCard());
   };
 
@@ -33,6 +32,8 @@ export const BoardModalWindow = ({
       onSubmit={handleAddBoard}
       handleToggleModal={handleToggleModal}
       onClick={onClick}
+      icon={icon}
+      background={background}
     >
       <BoxRadioIconGroup valueChange={setIcon} />
       <BoxRadioBackgroundGroup valueChange={setBackground} />

@@ -4,18 +4,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectorTheme } from 'redux/Auth/authSelectors';
 import { Modal } from 'components/Modal/Modal';
 import sprite from '../../assets/icons/sprite.svg';
-import s from './ReusableColumnModalWindow.module.scss';
-import {addNewBoard} from '../../redux/Boards/boardsOperations'
+import s from './ColumnModalWindow.module.scss';
+import {addColumn} from '../../redux/Columns/ColumnOperation'
 
-export const ReusableColumnModalWindow = ({
+export const ColumnModalWindow = ({
   inputTitle,
   titleModalButton,
   modalTitle,
   onClick,
-  icon='',
-  background='',
-  children,
-
+  boardId
 }) => {
   const dispatch = useDispatch()
   const [value, setValue] = useState('');
@@ -23,13 +20,12 @@ export const ReusableColumnModalWindow = ({
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    const newCard = {
+    const newColumn = {
       title:value,
-      icon,
-      background,
+      boardId
     };
-    // console.log(newCard);
-    dispatch(addNewBoard(newCard));
+    console.log(value);
+    dispatch(addColumn(newColumn));
     setValue('');
     onClick()
   };
@@ -43,7 +39,6 @@ export const ReusableColumnModalWindow = ({
           placeholder={inputTitle}
           onChange={e => setValue(e.target.value)}
         />
-        {children}
         <button className={`${s.buttonModal} ${s[theme]}`} type="submit">
           <span className={`${s.iconButtonModalWrapper} ${s[theme]}`}>
             <svg
@@ -61,12 +56,10 @@ export const ReusableColumnModalWindow = ({
   );
 };
 
-ReusableColumnModalWindow.propTypes = {
+ColumnModalWindow.propTypes = {
   modalTitle: PropTypes.string.isRequired,
   inputTitle: PropTypes.string.isRequired,
   titleModalButton: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
-  icon: PropTypes.string.isRequired,
-  background: PropTypes.string.isRequired,
-  children: PropTypes.array.isRequired,
+  boardId: PropTypes.string.isRequired,
 };

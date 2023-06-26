@@ -2,13 +2,25 @@ import s from './BoardItem.module.scss';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import sprite from 'assets/icons/sprite.svg';
+import { NavLink } from 'react-router-dom';
 
-export const BoardItem = ({ boardName, icon, theme, onClick, isCurrent }) => {
+export const BoardItem = ({
+  boardName,
+  icon,
+  theme,
+  onClick,
+  isCurrent,
+  id,
+}) => {
   return (
     <li
       onClick={onClick}
-      className={clsx(s.item, s[theme], isCurrent && s.current)}
+
     >
+      <NavLink
+        to={`/home/${id}`}
+        className={clsx(s.item, s[theme], isCurrent && s.current)}
+      >
       <div className={s.projectNameWrapper}>
         <svg className={clsx(s.iconProject, s[theme])}>
           <use href={icon}></use>
@@ -27,6 +39,8 @@ export const BoardItem = ({ boardName, icon, theme, onClick, isCurrent }) => {
           </svg>
         </li>
       </ul>
+      
+      </NavLink>
     </li>
   );
 };
@@ -37,4 +51,5 @@ BoardItem.propTypes = {
   theme: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
   isCurrent: PropTypes.bool.isRequired,
+  id: PropTypes.string.isRequired,
 };

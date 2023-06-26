@@ -4,7 +4,7 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  padding: 10px 24px;
+  padding:10px 24px 10px 0;
 
   // &.dark {
   //   background-color: $black-color;
@@ -33,6 +33,7 @@
   border: none;
   margin-left: auto;
   outline: none;
+  fill:none;
 
   &.dark {
     color: $middle-color;
@@ -59,4 +60,7 @@
   margin-left: 8px;
 
   color: inherit;
+}
+.Svg{
+  margin-right: 8px;
 }

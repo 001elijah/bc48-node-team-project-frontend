@@ -5,12 +5,13 @@ import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 
-export const AddButton = ({ title, typeOfButton }) => {
+export const AddButton = ({ title, typeOfButton, onClick}) => {
   const theme = useSelector(selectorTheme);
 
   return (
     <>
-      <div className={clsx(s.Button, s[typeOfButton], s[theme])}>
+
+      <div className={clsx(s.Button, s[typeOfButton], s[theme])} onClick={onClick}>
         <div className={clsx(s.BoxPlus, s[typeOfButton], s[theme])}>
           <svg width="16" height="16" className={s.Svg}>
             <use href={`${svg}#icon-${'plus'}`} />
@@ -25,4 +26,5 @@ export const AddButton = ({ title, typeOfButton }) => {
 AddButton.propTypes = {
   title: PropTypes.string,
   typeOfButton: PropTypes.string,
+  onClick:PropTypes.func
 };
