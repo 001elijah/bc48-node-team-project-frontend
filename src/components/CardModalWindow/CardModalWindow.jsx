@@ -5,6 +5,8 @@ import { selectorTheme } from 'redux/Auth/authSelectors';
 import { Modal } from 'components/Modal/Modal';
 import { BoxRadioColorGroup } from 'components/BoxRadioColorGroup/BoxRadioColorGroup';
 import { CalendarDark } from 'components/CalendarDark/CalendarDark';
+import { CalendarLight } from 'components/CalendarLight/CalendarLight';
+import { CalendarColorful } from 'components/CalendarColorful/CalendarColorful';
 import s from './CardModalWindow.module.scss';
 import sprite from '../../assets/icons/sprite.svg';
 
@@ -56,7 +58,9 @@ export const CardModalWindow = ({
           placeholder="Description"
           value={coment}
         ></textarea>
-        <CalendarDark onDate={setDate} />
+        {theme === 'dark' && <CalendarDark onDate={setDate} />}
+        {theme === 'light' && <CalendarLight onDate={setDate} />}
+        {theme === 'colorful' && <CalendarColorful onDate={setDate} />}
         <BoxRadioColorGroup valueChange={handleChangeColor} />
         <button className={`${s.buttonModal} ${s[theme]}`} type="submit">
           <span className={`${s.iconButtonModalWrapper} ${s[theme]}`}>
@@ -81,4 +85,5 @@ CardModalWindow.propTypes = {
   titleModalButton: PropTypes.string.isRequired,
   onSubmit: PropTypes.func,
   handleToggleModal: PropTypes.func,
+  id: PropTypes.func,
 };

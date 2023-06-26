@@ -28,52 +28,11 @@ export const CalendarLight = ({ onDate }) => {
   }, [onDate, startDate]);
 
   return (
-    // <DatePicker
-    //   dateFormat=", yy, MMMM d"
-    //   selected={startDate}
-    //   calendarClassName={s.calendarConatiner}
-    //   popperClassName={s.popperCustomClass}
-    //   // formatWeekDay={day => day.substr(0, 2)}
-    //   customInput={
-    //     <CalendarButton
-    //       onClick={e => {
-    //         console.log(e.target);
-    //       }}
-    //     />
-    //   }
-    //   onChange={date => setStartDate(date)}
-    //   minDate={new Date()}
-    //   wrapperClassName={s.calendar}
-    //   dayClassName={date => console.log(getDate(date))}
-    //   renderCustomHeader={({
-    //     date,
-    //     decreaseMonth,
-    //     increaseMonth,
-    //     prevMonthButtonDisabled,
-    //     nextMonthButtonDisabled,
-    //   }) => (
-    //     <div className={s.headerWrapper}>
-    //       <button onClick={decreaseMonth} disabled={prevMonthButtonDisabled}>
-    //         {'<'}
-    //       </button>
-    //       <div>
-    //         <span>
-    //           {getYear(date)} {months[getMonth(date)]}
-    //         </span>
-    //       </div>
-    //       <button onClick={increaseMonth} disabled={nextMonthButtonDisabled}>
-    //         {'>'}
-    //       </button>
-    //     </div>
-    //   )}
-    // />
-
     <DatePicker
       dateFormat=", yy, MMMM d"
-      className="custom-datepicker"
       selected={startDate}
-      // calendarClassName={s.calendarConatiner}
-      // popperClassName={s.popperCustomClass}
+      calendarClassName={s.calendarConatiner}
+      popperClassName={s.popperCustomClass}
       // formatWeekDay={day => day.substr(0, 2)}
       customInput={
         <CalendarButton
@@ -84,28 +43,37 @@ export const CalendarLight = ({ onDate }) => {
       }
       onChange={date => setStartDate(date)}
       minDate={new Date()}
-      // wrapperClassName={s.calendar}
-      // renderCustomHeader={({
-      //   date,
-      //   decreaseMonth,
-      //   increaseMonth,
-      //   prevMonthButtonDisabled,
-      //   nextMonthButtonDisabled,
-      // }) => (
-      //   <div className={s.headerWrapper}>
-      //     <button onClick={decreaseMonth} disabled={prevMonthButtonDisabled}>
-      //       {'<'}
-      //     </button>
-      //     <div>
-      //       <span>
-      //         {getYear(date)} {months[getMonth(date)]}
-      //       </span>
-      //     </div>
-      //     <button onClick={increaseMonth} disabled={nextMonthButtonDisabled}>
-      //       {'>'}
-      //     </button>
-      //   </div>
-      // )}
+      wrapperClassName={s.calendar}
+      weekNumber={5}
+      renderCustomHeader={({
+        date,
+        decreaseMonth,
+        increaseMonth,
+        prevMonthButtonDisabled,
+        nextMonthButtonDisabled,
+      }) => (
+        <div className={s.headerWrapper}>
+          <button
+            onClick={decreaseMonth}
+            disabled={prevMonthButtonDisabled}
+            type="button"
+          >
+            {'<'}
+          </button>
+          <div>
+            <span>
+              {getYear(date)} {months[getMonth(date)]}
+            </span>
+          </div>
+          <button
+            onClick={increaseMonth}
+            disabled={nextMonthButtonDisabled}
+            type="button"
+          >
+            {'>'}
+          </button>
+        </div>
+      )}
     />
   );
 };

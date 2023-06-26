@@ -16,18 +16,18 @@ export const BoardModalWindow = ({
   handleToggleModal,
 }) => {
   const theme = useSelector(selectorTheme);
-  const [value, setValue] = useState('');
-  const [Background, setBackground] = useState('dark');
+  const [title, setTitle] = useState('');
+  const [background, setBackground] = useState('dark');
   const [icon, setIcon] = useState('');
 
   const handleSubmit = e => {
     e.preventDefault();
     const newCard = {
-      value,
+      title: title,
       icon,
-      Background,
+      background,
     };
-    onSubmit(newCard.icon);
+    onSubmit(newCard);
     handleToggleModal();
   };
 
@@ -36,9 +36,9 @@ export const BoardModalWindow = ({
       <form onSubmit={handleSubmit}>
         <input
           className={`${s.inputModal} ${s[theme]}`}
-          value={value}
+          value={title}
           placeholder={inputTitle}
-          onChange={e => setValue(e.target.value)}
+          onChange={e => setTitle(e.target.value)}
         />
         <BoxRadioIconGroup valueChange={setIcon} />
         <BoxRadioBackgroundGroup valueChange={setBackground} />
@@ -65,4 +65,5 @@ BoardModalWindow.propTypes = {
   titleModalButton: PropTypes.string.isRequired,
   onSubmit: PropTypes.func,
   handleToggleModal: PropTypes.func,
+  id: PropTypes.func,
 };

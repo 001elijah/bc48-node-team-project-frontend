@@ -45,6 +45,7 @@ export const CalendarDark = ({ onDate }) => {
       onChange={date => setStartDate(date)}
       minDate={new Date()}
       wrapperClassName={s.calendar}
+      weekNumber={5}
       renderCustomHeader={({
         date,
         decreaseMonth,
@@ -53,7 +54,11 @@ export const CalendarDark = ({ onDate }) => {
         nextMonthButtonDisabled,
       }) => (
         <div className={s.headerWrapper}>
-          <button onClick={decreaseMonth} disabled={prevMonthButtonDisabled}>
+          <button
+            onClick={decreaseMonth}
+            disabled={prevMonthButtonDisabled}
+            type="button"
+          >
             {'<'}
           </button>
           <div>
@@ -61,7 +66,11 @@ export const CalendarDark = ({ onDate }) => {
               {getYear(date)} {months[getMonth(date)]}
             </span>
           </div>
-          <button onClick={increaseMonth} disabled={nextMonthButtonDisabled}>
+          <button
+            onClick={increaseMonth}
+            disabled={nextMonthButtonDisabled}
+            type="button"
+          >
             {'>'}
           </button>
         </div>

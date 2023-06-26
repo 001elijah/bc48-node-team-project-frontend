@@ -20,6 +20,7 @@ export const CalendarButton = forwardRef(({ value, onClick }, ref) => {
         className={`${s.input_field} ${s[theme]}`}
         onClick={onClick}
         ref={ref}
+        type="button"
       >
         {result}
         <IconCalendar />

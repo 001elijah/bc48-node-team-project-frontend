@@ -57,4 +57,5 @@ ReusableColumnModalWindow.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   children: PropTypes.array.isRequired,
   handleToggleModal: PropTypes.func,
+  id: PropTypes.func,
 };

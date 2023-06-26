@@ -19,20 +19,3 @@ export const getListOfBoards = createAsyncThunk(
     },
   },
 );
-
-export const addNewBoard = createAsyncThunk(
-  'boards/addBoard',
-  async ({ title, icon, background }, { getState, rejectWithValue }) => {
-    const { token } = getState().auth;
-    try {
-      const newBoard = await getListOfBoardsApi(token, {
-        title,
-        icon,
-        background,
-      });
-      return newBoard;
-    } catch (error) {
-      rejectWithValue(error.message);
-    }
-  },
-);

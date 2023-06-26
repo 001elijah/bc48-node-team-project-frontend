@@ -51,10 +51,3 @@ export const getListOfBoardsApi = async userToken => {
   const { data } = await axios.get('/board/');
   return data;
 };
-
-export const addNewBoardApi = async (userToken, newBoard) => {
-  token.set(userToken);
-  console.log(newBoard);
-  const { data } = await axios.get('/board/');
-  return data;
-};
