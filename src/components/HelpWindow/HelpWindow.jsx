@@ -14,7 +14,10 @@ import * as Yup from 'yup';
 const validationSchema = Yup.object({
   email: Yup.string()
     .email('Invalid email address')
-    .matches(/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/,"Invalid email address")
+    .matches(
+      /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/,
+      'Invalid email address',
+    )
     .required('Email address is required'),
   comment: Yup.string()
     .min(2, 'Comment must be at least 2 characters')
