@@ -17,7 +17,7 @@ export const TaskCard = ({
   title,
   description,
   label = 'Low',
-  deadline = '2023-06-24 00:58',
+  deadline = '26/06/2023',
   boardId,
   columnId,
 }) => {
@@ -27,11 +27,12 @@ export const TaskCard = ({
   const [isModalEditOpen, setIsModalEditOpen] = useState(false);
 
   const date = new Date();
-  const currentTime = `${date.toISOString().split('T')[0]} ${
-    date.toTimeString().split(' ')[0]
-  }`;
-  const isDeadline = deadline === currentTime.slice(0, -3);
-  console.log(date.toLocaleDateString('en-GB'));
+  // const currentTime = `${date.toISOString().split('T')[0]} ${
+  //   date.toTimeString().split(' ')[0]
+  // }`;
+  // const isDeadline = deadline === currentTime.slice(0, -3);
+  const isDeadline = deadline === date.toLocaleDateString('en-GB');
+  // console.log(date);
   const openModalChangeColumn = () => {
     setIsModalChangeOpen(true);
   };

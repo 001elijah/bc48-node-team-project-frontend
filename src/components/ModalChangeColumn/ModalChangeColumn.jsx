@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import clsx from 'clsx';
 
 import { selectorTheme } from 'redux/Auth/authSelectors';
-import { selectorColumns } from 'redux/Column/columnSelectors';
+// import { selectorColumns } from 'redux/Column/columnSelectors';
 import { updateCardColumn } from 'redux/Card/cardOperations';
 import sprite from '../../assets/icons/sprite.svg';
 import s from './ModalChangeColumn.module.scss';
