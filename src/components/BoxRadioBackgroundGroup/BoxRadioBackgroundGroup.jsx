@@ -40,7 +40,7 @@ export const BoxRadioBackgroundGroup = ({ valueChange }) => {
             className={s.radioInput2}
             type="radio"
             onChange={handleCheked}
-            value="two"
+            value="11.jpg"
             name="background"
             id="two"
             checked={background === 'two'}
@@ -53,7 +53,7 @@ export const BoxRadioBackgroundGroup = ({ valueChange }) => {
             className={s.radioInput3}
             type="radio"
             onChange={handleCheked}
-            value="three"
+            value="12.jpg"
             name="background"
             id="three"
             checked={background === 'three'}
@@ -66,7 +66,7 @@ export const BoxRadioBackgroundGroup = ({ valueChange }) => {
             className={s.radioInput4}
             type="radio"
             onChange={handleCheked}
-            value="four"
+            value="13.jpg"
             name="background"
             id="four"
             checked={background === 'four'}
@@ -79,7 +79,7 @@ export const BoxRadioBackgroundGroup = ({ valueChange }) => {
             className={s.radioInput5}
             type="radio"
             onChange={handleCheked}
-            value="five"
+            value="14.jpg"
             name="background"
             id="five"
             checked={background === 'five'}
@@ -91,7 +91,7 @@ export const BoxRadioBackgroundGroup = ({ valueChange }) => {
             className={s.radioInput6}
             type="radio"
             onChange={handleCheked}
-            value="six"
+            value="15.jpg"
             name="background"
             id="six"
             checked={background === 'six'}
@@ -104,7 +104,7 @@ export const BoxRadioBackgroundGroup = ({ valueChange }) => {
             className={s.radioInput7}
             type="radio"
             onChange={handleCheked}
-            value="seven"
+            value="16.jpg"
             name="background"
             id="seven"
             checked={background === 'seven'}
@@ -116,7 +116,7 @@ export const BoxRadioBackgroundGroup = ({ valueChange }) => {
             className={s.radioInput8}
             type="radio"
             onChange={handleCheked}
-            value="eight"
+            value="17.jpg"
             name="background"
             id="eight"
             checked={background === 'eight'}
@@ -129,7 +129,7 @@ export const BoxRadioBackgroundGroup = ({ valueChange }) => {
             className={s.radioInput9}
             type="radio"
             onChange={handleCheked}
-            value="nine"
+            value="18.jpg"
             name="background"
             id="nine"
             checked={background === 'nine'}
@@ -141,7 +141,7 @@ export const BoxRadioBackgroundGroup = ({ valueChange }) => {
             className={s.radioInput10}
             type="radio"
             onChange={handleCheked}
-            value="ten"
+            value="19.jpg"
             name="background"
             id="ten"
             checked={background === 'ten'}
@@ -153,7 +153,7 @@ export const BoxRadioBackgroundGroup = ({ valueChange }) => {
             className={s.radioInput11}
             type="radio"
             onChange={handleCheked}
-            value="eleven"
+            value="20.jpg"
             name="background"
             id="eleven"
             checked={background === 'eleven'}
@@ -165,7 +165,7 @@ export const BoxRadioBackgroundGroup = ({ valueChange }) => {
             className={s.radioInput12}
             type="radio"
             onChange={handleCheked}
-            value="twelve"
+            value="21.jpg"
             name="background"
             id="twelve"
             checked={background === 'twelve'}
@@ -178,7 +178,7 @@ export const BoxRadioBackgroundGroup = ({ valueChange }) => {
             className={s.radioInput13}
             type="radio"
             onChange={handleCheked}
-            value="thirteen"
+            value="22.jpg"
             name="background"
             id="thirteen"
             checked={background === 'thirteen'}
@@ -190,7 +190,7 @@ export const BoxRadioBackgroundGroup = ({ valueChange }) => {
             className={s.radioInput14}
             type="radio"
             onChange={handleCheked}
-            value="fourteen"
+            value="23.jpg"
             name="background"
             id="fourteen"
             checked={background === 'fourteen'}
@@ -203,7 +203,7 @@ export const BoxRadioBackgroundGroup = ({ valueChange }) => {
             type="radio"
             onChange={handleCheked}
             value="fifteen"
-            name="background"
+            name="24.jpg"
             id="fifteen"
             checked={background === 'fifteen'}
           />
@@ -214,7 +214,7 @@ export const BoxRadioBackgroundGroup = ({ valueChange }) => {
             className={s.radioInput16}
             type="radio"
             onChange={handleCheked}
-            value="sixteen"
+            value="25.jpg"
             name="background"
             id="sixteen"
             checked={background === 'sixteen'}

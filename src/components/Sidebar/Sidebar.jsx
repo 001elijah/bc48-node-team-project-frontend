@@ -18,7 +18,6 @@ export const Sidebar = () => {
   const handleModalWindowOpen = () => setShowModalWindow(true);
   const handleModalWindowClose = () => setShowModalWindow(false);
   if (!theme) return;
-
   return (
     <div className={clsx(s.container, s[theme])}>
       <Logo theme={theme} />
