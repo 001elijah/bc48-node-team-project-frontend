@@ -1,10 +1,10 @@
 import { gapi } from 'gapi-script';
-import { authWithGoogleApi} from '../../services/backendAPI';
+import { authWithGoogleApi } from '../../services/backendAPI';
 import { logOut } from './authSlice';
-import { Notify } from 'notiflix'; 
+import { Notify } from 'notiflix';
 
-export const authWithGoogleOperation = (googleClientId) => {
-  return async (dispatch) => {
+export const authWithGoogleOperation = googleClientId => {
+  return async dispatch => {
     try {
       const authResult = await authenticateWithGoogle(googleClientId);
       if (authResult.error) {
@@ -26,11 +26,10 @@ export const authWithGoogleOperation = (googleClientId) => {
         },
       });
       Notify.success('Welcome');
-
     } catch (error) {
       console.log(error);
       dispatch(logOut());
-       if (error.status === 400) {
+      if (error.status === 400) {
         Notify.failure('Error');
       } else if (error.status === 500) {
         Notify.failure('Server error');
@@ -39,7 +38,7 @@ export const authWithGoogleOperation = (googleClientId) => {
   };
 };
 
-const authenticateWithGoogle = (googleClientId) => {
+const authenticateWithGoogle = googleClientId => {
   return new Promise((resolve, reject) => {
     // Initialize the Google Sign-In API
     gapi.load('auth2', () => {
@@ -51,16 +50,16 @@ const authenticateWithGoogle = (googleClientId) => {
       gapi.auth2
         .getAuthInstance()
         .signIn({ prompt: 'select_account' })
-        .then((googleUser) => {
+        .then(googleUser => {
           const idToken = googleUser.getAuthResponse().id_token;
 
           // Resolve with the credential containing the Google ID token
           resolve({ credential: { idToken } });
         })
-        .catch((error) => {
+        .catch(error => {
           // Reject with the error message
           reject(
-            new Error(`Failed to authenticate with Google: ${error.error}`)
+            new Error(`Failed to authenticate with Google: ${error.error}`),
           );
         });
     });

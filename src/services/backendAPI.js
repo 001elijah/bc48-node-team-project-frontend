@@ -1,9 +1,8 @@
 import axios from 'axios';
 
-// axios.defaults.baseURL = 'https://taskpro.onrender.com/user';
+axios.defaults.baseURL = 'https://taskpro.onrender.com/user';
 
-axios.defaults.baseURL = 'http://localhost:3000';
-
+//axios.defaults.baseURL = 'http://localhost:3000';
 
 const token = {
   set(token) {
@@ -98,10 +97,13 @@ export const removeCardApi = async id => {
   return;
 };
 
-export const authWithGoogleApi = async (data) => {
+export const authWithGoogleApi = async data => {
   const { credential } = data;
   const { idToken } = credential;
-  const response = await axios.post('user/auth/google', { credential, idToken });
+  const response = await axios.post('user/auth/google', {
+    credential,
+    idToken,
+  });
   token.set(response.data.token);
   return { ...response.data.user, token: response.data.token };
 };

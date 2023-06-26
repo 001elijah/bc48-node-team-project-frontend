@@ -1,8 +1,8 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { authWithGoogleOperation } from '../../redux/Auth/authGoogleOperations';
-import svg from '../../assets/icons/sprite.svg'
-import s from './AuthWithGoogle.module.scss'
+import svg from '../../assets/icons/sprite.svg';
+import s from './AuthWithGoogle.module.scss';
 
 export const AuthWithGoogle = () => {
   const dispatch = useDispatch();
