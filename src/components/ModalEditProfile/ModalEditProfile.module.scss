@@ -7,6 +7,10 @@
   &:not(:last-of-type) {
     margin-bottom: 14px;
   }
+
+  &:focus-within .eye {
+    opacity: 0.9;
+  }
 }
 
 .avatar {
@@ -99,10 +103,26 @@
   display: block;
   width: 68px;
   height: 68px;
+  border-radius: 8px;
 }
 
-// .buttonPlus {
-//   display: block;
-//   width: 7px;
-//   height: 7px;
-// }
+.eye {
+  position: absolute;
+  width: 19px;
+  height: 19px;
+
+  stroke: currentColor;
+  fill: currentColor;
+  color: $white-text-color;
+
+  right: 18px;
+  bottom: 15px;
+
+  opacity: 0.4;
+  cursor: pointer;
+
+  &.light,
+  &.colorful {
+    color: $black-text-color;
+  }
+}

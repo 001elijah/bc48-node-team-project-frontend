@@ -7,7 +7,7 @@ import { Container } from 'components/Container';
 
 export const HomePage = () => {
   const isDesktopSize = useMediaQuery({ query: '(min-width: 1280px)' });
-  
+
   return (
     <div>
       <Container>

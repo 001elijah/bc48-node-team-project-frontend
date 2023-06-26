@@ -1,9 +1,11 @@
-import { useState, useSelector } from 'react';
+import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import clsx from 'clsx';
 import shortid from 'shortid';
 import PropTypes from 'prop-types';
 
 import sprite from '../../assets/icons/sprite.svg';
+import { removeCard } from 'redux/Cards/cardsOperations';
 import { selectorTheme } from 'redux/Auth/authSelectors';
 import { TaskControlButton } from '../TaskControlButton/TaskControlButton';
 import { ModalChangeColumn } from 'components/ModalChangeColumn/ModalChangeColumn';
@@ -11,30 +13,47 @@ import { BackdropModal } from 'components/BackdropMain/BackdropMain';
 import s from './TaskCard.module.scss';
 
 export const TaskCard = ({
+  id,
   title,
   description,
-  priority = 'High',
-  deadline,
-  editCard,
-  removeCard,
+  label = 'Low',
+  deadline = '26/06/2023',
+  boardId,
+  columnId,
 }) => {
+  const dispatch = useDispatch();
   const theme = useSelector(selectorTheme);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalChangeOpen, setIsModalChangeOpen] = useState(false);
+  const [isModalEditOpen, setIsModalEditOpen] = useState(false);
 
+  const date = new Date();
+  // const currentTime = `${date.toISOString().split('T')[0]} ${
+  //   date.toTimeString().split(' ')[0]
+  // }`;
+  // const isDeadline = deadline === currentTime.slice(0, -3);
+  const isDeadline = deadline === date.toLocaleDateString('en-GB');
+  // console.log(date);
   const openModalChangeColumn = () => {
-    setIsModalOpen(true);
+    setIsModalChangeOpen(true);
   };
 
-  const closeModalChangeColumn = () => setIsModalOpen(false);
+  const closeModalChangeColumn = () => setIsModalChangeOpen(false);
+
+  const openModalEditCard = () => {
+    setIsModalEditOpen(true);
+  };
+  const closeModalEditCard = () => {
+    setIsModalEditOpen(false);
+  };
 
   return (
-    <div className={clsx(s.cardWrapper, s[theme])}>
+    <li key={id} className={clsx(s.cardWrapper, s[theme])}>
       <div
         className={clsx(
           s.priorityLine,
-          priority === 'Low' && s.bg_low,
-          priority === 'Medium' && s.bg_medium,
-          priority === 'High' && s.bg_high,
+          label === 'Medium' && s.bg_medium,
+          label === 'High' && s.bg_high,
+          label === 'Low' && s.bg_low,
         )}
       ></div>
       <div className={s.infoWrapper}>
@@ -57,26 +76,25 @@ export const TaskCard = ({
               <div
                 className={clsx(
                   s.priorityCircle,
-                  priority === 'Low' && s.bg_low,
-                  priority === 'Medium' && s.bg_medium,
-                  priority === 'High' && s.bg_high,
+                  label === 'Low' && s.bg_low,
+                  label === 'Medium' && s.bg_medium,
+                  label === 'High' && s.bg_high,
                 )}
               ></div>
-              <p className={clsx(s.text, s[theme])}>{priority}</p>
+              <p className={clsx(s.text, s[theme])}>{label}</p>
             </div>
           </div>
           <div>
             <h5 className={clsx(s.subtitle, s[theme])}>Deadline</h5>
-            <p className={clsx(s.text, s[theme])}>
-              {deadline}
-              12/05/2023
-            </p>
+            <p className={clsx(s.text, s[theme])}>{deadline}</p>
           </div>
         </div>
         <div className={s.iconsWrapper}>
-          <svg className={clsx(s.icon, s[theme])}>
-            <use href={sprite + '#icon-bell'}></use>
-          </svg>
+          {isDeadline && (
+            <svg className={clsx(s.icon, s[theme])}>
+              <use href={sprite + '#icon-bell'}></use>
+            </svg>
+          )}
           <ul className={s.buttonList}>
             <li key={shortid.generate()} className={s.item}>
               <TaskControlButton
@@ -87,29 +105,42 @@ export const TaskCard = ({
               />
             </li>
             <li key={shortid.generate()} className={s.item}>
-              <TaskControlButton icon="#icon-pencil" onClick={editCard} />
+              <TaskControlButton
+                icon="#icon-pencil"
+                onClick={() => {
+                  openModalEditCard();
+                }}
+              />
             </li>
             <li key={shortid.generate()} className={s.item}>
-              <TaskControlButton icon="#icon-trash" onClick={removeCard} />
+              <TaskControlButton
+                icon="#icon-trash"
+                onClick={() => dispatch(removeCard(id))}
+              />
             </li>
           </ul>
         </div>
       </div>
-      {isModalOpen && (
+      {isModalChangeOpen && (
         <BackdropModal closeModal={closeModalChangeColumn}>
-          <ModalChangeColumn closeModal={closeModalChangeColumn} />
+          <ModalChangeColumn
+            closeModal={closeModalChangeColumn}
+            boardId={boardId}
+            columnId={columnId}
+          />
         </BackdropModal>
       )}
-    </div>
+      {/* {isModalEditOpen && <ModalEditCard closeModal={closeModalEditCard} />} */}
+    </li>
   );
 };
 
 TaskCard.propTypes = {
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  priority: PropTypes.string.isRequired,
-  deadline: PropTypes.string.isRequired,
-  editCard: PropTypes.func.isRequired,
-  removeCard: PropTypes.func.isRequired,
-  theme: PropTypes.string.isRequire,
+  id: PropTypes.string,
+  title: PropTypes.string,
+  description: PropTypes.string,
+  label: PropTypes.string,
+  deadline: PropTypes.string,
+  boardId: PropTypes.string,
+  columnId: PropTypes.string,
 };
