@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { selectorTheme } from 'redux/Auth/authSelectors';
-import { ModalColumn } from 'components/ReusableColumnModalWindow/ReusableColumnModalWindow';
+import { ReusableColumnModalWindow } from '../ReusableColumnModalWindow/ReusableColumnModalWindow';
 import { BoxRadioColorGroup } from 'components/BoxRadioColorGroup/BoxRadioColorGroup';
 import { CalendarDark } from 'components/CalendarDark/CalendarDark';
 import s from './CardModalWindow.module.scss';
@@ -11,8 +11,8 @@ export const CardModalWindow = ({
   modalTitle,
   inputTitle,
   titleModalButton,
-  onClick,
-  handleToggleModal,
+  // onClick,
+  // handleToggleModal,
 }) => {
   const theme = useSelector(selectorTheme);
 
@@ -36,12 +36,11 @@ export const CardModalWindow = ({
   };
 
   return (
-    <ModalColumn
+    <ReusableColumnModalWindow
       modalTitle={modalTitle}
       inputTitle={inputTitle}
       titleModalButton={titleModalButton}
       onClick={handleAddCard}
-      handleToggleModal={handleToggleModal}
     >
       <textarea
         onChange={e => setComent(e.target.value)}
@@ -53,7 +52,7 @@ export const CardModalWindow = ({
       ></textarea>
       <BoxRadioColorGroup valueChange={handleChangeColor} />
       <CalendarDark onDate={setDate} />
-    </ModalColumn>
+    </ReusableColumnModalWindow>
   );
 };
 

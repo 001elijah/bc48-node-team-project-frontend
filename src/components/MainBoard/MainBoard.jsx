@@ -1,5 +1,5 @@
 // import s from './MainBoard.module.scss';
-import { Wrapper } from './MainBoard.styled';
+import { Wrapper, ColumnsList, ContentBoard } from './MainBoard.styled';
 import PropTypes from 'prop-types';
 import { HeaderDashBoard } from '../HeaderDashBoard/HeaderDashBoard';
 import { AddButton } from '../ButtonAddColumn/ButtonAddColumn';
@@ -10,8 +10,7 @@ import { selectorTheme } from 'redux/Auth/authSelectors';
 // import clsx from 'clsx';
 import { useState } from 'react';
 import { ColumnModalWindow } from '../ColumnModalWindow/ColumnModalWindow';
-// import {TaskCard} from '../../TaskCard/TaskCard'
-// import {TasksColumnHeader} from '../TasksColumnHeader/TasksColumnHeader'
+import { TasksColumnHeader } from '../TasksColumnHeader/TasksColumnHeader';
 
 export const MainBoard = () => {
   const theme = useSelector(selectorTheme);
@@ -50,20 +49,24 @@ export const MainBoard = () => {
         colorbg={curTheme}
       >
         <HeaderDashBoard title={getBoard.title} />
-        {/* {getBoard.columns.map(({title, id})=>{
-            <TasksColumnHeader
-              key={id}
-              title={title}
-              editColumn
-              removeColumn 
-            />
-          })} */}
+        <ContentBoard>
+          <ColumnsList>
+            {getBoard.columns.map(item => (
+              <TasksColumnHeader
+                key={item.id}
+                title={item.title}
+                id={item.id}
+                boardId={getBoard._id}
+              />
+            ))}
+          </ColumnsList>
+          <AddButton
+            typeOfButton="Column"
+            title="Add another column"
+            onClick={handleModalWindowOpen}
+          />
+        </ContentBoard>
         {/* <TaskCard/> */}
-        <AddButton
-          typeOfButton="Column"
-          title="Add another column"
-          onClick={handleModalWindowOpen}
-        />
       </Wrapper>
       {showModalWindow && (
         <ColumnModalWindow

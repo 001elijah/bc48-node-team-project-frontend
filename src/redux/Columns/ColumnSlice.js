@@ -1,14 +1,21 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { addColumn } from './ColumnOperation';
+import { addColumn, editColumn, delColumn } from './ColumnOperation';
 const boardSlice = createSlice({
-  name: 'board',
+  name: 'column',
   initialState: {
     column: [],
   },
   extraReducers: builder => {
-    builder.addCase(addColumn.fulfilled, (state, { payload }) => {
-      state.column = [12];
-    });
+    builder
+      .addCase(addColumn.fulfilled, (state, { payload }) => {
+        state.column = [12];
+      })
+      .addCase(editColumn.fulfilled, (state, { payload }) => {
+        console.log(payload);
+      })
+      .addCase(delColumn.fulfilled, (state, { payload }) => {
+        console.log(payload);
+      });
   },
 });
 
