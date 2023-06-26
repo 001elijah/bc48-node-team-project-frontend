@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom';
 import { Sidebar } from '../components/Sidebar/Sidebar';
 import { Header } from 'components/Header/Header';
 import { Container } from 'components/Container';
-import { TaskCard } from 'components/TaskCard/TaskCard';
+
 export const HomePage = () => {
   const isDesktopSize = useMediaQuery({ query: '(min-width: 1280px)' });
 
@@ -19,7 +19,6 @@ export const HomePage = () => {
           </div>
         </div>
       </Container>
-      <TaskCard/>
     </div>
   );
 };
