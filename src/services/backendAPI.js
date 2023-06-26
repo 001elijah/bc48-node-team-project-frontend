@@ -19,8 +19,8 @@ export const registerUserApi = async userData => {
 
 export const loginUserApi = async userData => {
   const { data } = await axios.post('user/login', userData);
-  token.set(data.token);
-  return { ...data.user, token: data.token };
+  const user = await currentUserApi(data.token);
+  return { ...user, token: data.token };
 };
 
 export const currentUserApi = async userToken => {
