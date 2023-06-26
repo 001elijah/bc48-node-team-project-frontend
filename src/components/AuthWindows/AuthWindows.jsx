@@ -1,8 +1,8 @@
 import { NavLink, useParams } from 'react-router-dom';
 import clsx from 'clsx';
 
-import { Login } from 'components/AuthForm/Login/Login';
-import { Register } from 'components/AuthForm/Register/Register';
+import { Login } from 'components/LoginForm/Login';
+import { Register } from 'components/RegisterForm/Register';
 
 import s from './AuthWindows.module.scss';
 

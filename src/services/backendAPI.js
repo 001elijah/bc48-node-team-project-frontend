@@ -39,6 +39,11 @@ export const themeChangeUserApi = async theme => {
   const { data } = await axios.patch('user/', theme);
   return data;
 };
+
+export const updateUserApi = async userData => {
+  const { data } = await axios.patch('user/updateUserInfo', userData);
+  return data.user;
+};
 //---------------------------------------------BOARDS---------------------//
 
 export const getListOfBoardsApi = async userToken => {
@@ -53,3 +58,14 @@ export const sendEmailApi = async userEmail => {
   const { data } = await axios.post('user/sendEmail', userEmail);
   return data.message;
 };
+
+// export const addColumn = async board => {
+//   const { data } = await axios.post('board/column');
+//   console.log(data);
+//   return data;
+// };
+
+// export const editColumn = async board => {
+//   const { data } = await axios.post('/board');
+//   return data;
+// };

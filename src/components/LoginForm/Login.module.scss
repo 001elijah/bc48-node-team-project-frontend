@@ -1,0 +1,22 @@
+@import '../../assets/styles/vars';
+
+.error {
+  position: absolute;
+  color: $red-error-color;
+  font-size: 10px;
+}
+
+.eye {
+  position: absolute;
+  width: 19px;
+  height: 19px;
+
+  stroke: currentColor;
+  fill: currentColor;
+
+  right: 18px;
+  bottom: 15px;
+
+  opacity: 0.4;
+  cursor: pointer;
+}

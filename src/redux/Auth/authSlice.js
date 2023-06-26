@@ -5,6 +5,7 @@ import {
   currentUser,
   logoutUser,
   themeChangeUser,
+  updateUser,
 } from './authOperations';
 
 const authSlice = createSlice({
@@ -67,6 +68,12 @@ const authSlice = createSlice({
       })
       .addCase(themeChangeUser.fulfilled, (state, { payload }) => {
         state.theme = payload;
+      })
+      .addCase(updateUser.fulfilled, (state, { payload }) => {
+        return {
+          ...state,
+          ...payload,
+        };
       })
       .addMatcher(
         action =>
