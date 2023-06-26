@@ -31,10 +31,8 @@ InputBlock.propTypes = {
 };
 
 export const LabelBlock = ({ newField }) => {
-  console.log(newField);
   const theme = useSelector(selectorTheme);
   const [field, setField] = useState(' ');
-  console.log(field);
   const handleOnClick = e => {
     setField(e.currentTarget.value);
   };
@@ -42,6 +40,7 @@ export const LabelBlock = ({ newField }) => {
     setField('');
   };
   console.log(newField, field);
+
   return (
     <>
       <div className={clsx(s.TextLine, s[theme])}>
@@ -52,20 +51,20 @@ export const LabelBlock = ({ newField }) => {
       </div>
       <InputBlock
         title="without"
-        label="without"
+        label="Without"
         func={handleOnClick}
         theme={theme}
       />
-      <InputBlock title="low" label="low" func={handleOnClick} theme={theme} />
+      <InputBlock title="low" label="Low" func={handleOnClick} theme={theme} />
       <InputBlock
         title="medium"
-        label="medium"
+        label="Medium"
         func={handleOnClick}
         theme={theme}
       />
       <InputBlock
         title="high"
-        label="high"
+        label="High"
         func={handleOnClick}
         theme={theme}
       />

@@ -15,6 +15,7 @@ export const BoardList = ({ theme, boards }) => {
           boardName={title}
           icon={`${sprite}#${icon}`}
           theme={theme}
+          id={_id}
           onClick={() => setCurrent(_id)}
           isCurrent={current === _id && true}
         />
