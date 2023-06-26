@@ -2,6 +2,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import authReducer from './Auth/authSlice';
 import loaderReducer from './Loader/loaderSlice';
 import boardsReducer from './Boards/boardsSlice';
+import cardsReducer from './Cards/cardsSlice';
 
 import {
   persistStore,
@@ -27,6 +28,7 @@ export const store = configureStore({
   reducer: {
     auth: persistedAuthReducer,
     boards: boardsReducer,
+    cards: cardsReducer,
     isLoading: loaderReducer,
   },
   middleware: getDefaultMiddleware =>

@@ -5,8 +5,8 @@ export const Wrapper = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   background-position: bottom;
-  background-color: black;
-  height: 100vh;
+  background-color: ${props=>props.colorbg};
+  height: 100%;
   @media screen and (min-width: 375px) {
     padding-left:0px;
     background-image: url(${props =>
@@ -27,4 +27,4 @@ export const Wrapper = styled.div`
     (min-resolution: 2dppx) {
     @content;
   }
-`;
+`

@@ -6,6 +6,7 @@ import { LabelBlock } from './LabelBlock';
 import {  useState } from 'react';
 import { selectorTheme } from 'redux/Auth/authSelectors';
 import { useSelector } from 'react-redux';
+import {BoxRadioBackgroundGroup} from '../BoxRadioBackgroundGroup/BoxRadioBackgroundGroup'
 import clsx from 'clsx';
 
 export const ModalFilter = ({ closeModal, color }) => {
@@ -25,7 +26,7 @@ export const ModalFilter = ({ closeModal, color }) => {
         <div className={clsx(s.TitleBlock, s[theme])}>
           <span className={clsx(s.HeadTitle, s[theme])}>Filters</span>
         </div>
-        {/* <BackgroundBlock /> */}
+        <BoxRadioBackgroundGroup />
         <LabelBlock newField={setColorFilter} />
       </div>
     </>
