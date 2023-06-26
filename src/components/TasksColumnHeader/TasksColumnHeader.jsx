@@ -16,7 +16,7 @@ export const TasksColumnHeader = ({ title, id }) => {
   // const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModalEditColumn = () => {
-    setIsModalOpen(true);
+    // setIsModalOpen(true);
   };
 
   // const closeModalEditColumn = () => setIsModalOpen(false);
