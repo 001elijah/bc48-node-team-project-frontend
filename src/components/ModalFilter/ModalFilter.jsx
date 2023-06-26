@@ -10,11 +10,10 @@ import {BoxRadioBackgroundGroup} from '../BoxRadioBackgroundGroup/BoxRadioBackgr
 import clsx from 'clsx';
 
 export const ModalFilter = ({ closeModal, color }) => {
-  console.log(color)
   const [colorFilter, setColorFilter] = useState('');
   const theme = useSelector(selectorTheme);
-  console.log(color, colorFilter)
-  
+  const [icon, setIcon] = useState('');
+  console.log(color, colorFilter, icon)
   return (
     <>
       <div className={clsx(s.Wrapper, s[theme])}>
@@ -26,7 +25,7 @@ export const ModalFilter = ({ closeModal, color }) => {
         <div className={clsx(s.TitleBlock, s[theme])}>
           <span className={clsx(s.HeadTitle, s[theme])}>Filters</span>
         </div>
-        <BoxRadioBackgroundGroup />
+        <BoxRadioBackgroundGroup valueChange={setIcon} />
         <LabelBlock newField={setColorFilter} />
       </div>
     </>
