@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // axios.defaults.baseURL = 'https://taskpro.onrender.com/user';
 
-axios.defaults.baseURL = 'http://localhost:3000/user';
+axios.defaults.baseURL = 'http://localhost:3000';
 
 
 const token = {
@@ -66,22 +66,10 @@ export const getListOfBoardsApi = async userToken => {
 //   return data;
 // };
 
-export const registerWithGoogleApi = async (data) => {
+export const authWithGoogleApi = async (data) => {
   const { credential } = data;
   const { idToken } = credential;
-  const response = await axios.post('/register/google', { credential, idToken });
+  const response = await axios.post('user/auth/google', { credential, idToken });
   token.set(response.data.token);
   return { ...response.data.user, token: response.data.token };
 };
-
-export const loginWithGoogleApi = async (data) => {
-  const { credential } = data;
-  const { idToken } = credential;
-  const response = await axios.post('/login/google', { credential, idToken });
-  token.set(response.data.token);
-  return { ...response.data.user, token: response.data.token };
-};
-
-
-
-
