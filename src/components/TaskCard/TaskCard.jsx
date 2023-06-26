@@ -39,9 +39,9 @@ export const TaskCard = ({
 
   const closeModalChangeColumn = () => setIsModalChangeOpen(false);
 
-  const openModalEditCard = () => {
-    setIsModalEditOpen(true);
-  };
+  // const openModalEditCard = () => {
+  //   setIsModalEditOpen(true);
+  // };
   // const closeModalEditCard = () => {
   //   setIsModalEditOpen(false);
   // };
@@ -108,7 +108,7 @@ export const TaskCard = ({
               <TaskControlButton
                 icon="#icon-pencil"
                 onClick={() => {
-                  openModalEditCard();
+                  // openModalEditCard();
                 }}
               />
             </li>
