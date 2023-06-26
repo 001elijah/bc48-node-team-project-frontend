@@ -5,7 +5,7 @@ import shortid from 'shortid';
 import PropTypes from 'prop-types';
 
 import sprite from '../../assets/icons/sprite.svg';
-import { removeCard } from 'redux/Card/cardOperations';
+import { removeCard } from 'redux/Cards/cardsOperations';
 import { selectorTheme } from 'redux/Auth/authSelectors';
 import { TaskControlButton } from '../TaskControlButton/TaskControlButton';
 import { ModalChangeColumn } from 'components/ModalChangeColumn/ModalChangeColumn';
