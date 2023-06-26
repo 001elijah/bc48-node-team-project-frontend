@@ -53,8 +53,8 @@ export const addBoardApi = async (dataBoard, userToken) => {
   return data;
 };
 export const getBoardByIdApi = async (boardName, userToken) => {
-  token.set(userToken);  
-  const { data } = await axios.get(`/board/${boardName}`, );
+  token.set(userToken);
+  const { data } = await axios.get(`/board/${boardName}`);
   return data;
 };
 
@@ -83,7 +83,6 @@ export const sendEmailApi = async userEmail => {
 //   console.log(data);
 //   return data;
 // };
-
 
 // export const editColumn = async board => {
 //   const { data } = await axios.post('/board');

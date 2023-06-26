@@ -3,17 +3,17 @@ import svg from '../../assets/icons/sprite.svg';
 import PropTypes from 'prop-types';
 import { LabelBlock } from './LabelBlock';
 // import { BackgroundBlock } from './BackgroundBlock';
-import {  useState } from 'react';
+import { useState } from 'react';
 import { selectorTheme } from 'redux/Auth/authSelectors';
 import { useSelector } from 'react-redux';
-import {BoxRadioBackgroundGroup} from '../BoxRadioBackgroundGroup/BoxRadioBackgroundGroup'
+import { BoxRadioBackgroundGroup } from '../BoxRadioBackgroundGroup/BoxRadioBackgroundGroup';
 import clsx from 'clsx';
 
 export const ModalFilter = ({ closeModal, color }) => {
   const [colorFilter, setColorFilter] = useState('');
   const theme = useSelector(selectorTheme);
   const [icon, setIcon] = useState('');
-  console.log(color, colorFilter, icon)
+  console.log(color, colorFilter, icon);
   return (
     <>
       <div className={clsx(s.Wrapper, s[theme])}>

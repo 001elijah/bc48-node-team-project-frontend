@@ -1,14 +1,13 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-  
   background-repeat: no-repeat;
   background-size: cover;
   background-position: bottom;
-  background-color: ${props=>props.colorbg};
+  background-color: ${props => props.colorbg};
   height: 100%;
   @media screen and (min-width: 375px) {
-    padding-left:0px;
+    padding-left: 0px;
     background-image: url(${props =>
       props.BASE_URL + 'mobile/x1/' + props.imgid});
   }
@@ -27,4 +26,4 @@ export const Wrapper = styled.div`
     (min-resolution: 2dppx) {
     @content;
   }
-`
+`;

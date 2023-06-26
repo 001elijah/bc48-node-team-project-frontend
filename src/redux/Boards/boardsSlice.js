@@ -10,12 +10,12 @@ const boardsSlice = createSlice({
         state.push(...payload);
       })
       .addCase(addNewBoard.fulfilled, (state, { payload }) => {
-        state.push(payload)
-      })
-      // .addCase(getBoardById.fulfilled, (state, { payload }) => {
-      //   console.log('slice', payload);
+        state.push(payload);
+      });
+    // .addCase(getBoardById.fulfilled, (state, { payload }) => {
+    //   console.log('slice', payload);
 
-      // });
+    // });
   },
 });
 

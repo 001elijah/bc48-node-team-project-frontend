@@ -39,7 +39,7 @@ export const LabelBlock = ({ newField }) => {
   const handleOnClickAll = () => {
     setField('');
   };
-  console.log(newField, field)
+  console.log(newField, field);
 
   return (
     <>

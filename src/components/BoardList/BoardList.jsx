@@ -9,7 +9,7 @@ export const BoardList = ({ theme, boards }) => {
 
   return (
     <ul className={s.list}>
-      {boards.map(({ title, icon, _id}) => (
+      {boards.map(({ title, icon, _id }) => (
         <BoardItem
           key={title}
           id={_id}

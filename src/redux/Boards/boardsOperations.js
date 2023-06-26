@@ -1,20 +1,19 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-import { getListOfBoardsApi,addBoardApi } from '../../services/backendAPI';
-
+import { getListOfBoardsApi, addBoardApi } from '../../services/backendAPI';
 
 export const addNewBoard = createAsyncThunk(
   'boards/addboard',
-    async (dataBoard, { getState, rejectWithValue }) => {
+  async (dataBoard, { getState, rejectWithValue }) => {
     const { token } = getState().auth;
     try {
       const newBoard = await addBoardApi(dataBoard, token);
       return newBoard;
     } catch (error) {
-      console.log('error', error)
+      console.log('error', error);
       rejectWithValue(error.message);
     }
-  }
+  },
 );
 
 // export const getBoardById = createAsyncThunk(
@@ -29,11 +28,11 @@ export const addNewBoard = createAsyncThunk(
 //       rejectWithValue(error.message);
 //     }
 //   },
-  // {
-  //   condition(_, { getState }) {
-  //     return Boolean(getState().boards.length <= 0);
-  //   },
-  // },
+// {
+//   condition(_, { getState }) {
+//     return Boolean(getState().boards.length <= 0);
+//   },
+// },
 // );
 
 export const getListOfBoards = createAsyncThunk(

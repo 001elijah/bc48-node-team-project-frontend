@@ -5,29 +5,29 @@ import { selectorTheme } from 'redux/Auth/authSelectors';
 import { Modal } from 'components/Modal/Modal';
 import sprite from '../../assets/icons/sprite.svg';
 import s from './ColumnModalWindow.module.scss';
-import {addColumn} from '../../redux/Columns/ColumnOperation'
+import { addColumn } from '../../redux/Columns/ColumnOperation';
 
 export const ColumnModalWindow = ({
   inputTitle,
   titleModalButton,
   modalTitle,
   onClick,
-  boardId
+  boardId,
 }) => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const [value, setValue] = useState('');
   const theme = useSelector(selectorTheme);
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
+  const handleSubmit = e => {
+    e.preventDefault();
     const newColumn = {
-      title:value,
-      boardId
+      title: value,
+      boardId,
     };
     console.log(value);
     dispatch(addColumn(newColumn));
     setValue('');
-    onClick()
+    onClick();
   };
 
   return (

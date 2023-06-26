@@ -5,33 +5,32 @@ import { selectorTheme } from 'redux/Auth/authSelectors';
 import { Modal } from 'components/Modal/Modal';
 import sprite from '../../assets/icons/sprite.svg';
 import s from './ReusableColumnModalWindow.module.scss';
-import {addNewBoard} from '../../redux/Boards/boardsOperations'
+import { addNewBoard } from '../../redux/Boards/boardsOperations';
 
 export const ReusableColumnModalWindow = ({
   inputTitle,
   titleModalButton,
   modalTitle,
   onClick,
-  icon='',
-  background='',
+  icon = '',
+  background = '',
   children,
-
 }) => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const [value, setValue] = useState('');
   const theme = useSelector(selectorTheme);
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
+  const handleSubmit = e => {
+    e.preventDefault();
     const newCard = {
-      title:value,
+      title: value,
       icon,
       background,
     };
     // console.log(newCard);
     dispatch(addNewBoard(newCard));
     setValue('');
-    onClick()
+    onClick();
   };
 
   return (
