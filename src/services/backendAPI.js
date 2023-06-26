@@ -14,36 +14,36 @@ const token = {
 };
 
 export const registerUserApi = async userData => {
-  const { data } = await axios.post('user/register', userData);
+  const { data } = await axios.post('/user/register', userData);
   token.set(data.token);
   return { ...data.user, token: data.token };
 };
 
 export const loginUserApi = async userData => {
-  const { data } = await axios.post('user/login', userData);
+  const { data } = await axios.post('/user/login', userData);
   const user = await currentUserApi(data.token);
   return { ...user, token: data.token };
 };
 
 export const currentUserApi = async userToken => {
   token.set(userToken);
-  const { data } = await axios.get('user/current');
+  const { data } = await axios.get('/user/current');
   return data;
 };
 
 export const logoutUserApi = async userToken => {
-  await axios.post('user/logout', userToken);
+  await axios.post('/user/logout', userToken);
   token.unset();
   return null;
 };
 
 export const themeChangeUserApi = async theme => {
-  const { data } = await axios.patch('user/', theme);
+  const { data } = await axios.patch('/user/', theme);
   return data;
 };
 
 export const updateUserApi = async userData => {
-  const { data } = await axios.patch('user/updateUserInfo', userData);
+  const { data } = await axios.patch('/user/updateUserInfo', userData);
   return data.user;
 };
 //---------------------------------------------BOARDS---------------------//
@@ -57,7 +57,7 @@ export const getListOfBoardsApi = async userToken => {
 //---------------------------------------------EMAIL---------------------//
 
 export const sendEmailApi = async userEmail => {
-  const { data } = await axios.post('user/sendEmail', userEmail);
+  const { data } = await axios.post('/user/sendEmail', userEmail);
   return data.message;
 };
 
@@ -100,7 +100,7 @@ export const removeCardApi = async id => {
 export const authWithGoogleApi = async data => {
   const { credential } = data;
   const { idToken } = credential;
-  const response = await axios.post('user/auth/google', {
+  const response = await axios.post('/user/auth/google', {
     credential,
     idToken,
   });
