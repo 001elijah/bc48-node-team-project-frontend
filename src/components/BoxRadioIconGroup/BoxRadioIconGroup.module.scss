@@ -1,3 +1,5 @@
+@import '../../assets/styles/vars';
+
 .container {
   margin-bottom: 24px;
 }
@@ -11,15 +13,30 @@
   line-height: calc(21 / 14);
 
   letter-spacing: -0.02em;
-
-  color: #ffffff;
+  &.dark {
+    color: $white-text-color;
+  }
+  &.light,
+  &.colorful {
+    color: $black-text-color;
+  }
 }
 
 .svg {
   margin-right: 8px;
-  fill: #151515;
-  stroke: rgba(255, 255, 255, 0.5);
+
   cursor: pointer;
+
+  &.dark {
+    fill: #151515;
+    stroke: rgba(255, 255, 255, 0.5);
+  }
+
+  &.colorful,
+  &.light {
+    fill: white;
+    stroke: $icon-main-color;
+  }
 }
 
 .inputIcon {
@@ -27,15 +44,26 @@
   position: absolute;
   opacity: 0;
 
-  & + svg {
+  & + .svg {
     -webkit-transition: all 0.2s;
     transition: all 0.2s;
     cursor: pointer;
   }
 
-  &:hover + svg,
-  &:checked + svg,
-  &:focus + svg {
-    stroke: rgba(255, 255, 255, 1);
+  &.dark {
+    &:hover + svg,
+    &:checked + svg,
+    &:focus + svg {
+      stroke: rgba(255, 255, 255, 1);
+    }
+  }
+
+  &.colorful,
+  &.light {
+    &:hover + svg,
+    &:checked + svg,
+    &:focus + svg {
+      stroke: rgba(22, 22, 22, 1);
+    }
   }
 }

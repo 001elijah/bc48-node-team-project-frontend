@@ -26,13 +26,13 @@ export const BoxRadioColorGroup = ({ valueChange }) => {
             className={s.radioInput}
             type="radio"
             onChange={handleCheked}
-            value="dark"
+            value="low"
             name="color"
-            id="dark"
-            checked={color === 'dark'}
+            id="low"
+            checked={color === 'low'}
           />
           <label
-            htmlFor="dark"
+            htmlFor="low"
             className={`${s.radioLabelHigh} ${s[theme]}`}
           ></label>
         </div>
@@ -41,13 +41,13 @@ export const BoxRadioColorGroup = ({ valueChange }) => {
             className={s.radioInput}
             type="radio"
             onChange={handleCheked}
-            value="white"
+            value="medium"
             name="color"
-            id="white"
-            checked={color === 'white'}
+            id="medium"
+            checked={color === 'medium'}
           />
           <label
-            htmlFor="white"
+            htmlFor="medium"
             className={`${s.radioLabelMedium} ${s[theme]}`}
           ></label>
         </div>
@@ -56,13 +56,13 @@ export const BoxRadioColorGroup = ({ valueChange }) => {
             className={s.radioInput}
             type="radio"
             onChange={handleCheked}
-            value="red"
+            value="high"
             name="color"
-            id="red"
-            checked={color === 'red'}
+            id="high"
+            checked={color === 'high'}
           />
           <label
-            htmlFor="red"
+            htmlFor="high"
             className={`${s.radioLabelLow} ${s[theme]}`}
           ></label>
         </div>
@@ -71,13 +71,13 @@ export const BoxRadioColorGroup = ({ valueChange }) => {
             className={s.radioInput}
             type="radio"
             onChange={handleCheked}
-            value="blue"
+            value="without"
             name="color"
-            id="blue"
-            checked={color === 'blue'}
+            id="without"
+            checked={color === 'without'}
           />
           <label
-            htmlFor="blue"
+            htmlFor="without"
             className={`${s.radioLabelWithout} ${s[theme]}`}
           ></label>
         </div>

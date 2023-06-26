@@ -88,7 +88,9 @@
 <path fill="none" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6" d="M16 21.333l5.333-5.333-5.333-5.333"></path>
 <path fill="none" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6" d="M2.667 16h18.667"></path>
 </symbol>
-
+<symbol id="icon-chevron-down" viewBox="0 0 30 32">
+<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3.3684" d="M7.579 12.211l7.579 7.579 7.579-7.579"></path>
+</symbol>
 <symbol id="icon-arrow-down" viewBox="0 0 30 32">
 <path stroke-width="2.8235" stroke-miterlimit="4" stroke-linecap="round" stroke-linejoin="round" d="M7.529 12.235l7.529 7.529 7.529-7.529"></path>
 </symbol>

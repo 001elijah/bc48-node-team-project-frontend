@@ -1,8 +1,12 @@
 import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { selectorTheme } from 'redux/Auth/authSelectors';
 import PropTypes from 'prop-types';
 import s from './BoxRadioBackgroundGroup.module.scss';
 
 export const BoxRadioBackgroundGroup = ({ valueChange }) => {
+  const theme = useSelector(selectorTheme);
+
   const [background, setBackground] = useState('one');
   // const handleChange = e => {
   //   setColor(e.target.value);
@@ -20,7 +24,7 @@ export const BoxRadioBackgroundGroup = ({ valueChange }) => {
 
   return (
     <div className={s.backgroundGroupWrapper}>
-      <h1 className={s.label}>Background</h1>
+      <h1 className={`${s.label} ${s[theme]}`}>Background</h1>
       <div className={s.radioWrapper}>
         <div className={s.radioContainer}>
           <input
@@ -32,7 +36,10 @@ export const BoxRadioBackgroundGroup = ({ valueChange }) => {
             id="one"
             checked={background === 'one'}
           />
-          <label htmlFor="one" className={s.radioLabel1}></label>
+          <label
+            htmlFor="one"
+            className={`${s.radioLabel1} ${s[theme]}`}
+          ></label>
         </div>
 
         <div className={s.radioContainer}>

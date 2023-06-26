@@ -8,6 +8,10 @@ const boardsSlice = createSlice({
     builder.addCase(getListOfBoards.fulfilled, (state, { payload }) => {
       state.push(...payload);
     });
+    // addBoard
+    // .addCase(getListOfBoards.fulfilled, (state, { payload }) => {
+    // state.push(...state, payload);
+    // });
   },
 });
 

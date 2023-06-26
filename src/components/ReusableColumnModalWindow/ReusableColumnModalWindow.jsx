@@ -9,21 +9,22 @@ import s from './ReusableColumnModalWindow.module.scss';
 export const ReusableColumnModalWindow = ({
   inputTitle,
   titleModalButton,
+  handleToggleModal,
   modalTitle,
-  onClick,
+  onSubmit,
   children,
 }) => {
   const [value, setValue] = useState('');
   const theme = useSelector(selectorTheme);
 
-  const handleSubmit = () => {
-    console.log(value);
-    // dispatch(addNewColumn(value));
-    setValue('');
+  const handleSubmit = e => {
+    e.preventDefault();
+    onSubmit(value);
+    handleToggleModal();
   };
 
   return (
-    <Modal title={modalTitle} onClose={onClick}>
+    <Modal title={modalTitle} onClose={handleToggleModal}>
       <form onSubmit={handleSubmit}>
         <input
           className={`${s.inputModal} ${s[theme]}`}
@@ -53,6 +54,7 @@ ReusableColumnModalWindow.propTypes = {
   modalTitle: PropTypes.string.isRequired,
   inputTitle: PropTypes.string.isRequired,
   titleModalButton: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
   children: PropTypes.array.isRequired,
+  handleToggleModal: PropTypes.func,
 };

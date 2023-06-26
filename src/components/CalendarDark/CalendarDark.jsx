@@ -1,7 +1,7 @@
 /* eslint-disable react/display-name */
 import { useEffect, useState } from 'react';
 import DatePicker from 'react-datepicker';
-import { getMonth, getYear } from 'date-fns';
+import { getMonth, getYear, getDate } from 'date-fns';
 import 'react-datepicker/dist/react-datepicker.css';
 import s from './CalendarDark.module.scss';
 import PropTypes from 'prop-types';
@@ -30,7 +30,7 @@ export const CalendarDark = ({ onDate }) => {
 
   return (
     <DatePicker
-      dateFormat="d, yy, MMMM d"
+      dateFormat=", yy, MMMM d"
       selected={startDate}
       calendarClassName={s.calendarConatiner}
       popperClassName={s.popperCustomClass}

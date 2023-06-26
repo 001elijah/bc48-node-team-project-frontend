@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import DatePicker from 'react-datepicker';
+import { getMonth, getYear, getDate } from 'date-fns';
 import 'react-datepicker/dist/react-datepicker.css';
 import s from './CalendarLight.module.scss';
 import PropTypes from 'prop-types';
@@ -8,17 +9,72 @@ import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 
 export const CalendarLight = ({ onDate }) => {
   const [startDate, setStartDate] = useState(new Date());
-
+  const months = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ];
   useEffect(() => {
     onDate(startDate);
   }, [onDate, startDate]);
 
   return (
+    // <DatePicker
+    //   dateFormat=", yy, MMMM d"
+    //   selected={startDate}
+    //   calendarClassName={s.calendarConatiner}
+    //   popperClassName={s.popperCustomClass}
+    //   // formatWeekDay={day => day.substr(0, 2)}
+    //   customInput={
+    //     <CalendarButton
+    //       onClick={e => {
+    //         console.log(e.target);
+    //       }}
+    //     />
+    //   }
+    //   onChange={date => setStartDate(date)}
+    //   minDate={new Date()}
+    //   wrapperClassName={s.calendar}
+    //   dayClassName={date => console.log(getDate(date))}
+    //   renderCustomHeader={({
+    //     date,
+    //     decreaseMonth,
+    //     increaseMonth,
+    //     prevMonthButtonDisabled,
+    //     nextMonthButtonDisabled,
+    //   }) => (
+    //     <div className={s.headerWrapper}>
+    //       <button onClick={decreaseMonth} disabled={prevMonthButtonDisabled}>
+    //         {'<'}
+    //       </button>
+    //       <div>
+    //         <span>
+    //           {getYear(date)} {months[getMonth(date)]}
+    //         </span>
+    //       </div>
+    //       <button onClick={increaseMonth} disabled={nextMonthButtonDisabled}>
+    //         {'>'}
+    //       </button>
+    //     </div>
+    //   )}
+    // />
+
     <DatePicker
-      dateFormat="d, yy, MMMM d"
+      dateFormat=", yy, MMMM d"
+      className="custom-datepicker"
       selected={startDate}
-      popperClassName={s.test}
-      className={s.datapicker}
+      // calendarClassName={s.calendarConatiner}
+      // popperClassName={s.popperCustomClass}
+      // formatWeekDay={day => day.substr(0, 2)}
       customInput={
         <CalendarButton
           onClick={e => {
@@ -28,7 +84,28 @@ export const CalendarLight = ({ onDate }) => {
       }
       onChange={date => setStartDate(date)}
       minDate={new Date()}
-      wrapperClassName={s.calendar}
+      // wrapperClassName={s.calendar}
+      // renderCustomHeader={({
+      //   date,
+      //   decreaseMonth,
+      //   increaseMonth,
+      //   prevMonthButtonDisabled,
+      //   nextMonthButtonDisabled,
+      // }) => (
+      //   <div className={s.headerWrapper}>
+      //     <button onClick={decreaseMonth} disabled={prevMonthButtonDisabled}>
+      //       {'<'}
+      //     </button>
+      //     <div>
+      //       <span>
+      //         {getYear(date)} {months[getMonth(date)]}
+      //       </span>
+      //     </div>
+      //     <button onClick={increaseMonth} disabled={nextMonthButtonDisabled}>
+      //       {'>'}
+      //     </button>
+      //   </div>
+      // )}
     />
   );
 };
