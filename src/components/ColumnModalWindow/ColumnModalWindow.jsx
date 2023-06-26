@@ -4,37 +4,41 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectorTheme } from 'redux/Auth/authSelectors';
 import { Modal } from 'components/Modal/Modal';
 import sprite from '../../assets/icons/sprite.svg';
-import s from './ReusableColumnModalWindow.module.scss';
-import { addNewBoard } from '../../redux/Boards/boardsOperations';
+import s from './ColumnModalWindow.module.scss';
+import { addColumn } from '../../redux/Columns/ColumnOperation';
 
-export const ReusableColumnModalWindow = ({
+export const ColumnModalWindow = ({
   inputTitle,
   titleModalButton,
-  handleToggleModal,
   modalTitle,
   onClick,
-  children,
+  boardId,
 }) => {
   const dispatch = useDispatch();
-  const [title, setTitle] = useState('');
+  const [value, setValue] = useState('');
   const theme = useSelector(selectorTheme);
 
-  const handleSubmit = () => {
-    console.log(title);
-    // dispatch(addNewColumn(title));
+  const handleSubmit = e => {
+    e.preventDefault();
+    const newColumn = {
+      title: value,
+      boardId,
+    };
+    console.log(value);
+    dispatch(addColumn(newColumn));
     setValue('');
+    onClick();
   };
 
   return (
-    <Modal title={modalTitle} onClose={handleToggleModal}>
+    <Modal title={modalTitle} onClose={onClick}>
       <form onSubmit={handleSubmit}>
         <input
           className={`${s.inputModal} ${s[theme]}`}
-          value={title}
+          value={value}
           placeholder={inputTitle}
-          onChange={e => setTitle(e.target.value)}
+          onChange={e => setValue(e.target.value)}
         />
-        {children}
         <button className={`${s.buttonModal} ${s[theme]}`} type="submit">
           <span className={`${s.iconButtonModalWrapper} ${s[theme]}`}>
             <svg
@@ -52,12 +56,10 @@ export const ReusableColumnModalWindow = ({
   );
 };
 
-ReusableColumnModalWindow.propTypes = {
+ColumnModalWindow.propTypes = {
   modalTitle: PropTypes.string.isRequired,
   inputTitle: PropTypes.string.isRequired,
   titleModalButton: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
-  children: PropTypes.array.isRequired,
-  handleToggleModal: PropTypes.func,
-  id: PropTypes.func,
+  boardId: PropTypes.string.isRequired,
 };

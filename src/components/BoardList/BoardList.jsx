@@ -9,13 +9,15 @@ export const BoardList = ({ theme, boards }) => {
 
   return (
     <ul className={s.list}>
-      {boards.map(({ title, icon }) => (
+      {boards.map(({ title, icon, _id }) => (
         <BoardItem
           key={title}
+          id={_id}
           boardName={title}
           icon={`${sprite}#${icon}`}
           theme={theme}
           onClick={() => setCurrent(title)}
+          // onClick={getBoard(_id)}
           isCurrent={current === title && true}
         />
       ))}

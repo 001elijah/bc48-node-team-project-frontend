@@ -1,11 +1,20 @@
 @import '../../assets/styles/vars';
 @import '../../assets/styles/mixins';
 
-// .Wrapper{
-//     background-color: #1F1F1F;
-//     background-image: url('../../assets/images/desktop/11.jpg');
-//     background-repeat: no-repeat;
-//     background-size: 100%;
-//     background-position: bottom;
-
-// }
+.Wrapper {
+  // background-image: url('../../assets/images/desktop/11.jpg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: bottom;
+  height: 100%;
+  padding-left: 24px;
+  &.dark {
+    background-color: #1f1f1f;
+  }
+  &.light {
+    background-color: #f6f6f7;
+  }
+  &.colorful {
+    background: #ecedfd;
+  }
+}

@@ -47,10 +47,27 @@ export const updateUserApi = async userData => {
   return data.user;
 };
 //---------------------------------------------BOARDS---------------------//
+export const addBoardApi = async (dataBoard, userToken) => {
+  token.set(userToken);
+  const { data } = await axios.post('/board/', dataBoard);
+  return data;
+};
+export const getBoardByIdApi = async (boardName, userToken) => {
+  token.set(userToken);
+  const { data } = await axios.get(`/board/${boardName}`);
+  return data;
+};
 
 export const getListOfBoardsApi = async userToken => {
   token.set(userToken);
   const { data } = await axios.get('/board/');
+  return data;
+};
+
+export const addColumnApi = async (dataColumn, userToken) => {
+  token.set(userToken);
+  const { data } = await axios.post('board/column', dataColumn);
+  console.log(data);
   return data;
 };
 

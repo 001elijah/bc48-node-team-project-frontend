@@ -27,8 +27,9 @@ export const BoardModalWindow = ({
       icon,
       background,
     };
-    onSubmit(newCard);
-    handleToggleModal();
+    console.log(newCard);
+    console.log(onClick);
+    // onclick(dispatch(addNewCard());
   };
 
   return (

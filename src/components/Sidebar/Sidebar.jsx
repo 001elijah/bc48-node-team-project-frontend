@@ -8,9 +8,8 @@ import { Logout } from '../Logout/Logout';
 import { selectorTheme } from 'redux/Auth/authSelectors';
 import { selectBoards } from 'redux/Boards/boardsSelectors';
 import { useSelector } from 'react-redux';
-
+import { BoardModalWindow } from '../BoardModalWindow/BoardModalWindow';
 import { useState } from 'react';
-import { BoardModalWindow } from 'components/BoardModalWindow/BoardModalWindow';
 
 export const Sidebar = () => {
   const boards = useSelector(selectBoards);
