@@ -11,7 +11,7 @@ export const DefaultDashBoard = () => {
     <>
       <div className={clsx(s.BackGround, s[theme])}>
         <HeaderDashBoard />
-        <div className={s.Wrapper}>
+        {/* <div className={s.Wrapper}> */}
           <p className={clsx(s.DefaultTitle, s[theme])}>
             Before starting your project, it is essential
             <span className={clsx(s.DefaultLink, s[theme])}>
@@ -23,7 +23,7 @@ export const DefaultDashBoard = () => {
             effective collaboration among team members.
           </p>
         </div>
-      </div>
+      {/* </div> */}
     </>
   );
 };
