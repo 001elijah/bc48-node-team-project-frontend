@@ -19,12 +19,6 @@ export const Header = () => {
     setShowSidebar(prev => !prev);
   };
 
-  // const openSidebar = () => {
-  //   setShowSidebar(true);
-  //   const sidebar = document.querySelector('#sidebar');
-  //   sidebar.classList.add(sidebarStyles.visible);
-  // };
-
   const theme = useSelector(selectorTheme);
   const dispatch = useDispatch();
 
@@ -67,7 +61,7 @@ export const Header = () => {
                 className={clsx(s.dropDownItem, s[theme])}
                 onClick={() => changeTheme('colorful')}
               >
-                Colorful
+                Violet
               </div>
             </div>
           </div>

@@ -3,11 +3,11 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { ButtonAuth } from '../ButtonAuth/ButtonAuth';
-import { validationSchemaLogin } from '../SchemaValidation/schemaValidation';
+import { validationSchemaLogin } from '../schemaValidation';
 import { loginUser } from 'redux/Auth/authOperations';
-import { AuthWithGoogle } from '../AuthWithGoogle/AuthWithGoogle';
+import { LoginWithGoogle } from '../../AuthWithGoogle/AuthWithGoogle';
 
-import icons from '../../assets/icons/sprite.svg';
+import icons from '../../../assets/icons/sprite.svg';
 import y from './Login.module.scss';
 
 export const Login = () => {
@@ -60,7 +60,7 @@ export const Login = () => {
         )}
       </label>
       <ButtonAuth title="Log In Now" />
-      <AuthWithGoogle></AuthWithGoogle>
+      <LoginWithGoogle></LoginWithGoogle>
     </form>
   );
 };
