@@ -1,14 +1,25 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { addColumn } from './ColumnOperation';
+import { addColumn, updateColumn } from './ColumnOperation';
 const boardSlice = createSlice({
   name: 'board',
   initialState: {
     column: [],
   },
   extraReducers: builder => {
-    builder.addCase(addColumn.fulfilled, (state, { payload }) => {
-      state.column = [12];
-    });
+    builder
+      .addCase(updateColumn.fulfilled, (state, { payload }) => {
+        return {
+          //  видалення items: state.items.filter(el => el.id !== payload),
+          state: state.map(el =>
+            el.id !== payload.id ? el : { ...el, ...payload },
+          ),
+        };
+      })
+      .addCase(updateColumn.fulfilled, (state, { payload }) => {
+        return {
+          state: state.items.filter(el => el.id !== payload),
+        };
+      });
   },
 });
 

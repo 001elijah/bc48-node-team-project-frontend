@@ -7,20 +7,23 @@ import { HelpWindow } from '../HelpWindow/HelpWindow';
 import { Logout } from '../Logout/Logout';
 import { selectorTheme } from 'redux/Auth/authSelectors';
 import { selectBoards } from 'redux/Boards/boardsSelectors';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { BoardModalWindow } from '../BoardModalWindow/BoardModalWindow';
 import { useState } from 'react';
+import { addNewBoard } from 'redux/Boards/boardsOperations';
 
 export const Sidebar = () => {
   const boards = useSelector(selectBoards);
+  const dispatch = useDispatch();
   const theme = useSelector(selectorTheme);
+
   const [showModalWindow, setShowModalWindow] = useState(false);
   const handleModalWindowOpen = () => setShowModalWindow(true);
   const handleModalWindowClose = () => setShowModalWindow(false);
   if (!theme) return;
 
-  const handleAddBoard = () => {
-    // dispatch();
+  const handleAddBoard = newBoard => {
+    dispatch(addNewBoard(newBoard));
   };
 
   return (

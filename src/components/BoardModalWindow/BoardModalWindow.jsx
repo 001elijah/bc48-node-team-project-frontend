@@ -28,8 +28,8 @@ export const BoardModalWindow = ({
       background,
     };
     console.log(newCard);
-    console.log(onClick);
-    // onclick(dispatch(addNewCard());
+    onSubmit(newCard);
+    handleToggleModal();
   };
 
   return (

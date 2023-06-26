@@ -13,7 +13,6 @@ export const ReusableColumnModalWindow = ({
   handleToggleModal,
   modalTitle,
   onClick,
-  children,
 }) => {
   const dispatch = useDispatch();
   const [title, setTitle] = useState('');
@@ -34,7 +33,7 @@ export const ReusableColumnModalWindow = ({
           placeholder={inputTitle}
           onChange={e => setTitle(e.target.value)}
         />
-        {children}
+
         <button className={`${s.buttonModal} ${s[theme]}`} type="submit">
           <span className={`${s.iconButtonModalWrapper} ${s[theme]}`}>
             <svg
@@ -57,7 +56,6 @@ ReusableColumnModalWindow.propTypes = {
   inputTitle: PropTypes.string.isRequired,
   titleModalButton: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
-  children: PropTypes.array.isRequired,
   handleToggleModal: PropTypes.func,
   id: PropTypes.func,
 };
