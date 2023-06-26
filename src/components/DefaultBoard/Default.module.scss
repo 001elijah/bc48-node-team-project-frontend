@@ -3,6 +3,7 @@
 
 .BackGround {
   height: calc(100vh - 60px);
+  position: relative;
 
   &.dark {
     background-color: #1f1f1f;
@@ -14,20 +15,23 @@
     background-color: #ecedfd;
   }
 }
-.Wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  // height: 100%;
-}
+// .Wrapper {
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   // height: 100%
+// }
 .DefaultTitle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   font-weight: 400;
   font-size: 14px;
   line-height: 1.29;
   text-align: center;
   letter-spacing: -0.02em;
-  min-height: min-content;
+  max-height: min-content;
   // margin-left: auto;
   // margin-right: auto;
 
