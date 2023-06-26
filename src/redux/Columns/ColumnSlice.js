@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { addColumn, updateColumn, removeColumn } from './ColumnOperation';
+import { updateColumn, removeColumn } from './ColumnOperation';
 const boardSlice = createSlice({
   name: 'board',
   initialState: {
