@@ -20,6 +20,10 @@ export const Sidebar = () => {
   const handleModalWindowClose = () => setShowModalWindow(false);
   if (!theme) return;
 
+  const handleAddBoard = () => {
+    // dispatch();
+  };
+
   return (
     <div className={clsx(s.container, s[theme])}>
       <Logo theme={theme} />
