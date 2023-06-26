@@ -1,0 +1,41 @@
+@import '../../assets/styles/vars';
+@import '../../assets/styles/mixins';
+
+.button {
+  width: 100%;
+  height: 49px;
+  margin-top: 24px;
+
+  background-color: $accent-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  &.colorful {
+    background-color: $accent-bright-color;
+    color: $white-text-color;
+  }
+
+  @include mobile {
+    min-width: 288px;
+  }
+
+  @include tablet {
+    min-width: 344px;
+  }
+}
+.title {
+  color: $black-text-color;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: end;
+}
+.google {
+  height: 50px;
+  width: 72px;
+}

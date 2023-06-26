@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import { ButtonAuth } from '../ButtonAuth/ButtonAuth';
 import { validationSchemaRegister } from '../SchemaValidation/schemaValidation';
 import { registerUser } from 'redux/Auth/authOperations';
+import { AuthWithGoogle } from 'components/AuthWithGoogle/AuthWithGoogle';
 
 import icons from '../../assets/icons/sprite.svg';
 import y from '../LoginForm/Login.module.scss';
@@ -74,6 +75,7 @@ export const Register = () => {
         )}
       </label>
       <ButtonAuth title="Register Now" />
+      <AuthWithGoogle></AuthWithGoogle>
     </form>
   );
 };
