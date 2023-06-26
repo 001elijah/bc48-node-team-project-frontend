@@ -69,3 +69,28 @@ export const sendEmailApi = async userEmail => {
 //   const { data } = await axios.post('/board');
 //   return data;
 // };
+
+export const removeColumnApi = async id => {
+  await axios.delete(`/board/column/${id}`);
+  return;
+};
+
+export const addCardApi = async newCard => {
+  const { data } = await axios.post('/card', newCard);
+  return data;
+};
+
+export const updateCardApi = async (id, cardData) => {
+  const { data } = await axios.patch(`/card/${id}`, cardData);
+  return data;
+};
+
+export const updateCardColumnApi = async id => {
+  const { data } = await axios.patch(`/card/column/${id}`);
+  return data;
+};
+
+export const removeCardApi = async id => {
+  await axios.delete(`/card/${id}`);
+  return;
+};
