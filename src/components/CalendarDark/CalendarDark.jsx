@@ -1,7 +1,7 @@
 /* eslint-disable react/display-name */
 import { useEffect, useState } from 'react';
 import DatePicker from 'react-datepicker';
-import { getMonth, getYear } from 'date-fns';
+import { getMonth, getYear, getDate } from 'date-fns';
 import 'react-datepicker/dist/react-datepicker.css';
 import s from './CalendarDark.module.scss';
 import PropTypes from 'prop-types';
@@ -30,7 +30,7 @@ export const CalendarDark = ({ onDate }) => {
 
   return (
     <DatePicker
-      dateFormat="d, yy, MMMM d"
+      dateFormat=", yy, MMMM d"
       selected={startDate}
       calendarClassName={s.calendarConatiner}
       popperClassName={s.popperCustomClass}
@@ -45,6 +45,7 @@ export const CalendarDark = ({ onDate }) => {
       onChange={date => setStartDate(date)}
       minDate={new Date()}
       wrapperClassName={s.calendar}
+      weekNumber={5}
       renderCustomHeader={({
         date,
         decreaseMonth,
@@ -53,7 +54,11 @@ export const CalendarDark = ({ onDate }) => {
         nextMonthButtonDisabled,
       }) => (
         <div className={s.headerWrapper}>
-          <button onClick={decreaseMonth} disabled={prevMonthButtonDisabled}>
+          <button
+            onClick={decreaseMonth}
+            disabled={prevMonthButtonDisabled}
+            type="button"
+          >
             {'<'}
           </button>
           <div>
@@ -61,7 +66,11 @@ export const CalendarDark = ({ onDate }) => {
               {getYear(date)} {months[getMonth(date)]}
             </span>
           </div>
-          <button onClick={increaseMonth} disabled={nextMonthButtonDisabled}>
+          <button
+            onClick={increaseMonth}
+            disabled={nextMonthButtonDisabled}
+            type="button"
+          >
             {'>'}
           </button>
         </div>

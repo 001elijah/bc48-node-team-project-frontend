@@ -1,19 +1,24 @@
-.calendar {
-  position: absolute;
-  top: 240px;
-  left: 120px;
-  z-index: 1;
-  width: 217px;
-  // @include tablet {
-  //   top: -54px;
-  //   left: 484px;
-  //   z-index: 1;
-  // }
-  // @include desktop {
-  //   top: -54px;
-  //   left: 550px;
-  //   z-index: 1;
-  // }
+.container {
+  display: block;
+}
+
+.title {
+  font-size: 12px;
+  font-family: Poppins-Medium;
+  font-weight: 400;
+  letter-spacing: -0.24px;
+  line-height: 18px;
+
+  margin-bottom: 4px;
+
+  &.dark {
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  &.colorful,
+  &.light {
+    color: rgba(22, 22, 22, 0.5);
+  }
 }
 
 .input_field {
@@ -23,9 +28,7 @@
   // width: 127px;
   height: 21px;
   text-align: left;
-  padding-left: 18px;
   padding-right: 18px;
-  margin-top: 50px;
   margin-bottom: 18px;
 
   background: inherit;
@@ -42,6 +45,14 @@
 
   letter-spacing: -0.02em;
 
-  color: #bedbb0;
   cursor: pointer;
+
+  &.colorful {
+    color: rgba(82, 85, 188, 1);
+  }
+
+  &.dark,
+  &.light {
+    color: rgba(190, 219, 176, 1);
+  }
 }
