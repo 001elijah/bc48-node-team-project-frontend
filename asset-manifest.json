@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/bc48-node-team-project-frontend/static/css/main.07eef224.css",
-    "main.js": "/bc48-node-team-project-frontend/static/js/main.0308d283.js",
+    "main.js": "/bc48-node-team-project-frontend/static/js/main.7b4e197d.js",
     "static/media/Poppins-Regular.ttf": "/bc48-node-team-project-frontend/static/media/Poppins-Regular.35d26b781dc5fda684cc.ttf",
     "static/media/Poppins-Medium.ttf": "/bc48-node-team-project-frontend/static/media/Poppins-Medium.673ed42382ab264e0bf5.ttf",
     "static/media/Poppins-SemiBold.ttf": "/bc48-node-team-project-frontend/static/media/Poppins-SemiBold.ac8d04b620e54be9b0f0.ttf",
@@ -10,10 +10,10 @@
     "static/media/welcome-page-mob-1x.png": "/bc48-node-team-project-frontend/static/media/welcome-page-mob-1x.170ac35e3bc68fd8ecd2.png",
     "index.html": "/bc48-node-team-project-frontend/index.html",
     "main.07eef224.css.map": "/bc48-node-team-project-frontend/static/css/main.07eef224.css.map",
-    "main.0308d283.js.map": "/bc48-node-team-project-frontend/static/js/main.0308d283.js.map"
+    "main.7b4e197d.js.map": "/bc48-node-team-project-frontend/static/js/main.7b4e197d.js.map"
   },
   "entrypoints": [
     "static/css/main.07eef224.css",
-    "static/js/main.0308d283.js"
+    "static/js/main.7b4e197d.js"
   ]
 }
