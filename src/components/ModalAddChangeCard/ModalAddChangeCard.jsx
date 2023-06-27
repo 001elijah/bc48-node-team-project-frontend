@@ -4,16 +4,17 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectorTheme } from 'redux/Auth/authSelectors';
 import { Modal } from 'components/Modal/Modal';
 import sprite from '../../assets/icons/sprite.svg';
-import s from './ColumnModalWindow.module.scss';
-import { addColumn, editColumn } from '../../redux/Columns/ColumnOperation';
+import s from './ReusableColumnModalWindow.module.scss';
+import { addNewBoard } from '../../redux/Boards/boardsOperations';
 
-export const ColumnModalWindow = ({
+export const ReusableColumnModalWindow = ({
   inputTitle,
   titleModalButton,
   modalTitle,
   onClick,
-  boardId,
-  columnId,
+  icon = '',
+  background = '',
+  children,
 }) => {
   const dispatch = useDispatch();
   const [value, setValue] = useState('');
@@ -21,20 +22,13 @@ export const ColumnModalWindow = ({
 
   const handleSubmit = e => {
     e.preventDefault();
-    if (modalTitle === 'Edit column') {
-      const editColumnTitle = {
-        title: value,
-        columnId,
-        boardId,
-      };
-      dispatch(editColumn(editColumnTitle));
-    } else {
-      const newColumn = {
-        title: value,
-        boardId,
-      };
-      dispatch(addColumn(newColumn));
-    }
+    const newCard = {
+      title: value,
+      icon,
+      background,
+    };
+    // console.log(newCard);
+    dispatch(addNewBoard(newCard));
     setValue('');
     onClick();
   };
@@ -48,6 +42,7 @@ export const ColumnModalWindow = ({
           placeholder={inputTitle}
           onChange={e => setValue(e.target.value)}
         />
+        {children}
         <button className={`${s.buttonModal} ${s[theme]}`} type="submit">
           <span className={`${s.iconButtonModalWrapper} ${s[theme]}`}>
             <svg
@@ -65,11 +60,12 @@ export const ColumnModalWindow = ({
   );
 };
 
-ColumnModalWindow.propTypes = {
+ReusableColumnModalWindow.propTypes = {
   modalTitle: PropTypes.string.isRequired,
   inputTitle: PropTypes.string.isRequired,
   titleModalButton: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
-  boardId: PropTypes.string.isRequired,
-  columnId: PropTypes.string,
+  icon: PropTypes.string.isRequired,
+  background: PropTypes.string.isRequired,
+  children: PropTypes.array.isRequired,
 };

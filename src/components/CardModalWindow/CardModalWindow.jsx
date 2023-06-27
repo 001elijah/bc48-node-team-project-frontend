@@ -42,6 +42,25 @@ export const CardModalWindow = ({
   };
 
   return (
+    // <ReusableColumnModalWindow
+    //   modalTitle={modalTitle}
+    //   inputTitle={inputTitle}
+    //   titleModalButton={titleModalButton}
+    //   onClick={handleAddCard}
+    // >
+    //   <textarea
+    //     onChange={e => setComent(e.target.value)}
+    //     className={`${s.textAreaStyle} ${s[theme]}`}
+    //     name="coments"
+    //     id="coments"
+    //     placeholder="Description"
+    //     value={coment}
+    //   ></textarea>
+    //   <BoxRadioColorGroup valueChange={handleChangeColor} />
+    //   <CalendarDark onDate={setDate} />
+    // </ReusableColumnModalWindow>
+
+
     <Modal title={modalTitle} onClose={handleToggleModal}>
       <form onSubmit={handleSubmit}>
         <input
@@ -76,6 +95,7 @@ export const CardModalWindow = ({
         </button>
       </form>
     </Modal>
+
   );
 };
 
