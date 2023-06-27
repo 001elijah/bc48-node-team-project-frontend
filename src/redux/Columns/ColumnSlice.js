@@ -16,19 +16,20 @@ const boardSlice = createSlice({
         console.log(payload);
       })
       .addCase(removeColumn.fulfilled, (state, { payload }) => {
-        console.log(payload)})
-      // .addCase(updateColumn.fulfilled, (state, { payload }) => {
-      //   return {
-      //     state: state.map(el =>
-      //       el.id !== payload.id ? el : { ...el, ...payload },
-      //     ),
-      //   };
-      // })
-      // .addCase(delColumn.fulfilled, (state, { payload }) => {
-      //   return {
-      //     state: state.items.filter(el => el.id !== payload),
-      //   };
-      // });
+        console.log(payload);
+      });
+    // .addCase(updateColumn.fulfilled, (state, { payload }) => {
+    //   return {
+    //     state: state.map(el =>
+    //       el.id !== payload.id ? el : { ...el, ...payload },
+    //     ),
+    //   };
+    // })
+    // .addCase(delColumn.fulfilled, (state, { payload }) => {
+    //   return {
+    //     state: state.items.filter(el => el.id !== payload),
+    //   };
+    // });
   },
 });
 

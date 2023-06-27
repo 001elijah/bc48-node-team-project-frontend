@@ -69,7 +69,10 @@ export const addColumnApi = async (dataColumn, userToken) => {
   const { data } = await axios.post('board/column', dataColumn);
   return data;
 };
-export const editColumnApi = async ({ title, boardId, columnId },userToken ) => {
+export const editColumnApi = async (
+  { title, boardId, columnId },
+  userToken,
+) => {
   token.set(userToken);
   const { data } = await axios.patch(`/board/column/${columnId}`, {
     title,
@@ -78,10 +81,9 @@ export const editColumnApi = async ({ title, boardId, columnId },userToken ) => 
   return data;
 };
 
-export const removeColumnApi = async ({columnId, boardId}, userToken) => {
+export const removeColumnApi = async ({ columnId, boardId }, userToken) => {
   token.set(userToken);
-   await axios.delete(`/board/column/${columnId}`, {data:{boardId}});
-   
+  await axios.delete(`/board/column/${columnId}`, { data: { boardId } });
 };
 
 //---------------------------------------------EMAIL---------------------//
