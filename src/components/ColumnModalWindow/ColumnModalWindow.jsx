@@ -30,17 +30,24 @@ export const ColumnModalWindow = ({
         columnId,
         boardId,
       };
-      dispatch(editColumn(editColumnTitle));
+      setTimeout(() => {
+        dispatch(dispatch(editColumn(editColumnTitle)));
+      }, 0);
+
     } else {
       const newColumn = {
         title: value,
         boardId,
       };
-      dispatch(addColumn(newColumn));
+      setTimeout(() => {
+        dispatch(dispatch(addColumn(newColumn)));
+      }, 0);
     }
     setValue('');
     onClick();
-    dispatch(getBoardById(boardName));
+    setTimeout(() => {
+      dispatch(dispatch(getBoardById(boardName)));
+    }, 2);
   };
 
   return (
