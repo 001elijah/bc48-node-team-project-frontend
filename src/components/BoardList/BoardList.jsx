@@ -5,6 +5,7 @@ import sprite from 'assets/icons/sprite.svg';
 import s from './BoardList.module.scss';
 
 export const BoardList = ({ theme, boards }) => {
+
   const [current, setCurrent] = useState(null);
 
   return (
@@ -16,9 +17,8 @@ export const BoardList = ({ theme, boards }) => {
           boardName={title}
           icon={`${sprite}#${icon}`}
           theme={theme}
-          onClick={() => setCurrent(title)}
-          // onClick={getBoard(_id)}
           isCurrent={current === title && true}
+          onClick={() => setCurrent(title)}
         />
       ))}
     </ul>
