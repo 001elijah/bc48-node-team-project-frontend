@@ -91,6 +91,7 @@ export const sendEmailApi = async userEmail => {
   return data.message;
 };
 
+//---------------------------------------------CARD---------------------//
 export const addCardApi = async newCard => {
   const { data } = await axios.post('/card', newCard);
   return data;
@@ -111,6 +112,7 @@ export const removeCardApi = async id => {
   return;
 };
 
+//---------------------------------------------GOOGLE---------------------//
 export const authWithGoogleApi = async data => {
   const { credential } = data;
   const { idToken } = credential;
@@ -120,4 +122,10 @@ export const authWithGoogleApi = async data => {
   });
   token.set(response.data.token);
   return { ...response.data.user, token: response.data.token };
+};
+
+//---------------------------------------------BACKGROUND---------------------//
+export const getBackgroundThumbnails = async () => {
+  const response = await axios.get('board/thumbnails');
+  return response.data;
 };

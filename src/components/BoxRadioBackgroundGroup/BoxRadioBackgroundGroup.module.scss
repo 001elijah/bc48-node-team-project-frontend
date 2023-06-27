@@ -1,4 +1,4 @@
-@import '../../assets/styles/vars';
+ @import '../../assets/styles/vars';
 
 .backgroundGroupWrapper {
   display: block;
@@ -23,805 +23,86 @@
   }
 }
 
+.backgroundGroupWrapper {
+  display: block;
+  margin-bottom: 40px;
+}
+
 .radioWrapper {
   display: flex;
   flex-wrap: wrap;
-  width: 256px;
-  background: inherit;
+  align-items: center;
+  margin-top: 4px;
+  &:not(:last-child) {
+    margin-right: 4px;
+  }
 }
 
 .radioContainer {
   position: relative;
-  display: block;
-  margin-right: 32px;
-  margin-bottom: 28px;
+  margin-right: 4px;
+  margin-bottom: 4px;
   background: inherit;
-}
-.radioContainer:nth-child(-n + 5) {
-  position: relative;
-  display: block;
-  margin-right: 32px;
-  margin-bottom: 32px;
-  background: inherit;
+  width: 32px;
+  height: 32px;
+
+  &.selected {
+    border-radius: 6px;
+
+    &.dark {
+      border: 1px solid $accent-color;
+    }
+
+    &.light {
+      border: 1px solid $accent-color;
+    }
+
+    &.colorful {
+      border: 1px solid $accent-bright-color;
+    }
+  }
 }
 
-.radioInput1 {
+.radioInput {
   -webkit-appearance: none;
   appearance: none;
   position: absolute;
 }
 
-.radioLabel1 {
+.radioLabel {
   cursor: pointer;
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 1;
 }
 
-.radioLabel1 {
-  &.dark::before {
+.radioLabelDefault {
+  cursor: pointer;
+
+  &::before {
     content: '';
     display: block;
-    width: 28px;
-    height: 28px;
-    background-image: url('../../assets/images/defaultVectorDark.png');
-    position: absolute;
-    top: 0;
-    left: 0;
-
+    width: 100%;
+    height: 100%;
     z-index: 1;
+  }
+
+  &.dark::before {
+    background-image: url('../../assets/images/defaultVectorDark.png');
+    background-size: contain;
   }
 
   &.light::before {
-    content: '';
-    display: block;
-    width: 28px;
-    height: 28px;
     background-image: url('../../assets/images/defaultVectorLight.png');
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    z-index: 1;
+    background-size: contain;
   }
 
   &.colorful::before {
-    content: '';
-    display: block;
-    width: 28px;
-    height: 28px;
     background-image: url('../../assets/images/defaultVectorColorFul.png');
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    z-index: 1;
+    background-size: contain;
   }
-
-  &.dark::after {
-    content: '';
-    display: block;
-    width: 28px;
-    height: 28px;
-    background-image: url('../../assets/images/defaultVectorDark.png');
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    z-index: 1;
-  }
-
-  &.light::after {
-    content: '';
-    display: block;
-    width: 28px;
-    height: 28px;
-    background-image: url('../../assets/images/defaultVectorLight.png');
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    z-index: 1;
-  }
-
-  &.colorful::after {
-    content: '';
-    display: block;
-    width: 28px;
-    height: 28px;
-    background-image: url('../../assets/images/defaultVectorColorFul.png');
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    z-index: 1;
-  }
-}
-
-// .radioLabel1::after {
-//   content: '';
-//   display: block;
-
-//   width: 28px;
-//   height: 28px;
-
-//   position: absolute;
-//   background-image: url('../../assets/images/defaultVectorDark.png');
-//   background-size: 105%;
-//   z-index: 1;
-
-//   opacity: 0;
-//   transition: opacity 0.1s linear;
-// }
-
-// .radioInput1:checked + .radioLabel1::after {
-//   opacity: 1;
-// }
-
-// second input
-
-.radioInput2 {
-  -webkit-appearance: none;
-  appearance: none;
-  position: absolute;
-}
-
-.radioLabel2 {
-  cursor: pointer;
-}
-
-.radioLabel2::before {
-  content: '';
-  display: block;
-  width: 28px;
-  height: 28px;
-  background-image: url('../../assets/images/Vector.png');
-
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-}
-
-.radioLabel2::after {
-  content: '';
-  display: block;
-
-  width: 28px;
-  height: 28px;
-
-  position: absolute;
-
-  background-image: url('../../assets/images/Vector.png');
-  background-size: 105%;
-  z-index: 1;
-  opacity: 0;
-  transition: opacity 0.1s linear;
-}
-
-.radioInput2:checked + .radioLabel2::after {
-  opacity: 1;
-}
-
-// three
-
-.radioInput3 {
-  -webkit-appearance: none;
-  appearance: none;
-  position: absolute;
-}
-
-.radioLabel3 {
-  cursor: pointer;
-}
-
-.radioLabel3::before {
-  content: '';
-  display: block;
-  width: 28px;
-  height: 28px;
-  background-image: url('../../assets/images/Vector2.png');
-
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-}
-
-.radioLabel3::after {
-  content: '';
-  display: block;
-
-  width: 28px;
-  height: 28px;
-  background-image: url('../../assets/images/Vector2.png');
-  background-size: 105%;
-  position: absolute;
-
-  z-index: 1;
-
-  opacity: 0;
-  transition: opacity 0.1s linear;
-}
-
-.radioInput3:checked + .radioLabel3::after {
-  opacity: 1;
-}
-
-// for
-
-.radioInput4 {
-  -webkit-appearance: none;
-  appearance: none;
-  position: absolute;
-}
-
-.radioLabel4 {
-  cursor: pointer;
-}
-
-.radioLabel4::before {
-  content: '';
-  display: block;
-  width: 28px;
-  height: 28px;
-  background-image: url('../../assets/images/Vector3.png');
-
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-}
-
-.radioLabel4::after {
-  content: '';
-  display: block;
-
-  width: 28px;
-  height: 28px;
-  background-image: url('../../assets/images/Vector3.png');
-  background-size: 105%;
-
-  position: absolute;
-  z-index: 1;
-
-  opacity: 0;
-  transition: opacity 0.1s linear;
-}
-
-.radioInput4:checked + .radioLabel4::after {
-  opacity: 1;
-}
-
-// 5-8
-
-.radioInput5 {
-  -webkit-appearance: none;
-  appearance: none;
-  position: absolute;
-}
-
-.radioLabel5 {
-  cursor: pointer;
-}
-
-.radioLabel5::before {
-  content: '';
-  display: block;
-  width: 28px;
-  height: 28px;
-  background-image: url('../../assets/images/Vector4.png');
-
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-}
-
-.radioLabel5::after {
-  content: '';
-  display: block;
-
-  width: 28px;
-  height: 28px;
-  background-image: url('../../assets/images/Vector4.png');
-  background-size: 105%;
-
-  position: absolute;
-
-  z-index: 1;
-
-  opacity: 0;
-  transition: opacity 0.1s linear;
-}
-
-.radioInput5:checked + .radioLabel5::after {
-  opacity: 1;
-}
-
-// 6
-.radioInput6 {
-  -webkit-appearance: none;
-  appearance: none;
-  position: absolute;
-}
-
-.radioLabel6 {
-  cursor: pointer;
-}
-
-.radioLabel6::before {
-  content: '';
-  display: block;
-  width: 28px;
-  height: 28px;
-  background-image: url('../../assets/images/Vector5.png');
-
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-}
-
-.radioLabel6::after {
-  content: '';
-  display: block;
-
-  width: 28px;
-  height: 28px;
-
-  background-image: url('../../assets/images/Vector5.png');
-  background-size: 105%;
-  position: absolute;
-
-  z-index: 1;
-
-  opacity: 0;
-  transition: opacity 0.1s linear;
-}
-
-.radioInput6:checked + .radioLabel6::after {
-  opacity: 1;
-}
-
-//   7
-
-.radioInput7 {
-  -webkit-appearance: none;
-  appearance: none;
-  position: absolute;
-}
-
-.radioLabel7 {
-  cursor: pointer;
-}
-
-.radioLabel7::before {
-  content: '';
-  display: block;
-  width: 28px;
-  height: 28px;
-  background-image: url('../../assets/images/Vector6.png');
-
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-}
-
-.radioLabel7::after {
-  content: '';
-  display: block;
-  width: 28px;
-  height: 28px;
-
-  background-image: url('../../assets/images/Vector6.png');
-  background-size: 105%;
-  position: absolute;
-
-  z-index: 1;
-
-  opacity: 0;
-  transition: opacity 0.1s linear;
-}
-
-.radioInput7:checked + .radioLabel7::after {
-  opacity: 1;
-}
-
-//   8
-.radioInput8 {
-  -webkit-appearance: none;
-  appearance: none;
-  position: absolute;
-}
-
-.radioLabel8 {
-  cursor: pointer;
-}
-
-.radioLabel8::before {
-  content: '';
-  display: block;
-  width: 28px;
-  height: 28px;
-  background-image: url('../../assets/images/Vector7.png');
-
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-}
-
-.radioLabel8::after {
-  content: '';
-  display: block;
-
-  width: 28px;
-  height: 28px;
-
-  background-image: url('../../assets/images/Vector7.png');
-  background-size: 105%;
-  position: absolute;
-
-  z-index: 1;
-
-  opacity: 0;
-  transition: opacity 0.1s linear;
-}
-
-.radioInput8:checked + .radioLabel8::after {
-  opacity: 1;
-}
-
-//   9-12
-
-.radioInput9 {
-  -webkit-appearance: none;
-  appearance: none;
-  position: absolute;
-}
-
-.radioLabel9 {
-  cursor: pointer;
-}
-
-.radioLabel9::before {
-  content: '';
-  display: block;
-  width: 28px;
-  height: 28px;
-  background-image: url('../../assets/images/Vector8.png');
-
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-}
-
-.radioLabel9::after {
-  content: '';
-  display: block;
-
-  width: 28px;
-  height: 28px;
-
-  background-image: url('../../assets/images/Vector8.png');
-  background-size: 105%;
-  position: absolute;
-
-  z-index: 1;
-
-  opacity: 0;
-  transition: opacity 0.1s linear;
-}
-
-.radioInput9:checked + .radioLabel9::after {
-  opacity: 1;
-}
-
-// 10
-
-.radioInput10 {
-  -webkit-appearance: none;
-  appearance: none;
-  position: absolute;
-}
-
-.radioLabel10 {
-  cursor: pointer;
-}
-
-.radioLabel10::before {
-  content: '';
-  display: block;
-  width: 28px;
-  height: 28px;
-  background-image: url('../../assets/images/Vector9.png');
-
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-}
-
-.radioLabel10::after {
-  content: '';
-  display: block;
-
-  width: 28px;
-  height: 28px;
-
-  background-image: url('../../assets/images/Vector9.png');
-  background-size: 105%;
-  position: absolute;
-
-  z-index: 1;
-
-  opacity: 0;
-  transition: opacity 0.1s linear;
-}
-
-.radioInput10:checked + .radioLabel10::after {
-  opacity: 1;
-}
-
-// 11
-.radioInput11 {
-  -webkit-appearance: none;
-  appearance: none;
-  position: absolute;
-}
-
-.radioLabel11 {
-  cursor: pointer;
-}
-
-.radioLabel11::before {
-  content: '';
-  display: block;
-  width: 28px;
-  height: 28px;
-  background-image: url('../../assets/images/Vector10.png');
-
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-}
-
-.radioLabel11::after {
-  content: '';
-  display: block;
-
-  width: 28px;
-  height: 28px;
-
-  background-image: url('../../assets/images/Vector10.png');
-  background-size: 105%;
-  position: absolute;
-
-  z-index: 1;
-
-  opacity: 0;
-  transition: opacity 0.1s linear;
-}
-
-.radioInput11:checked + .radioLabel11::after {
-  opacity: 1;
-}
-
-//   12
-.radioInput12 {
-  -webkit-appearance: none;
-  appearance: none;
-  position: absolute;
-}
-
-.radioLabel12 {
-  cursor: pointer;
-}
-
-.radioLabel12::before {
-  content: '';
-  display: block;
-  width: 28px;
-  height: 28px;
-  background-image: url('../../assets/images/Vector11.png');
-
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-}
-
-.radioLabel12::after {
-  content: '';
-  display: block;
-
-  width: 28px;
-  height: 28px;
-
-  background-image: url('../../assets/images/Vector11.png');
-  background-size: 105%;
-  position: absolute;
-  z-index: 1;
-
-  opacity: 0;
-  transition: opacity 0.1s linear;
-}
-
-.radioInput12:checked + .radioLabel12::after {
-  opacity: 1;
-}
-
-// 13-16
-
-.radioInput13 {
-  -webkit-appearance: none;
-  appearance: none;
-  position: absolute;
-}
-
-.radioLabel13 {
-  cursor: pointer;
-}
-
-.radioLabel13::before {
-  content: '';
-  display: block;
-  width: 28px;
-  height: 28px;
-  background-image: url('../../assets/images/Vector12.png');
-
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-}
-
-.radioLabel13::after {
-  content: '';
-  display: block;
-  background-image: url('../../assets/images/Vector12.png');
-  background-size: 105%;
-  width: 28px;
-  height: 28px;
-
-  position: absolute;
-
-  z-index: 1;
-
-  opacity: 0;
-  transition: opacity 0.1s linear;
-}
-
-.radioInput13:checked + .radioLabel13::after {
-  opacity: 1;
-}
-//   14
-.radioInput14 {
-  -webkit-appearance: none;
-  appearance: none;
-  position: absolute;
-}
-
-.radioLabel14 {
-  cursor: pointer;
-}
-
-.radioLabel14::before {
-  content: '';
-  display: block;
-  width: 28px;
-  height: 28px;
-  background-image: url('../../assets/images/Vector13.png');
-
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-}
-
-.radioLabel14::after {
-  content: '';
-  display: block;
-  background-image: url('../../assets/images/Vector13.png');
-  background-size: 105%;
-  width: 28px;
-  height: 28px;
-  position: absolute;
-  z-index: 1;
-
-  opacity: 0;
-  transition: opacity 0.1s linear;
-}
-
-.radioInput14:checked + .radioLabel14::after {
-  opacity: 1;
-}
-
-//   15
-.radioInput15 {
-  -webkit-appearance: none;
-  appearance: none;
-  position: absolute;
-}
-
-.radioLabel15 {
-  cursor: pointer;
-}
-
-.radioLabel15::before {
-  content: '';
-  display: block;
-  width: 28px;
-  height: 28px;
-  background-image: url('../../assets/images/Vector14.png');
-
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-}
-
-.radioLabel15::after {
-  content: '';
-  display: block;
-  background-image: url('../../assets/images/Vector14.png');
-  background-size: 105%;
-
-  width: 28px;
-  height: 28px;
-
-  position: absolute;
-  z-index: 1;
-
-  opacity: 0;
-  transition: opacity 0.1s linear;
-}
-
-.radioInput15:checked + .radioLabel15::after {
-  opacity: 1;
-}
-
-//   16
-.radioInput16 {
-  -webkit-appearance: none;
-  appearance: none;
-  position: absolute;
-}
-
-.radioLabel16 {
-  cursor: pointer;
-}
-
-.radioLabel16::before {
-  content: '';
-  display: block;
-  width: 28px;
-  height: 28px;
-  background-image: url('../../assets/images/Vector15.png');
-
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-}
-
-.radioLabel16::after {
-  content: '';
-  display: block;
-
-  width: 28px;
-  height: 28px;
-  background-image: url('../../assets/images/Vector15.png');
-  background-size: 105%;
-  position: absolute;
-
-  z-index: 1;
-
-  opacity: 0;
-  transition: opacity 0.1s linear;
-}
-
-.radioInput16:checked + .radioLabel16::after {
-  opacity: 1;
 }
