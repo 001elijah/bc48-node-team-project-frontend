@@ -52,7 +52,7 @@ export const MainBoard = () => {
         imgid={imgid}
         colorbg={curTheme}
       >
-        <HeaderDashBoard title={getBoard.title} />
+        <HeaderDashBoard title={board.title} />
         <ContentBoard>
           <ColumnsList>
             {board?.columns.map(item => (
