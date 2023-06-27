@@ -5,19 +5,18 @@ import { LabelBlock } from './LabelBlock';
 // import { BackgroundBlock } from './BackgroundBlock';
 import { useEffect, useState } from 'react';
 import { selectorTheme } from 'redux/Auth/authSelectors';
-import {  useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { BoxRadioBackgroundGroup } from '../BoxRadioBackgroundGroup/BoxRadioBackgroundGroup';
 import clsx from 'clsx';
 
-export const ModalFilter = ({ closeModal, colorNew, iconNew}) => {
+export const ModalFilter = ({ closeModal, colorNew, iconNew }) => {
   const [colorFilter, setColorFilter] = useState('');
   const theme = useSelector(selectorTheme);
-  const [icon, setIcon] = useState('')
+  const [icon, setIcon] = useState('');
 
-  useEffect(()=>{
-    colorNew(colorFilter),
-    iconNew(icon)
-  }, [colorFilter, icon])
+  useEffect(() => {
+    colorNew(colorFilter), iconNew(icon);
+  }, [colorFilter, icon]);
   return (
     <>
       <div className={clsx(s.Wrapper, s[theme])}>

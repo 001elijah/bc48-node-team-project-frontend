@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectorTheme } from 'redux/Auth/authSelectors';
 import { Modal } from 'components/Modal/Modal';
 import sprite from '../../assets/icons/sprite.svg';
-import s from './ReusableColumnModalWindow.module.scss';
+import s from './ModalAddChangeCard.module.scss';
 import { addNewBoard } from '../../redux/Boards/boardsOperations';
 
 export const ReusableColumnModalWindow = ({

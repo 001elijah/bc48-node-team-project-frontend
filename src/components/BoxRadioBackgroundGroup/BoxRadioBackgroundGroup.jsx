@@ -4,11 +4,11 @@ import { selectorTheme } from 'redux/Auth/authSelectors';
 import PropTypes from 'prop-types';
 import s from './BoxRadioBackgroundGroup.module.scss';
 
-import {currentBoard} from '../../redux/Boards/boardsSelectors'
+import { currentBoard } from '../../redux/Boards/boardsSelectors';
 
 export const BoxRadioBackgroundGroup = ({ valueChange }) => {
-  const board = useSelector(currentBoard)
-  const currentBackgroud = board.background
+  const board = useSelector(currentBoard);
+  const currentBackgroud = board.background;
   const theme = useSelector(selectorTheme);
 
   const [background, setBackground] = useState(currentBackgroud);
@@ -35,7 +35,7 @@ export const BoxRadioBackgroundGroup = ({ valueChange }) => {
             className={s.radioInput1}
             type="radio"
             onChange={handleCheked}
-            value=''
+            value=""
             name="background"
             id="one"
             checked={background === 'one'}
