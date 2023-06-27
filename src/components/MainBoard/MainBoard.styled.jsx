@@ -3,9 +3,9 @@ import styled from 'styled-components';
 export const Wrapper = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: bottom;
+  background-position: center center;
   background-color: ${props => props.colorbg};
-  height: calc(100% - 86px);
+  height: calc(100% - 76px);
   @media screen and (min-width: 375px) {
     padding-left: 0px;
     background-image: url(${props =>
@@ -17,7 +17,10 @@ export const Wrapper = styled.div`
       props.imgurl + 'tablet/x1/' + props.imgid});
   }
   @media screen and (min-width: 1280px) {
+    width: calc(100vw - 260px);
     padding-left: 24px;
+    padding-right: 24px;
+
     background-image: url(${props =>
       props.imgurl + 'desktop/x1/' + props.imgid});
   }
@@ -28,11 +31,10 @@ export const Wrapper = styled.div`
   }
 `;
 export const ColumnsList = styled.ul`
-display:flex;
-
-`
+  display: flex;
+`;
 export const ContentBoard = styled.div`
-display:flex;
-wrap:nowrap;
-overflow:auto;
-`
+  display: flex;
+  wrap: nowrap;
+  overflow: auto;
+`;

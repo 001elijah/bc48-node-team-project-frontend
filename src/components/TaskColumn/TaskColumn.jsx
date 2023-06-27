@@ -3,6 +3,8 @@ import { AddButton } from '../ButtonAddColumn/ButtonAddColumn';
 
 import { CardModalWindow } from '../CardModalWindow/CardModalWindow';
 import { useState } from 'react';
+import s from './TaskColumn.module.scss'
+
 
 export const TaskColumn = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -11,7 +13,14 @@ export const TaskColumn = () => {
 
   return (
     <>
-      <ul>
+      <ul className={s.taskCardList}>
+        <TaskCard />
+        <TaskCard />
+        <TaskCard />
+        <TaskCard />
+        <TaskCard />
+        <TaskCard />
+        <TaskCard />
         <TaskCard />
       </ul>
       <AddButton
