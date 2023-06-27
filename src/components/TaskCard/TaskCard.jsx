@@ -47,7 +47,7 @@ export const TaskCard = ({
   // };
 
   return (
-    <li key={id} className={clsx(s.cardWrapper, s[theme])}>
+    <li className={clsx(s.cardWrapper, s[theme])}>
       <div
         className={clsx(
           s.priorityLine,
@@ -59,13 +59,9 @@ export const TaskCard = ({
       <div className={s.infoWrapper}>
         <h4 className={clsx(s.title, s[theme])}>
           {title}
-          Lorem, ipsum dolor.
         </h4>
         <p className={clsx(s.description, s[theme])}>
           {description}
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid
-          laboriosam numquam vero totam quidem nostrum deserunt harum voluptate,
-          quaerat illum.
         </p>
       </div>
       <div className={clsx(s.controlPanel, s[theme])}>

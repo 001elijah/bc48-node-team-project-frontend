@@ -3,25 +3,42 @@ import { TaskCard } from '../TaskCard/TaskCard';
 import { AddButton } from '../ButtonAddColumn/ButtonAddColumn';
 
 import { CardModalWindow } from '../CardModalWindow/CardModalWindow';
-import { useEffect, useState } from 'react';
-import { getListOfCards } from 'redux/Cards/cardsOperations';
-import { useDispatch } from 'react-redux';
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { selectCards } from 'redux/Cards/cardsSelectors';
+import shortid from 'shortid';
 
-export const TaskColumn = ({ columnId, boardId }) => {
-  const dispatch = useDispatch();
+export const TaskColumn = ({ columnId }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const ModalWindowOpen = () => setModalOpen(true);
   const modalWindowClose = () => setModalOpen(false);
-
-  useEffect(() => {
-    dispatch(getListOfCards({boardId, columnId}))
-  }, [columnId])
+  const cards = useSelector(selectCards);
+  // const columnTasks = cards.length && cards.filter(card => {
+  //   return card.columnId === columnId
+  // });
   
-
+  
+// id,
+//   title,
+//   description,
+//   label = 'Low',
+//   deadline = '26/06/2023',
+//   boardId,
+//   columnId,
   return (
     <>
       <ul>
-        <TaskCard columnId={columnId} />
+        {cards.filter(card => {
+    return card.columnId === columnId
+  }).map(task => <TaskCard
+          key={shortid.generate()}
+          id={task._id}
+          title={task.title} 
+          label={task.label} 
+          deadline={task.deadline} 
+          boardId={task.boardId} 
+          columnId={task.columnId} />)}
+        {/* <TaskCard columnId={columnId} /> */}
       </ul>
       <AddButton
         title="Add another card"

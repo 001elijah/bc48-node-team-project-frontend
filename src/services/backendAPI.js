@@ -95,10 +95,9 @@ export const sendEmailApi = async userEmail => {
 
 //---------------------------------------------CARDS---------------------//
 
-export const getListOfCardsApi = async ({ token, boardId, columnId }) => {
-  console.log('Hello if am getListOfCardsApi')
-  token.set(token);
-  const { data } = await axios.get('/card', {boardId, columnId});
+export const getListOfCardsApi = async userToken => {
+  token.set(userToken);
+  const { data } = await axios.get('/card/');
   return data;
 };
 
