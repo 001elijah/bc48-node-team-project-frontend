@@ -75,7 +75,7 @@ export const ColumnModalWindow = ({
 
 ColumnModalWindow.propTypes = {
   modalTitle: PropTypes.string.isRequired,
-  inputTitle: PropTypes.string.isRequired,
+  inputTitle: PropTypes.string,
   titleModalButton: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
   boardId: PropTypes.string.isRequired,

@@ -40,11 +40,19 @@ export const TaskCard = ({
 
   const closeModalChangeColumn = () => setIsModalChangeOpen(false);
 
-  const handleEditCard = (dataForm) => {
+  const handleEditCard = dataForm => {
     const { value, coment, color, date } = dataForm;
     // console.log(dispatch(updateCard(id,{title: value, description: coment, deadline: date, label: color,})))
-    dispatch(updateCard({id, title: value, description: coment, deadline: date, label: color,}))
-  }
+    dispatch(
+      updateCard({
+        id,
+        title: value,
+        description: coment,
+        deadline: date,
+        label: color,
+      }),
+    );
+  };
 
   const openModalEditCard = () => {
     setIsModalEditOpen(true);
@@ -130,19 +138,21 @@ export const TaskCard = ({
           />
         </BackdropModal>
       )}
-      {isModalEditOpen && 
-      <CardModalWindow
-        modalTitle="Edit card"
-        inputTitle="Edit card"
-        titleModalButton="Edit card"
-        handleToggleModal={closeModalEditCard}
-        // value={title}
-        // coment={description}
-        // date={deadline}
-        // color={label}
-        // title: value, description: coment, deadline: date, label: color
-        onSubmit={handleEditCard}
-      />}
+      {isModalEditOpen && (
+        <CardModalWindow
+          modalTitle="Edit card"
+          inputTitle={title}
+          description={description}
+          titleModalButton="Edit"
+          handleToggleModal={closeModalEditCard}
+          // value={title}
+          // coment={description}
+          // date={deadline}
+          // color={label}
+          // title: value, description: coment, deadline: date, label: color
+          onSubmit={handleEditCard}
+        />
+      )}
     </li>
   );
 };
