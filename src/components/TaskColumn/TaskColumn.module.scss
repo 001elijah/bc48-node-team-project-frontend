@@ -1,5 +1,19 @@
+@import '../../assets/styles/vars';
+@import '../../assets/styles/mixins';
+
 .taskCardList {
   margin-bottom: 10px;
   overflow-y: auto;
-  max-height: calc(100vh - 278px);
+  max-height: calc(100vh - 280px);
+}
+
+@include tablet {
+  .taskCardList {
+    max-height: calc(100vh - 290px);
+  }
+}
+@include desktop {
+  .taskCardList {
+    max-height: calc(100vh - 278px);
+  }
 }
