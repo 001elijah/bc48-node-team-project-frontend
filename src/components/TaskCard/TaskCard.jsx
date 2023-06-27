@@ -127,6 +127,7 @@ export const TaskCard = ({
             closeModal={closeModalChangeColumn}
             boardId={boardId}
             columnId={columnId}
+            cardId={id}
           />
         </BackdropModal>
       )}

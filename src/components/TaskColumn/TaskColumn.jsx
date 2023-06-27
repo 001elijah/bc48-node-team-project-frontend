@@ -3,12 +3,20 @@ import { TaskCard } from '../TaskCard/TaskCard';
 import { AddButton } from '../ButtonAddColumn/ButtonAddColumn';
 
 import { CardModalWindow } from '../CardModalWindow/CardModalWindow';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { getListOfCards } from 'redux/Cards/cardsOperations';
+import { useDispatch } from 'react-redux';
 
-export const TaskColumn = ({ columnId }) => {
+export const TaskColumn = ({ columnId, boardId }) => {
+  const dispatch = useDispatch();
   const [modalOpen, setModalOpen] = useState(false);
   const ModalWindowOpen = () => setModalOpen(true);
   const modalWindowClose = () => setModalOpen(false);
+
+  useEffect(() => {
+    dispatch(getListOfCards({boardId, columnId}))
+  }, [columnId])
+  
 
   return (
     <>
@@ -36,4 +44,5 @@ export const TaskColumn = ({ columnId }) => {
 
 TaskColumn.propTypes = {
   columnId: PropTypes.string,
+  boardId: PropTypes.string,
 };

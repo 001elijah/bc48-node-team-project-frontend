@@ -5,6 +5,7 @@ import {
   addCard,
   removeCard,
   updateCardColumn,
+  getListOfCards,
 } from './cardsOperations';
 
 const cardsSlice = createSlice({
@@ -16,6 +17,9 @@ const cardsSlice = createSlice({
   },
   extraReducers: builder => {
     builder
+      .addCase(getListOfCards.fulfilled, (state, { payload }) => {
+        state.items.push(payload);
+      })
       .addCase(addCard.fulfilled, (state, { payload }) => {
         return {
           ...state,

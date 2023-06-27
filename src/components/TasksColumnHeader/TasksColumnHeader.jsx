@@ -47,7 +47,7 @@ export const TasksColumnHeader = ({ title, id, boardId }) => {
           </li>
         </ul>
       </div>
-      <TaskColumn columnId={id} />
+      <TaskColumn columnId={id} boardId={boardId} />
       {isModalOpen && (
         <ColumnModalWindow
           inputTitle={title}

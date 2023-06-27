@@ -3,6 +3,7 @@ import Notiflix from 'notiflix';
 
 import {
   addCardApi,
+  getListOfCardsApi,
   removeCardApi,
   updateCardApi,
   updateCardColumnApi,
@@ -23,6 +24,18 @@ const returnStatusNotify = status => {
       Notiflix.Notify.warning('Sorry, bad request👻');
   }
 };
+
+export const getListOfCards = createAsyncThunk('cards/getListOfCards',
+  async (boardAndColumnData, { getState, rejectWithValue }) => {
+    const { boardId, columnId } = boardAndColumnData;
+    const { token } = getState().auth;
+    try {
+      const cardsList = await getListOfCardsApi({token, boardId, columnId});
+      return cardsList;
+    } catch (error) {
+      rejectWithValue(error.message);
+    }
+  })
 
 export const addCard = createAsyncThunk(
   'card/add',

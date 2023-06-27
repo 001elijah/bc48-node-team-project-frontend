@@ -3,13 +3,12 @@ import { useSelector, useDispatch } from 'react-redux';
 import clsx from 'clsx';
 
 import { selectorTheme } from 'redux/Auth/authSelectors';
-// import { selectorColumns } from 'redux/Column/columnSelectors';
 import { updateCardColumn } from 'redux/Cards/cardsOperations';
 import { currentBoard } from 'redux/Boards/boardsSelectors';
 import sprite from '../../assets/icons/sprite.svg';
 import s from './ModalChangeColumn.module.scss';
 
-export const ModalChangeColumn = ({ closeModal, columnId }) => {
+export const ModalChangeColumn = ({ closeModal, columnId, cardId }) => {
   const dispatch = useDispatch();
   const theme = useSelector(selectorTheme);
 
@@ -23,7 +22,7 @@ export const ModalChangeColumn = ({ closeModal, columnId }) => {
             <button
               className={clsx(s.button, s[theme], id === columnId && s.current)}
               onClick={() => {
-                dispatch(updateCardColumn({id, title, boardId}));
+                dispatch(updateCardColumn({id, boardId, cardId}));
                 closeModal();
               }}
               type="button"
@@ -45,4 +44,5 @@ export const ModalChangeColumn = ({ closeModal, columnId }) => {
 ModalChangeColumn.propTypes = {
   closeModal: PropTypes.func,
   columnId: PropTypes.string,
+  cardId: PropTypes.string
 };
