@@ -6,8 +6,8 @@ import { Modal } from 'components/Modal/Modal';
 import sprite from '../../assets/icons/sprite.svg';
 import s from './ColumnModalWindow.module.scss';
 import { addColumn, editColumn } from '../../redux/Columns/ColumnOperation';
+
 import { getBoardById } from '../../redux/Boards/boardsOperations';
-import { useParams } from 'react-router-dom';
 
 export const ColumnModalWindow = ({
   inputTitle,
@@ -20,7 +20,10 @@ export const ColumnModalWindow = ({
   const dispatch = useDispatch();
   const [value, setValue] = useState('');
   const theme = useSelector(selectorTheme);
-  const { boardName } = useParams();
+
+const updateBoard = ()=>{
+  setTimeout(()=>{dispatch(getBoardById(boardId)),0 }) 
+}
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -30,24 +33,17 @@ export const ColumnModalWindow = ({
         columnId,
         boardId,
       };
-      setTimeout(() => {
-        dispatch(dispatch(editColumn(editColumnTitle)));
-      }, 0);
-
+      dispatch(editColumn(editColumnTitle));
     } else {
       const newColumn = {
         title: value,
         boardId,
       };
-      setTimeout(() => {
-        dispatch(dispatch(addColumn(newColumn)));
-      }, 0);
+      dispatch(addColumn(newColumn));
     }
     setValue('');
     onClick();
-    setTimeout(() => {
-      dispatch(dispatch(getBoardById(boardName)));
-    }, 2);
+    updateBoard()
   };
 
   return (

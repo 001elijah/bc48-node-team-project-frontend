@@ -11,14 +11,14 @@ import { selectorTheme } from 'redux/Auth/authSelectors';
 import { useEffect, useState } from 'react';
 import { ColumnModalWindow } from '../ColumnModalWindow/ColumnModalWindow';
 import { TasksColumnHeader } from '../TasksColumnHeader/TasksColumnHeader';
-import {getBoardById}  from '../../redux/Boards/boardsOperations'
+import { getBoardById } from '../../redux/Boards/boardsOperations';
 
 export const MainBoard = () => {
-  const {boardName}=useParams()
   const dispatch = useDispatch();
-  useEffect(()=>{
+  const { boardName } = useParams();
+  useEffect(() => {
     dispatch(getBoardById(boardName));
-  }, [boardName])
+  }, [boardName]);
 
   const theme = useSelector(selectorTheme);
   const [showModalWindow, setShowModalWindow] = useState(false);
