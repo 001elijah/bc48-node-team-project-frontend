@@ -66,7 +66,6 @@ export const MainBoard = () => {
             onClick={handleModalWindowOpen}
           />
         </ContentBoard>
-        {/* <TaskCard/> */}
       </Wrapper>
       {showModalWindow && (
         <ColumnModalWindow
