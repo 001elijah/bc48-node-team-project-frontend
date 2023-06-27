@@ -78,11 +78,10 @@ export const editColumnApi = async ({ title, boardId, columnId }) => {
   return data;
 };
 
-export const removeColumnApi = async (delData) => {
+export const removeColumnApi = async delData => {
   console.log(delData.boardId, delData.columnId);
-  const boardId = delData.boardId
-  await axios.delete(`/board/column/${delData.columnId}`,  {boardId}  )
-
+  const boardId = delData.boardId;
+  await axios.delete(`/board/column/${delData.columnId}`, { boardId });
 };
 
 //---------------------------------------------EMAIL---------------------//

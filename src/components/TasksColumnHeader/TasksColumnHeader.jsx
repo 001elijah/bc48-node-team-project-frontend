@@ -17,13 +17,13 @@ export const TasksColumnHeader = ({ title, id, boardId }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const handleModalWindowOpen = () => setIsModalOpen(true);
   const handleModalWindowClose = () => {
-
-      setIsModalOpen(false);}
+    setIsModalOpen(false);
+  };
 
   const deleteColumn = () => {
     const delData = {
       columnId: id,
-      boardId
+      boardId,
     };
     dispatch(delColumn(delData));
   };

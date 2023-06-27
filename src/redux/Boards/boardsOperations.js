@@ -1,6 +1,10 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-import { getListOfBoardsApi, addBoardApi, getBoardByIdApi} from '../../services/backendAPI';
+import {
+  getListOfBoardsApi,
+  addBoardApi,
+  getBoardByIdApi,
+} from '../../services/backendAPI';
 
 export const addNewBoard = createAsyncThunk(
   'boards/addboard',
@@ -27,11 +31,11 @@ export const getBoardById = createAsyncThunk(
       rejectWithValue(error.message);
     }
   },
-// {
-//   condition(_, { getState }) {
-//     return Boolean(getState().boards.length <= 0);
-//   },
-// },
+  // {
+  //   condition(_, { getState }) {
+  //     return Boolean(getState().boards.length <= 0);
+  //   },
+  // },
 );
 
 export const getListOfBoards = createAsyncThunk(

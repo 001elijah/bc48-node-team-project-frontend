@@ -21,9 +21,11 @@ export const ColumnModalWindow = ({
   const [value, setValue] = useState('');
   const theme = useSelector(selectorTheme);
 
-const updateBoard = ()=>{
-  setTimeout(()=>{dispatch(getBoardById(boardId)),0 }) 
-}
+  const updateBoard = () => {
+    setTimeout(() => {
+      dispatch(getBoardById(boardId)), 0;
+    });
+  };
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -43,7 +45,7 @@ const updateBoard = ()=>{
     }
     setValue('');
     onClick();
-    updateBoard()
+    updateBoard();
   };
 
   return (

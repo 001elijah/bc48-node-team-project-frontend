@@ -5,7 +5,6 @@ import sprite from 'assets/icons/sprite.svg';
 import s from './BoardList.module.scss';
 
 export const BoardList = ({ theme, boards }) => {
-
   const [current, setCurrent] = useState(null);
 
   return (

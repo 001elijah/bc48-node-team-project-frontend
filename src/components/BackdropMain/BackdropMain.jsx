@@ -59,11 +59,7 @@ export const BackdropModal = ({ children, closeModal }) => {
   }, [handleClose]);
 
   return createPortal(
-    <div
-      className={s.backdrop}
-      onMouseUp={handleMouseUp}
-      ref={backdropRef}
-    >
+    <div className={s.backdrop} onMouseUp={handleMouseUp} ref={backdropRef}>
       <div
         className={s.modal}
         onClick={handleModalClick}
@@ -73,6 +69,6 @@ export const BackdropModal = ({ children, closeModal }) => {
         {children}
       </div>
     </div>,
-    modalRoot
+    modalRoot,
   );
 };

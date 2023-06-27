@@ -32,16 +32,16 @@ export const HelpWindow = ({ theme }) => {
     setIsModalOpen(true);
   };
 
- const onClose = useCallback(() => {
-  setIsModalOpen(false);
-}, []);
+  const onClose = useCallback(() => {
+    setIsModalOpen(false);
+  }, []);
 
   const onSubmit = useCallback(
     ({ email, comment }) => {
       dispatch(sendEmail({ email, comment }));
       onClose();
     },
-    [dispatch, onClose]
+    [dispatch, onClose],
   );
 
   useEffect(() => {
