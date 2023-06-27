@@ -6,24 +6,13 @@ import { CardModalWindow } from '../CardModalWindow/CardModalWindow';
 import { useState } from 'react';
 import { selectCards } from 'redux/Cards/cardsSelectors';
 import shortid from 'shortid';
-import s from './TaskColumn.module.scss';
 
 export const TaskColumn = ({ columnId }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const ModalWindowOpen = () => setModalOpen(true);
   const modalWindowClose = () => setModalOpen(false);
   const cards = useSelector(selectCards);
-  // const columnTasks = cards.length && cards.filter(card => {
-  //   return card.columnId === columnId
-  // });
-
-  // id,
-  //   title,
-  //   description,
-  //   label = 'Low',
-  //   deadline = '26/06/2023',
-  //   boardId,
-  //   columnId,
+  
   return (
     <>
       <ul>
