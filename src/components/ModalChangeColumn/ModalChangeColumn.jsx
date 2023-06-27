@@ -21,6 +21,7 @@ export const ModalChangeColumn = ({ closeModal, columnId, cardId }) => {
           <li key={id} className={s.item}>
             <button
               className={clsx(s.button, s[theme], id === columnId && s.current)}
+              disabled={id === columnId}
               onClick={() => {
                 dispatch(updateCardColumn({id, boardId, cardId}));
                 closeModal();
