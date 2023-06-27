@@ -6,9 +6,11 @@ import clsx from 'clsx';
 import { ColumnModalWindow } from '../ColumnModalWindow/ColumnModalWindow';
 import { selectorTheme } from 'redux/Auth/authSelectors';
 import { TaskControlButton } from 'components/TaskControlButton/TaskControlButton';
-import { delColumn } from '../../redux/Columns/ColumnOperation';
+import { removeColumn } from '../../redux/Columns/ColumnOperation';
 import s from './TasksColumnHeader.module.scss';
 import { useState } from 'react';
+
+import { getBoardById } from '../../redux/Boards/boardsOperations';
 import { TaskColumn } from '../TaskColumn/TaskColumn';
 
 export const TasksColumnHeader = ({ title, id, boardId }) => {
@@ -20,12 +22,13 @@ export const TasksColumnHeader = ({ title, id, boardId }) => {
     setIsModalOpen(false);
   };
 
-  const deleteColumn = () => {
+  const deleteColumn = async () => {
     const delData = {
       columnId: id,
       boardId,
     };
-    dispatch(delColumn(delData));
+    await dispatch(removeColumn(delData));
+    dispatch(getBoardById(boardId))
   };
 
   return (
