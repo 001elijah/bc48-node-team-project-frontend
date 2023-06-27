@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
   @media screen and (min-width: 375px) {
     padding-left: 0px;
     background-image: url(${props =>
-      props.BASE_URL + 'mobile/x1/' + props.imgid});
+    props.BASE_URL + 'mobile/x1/' + props.imgid});
   }
   @media screen and (min-width: 768px) {
     padding-left: 24px;
@@ -26,12 +26,13 @@ export const Wrapper = styled.div`
     (min-resolution: 2dppx) {
     @content;
   }
-`;
+`
+
 export const ColumnsList = styled.ul`
   display: flex;
 `;
 export const ContentBoard = styled.div`
-  display: flex;
-  wrap: nowrap;
-  overflow: auto;
-`;
+display:flex;
+flex-wrap:nowrap;
+overflow:auto;
+`
