@@ -3,6 +3,7 @@ import authReducer from './Auth/authSlice';
 import loaderReducer from './Loader/loaderSlice';
 import boardsReducer from './Boards/boardsSlice';
 import cardsReducer from './Cards/cardsSlice';
+import filterSlice from './Filter/filterSlice';
 
 import {
   persistStore,
@@ -30,6 +31,7 @@ export const store = configureStore({
     boards: boardsReducer,
     cards: cardsReducer,
     isLoading: loaderReducer,
+    filter: filterSlice,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

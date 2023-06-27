@@ -4,15 +4,20 @@ import {
   addNewBoard,
   editBoard,
   removeBoard,
+  getBoardById,
+  updateBoard,
 } from './boardsOperations';
 
 const boardsSlice = createSlice({
   name: 'boards',
-  initialState: [],
+  initialState: {
+    allboards: [],
+    currentboard: null,
+  },
   extraReducers: builder => {
     builder
       .addCase(getListOfBoards.fulfilled, (state, { payload }) => {
-        state.push(...payload);
+        state.allboards.push(...payload);
       })
       .addCase(addNewBoard.fulfilled, (state, { payload }) => {
         state.push(payload);
@@ -30,11 +35,17 @@ const boardsSlice = createSlice({
         if (index !== -1) {
           state.splice(index, 1);
         }
+      })
+      // .addCase(getBoardById.fulfilled, (state, { payload }) => {
+      //   console.log('slice', payload);
+      //     state.allboards.push(payload);
+      //   })
+      .addCase(getBoardById.fulfilled, (state, { payload }) => {
+        state.currentboard = payload;
+      })
+      .addCase(updateBoard.fulfilled, (state, { payload }) => {
+        state = payload;
       });
-    // .addCase(getBoardById.fulfilled, (state, { payload }) => {
-    //   console.log('slice', payload);
-
-    // });
   },
 });
 

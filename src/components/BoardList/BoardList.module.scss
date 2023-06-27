@@ -1,9 +1,13 @@
 @import 'assets/styles/mixins';
 
 .list {
-  height: 202px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 4px;
+  height: calc(100vh - 611px);
   width: 100%;
   margin-top: 40px;
+  margin-bottom: 40px;
   overflow-y: auto;
   scrollbar-width: thin;
 
@@ -24,9 +28,9 @@
   }
 
   @include tablet {
-    height: 380px;
+    height: calc(100vh - 655px);
   }
   @include desktop {
-    height: 126px;
+    height: calc(100vh - 646px);
   }
 }

@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { addColumn, editColumn, delColumn } from './ColumnOperation';
+import { addColumn, editColumn, removeColumn } from './ColumnOperation';
 
 const boardSlice = createSlice({
   name: 'column',
@@ -11,11 +11,12 @@ const boardSlice = createSlice({
     builder
       .addCase(addColumn.fulfilled, (state, { payload }) => {
         state.column = [12];
+        console.log(payload);
       })
       .addCase(editColumn.fulfilled, (state, { payload }) => {
         console.log(payload);
       })
-      .addCase(delColumn.fulfilled, (state, { payload }) => {
+      .addCase(removeColumn.fulfilled, (state, { payload }) => {
         console.log(payload);
       });
     // .addCase(updateColumn.fulfilled, (state, { payload }) => {
@@ -25,7 +26,7 @@ const boardSlice = createSlice({
     //     ),
     //   };
     // })
-    // .addCase(removeColumn.fulfilled, (state, { payload }) => {
+    // .addCase(delColumn.fulfilled, (state, { payload }) => {
     //   return {
     //     state: state.items.filter(el => el.id !== payload),
     //   };

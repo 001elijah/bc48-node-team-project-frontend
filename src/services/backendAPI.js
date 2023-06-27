@@ -69,7 +69,13 @@ export const getBoardByIdApi = async (boardName, userToken) => {
   const { data } = await axios.get(`/board/${boardName}`);
   return data;
 };
-
+export const updateBoardApi = async ({ board, back }, userToken) => {
+  token.set(userToken);
+  const { data } = await axios.patch(`/board/${board._id}`, {
+    background: back,
+  });
+  return data;
+};
 export const getListOfBoardsApi = async userToken => {
   token.set(userToken);
   const { data } = await axios.get('/board/');
@@ -80,11 +86,14 @@ export const getListOfBoardsApi = async userToken => {
 
 export const addColumnApi = async (dataColumn, userToken) => {
   token.set(userToken);
-  const { data } = await axios.post('board/column', dataColumn);
-  console.log(data);
+  const { data } = await axios.post('/board/column', dataColumn);
   return data;
 };
-export const editColumnApi = async ({ title, boardId, columnId }) => {
+export const editColumnApi = async (
+  { title, boardId, columnId },
+  userToken,
+) => {
+  token.set(userToken);
   const { data } = await axios.patch(`/board/column/${columnId}`, {
     title,
     boardId,
@@ -92,9 +101,17 @@ export const editColumnApi = async ({ title, boardId, columnId }) => {
   return data;
 };
 
-export const removeColumnApi = async ({ boardId, columnId }) => {
-  console.log(boardId, columnId);
-  await axios.delete(`/board/column/${columnId}`, boardId);
+export const removeColumnApi = async ({ columnId, boardId }, userToken) => {
+  token.set(userToken);
+  await axios.delete(`/board/column/${columnId}`, { data: { boardId } });
+};
+
+//---------------------------------------------CARDS---------------------//
+
+export const getListOfCardsApi = async userToken => {
+  token.set(userToken);
+  const { data } = await axios.get('/card/');
+  return data;
 };
 
 export const addCardApi = async newCard => {
@@ -107,8 +124,12 @@ export const updateCardApi = async (id, cardData) => {
   return data;
 };
 
-export const updateCardColumnApi = async id => {
-  const { data } = await axios.patch(`/card/column/${id}`);
+export const updateCardColumnApi = async columnData => {
+  const { id: columnId, boardId, cardId } = columnData;
+  const { data } = await axios.patch(`/card/column/${cardId}`, {
+    boardId,
+    columnId,
+  });
   return data;
 };
 
