@@ -24,7 +24,6 @@ export const ColumnModalWindow = ({
       title: value,
       boardId,
     };
-    console.log(value);
     dispatch(addColumn(newColumn));
     setValue('');
     onClick();

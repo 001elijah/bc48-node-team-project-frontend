@@ -55,7 +55,7 @@ export const MainBoard = () => {
               key={id}
               title={title}
               editColumn
-              removeColumn 
+              removeColumn
             />
           })} */}
         {/* <TaskCard/> */}
