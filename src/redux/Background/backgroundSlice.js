@@ -11,9 +11,9 @@ const backgroundSlice = createSlice({
   name: 'background',
   initialState,
   reducers: {},
-  extraReducers: (builder) => {
+  extraReducers: builder => {
     builder
-      .addCase(getListOfThumbnails.pending, (state) => {
+      .addCase(getListOfThumbnails.pending, state => {
         state.loading = true;
         state.error = null;
       })

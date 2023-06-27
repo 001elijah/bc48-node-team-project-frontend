@@ -19,7 +19,7 @@ export const BoxRadioBackgroundGroup = ({ valueChange }) => {
   const dispatch = useDispatch();
   const [selectedBackground, setSelectedBackground] = useState(null);
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     const selectedBackground = e.target.value;
     setSelectedBackground(selectedBackground);
     valueChange(selectedBackground);
@@ -30,7 +30,6 @@ export const BoxRadioBackgroundGroup = ({ valueChange }) => {
   }, [dispatch]);
 
   useEffect(() => {
-    // Set the default background as selected
     setSelectedBackground('default');
   }, []);
 
@@ -93,6 +92,7 @@ export const BoxRadioBackgroundGroup = ({ valueChange }) => {
     </div>
   );
 };
+
 BoxRadioBackgroundGroup.propTypes = {
   valueChange: PropTypes.func.isRequired,
 };
