@@ -44,7 +44,8 @@
 
 .calendarConatiner {
   width: 201px;
-  height: 254px;
+  height: 222px;
+  overflow: hidden;
   // height: 100%;
 
   padding-top: 0;
@@ -117,4 +118,17 @@
     border: none;
     background-color: $dark-color;
   }
+}
+
+:global .react-datepicker-popper {
+  z-index: 2;
+  // padding-top: 18px;
+}
+
+:global .react-datepicker__triangle {
+  display: none;
+}
+
+:global .react-datepicker-popper[data-placement^='bottom'] {
+  padding-top: 18px;
 }

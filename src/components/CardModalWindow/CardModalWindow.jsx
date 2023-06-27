@@ -60,7 +60,6 @@ export const CardModalWindow = ({
     //   <CalendarDark onDate={setDate} />
     // </ReusableColumnModalWindow>
 
-
     <Modal title={modalTitle} onClose={handleToggleModal}>
       <form onSubmit={handleSubmit}>
         <input
@@ -95,7 +94,6 @@ export const CardModalWindow = ({
         </button>
       </form>
     </Modal>
-
   );
 };
 
