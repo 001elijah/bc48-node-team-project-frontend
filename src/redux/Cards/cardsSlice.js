@@ -21,14 +21,13 @@ const cardsSlice = createSlice({
         state.items.push(...payload);
       })
       .addCase(addCard.fulfilled, (state, { payload }) => {
-        state.items.push(payload)
+        state.items.push(payload);
       })
       .addCase(updateCard.fulfilled, (state, { payload }) => {
         return {
           items: state.items.map(card => {
-            return card._id !== payload._id ? card : payload
-          }
-          ),
+            return card._id !== payload._id ? card : payload;
+          }),
         };
       })
       .addCase(removeCard.fulfilled, (state, { payload }) => {
@@ -38,9 +37,13 @@ const cardsSlice = createSlice({
           items: state.items.filter(el => el._id !== payload),
         };
       })
-      .addCase(updateCardColumn.fulfilled, (state, { payload }) =>  {
+      .addCase(updateCardColumn.fulfilled, (state, { payload }) => {
         return {
-          items: state.items.map(card => card._id === payload.cardId ? { ...card, columnId: payload.id } : card),
+          items: state.items.map(card =>
+            card._id === payload.cardId
+              ? { ...card, columnId: payload.id }
+              : card,
+          ),
         };
       })
       .addMatcher(

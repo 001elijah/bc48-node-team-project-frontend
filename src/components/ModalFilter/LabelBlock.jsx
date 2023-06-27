@@ -39,9 +39,9 @@ export const LabelBlock = ({ newField }) => {
   const handleOnClickAll = () => {
     setField('none');
   };
- useEffect(()=>{
-  newField(field)
- }, [field, ])
+  useEffect(() => {
+    newField(field);
+  }, [field]);
 
   return (
     <>

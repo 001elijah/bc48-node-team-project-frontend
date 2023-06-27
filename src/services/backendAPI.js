@@ -57,9 +57,11 @@ export const getBoardByIdApi = async (boardName, userToken) => {
   const { data } = await axios.get(`/board/${boardName}`);
   return data;
 };
-export const updateBoardApi = async ({board, back},  userToken) => {
+export const updateBoardApi = async ({ board, back }, userToken) => {
   token.set(userToken);
-  const { data } = await axios.patch(`/board/${board._id}`, {background:back} );
+  const { data } = await axios.patch(`/board/${board._id}`, {
+    background: back,
+  });
   return data;
 };
 export const getListOfBoardsApi = async userToken => {
@@ -115,9 +117,12 @@ export const updateCardApi = async (id, cardData) => {
   return data;
 };
 
-export const updateCardColumnApi = async (columnData) => {
+export const updateCardColumnApi = async columnData => {
   const { id: columnId, boardId, cardId } = columnData;
-  const { data } = await axios.patch(`/card/column/${cardId}`, {boardId, columnId});
+  const { data } = await axios.patch(`/card/column/${cardId}`, {
+    boardId,
+    columnId,
+  });
   return data;
 };
 
