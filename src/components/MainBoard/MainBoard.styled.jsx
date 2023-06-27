@@ -11,7 +11,6 @@ export const Wrapper = styled.div`
   @media screen and (min-width: 375px) {
     padding-left: 0px;
     background-image: url(${props =>
-
       props.BASE_URL + 'mobile/x1/' + props.imgid});
     @media (min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
@@ -48,7 +47,6 @@ export const Wrapper = styled.div`
         props.BASE_URL + 'mobile/x2/' + props.imgid});
     }
   }
-
 `;
 
 export const ColumnsList = styled.ul`
@@ -59,4 +57,3 @@ export const ContentBoard = styled.div`
   wrap: nowrap;
   overflow: auto;
 `;
-

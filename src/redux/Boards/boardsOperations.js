@@ -1,14 +1,12 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-
 import {
   getListOfBoardsApi,
   addBoardApi,
   getBoardByIdApi,
-  updateBoardApi
+  updateBoardApi,
 } from '../../services/backendAPI';
 import { getListOfCards } from '../../redux/Cards/cardsOperations';
-
 
 export const addNewBoard = createAsyncThunk(
   'boards/addboard',
@@ -49,7 +47,7 @@ export const getListOfBoards = createAsyncThunk(
     try {
       const boardsList = await getListOfBoardsApi(token);
       setTimeout(() => {
-        dispatch(getListOfCards())
+        dispatch(getListOfCards());
       }, 0);
       return boardsList;
     } catch (error) {

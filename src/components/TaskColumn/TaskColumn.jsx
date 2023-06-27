@@ -11,16 +11,25 @@ import { currentBoard } from 'redux/Boards/boardsSelectors';
 
 export const TaskColumn = ({ columnId }) => {
   const dispatch = useDispatch();
-  const {_id} = useSelector(currentBoard);
+  const { _id } = useSelector(currentBoard);
   const [modalOpen, setModalOpen] = useState(false);
   const ModalWindowOpen = () => setModalOpen(true);
   const modalWindowClose = () => setModalOpen(false);
   const cards = useSelector(selectCards);
-  
-  const handleAddCard = (dataForm) => {
+
+  const handleAddCard = dataForm => {
     const { value, coment, color, date } = dataForm;
-    dispatch(addCard({title: value, description: coment, deadline: date, label: color, columnId, boardId: _id}))
-  }
+    dispatch(
+      addCard({
+        title: value,
+        description: coment,
+        deadline: date,
+        label: color,
+        columnId,
+        boardId: _id,
+      }),
+    );
+  };
 
   return (
     <>

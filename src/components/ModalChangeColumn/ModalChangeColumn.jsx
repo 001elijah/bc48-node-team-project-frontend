@@ -12,7 +12,7 @@ export const ModalChangeColumn = ({ closeModal, columnId, cardId }) => {
   const dispatch = useDispatch();
   const theme = useSelector(selectorTheme);
 
-  const {columns: columnList, _id: boardId} = useSelector(currentBoard);
+  const { columns: columnList, _id: boardId } = useSelector(currentBoard);
 
   return (
     <div className={clsx(s.modalWrapper, s[theme])}>
@@ -22,7 +22,7 @@ export const ModalChangeColumn = ({ closeModal, columnId, cardId }) => {
             <button
               className={clsx(s.button, s[theme], id === columnId && s.current)}
               onClick={() => {
-                dispatch(updateCardColumn({id, boardId, cardId}));
+                dispatch(updateCardColumn({ id, boardId, cardId }));
                 closeModal();
               }}
               type="button"
@@ -44,5 +44,5 @@ export const ModalChangeColumn = ({ closeModal, columnId, cardId }) => {
 ModalChangeColumn.propTypes = {
   closeModal: PropTypes.func,
   columnId: PropTypes.string,
-  cardId: PropTypes.string
+  cardId: PropTypes.string,
 };

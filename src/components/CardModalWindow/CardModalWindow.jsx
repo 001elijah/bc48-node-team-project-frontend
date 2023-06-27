@@ -103,5 +103,4 @@ CardModalWindow.propTypes = {
   titleModalButton: PropTypes.string.isRequired,
   onSubmit: PropTypes.func,
   handleToggleModal: PropTypes.func,
-  id: PropTypes.func,
 };
