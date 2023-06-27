@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
   background-size: cover;
   background-position: bottom;
   background-color: ${props => props.colorbg};
-  height: 100%;
+  height: calc(100% - 86px);
   @media screen and (min-width: 375px) {
     padding-left: 0px;
     background-image: url(${props =>
@@ -27,3 +27,12 @@ export const Wrapper = styled.div`
     @content;
   }
 `;
+export const ColumnsList = styled.ul`
+display:flex;
+
+`
+export const ContentBoard = styled.div`
+display:flex;
+wrap:nowrap;
+overflow:auto;
+`
