@@ -11,13 +11,13 @@ export const HomePage = () => {
   return (
     <div>
       {/* <Container> */}
-        <div style={{ display: 'flex' }}>
-          {isDesktopSize && <Sidebar />}
-          <div style={{ width: '100%' }}>
-            <Header />
-            <Outlet />
-          </div>
+      <div style={{ display: 'flex' }}>
+        {isDesktopSize && <Sidebar />}
+        <div style={{ width: '100%' }}>
+          <Header />
+          <Outlet />
         </div>
+      </div>
       {/* </Container> */}
     </div>
   );

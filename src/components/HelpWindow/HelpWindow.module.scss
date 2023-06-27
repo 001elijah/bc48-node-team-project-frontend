@@ -178,6 +178,14 @@
   font-size: 14px;
   letter-spacing: -0.28px;
 
+  &.light {
+    color: $black-text-color;
+  }
+  &.colorful {
+    color: $black-text-color;
+    border: 1px solid $accent-bright-color;
+  }
+
   @include tablet {
     width: 352px;
     height: 49px;
@@ -202,6 +210,14 @@
   font-size: 14px;
   letter-spacing: -0.28px;
 
+  &.light {
+    color: $black-text-color;
+  }
+  &.colorful {
+    color: $black-text-color;
+    border: 1px solid $accent-bright-color;
+  }
+
   @include tablet {
     width: 352px;
     height: 120px;
@@ -222,8 +238,17 @@
   background-color: $accent-color;
   cursor: pointer;
 
+  &.colorful {
+    background-color: $accent-bright-color;
+    color: $white-color;
+  }
+
   @include tablet {
     width: 352px;
     height: 49px;
   }
+}
+
+.error {
+  color: $red-error-color;
 }
