@@ -11,7 +11,14 @@ export const Wrapper = styled.div`
   @media screen and (min-width: 375px) {
     padding-left: 0px;
     background-image: url(${props =>
-    props.BASE_URL + 'mobile/x1/' + props.imgid});
+
+      props.BASE_URL + 'mobile/x1/' + props.imgid});
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url(${props =>
+        props.BASE_URL + 'mobile/x2/' + props.imgid});
+    }
   }
   @media screen and (min-width: 768px) {
     padding-left: 32px;
@@ -19,6 +26,12 @@ export const Wrapper = styled.div`
     height: calc(100vh - 68px);
     background-image: url(${props =>
       props.imgurl + 'tablet/x1/' + props.imgid});
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url(${props =>
+        props.BASE_URL + 'mobile/x2/' + props.imgid});
+    }
   }
   @media screen and (min-width: 1280px) {
     width: calc(100vw - 260px);
@@ -28,19 +41,22 @@ export const Wrapper = styled.div`
 
     background-image: url(${props =>
       props.imgurl + 'desktop/x1/' + props.imgid});
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url(${props =>
+        props.BASE_URL + 'mobile/x2/' + props.imgid});
+    }
   }
-  @media (min-device-pixel-ratio: 2),
-    (min-resolution: 192dpi),
-    (min-resolution: 2dppx) {
-    @content;
-  }
-`
+
+`;
 
 export const ColumnsList = styled.ul`
   display: flex;
 `;
 export const ContentBoard = styled.div`
-display:flex;
-flex-wrap:nowrap;
-overflow:auto;
-`
+  display: flex;
+  wrap: nowrap;
+  overflow: auto;
+`;
+

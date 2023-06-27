@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import s from './Modal.module.scss';
 import PropTypes from 'prop-types';
 import { selectorTheme } from 'redux/Auth/authSelectors';
@@ -32,14 +32,16 @@ InputBlock.propTypes = {
 
 export const LabelBlock = ({ newField }) => {
   const theme = useSelector(selectorTheme);
-  const [field, setField] = useState(' ');
+  const [field, setField] = useState('');
   const handleOnClick = e => {
     setField(e.currentTarget.value);
   };
   const handleOnClickAll = () => {
-    setField('');
+    setField('none');
   };
-  console.log(newField, field);
+ useEffect(()=>{
+  newField(field)
+ }, [field, ])
 
   return (
     <>
@@ -72,5 +74,5 @@ export const LabelBlock = ({ newField }) => {
   );
 };
 LabelBlock.propTypes = {
-  newField: PropTypes.string,
+  newField: PropTypes.func.isRequired,
 };

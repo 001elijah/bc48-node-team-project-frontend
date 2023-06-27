@@ -1,5 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getListOfBoards, addNewBoard, getBoardById } from './boardsOperations';
+import {
+  getListOfBoards,
+  addNewBoard,
+  getBoardById,
+  updateBoard,
+} from './boardsOperations';
 
 const boardsSlice = createSlice({
   name: 'boards',
@@ -17,6 +22,10 @@ const boardsSlice = createSlice({
       })
       .addCase(getBoardById.fulfilled, (state, { payload }) => {
         state.currentboard = payload;
+      })
+      .addCase(updateBoard.fulfilled, (state, { payload }) => {
+        state = payload;
+
       });
   },
 });
