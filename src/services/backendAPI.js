@@ -93,6 +93,13 @@ export const sendEmailApi = async userEmail => {
   return data.message;
 };
 
+//---------------------------------------------CARDS---------------------//
+export const getListOfCardsApi = async userToken => {
+  token.set(userToken);
+  const { data } = await axios.get('/card/');
+  return data;
+};
+
 export const addCardApi = async newCard => {
   const { data } = await axios.post('/card', newCard);
   return data;
