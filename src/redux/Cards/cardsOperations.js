@@ -58,9 +58,9 @@ export const updateCard = createAsyncThunk(
 
 export const updateCardColumn = createAsyncThunk(
   'card/column/update',
-  async (id, { rejectWithValue }) => {
+  async (columnData, { rejectWithValue }) => {
     try {
-      const data = await updateCardColumnApi(id);
+      const data = await updateCardColumnApi(columnData);
       Notiflix.Notify.success('Your card has been transferred successfully');
       return data;
     } catch (error) {

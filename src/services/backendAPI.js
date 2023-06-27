@@ -102,8 +102,9 @@ export const updateCardApi = async (id, cardData) => {
   return data;
 };
 
-export const updateCardColumnApi = async id => {
-  const { data } = await axios.patch(`/card/column/${id}`);
+export const updateCardColumnApi = async (columnData) => {
+  const { id, title, boardId } = columnData;
+  const { data } = await axios.patch(`/card/column/${id}`, {title, boardId});
   return data;
 };
 

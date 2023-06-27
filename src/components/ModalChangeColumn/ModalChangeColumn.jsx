@@ -5,33 +5,30 @@ import clsx from 'clsx';
 import { selectorTheme } from 'redux/Auth/authSelectors';
 // import { selectorColumns } from 'redux/Column/columnSelectors';
 import { updateCardColumn } from 'redux/Cards/cardsOperations';
+import { currentBoard } from 'redux/Boards/boardsSelectors';
 import sprite from '../../assets/icons/sprite.svg';
 import s from './ModalChangeColumn.module.scss';
 
-export const ModalChangeColumn = ({ closeModal, columnId = 3 }) => {
+export const ModalChangeColumn = ({ closeModal, columnId }) => {
   const dispatch = useDispatch();
-  // const columnList = useSelector(selectorColumns);
   const theme = useSelector(selectorTheme);
-  const columnList = [
-    { id: 1, name: 'to do' },
-    { id: 2, name: 'in progress' },
-    { id: 3, name: 'done' },
-  ];
+
+  const {columns: columnList, _id: boardId} = useSelector(currentBoard);
 
   return (
     <div className={clsx(s.modalWrapper, s[theme])}>
       <ul>
-        {columnList.map(({ id, name }) => (
+        {columnList.map(({ id, title }) => (
           <li key={id} className={s.item}>
             <button
               className={clsx(s.button, s[theme], id === columnId && s.current)}
               onClick={() => {
-                dispatch(updateCardColumn(id));
+                dispatch(updateCardColumn({id, title, boardId}));
                 closeModal();
               }}
               type="button"
             >
-              {name}
+              {title}
               <svg
                 className={clsx(s.icon, s[theme], id === columnId && s.current)}
               >
