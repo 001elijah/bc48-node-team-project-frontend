@@ -195,3 +195,81 @@
     pointer-events: auto;
   }
 }
+
+.removeButtonList {
+  display: flex;
+  gap: 16px;
+}
+
+.removeItem {
+  height: 49px;
+  width: calc((100% / 2) - 16px);
+  border-radius: 8px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover .cancel,
+  &:focus .cancel {
+    outline: 1px solid $black-text-color;
+
+    &.light {
+      outline: 1px solid $black-text-color;
+    }
+    &.dark {
+      outline: 1px solid $white-color;
+    }
+    &.colorful {
+      outline: 1px solid $black-text-color;
+    }
+  }
+
+  &:hover .remove,
+  &:focus .remove {
+    text-decoration: underline;
+  }
+}
+
+.removeButton {
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.28px;
+
+  &.remove {
+    background-color: transparent;
+    color: $black-text-color;
+
+    &.light {
+      color: $black-text-color;
+    }
+    &.dark {
+      color: $white-color;
+    }
+    &.colorful {
+      color: $black-text-color;
+    }
+  }
+
+  &.cancel {
+    height: 100%;
+    width: 100%;
+    background-color: $accent-color;
+    color: $black-text-color;
+
+    &.light {
+      color: $black-text-color;
+    }
+    &.dark {
+      color: $black-text-color;
+    }
+    &.colorful {
+      background-color: $accent-bright-color;
+      color: $white-color;
+    }
+  }
+}

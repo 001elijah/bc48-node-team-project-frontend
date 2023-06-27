@@ -59,6 +59,11 @@ export const editBoardApi = async ({ dataBoard, id }, userToken) => {
   return data;
 };
 
+export const removeBoardApi = async (id, userToken) => {
+  token.set(userToken);
+  await axios.delete(`/board/${id}`);
+};
+
 export const getBoardByIdApi = async (boardName, userToken) => {
   token.set(userToken);
   const { data } = await axios.get(`/board/${boardName}`);
@@ -70,6 +75,8 @@ export const getListOfBoardsApi = async userToken => {
   const { data } = await axios.get('/board/');
   return data;
 };
+
+//---------------------------------------------COLUMNS---------------------//
 
 export const addColumnApi = async (dataColumn, userToken) => {
   token.set(userToken);
@@ -88,15 +95,6 @@ export const editColumnApi = async ({ title, boardId, columnId }) => {
 export const removeColumnApi = async ({ boardId, columnId }) => {
   console.log(boardId, columnId);
   await axios.delete(`/board/column/${columnId}`, boardId);
-};
-
-
-
-//---------------------------------------------EMAIL---------------------//
-
-export const sendEmailApi = async userEmail => {
-  const { data } = await axios.post('/user/sendEmail', userEmail);
-  return data.message;
 };
 
 export const addCardApi = async newCard => {
@@ -128,4 +126,11 @@ export const authWithGoogleApi = async data => {
   });
   token.set(response.data.token);
   return { ...response.data.user, token: response.data.token };
+};
+
+//---------------------------------------------EMAIL---------------------//
+
+export const sendEmailApi = async userEmail => {
+  const { data } = await axios.post('/user/sendEmail', userEmail);
+  return data.message;
 };

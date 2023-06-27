@@ -13,7 +13,7 @@ export const ColumnModalWindow = ({
   modalTitle,
   onClick,
   boardId,
-  columnId
+  columnId,
 }) => {
   const dispatch = useDispatch();
   const [value, setValue] = useState('');
@@ -21,11 +21,11 @@ export const ColumnModalWindow = ({
 
   const handleSubmit = e => {
     e.preventDefault();
-    if (modalTitle === 'Edit column') {      
+    if (modalTitle === 'Edit column') {
       const editColumnTitle = {
         title: value,
         columnId,
-        boardId
+        boardId,
       };
       dispatch(editColumn(editColumnTitle));
     } else {
