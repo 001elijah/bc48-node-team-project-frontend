@@ -11,7 +11,7 @@ export const BoardList = ({ theme, boards }) => {
     <ul className={s.list}>
       {boards.map(({ title, icon, _id }) => (
         <BoardItem
-          key={title}
+          key={_id}
           id={_id}
           boardName={title}
           icon={`${sprite}#${icon}`}

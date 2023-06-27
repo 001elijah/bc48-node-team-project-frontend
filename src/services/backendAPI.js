@@ -66,7 +66,7 @@ export const getListOfBoardsApi = async userToken => {
 
 export const addColumnApi = async (dataColumn, userToken) => {
   token.set(userToken);
-  const { data } = await axios.post('board/column', dataColumn);
+  const { data } = await axios.post('/board/column', dataColumn);
   return data;
 };
 export const editColumnApi = async (
@@ -93,6 +93,14 @@ export const sendEmailApi = async userEmail => {
   return data.message;
 };
 
+//---------------------------------------------CARDS---------------------//
+
+export const getListOfCardsApi = async userToken => {
+  token.set(userToken);
+  const { data } = await axios.get('/card/');
+  return data;
+};
+
 export const addCardApi = async newCard => {
   const { data } = await axios.post('/card', newCard);
   return data;
@@ -103,8 +111,9 @@ export const updateCardApi = async (id, cardData) => {
   return data;
 };
 
-export const updateCardColumnApi = async id => {
-  const { data } = await axios.patch(`/card/column/${id}`);
+export const updateCardColumnApi = async (columnData) => {
+  const { id: columnId, boardId, cardId } = columnData;
+  const { data } = await axios.patch(`/card/column/${cardId}`, {boardId, columnId});
   return data;
 };
 
