@@ -51,7 +51,7 @@ export const TasksColumnHeader = ({ title, id, boardId }) => {
       {isModalOpen && (
         <ColumnModalWindow
           inputTitle={title}
-          titleModalButton="Add"
+          titleModalButton="Edit"
           modalTitle="Edit column"
           onClick={handleModalWindowClose}
           boardId={boardId}

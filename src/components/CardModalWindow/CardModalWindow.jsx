@@ -12,15 +12,16 @@ import sprite from '../../assets/icons/sprite.svg';
 
 export const CardModalWindow = ({
   modalTitle,
-  inputTitle,
+  inputTitle = '',
+  description = '',
   titleModalButton,
   onSubmit,
   handleToggleModal,
 }) => {
   const theme = useSelector(selectorTheme);
 
-  const [value, setValue] = useState('');
-  const [coment, setComent] = useState('');
+  const [value, setValue] = useState(inputTitle);
+  const [coment, setComent] = useState(description);
   const [color, setColor] = useState('dark');
   const [date, setDate] = useState('');
 
@@ -65,7 +66,7 @@ export const CardModalWindow = ({
         <input
           className={`${s.inputModal} ${s[theme]}`}
           value={value}
-          placeholder={inputTitle}
+          placeholder={'Title'}
           onChange={e => setValue(e.target.value)}
         />
         <textarea
@@ -103,4 +104,6 @@ CardModalWindow.propTypes = {
   titleModalButton: PropTypes.string.isRequired,
   onSubmit: PropTypes.func,
   handleToggleModal: PropTypes.func,
+  id: PropTypes.func,
+  description: PropTypes.string,
 };

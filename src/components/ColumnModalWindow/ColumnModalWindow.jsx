@@ -10,7 +10,7 @@ import { addColumn, editColumn } from '../../redux/Columns/ColumnOperation';
 import { getBoardById } from '../../redux/Boards/boardsOperations';
 
 export const ColumnModalWindow = ({
-  inputTitle,
+  inputTitle = '',
   titleModalButton,
   modalTitle,
   onClick,
@@ -18,7 +18,7 @@ export const ColumnModalWindow = ({
   columnId,
 }) => {
   const dispatch = useDispatch();
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState(inputTitle);
   const theme = useSelector(selectorTheme);
 
   // const updateBoard = ()=>{
@@ -53,7 +53,7 @@ export const ColumnModalWindow = ({
         <input
           className={`${s.inputModal} ${s[theme]}`}
           value={value}
-          placeholder={inputTitle}
+          placeholder={'Title'}
           onChange={e => setValue(e.target.value)}
         />
         <button className={`${s.buttonModal} ${s[theme]}`} type="submit">
@@ -75,7 +75,7 @@ export const ColumnModalWindow = ({
 
 ColumnModalWindow.propTypes = {
   modalTitle: PropTypes.string.isRequired,
-  inputTitle: PropTypes.string.isRequired,
+  inputTitle: PropTypes.string,
   titleModalButton: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
   boardId: PropTypes.string.isRequired,

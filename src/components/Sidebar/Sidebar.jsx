@@ -37,7 +37,6 @@ export const Sidebar = () => {
       <Logout theme={theme} />
       {showModalWindow && (
         <BoardModalWindow
-          inputTitle="Title"
           titleModalButton="Create"
           modalTitle="New board"
           handleToggleModal={handleModalWindowClose}
