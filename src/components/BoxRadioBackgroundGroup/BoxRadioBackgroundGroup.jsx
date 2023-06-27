@@ -17,11 +17,11 @@ export const BoxRadioBackgroundGroup = ({ valueChange }) => {
   const theme = useSelector(selectorTheme);
 
   const dispatch = useDispatch();
-  const [selectedBackground, setSelectedBackground] = useState(null);
+  const [background, setBackground] = useState(null);
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     const selectedBackground = e.target.value;
-    setSelectedBackground(selectedBackground);
+    setBackground(selectedBackground);
     valueChange(selectedBackground);
   };
 
@@ -30,7 +30,7 @@ export const BoxRadioBackgroundGroup = ({ valueChange }) => {
   }, [dispatch]);
 
   useEffect(() => {
-    setSelectedBackground('default');
+    setBackground('default');
   }, []);
 
   return (
@@ -40,17 +40,17 @@ export const BoxRadioBackgroundGroup = ({ valueChange }) => {
         {/* Default Background */}
         <div
           className={`${s.radioContainer} ${s[theme]} ${
-            selectedBackground === 'default' ? s.selected : ''
+            background === 'default' ? s.selected : ''
           }`}
         >
           <input
             className={`${s.radioInput} ${s[theme]}`}
             type="radio"
             onChange={handleChange}
-            value="default"
+            value="null"
             name="background"
             id="radio-default"
-            checked={selectedBackground === 'default'}
+            checked={background === 'default'}
           />
           <label
             htmlFor="radio-default"
@@ -63,7 +63,7 @@ export const BoxRadioBackgroundGroup = ({ valueChange }) => {
           thumbnails.map((thumbnail, index) => (
             <div
               className={`${s.radioContainer} ${s[theme]} ${
-                selectedBackground === thumbnail.id ? s.selected : ''
+                background === thumbnail.id ? s.selected : ''
               }`}
               key={thumbnail.id}
             >
@@ -74,7 +74,7 @@ export const BoxRadioBackgroundGroup = ({ valueChange }) => {
                 value={thumbnail.id}
                 name="background"
                 id={`radio-${index}`}
-                checked={selectedBackground === thumbnail.id}
+                checked={background === thumbnail.id}
               />
               <label
                 htmlFor={`radio-${index}`}
