@@ -1,8 +1,8 @@
-import s from './BoardList.module.scss';
+import { useState } from 'react';
+import PropTypes from 'prop-types';
 import { BoardItem } from '../BoardItem/BoardItem';
 import sprite from 'assets/icons/sprite.svg';
-import PropTypes from 'prop-types';
-import { useState } from 'react';
+import s from './BoardList.module.scss';
 
 export const BoardList = ({ theme, boards }) => {
 
