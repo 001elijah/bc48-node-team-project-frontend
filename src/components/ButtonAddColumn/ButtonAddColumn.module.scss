@@ -1,6 +1,8 @@
 @import '../../assets/styles/vars';
+@import '../../assets/styles/mixins';
 
 .Button {
+  margin-bottom: 24px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -99,4 +101,15 @@
 }
 .Svg {
   stroke: inherit;
+}
+
+@include tablet {
+  .Button {
+    margin-bottom: 52px;
+  }
+}
+@include desktop {
+  .Button {
+    margin-bottom: 16px;
+  }
 }
