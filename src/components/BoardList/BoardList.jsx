@@ -5,14 +5,13 @@ import sprite from 'assets/icons/sprite.svg';
 import s from './BoardList.module.scss';
 
 export const BoardList = ({ theme, boards }) => {
-
   const [current, setCurrent] = useState(null);
 
   return (
     <ul className={s.list}>
       {boards.map(({ title, icon, _id }) => (
         <BoardItem
-          key={title}
+          key={_id}
           id={_id}
           boardName={title}
           icon={`${sprite}#${icon}`}

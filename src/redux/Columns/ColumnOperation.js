@@ -3,8 +3,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import {
   addColumnApi,
   removeColumnApi,
-  editColumnApi
-
+  editColumnApi,
 } from '../../services/backendAPI';
 
 export const addColumn = createAsyncThunk(
@@ -39,11 +38,8 @@ export const removeColumn = createAsyncThunk(
     try {
       const deleteColumn = await removeColumnApi(delData, token);
       return deleteColumn;
-
     } catch (error) {
       rejectWithValue(error.message);
     }
   },
 );
-
-

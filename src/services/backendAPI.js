@@ -70,10 +70,13 @@ export const getListOfBoardsApi = async userToken => {
 
 export const addColumnApi = async (dataColumn, userToken) => {
   token.set(userToken);
-  const { data } = await axios.post('board/column', dataColumn);
+  const { data } = await axios.post('/board/column', dataColumn);
   return data;
 };
-export const editColumnApi = async ({ title, boardId, columnId },userToken ) => {
+export const editColumnApi = async (
+  { title, boardId, columnId },
+  userToken,
+) => {
   token.set(userToken);
   const { data } = await axios.patch(`/board/column/${columnId}`, {
     title,
@@ -82,10 +85,9 @@ export const editColumnApi = async ({ title, boardId, columnId },userToken ) => 
   return data;
 };
 
-export const removeColumnApi = async ({columnId, boardId}, userToken) => {
+export const removeColumnApi = async ({ columnId, boardId }, userToken) => {
   token.set(userToken);
-   await axios.delete(`/board/column/${columnId}`, {data:{boardId}});
-   
+  await axios.delete(`/board/column/${columnId}`, { data: { boardId } });
 };
 
 //---------------------------------------------EMAIL---------------------//
@@ -93,6 +95,14 @@ export const removeColumnApi = async ({columnId, boardId}, userToken) => {
 export const sendEmailApi = async userEmail => {
   const { data } = await axios.post('/user/sendEmail', userEmail);
   return data.message;
+};
+
+//---------------------------------------------CARDS---------------------//
+
+export const getListOfCardsApi = async userToken => {
+  token.set(userToken);
+  const { data } = await axios.get('/card/');
+  return data;
 };
 
 export const addCardApi = async newCard => {
@@ -105,8 +115,9 @@ export const updateCardApi = async (id, cardData) => {
   return data;
 };
 
-export const updateCardColumnApi = async id => {
-  const { data } = await axios.patch(`/card/column/${id}`);
+export const updateCardColumnApi = async (columnData) => {
+  const { id: columnId, boardId, cardId } = columnData;
+  const { data } = await axios.patch(`/card/column/${cardId}`, {boardId, columnId});
   return data;
 };
 

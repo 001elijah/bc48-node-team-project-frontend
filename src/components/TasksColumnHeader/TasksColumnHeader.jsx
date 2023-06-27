@@ -28,7 +28,7 @@ export const TasksColumnHeader = ({ title, id, boardId }) => {
       boardId,
     };
     await dispatch(removeColumn(delData));
-    dispatch(getBoardById(boardId))
+    dispatch(getBoardById(boardId));
   };
 
   return (
@@ -47,7 +47,7 @@ export const TasksColumnHeader = ({ title, id, boardId }) => {
           </li>
         </ul>
       </div>
-      <TaskColumn />
+      <TaskColumn key={id} columnId={id} />
       {isModalOpen && (
         <ColumnModalWindow
           inputTitle={title}

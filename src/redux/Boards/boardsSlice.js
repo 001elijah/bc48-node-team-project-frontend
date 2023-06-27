@@ -25,6 +25,7 @@ const boardsSlice = createSlice({
       })
       .addCase(updateBoard.fulfilled, (state, { payload }) => {
         state = payload;
+
       });
   },
 });
