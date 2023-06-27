@@ -10,29 +10,41 @@ export const Wrapper = styled.div`
     padding-left: 0px;
     background-image: url(${props =>
       props.BASE_URL + 'mobile/x1/' + props.imgid});
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url(${props =>
+        props.BASE_URL + 'mobile/x2/' + props.imgid});
+    }
   }
   @media screen and (min-width: 768px) {
     padding-left: 24px;
     background-image: url(${props =>
       props.imgurl + 'tablet/x1/' + props.imgid});
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url(${props =>
+        props.BASE_URL + 'mobile/x2/' + props.imgid});
+    }
   }
   @media screen and (min-width: 1280px) {
     padding-left: 24px;
     background-image: url(${props =>
       props.imgurl + 'desktop/x1/' + props.imgid});
-  }
-  @media (min-device-pixel-ratio: 2),
-    (min-resolution: 192dpi),
-    (min-resolution: 2dppx) {
-    @content;
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url(${props =>
+        props.BASE_URL + 'mobile/x2/' + props.imgid});
+    }
   }
 `;
 export const ColumnsList = styled.ul`
-display:flex;
-
-`
+  display: flex;
+`;
 export const ContentBoard = styled.div`
-display:flex;
-wrap:nowrap;
-overflow:auto;
-`
+  display: flex;
+  wrap: nowrap;
+  overflow: auto;
+`;
