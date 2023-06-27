@@ -5,12 +5,13 @@ import shortid from 'shortid';
 import PropTypes from 'prop-types';
 
 import sprite from '../../assets/icons/sprite.svg';
-import { removeCard } from 'redux/Cards/cardsOperations';
+import { removeCard, updateCard } from 'redux/Cards/cardsOperations';
 import { selectorTheme } from 'redux/Auth/authSelectors';
 import { TaskControlButton } from '../TaskControlButton/TaskControlButton';
 import { ModalChangeColumn } from 'components/ModalChangeColumn/ModalChangeColumn';
 import { BackdropModal } from 'components/BackdropMain/BackdropMain';
 import s from './TaskCard.module.scss';
+import { CardModalWindow } from 'components/CardModalWindow/CardModalWindow';
 
 export const TaskCard = ({
   id,
@@ -24,7 +25,7 @@ export const TaskCard = ({
   const dispatch = useDispatch();
   const theme = useSelector(selectorTheme);
   const [isModalChangeOpen, setIsModalChangeOpen] = useState(false);
-  // const [isModalEditOpen, setIsModalEditOpen] = useState(false);
+  const [isModalEditOpen, setIsModalEditOpen] = useState(false);
 
   const date = new Date();
   // const currentTime = `${date.toISOString().split('T')[0]} ${
@@ -39,21 +40,27 @@ export const TaskCard = ({
 
   const closeModalChangeColumn = () => setIsModalChangeOpen(false);
 
-  // const openModalEditCard = () => {
-  //   setIsModalEditOpen(true);
-  // };
-  // const closeModalEditCard = () => {
-  //   setIsModalEditOpen(false);
-  // };
+  const handleEditCard = (dataForm) => {
+    const { value, coment, color, date } = dataForm;
+    // console.log(dispatch(updateCard(id,{title: value, description: coment, deadline: date, label: color,})))
+    dispatch(updateCard({id, title: value, description: coment, deadline: date, label: color,}))
+  }
+
+  const openModalEditCard = () => {
+    setIsModalEditOpen(true);
+  };
+  const closeModalEditCard = () => {
+    setIsModalEditOpen(false);
+  };
 
   return (
     <li className={clsx(s.cardWrapper, s[theme])}>
       <div
         className={clsx(
           s.priorityLine,
-          label === 'Medium' && s.bg_medium,
-          label === 'High' && s.bg_high,
-          label === 'Low' && s.bg_low,
+          label === 'medium' && s.bg_medium,
+          label === 'high' && s.bg_high,
+          label === 'low' && s.bg_low,
         )}
       ></div>
       <div className={s.infoWrapper}>
@@ -72,9 +79,9 @@ export const TaskCard = ({
               <div
                 className={clsx(
                   s.priorityCircle,
-                  label === 'Low' && s.bg_low,
-                  label === 'Medium' && s.bg_medium,
-                  label === 'High' && s.bg_high,
+                  label === 'low' && s.bg_low,
+                  label === 'medium' && s.bg_medium,
+                  label === 'high' && s.bg_high,
                 )}
               ></div>
               <p className={clsx(s.text, s[theme])}>{label}</p>
@@ -104,7 +111,7 @@ export const TaskCard = ({
               <TaskControlButton
                 icon="#icon-pencil"
                 onClick={() => {
-                  // openModalEditCard();
+                  openModalEditCard();
                 }}
               />
             </li>
@@ -127,7 +134,19 @@ export const TaskCard = ({
           />
         </BackdropModal>
       )}
-      {/* {isModalEditOpen && <ModalEditCard closeModal={closeModalEditCard} />} */}
+      {isModalEditOpen && 
+      <CardModalWindow
+        modalTitle="Edit card"
+        inputTitle="Edit card"
+        titleModalButton="Edit card"
+        handleToggleModal={closeModalEditCard}
+        // value={title}
+        // coment={description}
+        // date={deadline}
+        // color={label}
+        // title: value, description: coment, deadline: date, label: color
+        onSubmit={handleEditCard}
+      />}
     </li>
   );
 };

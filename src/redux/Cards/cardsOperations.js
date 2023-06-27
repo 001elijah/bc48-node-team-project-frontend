@@ -54,9 +54,10 @@ export const addCard = createAsyncThunk(
 
 export const updateCard = createAsyncThunk(
   'card/update',
-  async (id, data, { rejectWithValue }) => {
+  async (data, { rejectWithValue }) => {
+    const {title, description, deadline, label} = data
     try {
-      const newData = await updateCardApi(id, data);
+      const newData = await updateCardApi(data.id, {title, description, deadline, label});
       Notiflix.Notify.success('Your card has been successfully updated');
       return newData;
     } catch (error) {
