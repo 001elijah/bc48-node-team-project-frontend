@@ -1,370 +1,120 @@
-.contactList {
-  width: 450px;
-  list-style: none;
+@import '../../assets/styles/vars';
+
+.headerWrapper {
+  width: 201px;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 0px;
-  padding-left: 0px;
-  margin: 0 auto 0 auto;
-  /* margin-left: auto;
-    margin-right: auto; */
-}
+  margin-bottom: 28px;
+  justify-content: space-between;
+  font-family: 'Poppins-Medium';
+  font-size: 16px;
+  color: $dark-color;
+  padding-bottom: 0;
 
-.item {
-  width: 400px;
-  height: 40px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border: 2px solid blue;
-  border-radius: 15px;
-  padding: 10px 10px;
-  margin-bottom: 10px;
-}
-
-.item:first-child {
-  margin-top: 10px;
-}
-
-.itemBtn {
-  display: block;
-  height: 30px;
-  padding: 8px 12px;
-  border: none;
-  margin-left: auto;
-  cursor: pointer;
-}
-
-.number {
-  display: block;
-  margin-left: 10px;
-  /* margin-right: auto; */
-}
-
-.calendar {
-  position: absolute;
-  top: 240px;
-  left: 120px;
-  z-index: 1;
-  width: 217px;
-  // @include tablet {
-  //   top: -54px;
-  //   left: 484px;
-  //   z-index: 1;
-  // }
-  // @include desktop {
-  //   top: -54px;
-  //   left: 550px;
-  //   z-index: 1;
-  // }
-}
-
-.test {
-  background: white;
-
-  & > div {
-    padding: 18px;
+  & + div {
+    width: 201px;
+    & > * {
+      font-family: 'Poppins-Regular';
+      font-weight: 500;
+      font-size: 14px;
+      line-height: calc(21 / 14);
+      max-width: 23px;
+      max-height: 23px;
+      color: rgba(22, 22, 22, 0.5);
+      margin-bottom: 11px;
+    }
   }
 
-  & > div * {
-    background: inherit;
-    border: none;
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    top: 34px;
+    background-color: rgba(22, 22, 22, 0.2);
+    border-radius: 2px;
   }
 
-  & > div > div > div:first-child {
-    // strelka up
+  & button {
+    width: 18px;
+    height: 18px;
+    color: $accent-color;
+    cursor: pointer;
+  }
+}
+
+.calendarConatiner {
+  width: 201px;
+  height: 254px;
+  // height: 100%;
+
+  padding-top: 0;
+
+  border: 1px solid $accent-color;
+  border-radius: 8px;
+  background-color: $dark-color;
+
+  & > :first-child() {
     display: none;
   }
+}
 
-  & > div > div > div:last-child {
-    // background: red;
+.popperCustomClass {
+  width: 233px;
+  height: 254px;
+  padding: 18px;
 
-    & > div {
-      border: none;
-      background-color: blue;
-      & > div:nth-child(1) {
-        // назва мысяця
-        color: white;
-        margin-bottom: 24px;
+  overflow: hidden;
+
+  border: 1px solid $accent-color;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 1);
+
+  & > div * {
+    border: none;
+    background-color: rgba(255, 255, 255, 1);
+    padding: 0px;
+
+    & div > div + div > div > * {
+      width: 23px;
+      height: 23px;
+      color: $dark-color;
+
+      font-family: 'Poppins-Medium';
+      font-weight: 400;
+      font-size: 14px;
+      line-height: calc(18 / 14);
+
+      &:hover {
+        background-color: $accent-color;
+        border-radius: 50%;
+        color: #1f1f1f;
+      }
+
+      &[aria-disabled='true'] {
+        color: rgba(22, 22, 22, 0.2);
+        &:hover {
+          background-color: inherit;
+        }
+      }
+
+      &[aria-selected='true'] {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        background-color: $accent-color;
+        border-radius: 50%;
+        color: #1f1f1f;
       }
     }
 
-    & > div:last-child {
-      // дати 1-31
-      background: green;
-      color: white;
-      & > * {
-        // react-datepicker__week
-        // color: red;
-
-        & > * .react-datepicker__day--disabled {
-          color: green;
-        }
-
-        & > * {
-          // color: #161616;
-          color: white;
-        }
-      }
-    }
-
-    & > div > div {
-      // & > div:nth-child(1) {
-      //   color: red;
-      // }
-      & > * {
-        // назви тижня
-        // color: rgba(22, 22, 22, 0.5);
-
-        color: red;
-        font-size: 14px;
-        font-family: Poppins;
-        font-weight: 500;
-        letter-spacing: -0.28px;
-      }
+    &:nth-child(2) {
+      // // це дів 1-31
+      margin: 0px;
     }
   }
 
-  // & > div > div > div.react-datepicker__triangle {
-  //   // strelka up
-  //   display: none;
-  // }
+  & > div + div {
+    border: none;
+    background-color: $dark-color;
+  }
 }
-
-.popper {
-  width: 217px;
-  height: 220px;
-  position: absolute;
-  left: 120px;
-  padding: 0;
-}
-
-// :global .react-datepicker {
-//   width: 233px;
-//   min-height: 254px;
-
-//   background: #ffffff;
-//   border: 1px solid #bedbb0;
-//   border-radius: 8px;
-//   padding: 18px;
-// }
-
-// :global .react-datepicker__triangle {
-//   display: none;
-// }
-
-// :global .react-datepicker__header {
-//   /* align-items: center; */
-//   flex-wrap: wrap;
-//   /* justify-content: space-around; */
-//   border: none;
-//   outline: none;
-//   padding: 0;
-
-//   height: 60px;
-//   background: none;
-//   font-family: 'Lato-Regular';
-//   font-style: normal;
-//   font-weight: 700;
-//   font-size: 16px;
-//   line-height: 19px;
-// }
-
-// :global .react-datepicker__current-month {
-//   position: relative;
-
-//   font-family: 'Poppins';
-//   font-style: normal;
-//   font-weight: 500;
-//   font-size: 16px;
-//   line-height: 24px;
-//   margin-left: auto;
-//   margin-right: auto;
-
-//   letter-spacing: -0.32px;
-
-//   color: #161616;
-//   margin-top: 0;
-//   margin-bottom: 28px;
-//   &::after {
-//     content: '';
-//     position: absolute;
-//     width: 100%;
-//     height: 1px;
-//     left: 0;
-//     top: 40px;
-//     background-color: rgb(255, 255, 255, 0.2);
-//     border-radius: 2px;
-//   }
-// }
-
-// :global .react-datepicker__month {
-//   margin-top: 11px;
-// }
-
-// :global .react-datepicker__day {
-//   /* margin-left: auto;
-//   margin-right: auto; */
-//   margin-top: 0;
-//   margin-bottom: 11px;
-// }
-
-// :global .react-datepicker__week:first-child {
-//   padding-top: 11px;
-// }
-
-// :global .react-datepicker__week:last-child .react-datepicker__day {
-//   margin-bottom: 0px;
-// }
-
-// :global .react-datepicker__day-name {
-//   font-family: 'Poppins';
-//   font-style: normal;
-//   font-weight: 500;
-//   font-size: 14px;
-//   line-height: 21px;
-//   /* identical to box height */
-
-//   letter-spacing: -0.28px;
-
-//   color: rgba(22, 22, 22, 0.5);
-//   /* margin: 0; */
-//   /* margin-right: 11px; */
-// }
-
-// /* поточний день */
-// :global .react-datepicker__day.react-datepicker__day--selected {
-//   width: 24px;
-//   height: 24px;
-//   border-radius: 50%;
-
-//   background: rgba(190, 219, 176, 1);
-
-//   font-family: 'Poppins';
-//   font-style: normal;
-//   font-weight: 400;
-//   font-size: 14px;
-//   line-height: 24px;
-//   /* identical to box height, or 129% */
-
-//   letter-spacing: -0.02em;
-
-//   color: #1f1f1f;
-
-//   &:hover {
-//     background: rgba(190, 219, 176, 0.7);
-//     border-radius: 50%;
-//   }
-// }
-
-// :global .react-datepicker__day {
-//   width: 24px;
-//   height: 24px;
-//   margin-left: auto;
-
-//   color: #1f1f1f;
-//   font-weight: 100;
-
-//   &:hover {
-//     /* background: red; */
-//     border-radius: 50%;
-//     color: #1f1f1f;
-//   }
-// }
-
-// :global .react-datepicker__day-name {
-//   max-width: 23px;
-//   max-height: 23px;
-// }
-// :global .react-datepicker__day--keyboard-selected {
-//   background: #bedbb0;
-
-//   font-family: 'Poppins';
-//   font-style: normal;
-//   font-weight: 400;
-//   font-size: 14px;
-//   line-height: 24px;
-//   /* identical to box height, or 129% */
-
-//   letter-spacing: -0.02em;
-
-//   color: #1f1f1f;
-//   border-radius: 50%;
-
-//   &:hover {
-//     background: rgba(190, 219, 176, 0.7);
-//   }
-// }
-
-// :global .react-datepicker__day.react-datepicker__day--disabled {
-//   color: rgba(22, 22, 22, 0.2);
-// }
-
-// :global .react-datepicker__navigation {
-//   height: 60px;
-// }
-
-// :global .react-datepicker__navigation-icon {
-//   width: 6px;
-// }
-
-// :global .react-datepicker__navigation-icon--next {
-//   &::before {
-//     border-color: #bedbb0;
-//     height: 6px;
-//     width: 6px;
-//   }
-// }
-
-// :global .react-datepicker__navigation-icon--previous {
-//   &::before {
-//     border-color: rgba(190, 219, 176, 1);
-//     height: 6px;
-//     width: 6px;
-//   }
-// }
-
-// :global .react-datepicker__month .react-datepicker__month-text {
-//   padding: 6px 18px;
-//   margin: 0;
-//   width: 57px;
-
-//   font-family: 'Lato-Regular';
-//   font-style: normal;
-//   font-weight: 700;
-//   font-size: 16px;
-//   line-height: 19px;
-// }
-
-// :global .react-datepicker__month-container {
-//   float: none;
-// }
-
-// :global .react-datepicker__month-text {
-//   width: 57px;
-//   border-radius: 50px;
-//   font-style: normal;
-//   font-weight: 400;
-//   font-size: 14px;
-//   line-height: 17px;
-
-//   /* identical to box height */
-//   display: flex;
-//   align-items: center;
-// }
-
-// :global .react-datepicker__month-text--keyboard-selected {
-//   padding: 6px 18px;
-//   width: 57px;
-//   border-radius: 50px;
-//   font-style: normal;
-//   font-weight: 400;
-//   font-size: 14px;
-//   line-height: 17px;
-//   /* identical to box height */
-//   display: flex;
-//   align-items: center;
-
-//   color: #f3f3f3;
-// }

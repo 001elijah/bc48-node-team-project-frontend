@@ -1,0 +1,18 @@
+@import '../../assets/styles/vars';
+
+.svg {
+  margin-left: 8px;
+
+  fill: none;
+  cursor: pointer;
+
+  &.colorful {
+    stroke: rgba(82, 85, 188, 1);
+  }
+
+  &.dark,
+  &.light {
+    stroke: rgba(190, 219, 176, 1);
+    // fill: none;
+  }
+}

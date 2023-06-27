@@ -1,4 +1,4 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 import shortid from 'shortid';
@@ -14,26 +14,32 @@ import { CardModalWindow } from '../CardModalWindow/CardModalWindow';
 
 export const TasksColumnHeader = ({ title, id, boardId }) => {
   const dispatch = useDispatch();
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const handleModalWindowOpen = () => setIsModalOpen(true);
-  const handleModalWindowClose = () => setIsModalOpen(false);
+  // const [isModalOpen, setIsModalOpen] = useState(false);
+  // const handleModalWindowOpen = () => setIsModalOpen(true);
+  // const handleModalWindowClose = () => setIsModalOpen(false);
 
-  const [ModalOpen, setModalOpen] = useState(false);
-  const ModalWindowOpen = () => setModalOpen(true);
-  const ModalWindowClose = () => setModalOpen(false);
+  // const [ModalOpen, setModalOpen] = useState(false);
+  // const ModalWindowOpen = () => setModalOpen(true);
+  // const ModalWindowClose = () => setModalOpen(false);
+  // const theme = useSelector(selectorTheme);
+
+
   const theme = useSelector(selectorTheme);
+  // const [isModalOpen, setIsModalOpen] = useState(false);
+
 
   const openModalEditColumn = () => {
-    setIsModalOpen(true);
+    // setIsModalOpen(true);
   };
 
-  const deleteColumn = () => {
-    const delData = {
-      columnId: id,
-      boardId,
-    };
-    dispatch(delColumn(delData));
-  };
+
+  // const deleteColumn = () => {
+  //   const delData = {
+  //     columnId: id,
+  //     boardId,
+  //   };
+  //   dispatch(delColumn(delData));
+  // };
 
   // const closeModalEditColumn = () => setIsModalOpen(false);
   return (

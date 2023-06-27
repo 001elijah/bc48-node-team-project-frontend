@@ -8,6 +8,21 @@ import { Modal } from '../Modal/Modal';
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { sendEmail } from 'redux/Auth/authOperations';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
+
+const validationSchema = Yup.object({
+  email: Yup.string()
+    .email('Invalid email address')
+    .matches(
+      /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/,
+      'Invalid email address',
+    )
+    .required('Email address is required'),
+  comment: Yup.string()
+    .min(2, 'Comment must be at least 2 characters')
+    .required('Comment is required'),
+});
 
 export const HelpWindow = ({ theme }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -66,21 +81,35 @@ export const HelpWindow = ({ theme }) => {
       </button>
       {isModalOpen && (
         <Modal title="Need help" onClose={onClose} className={s.modal}>
-          <form onSubmit={onSubmit}>
-            <input
-              type="email"
-              name="email"
-              placeholder="Email address"
-              className={s.emailInput}
-            />
-            <textarea
-              type="text"
-              name="comment"
-              placeholder="Comment"
-              className={s.commentInput}
-            />
-            <button className={s.sendButton}>Send</button>
-          </form>
+          <Formik
+            initialValues={{ email: '', comment: '' }}
+            validationSchema={validationSchema}
+            onSubmit={onSubmit}
+          >
+            <Form>
+              <Field
+                type="email"
+                name="email"
+                placeholder="Email address"
+                className={clsx(s.emailInput, s[theme])}
+              />
+              <ErrorMessage name="email" component="div" className={s.error} />
+              <Field
+                as="textarea"
+                name="comment"
+                placeholder="Comment"
+                className={clsx(s.commentInput, s[theme])}
+              />
+              <ErrorMessage
+                name="comment"
+                component="div"
+                className={s.error}
+              />
+              <button type="submit" className={clsx(s.sendButton, s[theme])}>
+                Send
+              </button>
+            </Form>
+          </Formik>
         </Modal>
       )}
     </div>
