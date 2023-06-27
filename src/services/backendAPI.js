@@ -77,28 +77,26 @@ export const addColumnApi = async (dataColumn, userToken) => {
   console.log(data);
   return data;
 };
+export const editColumnApi = async ({ title, boardId, columnId }) => {
+  const { data } = await axios.patch(`/board/column/${columnId}`, {
+    title,
+    boardId,
+  });
+  return data;
+};
+
+export const removeColumnApi = async ({ boardId, columnId }) => {
+  console.log(boardId, columnId);
+  await axios.delete(`/board/column/${columnId}`, boardId);
+};
+
+
 
 //---------------------------------------------EMAIL---------------------//
 
 export const sendEmailApi = async userEmail => {
   const { data } = await axios.post('/user/sendEmail', userEmail);
   return data.message;
-};
-
-// export const addColumn = async board => {
-//   const { data } = await axios.post('board/column');
-//   console.log(data);
-//   return data;
-// };
-
-// export const editColumn = async board => {
-//   const { data } = await axios.post('/board');
-//   return data;
-// };
-
-export const removeColumnApi = async id => {
-  await axios.delete(`/board/column/${id}`);
-  return;
 };
 
 export const addCardApi = async newCard => {

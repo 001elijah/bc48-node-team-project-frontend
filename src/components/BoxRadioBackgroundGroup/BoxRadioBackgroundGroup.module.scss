@@ -1,3 +1,5 @@
+@import '../../assets/styles/vars';
+
 .backgroundGroupWrapper {
   display: block;
   margin-bottom: 40px;
@@ -12,7 +14,13 @@
   line-height: calc(21 / 14);
 
   letter-spacing: -0.02em;
-  color: #ffffff;
+  &.dark {
+    color: $white-text-color;
+  }
+  &.light,
+  &.colorful {
+    color: $black-text-color;
+  }
 }
 
 .radioWrapper {
@@ -47,38 +55,105 @@
   cursor: pointer;
 }
 
-.radioLabel1::before {
-  content: '';
-  display: block;
-  width: 28px;
-  height: 28px;
-  background-image: url('../../assets/images/Vector.png');
-  position: absolute;
-  top: 0;
-  left: 0;
+.radioLabel1 {
+  &.dark::before {
+    content: '';
+    display: block;
+    width: 28px;
+    height: 28px;
+    background-image: url('../../assets/images/defaultVectorDark.png');
+    position: absolute;
+    top: 0;
+    left: 0;
 
-  z-index: 1;
+    z-index: 1;
+  }
+
+  &.light::before {
+    content: '';
+    display: block;
+    width: 28px;
+    height: 28px;
+    background-image: url('../../assets/images/defaultVectorLight.png');
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    z-index: 1;
+  }
+
+  &.colorful::before {
+    content: '';
+    display: block;
+    width: 28px;
+    height: 28px;
+    background-image: url('../../assets/images/defaultVectorColorFul.png');
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    z-index: 1;
+  }
+
+  &.dark::after {
+    content: '';
+    display: block;
+    width: 28px;
+    height: 28px;
+    background-image: url('../../assets/images/defaultVectorDark.png');
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    z-index: 1;
+  }
+
+  &.light::after {
+    content: '';
+    display: block;
+    width: 28px;
+    height: 28px;
+    background-image: url('../../assets/images/defaultVectorLight.png');
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    z-index: 1;
+  }
+
+  &.colorful::after {
+    content: '';
+    display: block;
+    width: 28px;
+    height: 28px;
+    background-image: url('../../assets/images/defaultVectorColorFul.png');
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    z-index: 1;
+  }
 }
 
-.radioLabel1::after {
-  content: '';
-  display: block;
+// .radioLabel1::after {
+//   content: '';
+//   display: block;
 
-  width: 28px;
-  height: 28px;
+//   width: 28px;
+//   height: 28px;
 
-  position: absolute;
-  background-image: url('../../assets/images/Vector.png');
-  background-size: 105%;
-  z-index: 1;
+//   position: absolute;
+//   background-image: url('../../assets/images/defaultVectorDark.png');
+//   background-size: 105%;
+//   z-index: 1;
 
-  opacity: 0;
-  transition: opacity 0.1s linear;
-}
+//   opacity: 0;
+//   transition: opacity 0.1s linear;
+// }
 
-.radioInput1:checked + .radioLabel1::after {
-  opacity: 1;
-}
+// .radioInput1:checked + .radioLabel1::after {
+//   opacity: 1;
+// }
 
 // second input
 
