@@ -29,9 +29,8 @@ export const Wrapper = styled.div`
 `
 
 export const ColumnsList = styled.ul`
-display:flex;
-
-`
+  display: flex;
+`;
 export const ContentBoard = styled.div`
 display:flex;
 flex-wrap:nowrap;
