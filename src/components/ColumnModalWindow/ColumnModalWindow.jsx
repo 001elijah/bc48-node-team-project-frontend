@@ -7,6 +7,8 @@ import sprite from '../../assets/icons/sprite.svg';
 import s from './ColumnModalWindow.module.scss';
 import { addColumn, editColumn } from '../../redux/Columns/ColumnOperation';
 
+import { getBoardById } from '../../redux/Boards/boardsOperations';
+
 export const ColumnModalWindow = ({
   inputTitle,
   titleModalButton,
@@ -19,7 +21,11 @@ export const ColumnModalWindow = ({
   const [value, setValue] = useState('');
   const theme = useSelector(selectorTheme);
 
-  const handleSubmit = e => {
+// const updateBoard = ()=>{
+//   setTimeout(()=>{dispatch(getBoardById(boardId)),0 }) 
+// }
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (modalTitle === 'Edit column') {
       const editColumnTitle = {
@@ -27,16 +33,18 @@ export const ColumnModalWindow = ({
         columnId,
         boardId,
       };
-      dispatch(editColumn(editColumnTitle));
+      await dispatch(editColumn(editColumnTitle));
     } else {
       const newColumn = {
         title: value,
         boardId,
       };
-      dispatch(addColumn(newColumn));
+     await  dispatch(addColumn(newColumn));
     }
     setValue('');
     onClick();
+    dispatch(getBoardById(boardId))
+    // updateBoard()
   };
 
   return (
