@@ -28,7 +28,7 @@ export const TasksColumnHeader = ({ title, id, boardId }) => {
       boardId,
     };
     await dispatch(removeColumn(delData));
-    dispatch(getBoardById(boardId))
+    dispatch(getBoardById(boardId));
   };
 
   return (

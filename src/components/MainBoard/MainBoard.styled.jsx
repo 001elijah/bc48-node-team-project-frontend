@@ -28,11 +28,10 @@ export const Wrapper = styled.div`
   }
 `;
 export const ColumnsList = styled.ul`
-display:flex;
-
-`
+  display: flex;
+`;
 export const ContentBoard = styled.div`
-display:flex;
-wrap:nowrap;
-overflow:auto;
-`
+  display: flex;
+  wrap: nowrap;
+  overflow: auto;
+`;
