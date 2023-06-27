@@ -21,11 +21,11 @@ export const ColumnModalWindow = ({
   const [value, setValue] = useState('');
   const theme = useSelector(selectorTheme);
 
-const updateBoard = ()=>{
-  setTimeout(()=>{dispatch(getBoardById(boardId)),0 }) 
-}
+// const updateBoard = ()=>{
+//   setTimeout(()=>{dispatch(getBoardById(boardId)),0 }) 
+// }
 
-  const handleSubmit = e => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (modalTitle === 'Edit column') {
       const editColumnTitle = {
@@ -33,17 +33,18 @@ const updateBoard = ()=>{
         columnId,
         boardId,
       };
-      dispatch(editColumn(editColumnTitle));
+      await dispatch(editColumn(editColumnTitle));
     } else {
       const newColumn = {
         title: value,
         boardId,
       };
-      dispatch(addColumn(newColumn));
+     await  dispatch(addColumn(newColumn));
     }
     setValue('');
     onClick();
-    updateBoard()
+    dispatch(getBoardById(boardId))
+    // updateBoard()
   };
 
   return (
