@@ -5,8 +5,9 @@ import {
   getListOfBoardsApi,
   addBoardApi,
   getBoardByIdApi,
+  updateBoardApi
 } from '../../services/backendAPI';
-import { getListOfCards } from 'redux/Cards/cardsOperations';
+import { getListOfCards } from '../../redux/Cards/cardsOperations';
 
 
 export const addNewBoard = createAsyncThunk(
