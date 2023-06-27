@@ -1,19 +1,19 @@
 @import 'assets/styles/mixins';
 
 .list {
-  // height: 202px;
-  width: 100%;
-  margin-top: 40px;
-  overflow-y: auto;
-
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  row-gap: 4px;
+  height: calc(100vh - 611px);
+  width: 100%;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  overflow-y: auto;
 
   @include tablet {
-    // height: 380px;
+    height: calc(100vh - 655px);
   }
   @include desktop {
-  //  height: 126px;
+    height: calc(100vh - 646px);
   }
 }
