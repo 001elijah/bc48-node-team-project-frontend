@@ -31,12 +31,10 @@ export const ColumnModalWindow = ({
     } else {
       const newColumn = {
         title: value,
-        columnId,
+        boardId,
       };
       dispatch(addColumn(newColumn));
     }
-    console.log(value);
-
     setValue('');
     onClick();
   };

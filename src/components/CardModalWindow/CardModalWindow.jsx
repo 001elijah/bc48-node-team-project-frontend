@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { selectorTheme } from 'redux/Auth/authSelectors';
-import { ReusableColumnModalWindow } from '../ReusableColumnModalWindow/ReusableColumnModalWindow';
 import { Modal } from 'components/Modal/Modal';
 import { BoxRadioColorGroup } from 'components/BoxRadioColorGroup/BoxRadioColorGroup';
 import { CalendarDark } from 'components/CalendarDark/CalendarDark';
@@ -60,6 +59,7 @@ export const CardModalWindow = ({
     //   <BoxRadioColorGroup valueChange={handleChangeColor} />
     //   <CalendarDark onDate={setDate} />
     // </ReusableColumnModalWindow>
+
 
     <Modal title={modalTitle} onClose={handleToggleModal}>
       <form onSubmit={handleSubmit}>

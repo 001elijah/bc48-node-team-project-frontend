@@ -33,5 +33,6 @@ display:flex;
 `
 export const ContentBoard = styled.div`
 display:flex;
-wrap:nowrap
+wrap:nowrap;
+overflow:auto;
 `

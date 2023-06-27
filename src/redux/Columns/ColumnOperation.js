@@ -4,6 +4,7 @@ import {
   addColumnApi,
   removeColumnApi,
   editColumnApi
+
 } from '../../services/backendAPI';
 
 export const addColumn = createAsyncThunk(
@@ -38,9 +39,11 @@ export const delColumn = createAsyncThunk(
     try {
       const deleteColumn = await removeColumnApi(delData, token);
       return deleteColumn;
+
     } catch (error) {
       rejectWithValue(error.message);
     }
   },
 );
+
 

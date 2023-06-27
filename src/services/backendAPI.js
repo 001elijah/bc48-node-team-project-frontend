@@ -83,6 +83,8 @@ export const removeColumnApi = async ({ boardId, columnId }) => {
   await axios.delete(`/board/column/${columnId}`, boardId);
 };
 
+
+
 //---------------------------------------------EMAIL---------------------//
 
 export const sendEmailApi = async userEmail => {
