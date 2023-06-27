@@ -26,7 +26,7 @@ export const addNewBoard = createAsyncThunk(
 );
 
 export const editBoard = createAsyncThunk(
-  'boards/editboard',
+  'boards/editBoard',
   async ({ dataBoard, id }, { getState, rejectWithValue }) => {
     const { token } = getState().auth;
     try {
@@ -39,7 +39,7 @@ export const editBoard = createAsyncThunk(
 );
 
 export const removeBoard = createAsyncThunk(
-  'boards/removeboard',
+  'boards/removeBoard',
   async (id, { getState, rejectWithValue }) => {
     const { token } = getState().auth;
     try {

@@ -8,7 +8,7 @@ import { useDispatch } from 'react-redux';
 import { editBoard } from 'redux/Boards/boardsOperations';
 import { BoardModalWindow } from '../BoardModalWindow/BoardModalWindow';
 import { Modal } from '../Modal/Modal';
-import { removeBoard } from 'redux/Boards/boardsOperations';
+import { removeBoard, getBoardById } from 'redux/Boards/boardsOperations';
 
 export const BoardItem = ({
   boardName,
@@ -29,6 +29,7 @@ export const BoardItem = ({
 
   const handleToggleEditModal = () => {
     setIsOpenEditModal(prev => !prev);
+    dispatch(getBoardById(id));
   };
 
   const handleToggleRemoveModal = () => {
@@ -87,6 +88,7 @@ export const BoardItem = ({
           titleModalButton={'Edit'}
           handleToggleModal={handleToggleEditModal}
           onSubmit={editSubmit}
+          activeIcon={icon.slice(icon.indexOf('#') + 1, icon.length)}
         />
       )}
       {isOpenRemoveModal && (

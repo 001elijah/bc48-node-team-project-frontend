@@ -14,6 +14,7 @@ export const BoardModalWindow = ({
   titleModalButton,
   onSubmit,
   handleToggleModal,
+  activeIcon = 'icon-project',
 }) => {
   const theme = useSelector(selectorTheme);
   const [title, setTitle] = useState(inputTitle);
@@ -40,7 +41,7 @@ export const BoardModalWindow = ({
           placeholder={'Title'}
           onChange={e => setTitle(e.target.value)}
         />
-        <BoxRadioIconGroup valueChange={setIcon} />
+        <BoxRadioIconGroup valueChange={setIcon} activeIcon={activeIcon} />
         <BoxRadioBackgroundGroup valueChange={setBackground} />
         <button className={`${s.buttonModal} ${s[theme]}`} type="submit">
           <span className={`${s.iconButtonModalWrapper} ${s[theme]}`}>
@@ -66,4 +67,5 @@ BoardModalWindow.propTypes = {
   onSubmit: PropTypes.func,
   handleToggleModal: PropTypes.func,
   id: PropTypes.func,
+  activeIcon: PropTypes.string.isRequired,
 };

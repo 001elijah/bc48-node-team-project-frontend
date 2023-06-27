@@ -20,20 +20,20 @@ const boardsSlice = createSlice({
         state.allboards.push(...payload);
       })
       .addCase(addNewBoard.fulfilled, (state, { payload }) => {
-        state.push(payload);
+        state.allboards.push(payload);
       })
       .addCase(editBoard.fulfilled, (state, { payload }) => {
-        state.splice(
-          state.findIndex(({ _id }) => _id === payload._id),
+        state.allboards.splice(
+          state.allboards.findIndex(({ _id }) => _id === payload._id),
           1,
           payload,
         );
       })
       .addCase(removeBoard.fulfilled, (state, { payload }) => {
         const boardId = payload;
-        const index = state.findIndex(({ _id }) => _id === boardId);
+        const index = state.allboards.findIndex(({ _id }) => _id === boardId);
         if (index !== -1) {
-          state.splice(index, 1);
+          state.allboards.splice(index, 1);
         }
       })
       // .addCase(getBoardById.fulfilled, (state, { payload }) => {
