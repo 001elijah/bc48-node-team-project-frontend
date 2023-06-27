@@ -18,6 +18,18 @@ export const BoardItem = ({
   const [isOpenEditModal, setIsOpenEditModal] = useState(false);
   const dispatch = useDispatch();
 
+  // const handlEditSubmit = e => {
+  //   e.preventDefault();
+  //   const dataBoard = {
+  //     title: value,
+  //     icon,
+  //     background,
+  //   };
+  //   dispatch(editBoard({ dataBoard, id }));
+  //   setValue('');
+  //   onClick();
+  // };
+
   const handleToggleModal = () => {
     setIsOpenEditModal(prev => !prev);
   };
@@ -28,7 +40,7 @@ export const BoardItem = ({
         onClick={onClick}
         className={clsx(s.item, s[theme], isCurrent && s.current)}
       >
-        <NavLink to={`/home/${id}`}>
+        <NavLink to={`/home/${id}`} className={s.link}>
           <div className={s.projectNameWrapper}>
             <svg className={clsx(s.iconProject, s[theme])}>
               <use href={icon}></use>
@@ -63,6 +75,7 @@ export const BoardItem = ({
           modalTitle={'Edit board'}
           titleModalButton={'Edit'}
           onClick={handleToggleModal}
+          id={id}
         />
       )}
     </>

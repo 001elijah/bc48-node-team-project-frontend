@@ -52,6 +52,13 @@ export const addBoardApi = async (dataBoard, userToken) => {
   const { data } = await axios.post('/board/', dataBoard);
   return data;
 };
+
+export const editBoardApi = async ({ dataBoard, id }, userToken) => {
+  token.set(userToken);
+  const { data } = await axios.patch(`/board/${id}`, dataBoard);
+  return data;
+};
+
 export const getBoardByIdApi = async (boardName, userToken) => {
   token.set(userToken);
   const { data } = await axios.get(`/board/${boardName}`);
