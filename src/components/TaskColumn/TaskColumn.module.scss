@@ -1,19 +1,94 @@
 @import '../../assets/styles/vars';
 @import '../../assets/styles/mixins';
 
-.taskCardList {
+.taskCardListLight {
+  margin-bottom: 10px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  max-height: calc(100vh - 280px);
+
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 12px;
+    margin-left: 8px;
+    margin-right: 2px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(22, 22, 22, 0.1);
+    border-radius: 100vw;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: $background-color;
+    border-radius: 100vw;
+  }
+
+  @include tablet {
+    max-height: calc(100vh - 290px);
+  }
+
+  @include desktop {
+    max-height: calc(100vh - 278px);
+  }
+}
+.taskCardListDark {
   margin-bottom: 10px;
   overflow-y: auto;
   max-height: calc(100vh - 280px);
-}
 
-@include tablet {
-  .taskCardList {
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 12px;
+    margin-left: 8px;
+    margin-right: 2px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(18, 18, 18, 1);
+    border-radius: 100vw;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: $background-color;
+    border-radius: 100vw;
+  }
+
+  @include tablet {
     max-height: calc(100vh - 290px);
   }
+
+  @include desktop {
+    max-height: calc(100vh - 278px);
+  }
 }
-@include desktop {
-  .taskCardList {
+.taskCardListColorful {
+  margin-bottom: 10px;
+  overflow-y: auto;
+  max-height: calc(100vh - 280px);
+
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 12px;
+    margin-left: 8px;
+    margin-right: 2px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(184, 188, 253, 1);
+    border-radius: 100vw;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: $background-color;
+    border-radius: 100vw;
+  }
+
+  @include tablet {
+    max-height: calc(100vh - 290px);
+  }
+
+  @include desktop {
     max-height: calc(100vh - 278px);
   }
 }

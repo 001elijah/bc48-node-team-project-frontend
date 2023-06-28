@@ -62,10 +62,10 @@ export const BoardModalWindow = ({
 
 BoardModalWindow.propTypes = {
   modalTitle: PropTypes.string.isRequired,
-  inputTitle: PropTypes.string.isRequired,
+  inputTitle: PropTypes.string,
   titleModalButton: PropTypes.string.isRequired,
   onSubmit: PropTypes.func,
   handleToggleModal: PropTypes.func,
   id: PropTypes.func,
-  activeIcon: PropTypes.string.isRequired,
+  activeIcon: PropTypes.string,
 };
