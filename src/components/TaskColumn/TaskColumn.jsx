@@ -18,7 +18,7 @@ export const TaskColumn = ({ columnId }) => {
   const cards = useSelector(selectCards);
 
   const handleAddCard = dataForm => {
-    const { value, coment, color, date } = dataForm;
+    const { value, coment, color = 'without', date } = dataForm;
     dispatch(
       addCard({
         title: value,

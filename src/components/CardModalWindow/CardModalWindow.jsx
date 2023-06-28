@@ -15,6 +15,7 @@ export const CardModalWindow = ({
   inputTitle = '',
   description = '',
   titleModalButton,
+  activeColor = 'without',
   onSubmit,
   handleToggleModal,
 }) => {
@@ -22,7 +23,7 @@ export const CardModalWindow = ({
 
   const [value, setValue] = useState(inputTitle);
   const [coment, setComent] = useState(description);
-  const [color, setColor] = useState('dark');
+  const [color, setColor] = useState(activeColor);
   const [date, setDate] = useState('');
 
   const handleChangeColor = value => {
@@ -80,7 +81,10 @@ export const CardModalWindow = ({
         {theme === 'dark' && <CalendarDark onDate={setDate} />}
         {theme === 'light' && <CalendarLight onDate={setDate} />}
         {theme === 'colorful' && <CalendarColorful onDate={setDate} />}
-        <BoxRadioColorGroup valueChange={handleChangeColor} />
+        <BoxRadioColorGroup
+          activeColor={color}
+          valueChange={handleChangeColor}
+        />
         <button className={`${s.buttonModal} ${s[theme]}`} type="submit">
           <span className={`${s.iconButtonModalWrapper} ${s[theme]}`}>
             <svg
@@ -100,10 +104,11 @@ export const CardModalWindow = ({
 
 CardModalWindow.propTypes = {
   modalTitle: PropTypes.string.isRequired,
-  inputTitle: PropTypes.string.isRequired,
+  inputTitle: PropTypes.string,
   titleModalButton: PropTypes.string.isRequired,
   onSubmit: PropTypes.func,
   handleToggleModal: PropTypes.func,
   id: PropTypes.func,
   description: PropTypes.string,
+  activeColor: PropTypes.string,
 };

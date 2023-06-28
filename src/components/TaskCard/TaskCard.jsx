@@ -17,7 +17,7 @@ export const TaskCard = ({
   id,
   title,
   description,
-  label = 'Low',
+  label = 'low',
   deadline = '26/06/2023',
   boardId,
   columnId,
@@ -145,6 +145,7 @@ export const TaskCard = ({
           description={description}
           titleModalButton="Edit"
           handleToggleModal={closeModalEditCard}
+          activeColor={label}
           // value={title}
           // coment={description}
           // date={deadline}
