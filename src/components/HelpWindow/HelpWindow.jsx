@@ -5,7 +5,7 @@ import flower2x from 'assets/images/flower@2x-min.png';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { Modal } from '../Modal/Modal';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { sendEmail } from 'redux/Auth/authOperations';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
@@ -32,19 +32,17 @@ export const HelpWindow = ({ theme }) => {
     setIsModalOpen(true);
   };
 
-  const onClose = () => {
+  const onClose = useCallback(() => {
     setIsModalOpen(false);
-  };
+  }, []);
 
-  const onSubmit = e => {
-    e.preventDefault();
-
-    const email = e.target.email.value;
-    const comment = e.target.comment.value;
-
-    dispatch(sendEmail({ email, comment }));
-    onClose();
-  };
+  const onSubmit = useCallback(
+    ({ email, comment }) => {
+      dispatch(sendEmail({ email, comment }));
+      onClose();
+    },
+    [dispatch, onClose],
+  );
 
   useEffect(() => {
     document.body.classList.toggle('no-scroll', isModalOpen);

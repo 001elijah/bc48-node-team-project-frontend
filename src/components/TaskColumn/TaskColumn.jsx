@@ -11,6 +11,7 @@ import { currentBoard } from 'redux/Boards/boardsSelectors';
 import s from './TaskColumn.module.scss';
 import { selectorTheme } from 'redux/Auth/authSelectors';
 import clsx from 'clsx';
+import { selectorFilter } from '../../redux/Filter/filterSelection';
 
 export const TaskColumn = ({ columnId }) => {
   const dispatch = useDispatch();
@@ -19,7 +20,31 @@ export const TaskColumn = ({ columnId }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const ModalWindowOpen = () => setModalOpen(true);
   const modalWindowClose = () => setModalOpen(false);
-  const cards = useSelector(selectCards);
+  const allCards = useSelector(selectCards);
+  const filter = useSelector(selectorFilter);
+
+  let cards = [];
+
+  if (!filter) {
+    cards = allCards;
+  } else {
+    switch (filter) {
+      case 'low':
+        cards = allCards.filter(item => item.label === 'low');
+        break;
+      case 'medium':
+        cards = allCards.filter(item => item.label === 'medium');
+        break;
+      case 'high':
+        cards = allCards.filter(item => item.label === 'high');
+        break;
+      case 'without':
+        cards = allCards.filter(item => item.label === 'without');
+        break;
+      default:
+        cards = allCards;
+    }
+  }
 
   const handleAddCard = dataForm => {
     const { value, coment, color = 'without', date } = dataForm;
@@ -34,7 +59,7 @@ export const TaskColumn = ({ columnId }) => {
       }),
     );
   };
-
+  if (cards?.length === 0) return;
   return (
     <>
       <ul

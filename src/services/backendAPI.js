@@ -2,7 +2,7 @@ import axios from 'axios';
 
 axios.defaults.baseURL = 'https://taskpro.onrender.com';
 
-//axios.defaults.baseURL = 'http://localhost:3000';
+// axios.defaults.baseURL = 'http://localhost:3000';
 
 const token = {
   set(token) {
@@ -107,7 +107,6 @@ export const removeColumnApi = async ({ columnId, boardId }, userToken) => {
 };
 
 //---------------------------------------------CARDS---------------------//
-
 export const getListOfCardsApi = async userToken => {
   token.set(userToken);
   const { data } = await axios.get('/card/');
@@ -138,6 +137,7 @@ export const removeCardApi = async id => {
   return;
 };
 
+//---------------------------------------------GOOGLE---------------------//
 export const authWithGoogleApi = async data => {
   const { credential } = data;
   const { idToken } = credential;
@@ -154,4 +154,10 @@ export const authWithGoogleApi = async data => {
 export const sendEmailApi = async userEmail => {
   const { data } = await axios.post('/user/sendEmail', userEmail);
   return data.message;
+};
+
+//---------------------------------------------BACKGROUND---------------------//
+export const getBackgroundThumbnails = async () => {
+  const response = await axios.get('board/thumbnails');
+  return response.data;
 };
