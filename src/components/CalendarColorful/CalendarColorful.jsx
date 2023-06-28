@@ -7,8 +7,8 @@ import PropTypes from 'prop-types';
 import { CalendarButton } from '../CalendarButton/CalendarButton';
 import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 
-export const CalendarColorful = ({ onDate }) => {
-  const [startDate, setStartDate] = useState(new Date());
+export const CalendarColorful = ({ onDate, deadline = String(new Date()) }) => {
+  const [startDate, setStartDate] = useState(deadline);
   const months = [
     'January',
     'February',
@@ -29,19 +29,20 @@ export const CalendarColorful = ({ onDate }) => {
 
   return (
     <DatePicker
-      dateFormat=", yy, MMMM d"
-      selected={startDate}
+      dateFormat="yyyy, MMMM ,d"
+      selected={Date.parse(startDate)}
       calendarClassName={s.calendarConatiner}
       popperClassName={s.popperCustomClass}
       // formatWeekDay={day => day.substr(0, 2)}
       customInput={
         <CalendarButton
+          value={String(startDate)}
           onClick={e => {
             console.log(e.target);
           }}
         />
       }
-      onChange={date => setStartDate(date)}
+      onChange={date => setStartDate(String(date))}
       minDate={new Date()}
       wrapperClassName={s.calendar}
       weekNumber={5}
@@ -80,4 +81,5 @@ export const CalendarColorful = ({ onDate }) => {
 
 CalendarColorful.propTypes = {
   onDate: PropTypes.func,
+  deadline: PropTypes.string,
 };

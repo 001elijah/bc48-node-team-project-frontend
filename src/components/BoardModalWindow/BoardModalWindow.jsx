@@ -20,16 +20,23 @@ export const BoardModalWindow = ({
   const [title, setTitle] = useState(inputTitle);
   const [background, setBackground] = useState('dark');
   const [icon, setIcon] = useState('');
+  const [isValid, setIsValid] = useState(false);
 
   const handleSubmit = e => {
     e.preventDefault();
-    const newCard = {
-      title: title,
-      icon,
-      background,
-    };
-    onSubmit(newCard);
-    handleToggleModal();
+
+    if (title === '') {
+      setIsValid(true);
+      setTimeout(() => setIsValid(false), 2500);
+    } else {
+      const newCard = {
+        title: title,
+        icon,
+        background,
+      };
+      onSubmit(newCard);
+      handleToggleModal();
+    }
   };
 
   return (
@@ -41,6 +48,8 @@ export const BoardModalWindow = ({
           placeholder={'Title'}
           onChange={e => setTitle(e.target.value)}
         />
+        {isValid && <p className={s.errorTitle}>required field</p>}
+
         <BoxRadioIconGroup valueChange={setIcon} activeIcon={activeIcon} />
         <BoxRadioBackgroundGroup valueChange={setBackground} />
         <button className={`${s.buttonModal} ${s[theme]}`} type="submit">
