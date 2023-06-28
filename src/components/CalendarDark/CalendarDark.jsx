@@ -5,7 +5,7 @@ import { getMonth, getYear } from 'date-fns';
 import 'react-datepicker/dist/react-datepicker.css';
 import s from './CalendarDark.module.scss';
 import PropTypes from 'prop-types';
-import { CalendarButton } from '../CalendarButton/CalendarButton';
+import { CalendarButton } from '../../components/CalendarButton/CalendarButton';
 import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 
 export const CalendarDark = ({ onDate }) => {
