@@ -38,7 +38,7 @@
     margin-right: 4px;
   }
   @include mobile {
-    width: 300px;
+    width: 280px;
   }
 }
 
@@ -47,8 +47,8 @@
   margin-right: 4px;
   margin-bottom: 4px;
   background: inherit;
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
 
   &.selected {
     border-radius: 6px;

@@ -59,7 +59,6 @@ export const TaskColumn = ({ columnId }) => {
       }),
     );
   };
-
   return (
     <>
       <ul
@@ -85,7 +84,6 @@ export const TaskColumn = ({ columnId }) => {
               columnId={task.columnId}
             />
           ))}
-        {/* <TaskCard columnId={columnId} /> */}
       </ul>
       <AddButton
         title="Add another card"
