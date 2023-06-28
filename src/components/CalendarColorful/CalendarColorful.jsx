@@ -9,7 +9,6 @@ import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 
 export const CalendarColorful = ({ onDate, deadline = String(new Date()) }) => {
   const [startDate, setStartDate] = useState(deadline);
-  console.log(startDate);
   const months = [
     'January',
     'February',
@@ -43,7 +42,7 @@ export const CalendarColorful = ({ onDate, deadline = String(new Date()) }) => {
           }}
         />
       }
-      onChange={date => setStartDate(date)}
+      onChange={date => setStartDate(String(date))}
       minDate={new Date()}
       wrapperClassName={s.calendar}
       weekNumber={5}

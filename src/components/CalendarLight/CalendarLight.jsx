@@ -42,7 +42,7 @@ export const CalendarLight = ({ onDate, deadline = String(new Date()) }) => {
           }}
         />
       }
-      onChange={date => setStartDate(date)}
+      onChange={date => setStartDate(String(date))}
       minDate={new Date()}
       wrapperClassName={s.calendar}
       weekNumber={5}
