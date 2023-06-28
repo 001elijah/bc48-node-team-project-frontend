@@ -30,7 +30,7 @@ export const BoxRadioBackgroundGroup = ({ valueChange }) => {
             className={s.radioInput1}
             type="radio"
             onChange={handleCheked}
-            value=""
+            value="one"
             name="background"
             id="one"
             checked={background === 'one'}
