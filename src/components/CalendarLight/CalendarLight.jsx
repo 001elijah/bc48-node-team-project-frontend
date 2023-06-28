@@ -36,6 +36,7 @@ export const CalendarLight = ({ onDate }) => {
       // formatWeekDay={day => day.substr(0, 2)}
       customInput={
         <CalendarButton
+          value={String(startDate)}
           onClick={e => {
             console.log(e.target);
           }}

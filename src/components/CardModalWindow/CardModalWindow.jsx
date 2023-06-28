@@ -20,6 +20,7 @@ export const CardModalWindow = ({
 }) => {
   const theme = useSelector(selectorTheme);
 
+  const [isValid, setIsValid] = useState(false);
   const [value, setValue] = useState(inputTitle);
   const [coment, setComent] = useState(description);
   const [color, setColor] = useState('dark');
@@ -31,36 +32,24 @@ export const CardModalWindow = ({
 
   const handleSubmit = e => {
     e.preventDefault();
-    const newCard = {
-      value,
-      coment,
-      color,
-      date,
-    };
 
-    onSubmit(newCard);
-    handleToggleModal();
+    if (value === '') {
+      setIsValid(true);
+      setTimeout(() => setIsValid(false), 2500);
+    } else {
+      const newCard = {
+        value,
+        coment,
+        color,
+        date,
+      };
+
+      onSubmit(newCard);
+      handleToggleModal();
+    }
   };
 
   return (
-    // <ReusableColumnModalWindow
-    //   modalTitle={modalTitle}
-    //   inputTitle={inputTitle}
-    //   titleModalButton={titleModalButton}
-    //   onClick={handleAddCard}
-    // >
-    //   <textarea
-    //     onChange={e => setComent(e.target.value)}
-    //     className={`${s.textAreaStyle} ${s[theme]}`}
-    //     name="coments"
-    //     id="coments"
-    //     placeholder="Description"
-    //     value={coment}
-    //   ></textarea>
-    //   <BoxRadioColorGroup valueChange={handleChangeColor} />
-    //   <CalendarDark onDate={setDate} />
-    // </ReusableColumnModalWindow>
-
     <Modal title={modalTitle} onClose={handleToggleModal}>
       <form onSubmit={handleSubmit}>
         <input
@@ -69,6 +58,7 @@ export const CardModalWindow = ({
           placeholder={'Title'}
           onChange={e => setValue(e.target.value)}
         />
+        {isValid && <p className={s.errorTitle}>required field</p>}
         <textarea
           onChange={e => setComent(e.target.value)}
           className={`${s.textAreaStyle} ${s[theme]}`}
@@ -100,7 +90,7 @@ export const CardModalWindow = ({
 
 CardModalWindow.propTypes = {
   modalTitle: PropTypes.string.isRequired,
-  inputTitle: PropTypes.string.isRequired,
+  inputTitle: PropTypes.string,
   titleModalButton: PropTypes.string.isRequired,
   onSubmit: PropTypes.func,
   handleToggleModal: PropTypes.func,

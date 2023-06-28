@@ -37,7 +37,7 @@ export const CalendarColorful = ({ onDate }) => {
       // formatWeekDay={day => day.substr(0, 2)}
       customInput={
         <CalendarButton
-          value={startDate}
+          value={String(startDate)}
           onClick={e => {
             console.log(e.target);
           }}

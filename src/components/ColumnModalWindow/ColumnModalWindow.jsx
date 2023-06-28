@@ -20,6 +20,7 @@ export const ColumnModalWindow = ({
   const dispatch = useDispatch();
   const [value, setValue] = useState(inputTitle);
   const theme = useSelector(selectorTheme);
+  const [isValid, setIsValid] = useState(false);
 
   // const updateBoard = ()=>{
   //   setTimeout(()=>{dispatch(getBoardById(boardId)),0 })
@@ -27,24 +28,29 @@ export const ColumnModalWindow = ({
 
   const handleSubmit = async e => {
     e.preventDefault();
-    if (modalTitle === 'Edit column') {
-      const editColumnTitle = {
-        title: value,
-        columnId,
-        boardId,
-      };
-      await dispatch(editColumn(editColumnTitle));
+
+    if (value === '') {
+      setIsValid(true);
+      setTimeout(() => setIsValid(false), 2500);
     } else {
-      const newColumn = {
-        title: value,
-        boardId,
-      };
-      await dispatch(addColumn(newColumn));
+      if (modalTitle === 'Edit column') {
+        const editColumnTitle = {
+          title: value,
+          columnId,
+          boardId,
+        };
+        await dispatch(editColumn(editColumnTitle));
+      } else {
+        const newColumn = {
+          title: value,
+          boardId,
+        };
+        await dispatch(addColumn(newColumn));
+      }
+      setValue('');
+      onClick();
+      dispatch(getBoardById(boardId));
     }
-    setValue('');
-    onClick();
-    dispatch(getBoardById(boardId));
-    // updateBoard()
   };
 
   return (
@@ -53,9 +59,10 @@ export const ColumnModalWindow = ({
         <input
           className={`${s.inputModal} ${s[theme]}`}
           value={value}
-          placeholder={'Title'}
+          placeholder="Title"
           onChange={e => setValue(e.target.value)}
         />
+        {isValid && <p className={s.errorTitle}>required field</p>}
         <button className={`${s.buttonModal} ${s[theme]}`} type="submit">
           <span className={`${s.iconButtonModalWrapper} ${s[theme]}`}>
             <svg

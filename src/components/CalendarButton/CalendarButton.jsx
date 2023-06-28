@@ -8,7 +8,6 @@ import IconCalendar from 'components/IconCalendar/IconCalendar';
 
 export const CalendarButton = forwardRef(({ value, onClick }, ref) => {
   const theme = useSelector(selectorTheme);
-
   const curentDays = new Date(value).toLocaleDateString('en-us', {
     weekday: 'long',
     year: 'numeric',
@@ -34,7 +33,7 @@ export const CalendarButton = forwardRef(({ value, onClick }, ref) => {
   );
 });
 
-CalendarButton.displayName = 'CustomsButton';
+CalendarButton.displayName = 'CalendarButton';
 
 CalendarButton.propTypes = {
   value: PropTypes.string,
