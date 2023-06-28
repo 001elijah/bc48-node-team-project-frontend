@@ -7,8 +7,8 @@ import PropTypes from 'prop-types';
 import { CalendarButton } from '../CalendarButton/CalendarButton';
 import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 
-export const CalendarLight = ({ onDate }) => {
-  const [startDate, setStartDate] = useState(new Date());
+export const CalendarLight = ({ onDate, deadline = String(new Date()) }) => {
+  const [startDate, setStartDate] = useState(deadline);
   const months = [
     'January',
     'February',
@@ -30,7 +30,7 @@ export const CalendarLight = ({ onDate }) => {
   return (
     <DatePicker
       dateFormat="yyyy, MMMM ,d"
-      selected={startDate}
+      selected={Date.parse(startDate)}
       calendarClassName={s.calendarConatiner}
       popperClassName={s.popperCustomClass}
       // formatWeekDay={day => day.substr(0, 2)}
@@ -81,4 +81,5 @@ export const CalendarLight = ({ onDate }) => {
 
 CalendarLight.propTypes = {
   onDate: PropTypes.func,
+  deadline: PropTypes.string,
 };

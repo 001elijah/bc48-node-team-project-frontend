@@ -1,4 +1,3 @@
-/* eslint-disable react/display-name */
 import { useEffect, useState } from 'react';
 import DatePicker from 'react-datepicker';
 import { getMonth, getYear } from 'date-fns';
