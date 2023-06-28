@@ -37,7 +37,7 @@ export const CalendarColorful = ({ onDate }) => {
       customInput={
         <CalendarButton
           onClick={e => {
-            console.log(e.target.toLocaleDateString('fr-FR'));
+            console.log(e.target);
           }}
         />
       }
