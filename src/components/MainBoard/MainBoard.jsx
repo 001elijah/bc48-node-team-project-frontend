@@ -70,7 +70,6 @@ export const MainBoard = () => {
       </Wrapper>
       {showModalWindow && (
         <ColumnModalWindow
-          inputTitle="Title"
           titleModalButton="Add"
           modalTitle="Add column"
           onClick={handleModalWindowClose}

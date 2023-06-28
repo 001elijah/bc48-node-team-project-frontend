@@ -42,6 +42,7 @@
 
   &.current {
     color: $priority-high-color;
+    pointer-events: none;
   }
 
   &.dark {

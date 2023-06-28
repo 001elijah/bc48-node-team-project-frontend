@@ -5,64 +5,72 @@ import shortid from 'shortid';
 import PropTypes from 'prop-types';
 
 import sprite from '../../assets/icons/sprite.svg';
-import { removeCard } from 'redux/Cards/cardsOperations';
+import { removeCard, updateCard } from 'redux/Cards/cardsOperations';
 import { selectorTheme } from 'redux/Auth/authSelectors';
 import { TaskControlButton } from '../TaskControlButton/TaskControlButton';
 import { ModalChangeColumn } from 'components/ModalChangeColumn/ModalChangeColumn';
 import { BackdropModal } from 'components/BackdropMain/BackdropMain';
 import s from './TaskCard.module.scss';
+import { CardModalWindow } from 'components/CardModalWindow/CardModalWindow';
 
 export const TaskCard = ({
   id,
   title,
   description,
-  label = 'Low',
-  deadline = '26/06/2023',
+  label,
+  deadline,
   boardId,
   columnId,
 }) => {
   const dispatch = useDispatch();
   const theme = useSelector(selectorTheme);
   const [isModalChangeOpen, setIsModalChangeOpen] = useState(false);
-  // const [isModalEditOpen, setIsModalEditOpen] = useState(false);
+  const [isModalEditOpen, setIsModalEditOpen] = useState(false);
 
-  const date = new Date();
-  // const currentTime = `${date.toISOString().split('T')[0]} ${
-  //   date.toTimeString().split(' ')[0]
-  // }`;
-  // const isDeadline = deadline === currentTime.slice(0, -3);
-  const isDeadline = deadline === date.toLocaleDateString('en-GB');
-  // console.log(date);
+  const currentDate = new Date().toLocaleDateString('en-GB');
+  const endDate = new Date(deadline).toLocaleDateString('en-GB');
+
+  const isDeadline = endDate === currentDate;
+
   const openModalChangeColumn = () => {
     setIsModalChangeOpen(true);
   };
 
   const closeModalChangeColumn = () => setIsModalChangeOpen(false);
 
-  // const openModalEditCard = () => {
-  //   setIsModalEditOpen(true);
-  // };
-  // const closeModalEditCard = () => {
-  //   setIsModalEditOpen(false);
-  // };
+  const handleEditCard = dataForm => {
+    const { value, coment, color, date } = dataForm;
+    dispatch(
+      updateCard({
+        id,
+        title: value,
+        description: coment,
+        deadline: date,
+        label: color,
+      }),
+    );
+  };
+
+  const openModalEditCard = () => {
+    setIsModalEditOpen(true);
+  };
+  const closeModalEditCard = () => {
+    setIsModalEditOpen(false);
+  };
 
   return (
     <li className={clsx(s.cardWrapper, s[theme])}>
       <div
         className={clsx(
           s.priorityLine,
-          label === 'Medium' && s.bg_medium,
-          label === 'High' && s.bg_high,
-          label === 'Low' && s.bg_low,
+          label === 'medium' && s.bg_medium,
+          label === 'high' && s.bg_high,
+          label === 'low' && s.bg_low,
         )}
       ></div>
       <div className={s.infoWrapper}>
-        <h4 className={clsx(s.title, s[theme])}>
-          {title}
-        </h4>
-        <p className={clsx(s.description, s[theme])}>
-          {description}
-        </p>
+        <h4 className={clsx(s.title, s[theme])}>{title}</h4>
+        <p className={clsx(s.description, s[theme])}>{description}</p>
       </div>
       <div className={clsx(s.controlPanel, s[theme])}>
         <div className={s.statusInfo}>
@@ -72,9 +80,9 @@ export const TaskCard = ({
               <div
                 className={clsx(
                   s.priorityCircle,
-                  label === 'Low' && s.bg_low,
-                  label === 'Medium' && s.bg_medium,
-                  label === 'High' && s.bg_high,
+                  label === 'low' && s.bg_low,
+                  label === 'medium' && s.bg_medium,
+                  label === 'high' && s.bg_high,
                 )}
               ></div>
               <p className={clsx(s.text, s[theme])}>{label}</p>
@@ -82,7 +90,7 @@ export const TaskCard = ({
           </div>
           <div>
             <h5 className={clsx(s.subtitle, s[theme])}>Deadline</h5>
-            <p className={clsx(s.text, s[theme])}>{deadline}</p>
+            <p className={clsx(s.text, s[theme])}>{endDate}</p>
           </div>
         </div>
         <div className={s.iconsWrapper}>
@@ -104,7 +112,7 @@ export const TaskCard = ({
               <TaskControlButton
                 icon="#icon-pencil"
                 onClick={() => {
-                  // openModalEditCard();
+                  openModalEditCard();
                 }}
               />
             </li>
@@ -127,17 +135,31 @@ export const TaskCard = ({
           />
         </BackdropModal>
       )}
-      {/* {isModalEditOpen && <ModalEditCard closeModal={closeModalEditCard} />} */}
+      {isModalEditOpen && (
+        <CardModalWindow
+          modalTitle="Edit card"
+          inputTitle={title}
+          description={description}
+          titleModalButton="Edit"
+          handleToggleModal={closeModalEditCard}
+          // value={title}
+          // coment={description}
+          // date={deadline}
+          // color={label}
+          // title: value, description: coment, deadline: date, label: color
+          onSubmit={handleEditCard}
+        />
+      )}
     </li>
   );
 };
 
 TaskCard.propTypes = {
-  id: PropTypes.string,
-  title: PropTypes.string,
-  description: PropTypes.string,
-  label: PropTypes.string,
-  deadline: PropTypes.string,
-  boardId: PropTypes.string,
-  columnId: PropTypes.string,
+  id: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  deadline: PropTypes.string.isRequired,
+  boardId: PropTypes.string.isRequired,
+  columnId: PropTypes.string.isRequired,
 };

@@ -25,7 +25,8 @@ const returnStatusNotify = status => {
   }
 };
 
-export const getListOfCards = createAsyncThunk('cards/getListOfCards',
+export const getListOfCards = createAsyncThunk(
+  'cards/getListOfCards',
   async (_, { getState, rejectWithValue }) => {
     const { token } = getState().auth;
     try {
@@ -34,7 +35,8 @@ export const getListOfCards = createAsyncThunk('cards/getListOfCards',
     } catch (error) {
       rejectWithValue(error.message);
     }
-  })
+  },
+);
 
 export const addCard = createAsyncThunk(
   'card/add',
@@ -54,9 +56,15 @@ export const addCard = createAsyncThunk(
 
 export const updateCard = createAsyncThunk(
   'card/update',
-  async (id, data, { rejectWithValue }) => {
+  async (data, { rejectWithValue }) => {
+    const { title, description, deadline, label } = data;
     try {
-      const newData = await updateCardApi(id, data);
+      const newData = await updateCardApi(data.id, {
+        title,
+        description,
+        deadline,
+        label,
+      });
       Notiflix.Notify.success('Your card has been successfully updated');
       return newData;
     } catch (error) {

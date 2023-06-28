@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-//axios.defaults.baseURL = 'https://taskpro.onrender.com';
+axios.defaults.baseURL = 'https://taskpro.onrender.com';
 
-axios.defaults.baseURL = 'http://localhost:3000';
+//axios.defaults.baseURL = 'http://localhost:3000';
 
 const token = {
   set(token) {
@@ -52,17 +52,37 @@ export const addBoardApi = async (dataBoard, userToken) => {
   const { data } = await axios.post('/board/', dataBoard);
   return data;
 };
+
+export const editBoardApi = async ({ dataBoard, id }, userToken) => {
+  token.set(userToken);
+  const { data } = await axios.patch(`/board/${id}`, dataBoard);
+  return data;
+};
+
+export const removeBoardApi = async (id, userToken) => {
+  token.set(userToken);
+  await axios.delete(`/board/${id}`);
+};
+
 export const getBoardByIdApi = async (boardName, userToken) => {
   token.set(userToken);
   const { data } = await axios.get(`/board/${boardName}`);
   return data;
 };
-
+export const updateBoardApi = async ({ board, back }, userToken) => {
+  token.set(userToken);
+  const { data } = await axios.patch(`/board/${board._id}`, {
+    background: back,
+  });
+  return data;
+};
 export const getListOfBoardsApi = async userToken => {
   token.set(userToken);
   const { data } = await axios.get('/board/');
   return data;
 };
+
+//---------------------------------------------COLUMNS---------------------//
 
 export const addColumnApi = async (dataColumn, userToken) => {
   token.set(userToken);
@@ -86,13 +106,6 @@ export const removeColumnApi = async ({ columnId, boardId }, userToken) => {
   await axios.delete(`/board/column/${columnId}`, { data: { boardId } });
 };
 
-//---------------------------------------------EMAIL---------------------//
-
-export const sendEmailApi = async userEmail => {
-  const { data } = await axios.post('/user/sendEmail', userEmail);
-  return data.message;
-};
-
 //---------------------------------------------CARDS---------------------//
 export const getListOfCardsApi = async userToken => {
   token.set(userToken);
@@ -110,9 +123,12 @@ export const updateCardApi = async (id, cardData) => {
   return data;
 };
 
-export const updateCardColumnApi = async (columnData) => {
+export const updateCardColumnApi = async columnData => {
   const { id: columnId, boardId, cardId } = columnData;
-  const { data } = await axios.patch(`/card/column/${cardId}`, {boardId, columnId});
+  const { data } = await axios.patch(`/card/column/${cardId}`, {
+    boardId,
+    columnId,
+  });
   return data;
 };
 
@@ -131,6 +147,13 @@ export const authWithGoogleApi = async data => {
   });
   token.set(response.data.token);
   return { ...response.data.user, token: response.data.token };
+};
+
+//---------------------------------------------EMAIL---------------------//
+
+export const sendEmailApi = async userEmail => {
+  const { data } = await axios.post('/user/sendEmail', userEmail);
+  return data.message;
 };
 
 //---------------------------------------------BACKGROUND---------------------//

@@ -11,6 +11,8 @@ import { Loader } from 'components/Loader/Loader';
 
 import s from './BoxRadioBackgroundGroup.module.scss';
 
+import { currentBoard } from '../../redux/Boards/boardsSelectors';
+
 export const BoxRadioBackgroundGroup = ({ valueChange }) => {
   const thumbnails = useSelector(selectBackgroundThumbnails);
   const loading = useSelector(selectBackgroundLoading);

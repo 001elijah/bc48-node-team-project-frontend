@@ -9,8 +9,14 @@
   border-radius: 8px;
   overflow: hidden;
   list-style: none;
-  margin-top: 4px;
-  margin-bottom: 4px;
+
+  &:not(:last-child) {
+    margin-bottom: 8px;
+  }
+
+  &:last-child {
+    margin-bottom: 14px;
+  }
 
   &.dark {
     background-color: $black-color;

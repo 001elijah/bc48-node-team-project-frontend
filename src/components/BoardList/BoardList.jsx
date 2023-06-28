@@ -12,12 +12,12 @@ export const BoardList = ({ theme, boards }) => {
       {boards.map(({ title, icon, _id }) => (
         <BoardItem
           key={_id}
-          id={_id}
           boardName={title}
           icon={`${sprite}#${icon}`}
           theme={theme}
-          isCurrent={current === title && true}
-          onClick={() => setCurrent(title)}
+          id={_id}
+          onClick={() => setCurrent(_id)}
+          isCurrent={current === _id && true}
         />
       ))}
     </ul>

@@ -59,7 +59,7 @@ export const ColumnsList = styled.ul`
   display: flex;
 `;
 export const ContentBoard = styled.div`
-display:flex;
-flex-wrap:nowrap;
-overflow:auto;
-`
+  display: flex;
+  wrap: nowrap;
+  overflow: auto;
+`;
