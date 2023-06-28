@@ -3,6 +3,7 @@ import Notiflix from 'notiflix';
 
 import {
   addCardApi,
+  getListOfCardsApi,
   removeCardApi,
   updateCardApi,
   updateCardColumnApi,
@@ -24,6 +25,19 @@ const returnStatusNotify = status => {
   }
 };
 
+export const getListOfCards = createAsyncThunk(
+  'cards/getListOfCards',
+  async (_, { getState, rejectWithValue }) => {
+    const { token } = getState().auth;
+    try {
+      const cardsList = await getListOfCardsApi(token);
+      return cardsList;
+    } catch (error) {
+      rejectWithValue(error.message);
+    }
+  },
+);
+
 export const addCard = createAsyncThunk(
   'card/add',
   async (newCard, { rejectWithValue }) => {
@@ -42,9 +56,15 @@ export const addCard = createAsyncThunk(
 
 export const updateCard = createAsyncThunk(
   'card/update',
-  async (id, data, { rejectWithValue }) => {
+  async (data, { rejectWithValue }) => {
+    const { title, description, deadline, label } = data;
     try {
-      const newData = await updateCardApi(id, data);
+      const newData = await updateCardApi(data.id, {
+        title,
+        description,
+        deadline,
+        label,
+      });
       Notiflix.Notify.success('Your card has been successfully updated');
       return newData;
     } catch (error) {
@@ -57,12 +77,12 @@ export const updateCard = createAsyncThunk(
 );
 
 export const updateCardColumn = createAsyncThunk(
-  'card/column/update',
-  async (id, { rejectWithValue }) => {
+  'cards/updateCardColumn',
+  async (columnData, { rejectWithValue }) => {
     try {
-      const data = await updateCardColumnApi(id);
+      await updateCardColumnApi(columnData);
       Notiflix.Notify.success('Your card has been transferred successfully');
-      return data;
+      return columnData;
     } catch (error) {
       const status = error.response.status;
       returnStatusNotify(status);

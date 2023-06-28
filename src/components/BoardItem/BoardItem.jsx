@@ -2,7 +2,13 @@ import s from './BoardItem.module.scss';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import sprite from 'assets/icons/sprite.svg';
-import { NavLink } from 'react-router-dom';
+import { useState } from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { editBoard } from 'redux/Boards/boardsOperations';
+import { BoardModalWindow } from '../BoardModalWindow/BoardModalWindow';
+import { Modal } from '../Modal/Modal';
+import { removeBoard, getBoardById } from 'redux/Boards/boardsOperations';
 
 export const BoardItem = ({
   boardName,
@@ -12,32 +18,107 @@ export const BoardItem = ({
   isCurrent,
   id,
 }) => {
+  const [isOpenEditModal, setIsOpenEditModal] = useState(false);
+  const [isOpenRemoveModal, setIsOpenRemoveModal] = useState(false);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const editSubmit = dataBoard => {
+    dispatch(editBoard({ dataBoard, id }));
+  };
+
+  const handleToggleEditModal = () => {
+    setIsOpenEditModal(prev => !prev);
+    dispatch(getBoardById(id));
+  };
+
+  const handleToggleRemoveModal = () => {
+    setIsOpenRemoveModal(prev => !prev);
+  };
+
+  const handleRemoveBoard = id => {
+    dispatch(removeBoard(id));
+    handleToggleRemoveModal();
+    navigate('/bc48-node-team-project-frontend/home');
+  };
+
   return (
-    <li onClick={onClick}>
-      <NavLink
-        to={`/home/${id}`}
+    <>
+      <li
+        onClick={onClick}
         className={clsx(s.item, s[theme], isCurrent && s.current)}
       >
-        <div className={s.projectNameWrapper}>
-          <svg className={clsx(s.iconProject, s[theme])}>
-            <use href={icon}></use>
-          </svg>
-          <span className={clsx(s.text, s[theme])}>{boardName}</span>
-        </div>
-        <ul className={clsx(s.iconList, s[theme])}>
-          <li>
-            <svg className={clsx(s.actionIcon, s[theme])}>
-              <use href={`${sprite}#icon-pencil`}></use>
+        <NavLink to={`/home/${id}`} className={s.link}>
+          <div className={s.projectNameWrapper}>
+            <svg className={clsx(s.iconProject, s[theme])}>
+              <use href={icon}></use>
             </svg>
-          </li>
-          <li>
-            <svg className={clsx(s.actionIcon, s[theme])}>
-              <use href={`${sprite}#icon-trash`}></use>
-            </svg>
-          </li>
-        </ul>
-      </NavLink>
-    </li>
+            <span className={clsx(s.text, s[theme])}>{boardName}</span>
+          </div>
+          <ul className={clsx(s.iconList, s[theme])}>
+            <li>
+              <button
+                type="button"
+                className={s.actionButton}
+                onClick={handleToggleEditModal}
+              >
+                <svg className={clsx(s.actionIcon, s[theme])}>
+                  <use href={`${sprite}#icon-pencil`}></use>
+                </svg>
+              </button>
+            </li>
+            <li>
+              <button
+                type="button"
+                className={s.actionButton}
+                onClick={handleToggleRemoveModal}
+              >
+                <svg className={clsx(s.actionIcon, s[theme])}>
+                  <use href={`${sprite}#icon-trash`}></use>
+                </svg>
+              </button>
+            </li>
+          </ul>
+        </NavLink>
+      </li>
+      {isOpenEditModal && (
+        <BoardModalWindow
+          inputTitle={boardName}
+          modalTitle={'Edit board'}
+          titleModalButton={'Edit'}
+          handleToggleModal={handleToggleEditModal}
+          onSubmit={editSubmit}
+          activeIcon={icon.slice(icon.indexOf('#') + 1, icon.length)}
+        />
+      )}
+      {isOpenRemoveModal && (
+        <Modal
+          title={`Are you sure you want to delete board '${boardName}'?`}
+          onClose={handleToggleRemoveModal}
+        >
+          <ul className={s.removeButtonList}>
+            <li className={s.removeItem}>
+              <button
+                onClick={() => handleRemoveBoard(id)}
+                type="button"
+                className={clsx(s.removeButton, s.remove, s[theme])}
+              >
+                Delete
+              </button>
+            </li>
+            <li className={s.removeItem}>
+              <button
+                onClick={handleToggleRemoveModal}
+                type="button"
+                className={clsx(s.removeButton, s.cancel, s[theme])}
+              >
+                Cancel
+              </button>
+            </li>
+          </ul>
+        </Modal>
+      )}
+    </>
   );
 };
 

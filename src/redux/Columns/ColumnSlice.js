@@ -11,6 +11,7 @@ const boardSlice = createSlice({
     builder
       .addCase(addColumn.fulfilled, (state, { payload }) => {
         state.column = [12];
+        console.log(payload);
       })
       .addCase(editColumn.fulfilled, (state, { payload }) => {
         console.log(payload);

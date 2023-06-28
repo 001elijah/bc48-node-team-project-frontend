@@ -22,6 +22,8 @@
 }
 
 .modal {
+  position: relative;
+
   padding: 24px;
 
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
@@ -57,10 +59,12 @@
 }
 
 .closeSvg {
+  width: 100%;
+  height: 100%;
   background: none;
   border: none;
   cursor: pointer;
-  margin: 14px;
+  // margin: 14px;
   &.dark {
     stroke: $white-text-color;
   }
@@ -69,4 +73,13 @@
   &.colorful {
     stroke: $black-text-color;
   }
+}
+
+.close {
+  width: 18px;
+  height: 18px;
+
+  position: absolute;
+  top: 14px;
+  right: 14px;
 }

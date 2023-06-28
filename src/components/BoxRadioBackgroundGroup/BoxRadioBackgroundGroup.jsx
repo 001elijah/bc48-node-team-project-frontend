@@ -4,10 +4,14 @@ import { selectorTheme } from 'redux/Auth/authSelectors';
 import PropTypes from 'prop-types';
 import s from './BoxRadioBackgroundGroup.module.scss';
 
+import { currentBoard } from '../../redux/Boards/boardsSelectors';
+
 export const BoxRadioBackgroundGroup = ({ valueChange }) => {
+  const board = useSelector(currentBoard);
+  const currentBackgroud = board.background;
   const theme = useSelector(selectorTheme);
 
-  const [background, setBackground] = useState('one');
+  const [background, setBackground] = useState(currentBackgroud);
   // const handleChange = e => {
   //   setColor(e.target.value);
   //   valueColor(color);
@@ -31,7 +35,7 @@ export const BoxRadioBackgroundGroup = ({ valueChange }) => {
             className={s.radioInput1}
             type="radio"
             onChange={handleCheked}
-            value="none"
+            value=""
             name="background"
             id="one"
             checked={background === 'one'}
@@ -130,7 +134,6 @@ export const BoxRadioBackgroundGroup = ({ valueChange }) => {
           />
           <label htmlFor="eight" className={s.radioLabel8}></label>
         </div>
-        {/* 8 */}
         <div className={s.radioContainer}>
           <input
             className={s.radioInput9}
@@ -179,7 +182,6 @@ export const BoxRadioBackgroundGroup = ({ valueChange }) => {
           />
           <label htmlFor="twelve" className={s.radioLabel12}></label>
         </div>
-        {/* 12 */}
         <div className={s.radioContainer}>
           <input
             className={s.radioInput13}
@@ -209,8 +211,8 @@ export const BoxRadioBackgroundGroup = ({ valueChange }) => {
             className={s.radioInput15}
             type="radio"
             onChange={handleCheked}
-            value="fifteen"
-            name="24.jpg"
+            value="24.jpg"
+            name="background"
             id="fifteen"
             checked={background === 'fifteen'}
           />
@@ -228,7 +230,6 @@ export const BoxRadioBackgroundGroup = ({ valueChange }) => {
           />
           <label htmlFor="sixteen" className={s.radioLabel16}></label>
         </div>
-        {/* 16 */}
       </div>
     </div>
   );

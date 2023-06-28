@@ -3,17 +3,36 @@ import svg from '../../assets/icons/sprite.svg';
 import { useState } from 'react';
 import { ModalFilter } from '../ModalFilter/ModalFilter';
 import { selectorTheme } from 'redux/Auth/authSelectors';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { BackdropModal } from '../BackdropMain/BackdropMain';
+import { addFilters } from '../../redux/Filter/filterOperation';
+
+import { updateBoard, getBoardById } from '../../redux/Boards/boardsOperations';
+import { currentBoard } from '../../redux/Boards/boardsSelectors';
 
 export const HeaderDashBoard = ({ title }) => {
+  const dispatch = useDispatch();
   const theme = useSelector(selectorTheme);
   const [showModalWindow, setShowModalWindow] = useState(false);
-  const handleModalWindowOpen = () => setShowModalWindow(true);
-  const handleModalWindowClose = () => setShowModalWindow(false);
-  // const [color, setColor] = useState('');
+  const handleModalWindowOpen = () => {
+    setShowModalWindow(true);
+  };
+  const handleModalWindowClose = () => {
+    setShowModalWindow(false);
+    change();
+  };
+
+  const [color, setColor] = useState('');
+  const [icon, setIcon] = useState('');
+  const board = useSelector(currentBoard);
+  const change = async () => {
+    await dispatch(addFilters(color));
+    await dispatch(updateBoard({ back: icon, board }));
+    await dispatch(getBoardById(board._id));
+  };
+
   return (
     <>
       <div className={clsx(s.HeaderDash, s[theme])}>
@@ -32,7 +51,11 @@ export const HeaderDashBoard = ({ title }) => {
         </button>
         {showModalWindow && (
           <BackdropModal closeModal={handleModalWindowClose}>
-            <ModalFilter closeModal={handleModalWindowClose} />
+            <ModalFilter
+              closeModal={handleModalWindowClose}
+              colorNew={setColor}
+              iconNew={setIcon}
+            />
           </BackdropModal>
         )}
       </div>

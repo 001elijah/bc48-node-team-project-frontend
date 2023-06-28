@@ -5,6 +5,7 @@ import {
   addCard,
   removeCard,
   updateCardColumn,
+  getListOfCards,
 } from './cardsOperations';
 
 const cardsSlice = createSlice({
@@ -16,35 +17,32 @@ const cardsSlice = createSlice({
   },
   extraReducers: builder => {
     builder
+      .addCase(getListOfCards.fulfilled, (state, { payload }) => {
+        state.items.push(...payload);
+      })
       .addCase(addCard.fulfilled, (state, { payload }) => {
-        return {
-          ...state,
-          isLoading: false,
-          items: state.items.push(payload),
-        };
+        state.items.push(payload);
       })
       .addCase(updateCard.fulfilled, (state, { payload }) => {
         return {
-          ...state,
-          isLoading: false,
-          items: state.items.map(el =>
-            el.id !== payload.id ? el : { ...el, ...payload },
-          ),
+          items: state.items.map(card => {
+            return card._id !== payload._id ? card : payload;
+          }),
         };
       })
       .addCase(removeCard.fulfilled, (state, { payload }) => {
         return {
           ...state,
           isLoading: false,
-          items: state.items.filter(el => el.id !== payload),
+          items: state.items.filter(el => el._id !== payload),
         };
       })
       .addCase(updateCardColumn.fulfilled, (state, { payload }) => {
         return {
-          ...state,
-          isLoading: false,
-          items: state.items.map(el =>
-            el.id !== payload.id ? el : { ...el, columnId: payload.columnId },
+          items: state.items.map(card =>
+            card._id === payload.cardId
+              ? { ...card, columnId: payload.id }
+              : card,
           ),
         };
       })
