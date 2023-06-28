@@ -11,6 +11,10 @@
   overflow: hidden;
   list-style: none;
 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
   &:not(:last-child) {
     margin-bottom: 8px;
   }
