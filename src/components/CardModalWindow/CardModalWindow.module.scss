@@ -59,14 +59,6 @@
       opacity: initial;
       outline: none;
     }
-
-    @include tablet {
-      max-width: 302px;
-    }
-
-    @include desktop {
-      max-width: 302px;
-    }
   }
 
   &.light {
@@ -84,14 +76,21 @@
       outline: none;
     }
   }
+
+  @include tablet {
+    max-width: 302px;
+    width: 100%;
+  }
+
+  @include desktop {
+    max-width: 302px;
+    width: 100%;
+  }
 }
 
 .textAreaStyle:focus {
   opacity: initial;
 }
-
-@import '../../assets/styles/vars';
-@import '../../assets/styles/mixins';
 
 .inputModal {
   width: 287px;
@@ -175,6 +174,18 @@
   }
 }
 
+.errorTitle {
+  position: absolute;
+  top: 150px;
+  left: 30px;
+  font-size: 10px;
+  font-family: Poppins-Regular;
+  font-weight: 400;
+  letter-spacing: -0.24px;
+
+  color: red;
+}
+
 .buttonModal {
   display: flex;
   justify-content: center;
@@ -214,10 +225,12 @@
 
   @include tablet {
     max-width: 302px;
+    width: 100%;
   }
 
   @include desktop {
     max-width: 302px;
+    width: 100%;
   }
 }
 

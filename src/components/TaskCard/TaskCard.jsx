@@ -142,11 +142,8 @@ export const TaskCard = ({
           description={description}
           titleModalButton="Edit"
           handleToggleModal={closeModalEditCard}
-          // value={title}
-          // coment={description}
-          // date={deadline}
-          // color={label}
-          // title: value, description: coment, deadline: date, label: color
+          date={deadline}
+          color={label}
           onSubmit={handleEditCard}
         />
       )}

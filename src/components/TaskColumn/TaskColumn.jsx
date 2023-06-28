@@ -27,28 +27,19 @@ export const TaskColumn = ({ columnId }) => {
 
   if (!filter) {
     cards = allCards;
-  } 
-  else {
+  } else {
     switch (filter) {
       case 'low':
-        cards = allCards.filter(item => 
-          item.label === 'low'
-        );
+        cards = allCards.filter(item => item.label === 'low');
         break;
       case 'medium':
-        cards = allCards.filter(item => 
-          item.label === 'medium'
-        )
+        cards = allCards.filter(item => item.label === 'medium');
         break;
       case 'high':
-        cards = allCards.filter(item => 
-          item.label === 'high'
-        );
+        cards = allCards.filter(item => item.label === 'high');
         break;
       case 'without':
-        cards = allCards.filter(item => 
-          item.label === 'without'
-        );
+        cards = allCards.filter(item => item.label === 'without');
         break;
       default:
         cards = allCards;

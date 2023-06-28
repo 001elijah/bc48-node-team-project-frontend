@@ -7,21 +7,11 @@ import s from './BoxRadioBackgroundGroup.module.scss';
 import { currentBoard } from '../../redux/Boards/boardsSelectors';
 
 export const BoxRadioBackgroundGroup = ({ valueChange }) => {
+  const board = useSelector(currentBoard);
+  const currentBackgroud = board?.background;
   const theme = useSelector(selectorTheme);
 
-  const board = useSelector(currentBoard);
-  const bckgrd = ()=>{
-    if (!board?.background){
-      return ''
-    }return board.background
-  }
-
-  const [background, setBackground] = useState(bckgrd);
-  // const handleChange = e => {
-  //   setColor(e.target.value);
-  //   valueColor(color);
-  //   console.log(color);
-  // };
+  const [background, setBackground] = useState(currentBackgroud || '');
 
   const handleCheked = e => {
     setBackground(e.target.value);

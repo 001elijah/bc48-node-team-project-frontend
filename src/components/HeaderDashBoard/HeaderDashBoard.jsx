@@ -17,7 +17,7 @@ export const HeaderDashBoard = ({ title }) => {
   const board = useSelector(currentBoard);
   const [showModalWindow, setShowModalWindow] = useState(false);
   const handleModalWindowOpen = () => {
-    if(!board)return
+    if (!board) return;
     setShowModalWindow(true);
   };
   const handleModalWindowClose = () => {
@@ -44,7 +44,6 @@ export const HeaderDashBoard = ({ title }) => {
           onClick={handleModalWindowOpen}
           type="button"
         >
-
           <svg className={s.Svg} width="16" height="16">
             <use href={`${svg}#icon-${'filter'}`} />
           </svg>
