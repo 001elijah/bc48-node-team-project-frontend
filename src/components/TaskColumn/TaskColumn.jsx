@@ -8,10 +8,14 @@ import { selectCards } from 'redux/Cards/cardsSelectors';
 import { addCard } from 'redux/Cards/cardsOperations';
 import shortid from 'shortid';
 import { currentBoard } from 'redux/Boards/boardsSelectors';
+import s from './TaskColumn.module.scss';
+import { selectorTheme } from 'redux/Auth/authSelectors';
+import clsx from 'clsx';
 
 export const TaskColumn = ({ columnId }) => {
   const dispatch = useDispatch();
   const { _id } = useSelector(currentBoard);
+  const theme = useSelector(selectorTheme);
   const [modalOpen, setModalOpen] = useState(false);
   const ModalWindowOpen = () => setModalOpen(true);
   const modalWindowClose = () => setModalOpen(false);
@@ -33,7 +37,13 @@ export const TaskColumn = ({ columnId }) => {
 
   return (
     <>
-      <ul>
+      <ul
+        className={clsx(
+          theme === 'light' && s.taskCardListLight,
+          theme === 'dark' && s.taskCardListDark,
+          theme === 'colorful' && s.taskCardListColorful,
+        )}
+      >
         {cards
           .filter(card => {
             return card.columnId === columnId;
