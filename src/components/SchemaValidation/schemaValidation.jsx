@@ -23,10 +23,14 @@ export const validationSchemaLogin = yup.object().shape({
 export const validationSchemaRegister = yup.object().shape({
   userName: yup
     .string()
+    // .matches(
+    //   /^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)?$/,
+    //   'Only letters, numbers, underscores, and spaces are allowed',
+    // )
     .matches(
-      /^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)?$/,
-      'Only letters, numbers, underscores, and spaces are allowed',
-    )
+    /^[a-zA-Z0-9]+([ -]?[a-zA-Z0-9])*$/,
+    'Only letters, numbers, underscores, spaces, hyphens, and dashes are allowed between words',
+  )
     .min(2, 'Minimum length 2 characters')
     .max(32, 'Maximum length 32 characters')
     .required('Name required'),
@@ -52,10 +56,14 @@ export const validationSchemaRegister = yup.object().shape({
 export const validationSchemaEditProfile = yup.object().shape({
   userName: yup
     .string()
+    // .matches(
+    //   /^[a-zA-Z0-9]+([ -]?[a-zA-Z0-9])*$/,
+    //   'Only letters, numbers, underscores, and spaces are allowed',
+    // )
     .matches(
-      /^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)?$/,
-      'Only letters, numbers, underscores, and spaces are allowed',
-    )
+    /^[a-zA-Z0-9]+([ -]?[a-zA-Z0-9])*$/,
+    'Only letters, numbers, underscores, spaces, hyphens, and dashes are allowed between words',
+  )
     .min(2, 'Minimum length 2 characters')
     .max(32, 'Maximum length 32 characters')
     .required('Name required'),
