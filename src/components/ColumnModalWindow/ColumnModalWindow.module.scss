@@ -18,6 +18,8 @@
 
   letter-spacing: -0.02em;
 
+  position: relative;
+
   &.colorful {
     border: 1px solid rgba(82, 85, 188, 1);
     color: #161616;
@@ -81,6 +83,18 @@
     max-width: 302px;
     width: 100%;
   }
+}
+
+.errorTitle {
+  position: absolute;
+  top: 150px;
+  left: 30px;
+  font-size: 10px;
+  font-family: Poppins-Regular;
+  font-weight: 400;
+  letter-spacing: -0.24px;
+
+  color: red;
 }
 
 .buttonModal {

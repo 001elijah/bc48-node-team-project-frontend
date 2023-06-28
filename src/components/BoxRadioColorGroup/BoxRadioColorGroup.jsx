@@ -4,8 +4,8 @@ import { useSelector } from 'react-redux';
 import { selectorTheme } from 'redux/Auth/authSelectors';
 import s from './BoxRadioColorGroup.module.scss';
 
-export const BoxRadioColorGroup = ({ valueChange, activeColor }) => {
-  const [color, setColor] = useState(activeColor);
+export const BoxRadioColorGroup = ({ valueChange, deadline }) => {
+  const [color, setColor] = useState(deadline);
   const theme = useSelector(selectorTheme);
 
   const handleCheked = e => {
@@ -88,5 +88,5 @@ export const BoxRadioColorGroup = ({ valueChange, activeColor }) => {
 
 BoxRadioColorGroup.propTypes = {
   valueChange: PropTypes.func.isRequired,
-  activeColor: PropTypes.string.isRequired,
+  deadline: PropTypes.string,
 };

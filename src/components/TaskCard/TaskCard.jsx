@@ -17,8 +17,8 @@ export const TaskCard = ({
   id,
   title,
   description,
-  label = 'low',
-  deadline = '26/06/2023',
+  label,
+  deadline,
   boardId,
   columnId,
 }) => {
@@ -27,13 +27,11 @@ export const TaskCard = ({
   const [isModalChangeOpen, setIsModalChangeOpen] = useState(false);
   const [isModalEditOpen, setIsModalEditOpen] = useState(false);
 
-  const date = new Date();
-  // const currentTime = `${date.toISOString().split('T')[0]} ${
-  //   date.toTimeString().split(' ')[0]
-  // }`;
-  // const isDeadline = deadline === currentTime.slice(0, -3);
-  const isDeadline = deadline === date.toLocaleDateString('en-GB');
-  // console.log(date);
+  const currentDate = new Date().toLocaleDateString('en-GB');
+  const endDate = new Date(deadline).toLocaleDateString('en-GB');
+
+  const isDeadline = endDate === currentDate;
+
   const openModalChangeColumn = () => {
     setIsModalChangeOpen(true);
   };
@@ -42,7 +40,6 @@ export const TaskCard = ({
 
   const handleEditCard = dataForm => {
     const { value, coment, color, date } = dataForm;
-    // console.log(dispatch(updateCard(id,{title: value, description: coment, deadline: date, label: color,})))
     dispatch(
       updateCard({
         id,
@@ -93,7 +90,7 @@ export const TaskCard = ({
           </div>
           <div>
             <h5 className={clsx(s.subtitle, s[theme])}>Deadline</h5>
-            <p className={clsx(s.text, s[theme])}>{deadline}</p>
+            <p className={clsx(s.text, s[theme])}>{endDate}</p>
           </div>
         </div>
         <div className={s.iconsWrapper}>
@@ -145,12 +142,8 @@ export const TaskCard = ({
           description={description}
           titleModalButton="Edit"
           handleToggleModal={closeModalEditCard}
-          activeColor={label}
-          // value={title}
-          // coment={description}
-          // date={deadline}
-          // color={label}
-          // title: value, description: coment, deadline: date, label: color
+          date={deadline}
+          color={label}
           onSubmit={handleEditCard}
         />
       )}
@@ -159,11 +152,11 @@ export const TaskCard = ({
 };
 
 TaskCard.propTypes = {
-  id: PropTypes.string,
-  title: PropTypes.string,
-  description: PropTypes.string,
-  label: PropTypes.string,
-  deadline: PropTypes.string,
-  boardId: PropTypes.string,
-  columnId: PropTypes.string,
+  id: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  deadline: PropTypes.string.isRequired,
+  boardId: PropTypes.string.isRequired,
+  columnId: PropTypes.string.isRequired,
 };

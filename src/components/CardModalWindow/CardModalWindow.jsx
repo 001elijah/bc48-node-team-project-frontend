@@ -18,50 +18,39 @@ export const CardModalWindow = ({
   activeColor = 'without',
   onSubmit,
   handleToggleModal,
+  date,
+  color,
 }) => {
   const theme = useSelector(selectorTheme);
 
+  const [isValid, setIsValid] = useState(false);
   const [value, setValue] = useState(inputTitle);
   const [coment, setComent] = useState(description);
-  const [color, setColor] = useState(activeColor);
-  const [date, setDate] = useState('');
+  const [priorityColor, setPriorityColorColor] = useState(color);
+  const [deadline, setDeadline] = useState(date);
 
   const handleChangeColor = value => {
-    setColor(value);
+    setPriorityColorColor(value);
   };
 
   const handleSubmit = e => {
     e.preventDefault();
-    const newCard = {
-      value,
-      coment,
-      color,
-      date,
-    };
-
-    onSubmit(newCard);
-    handleToggleModal();
+    if (value === '') {
+      setIsValid(true);
+      setTimeout(() => setIsValid(false), 2500);
+    } else {
+      const newCard = {
+        value,
+        coment,
+        color: priorityColor,
+        date: new Date(deadline).toISOString(),
+      };
+      onSubmit(newCard);
+      handleToggleModal();
+    }
   };
 
   return (
-    // <ReusableColumnModalWindow
-    //   modalTitle={modalTitle}
-    //   inputTitle={inputTitle}
-    //   titleModalButton={titleModalButton}
-    //   onClick={handleAddCard}
-    // >
-    //   <textarea
-    //     onChange={e => setComent(e.target.value)}
-    //     className={`${s.textAreaStyle} ${s[theme]}`}
-    //     name="coments"
-    //     id="coments"
-    //     placeholder="Description"
-    //     value={coment}
-    //   ></textarea>
-    //   <BoxRadioColorGroup valueChange={handleChangeColor} />
-    //   <CalendarDark onDate={setDate} />
-    // </ReusableColumnModalWindow>
-
     <Modal title={modalTitle} onClose={handleToggleModal}>
       <form onSubmit={handleSubmit}>
         <input
@@ -70,6 +59,7 @@ export const CardModalWindow = ({
           placeholder={'Title'}
           onChange={e => setValue(e.target.value)}
         />
+        {isValid && <p className={s.errorTitle}>required field</p>}
         <textarea
           onChange={e => setComent(e.target.value)}
           className={`${s.textAreaStyle} ${s[theme]}`}
@@ -78,12 +68,18 @@ export const CardModalWindow = ({
           placeholder="Description"
           value={coment}
         ></textarea>
-        {theme === 'dark' && <CalendarDark onDate={setDate} />}
-        {theme === 'light' && <CalendarLight onDate={setDate} />}
-        {theme === 'colorful' && <CalendarColorful onDate={setDate} />}
+        {theme === 'dark' && (
+          <CalendarDark onDate={setDeadline} deadline={deadline} />
+        )}
+        {theme === 'light' && (
+          <CalendarLight onDate={setDeadline} deadline={deadline} />
+        )}
+        {theme === 'colorful' && (
+          <CalendarColorful onDate={setDeadline} deadline={deadline} />
+        )}
         <BoxRadioColorGroup
-          activeColor={color}
           valueChange={handleChangeColor}
+          deadline={priorityColor}
         />
         <button className={`${s.buttonModal} ${s[theme]}`} type="submit">
           <span className={`${s.iconButtonModalWrapper} ${s[theme]}`}>
@@ -110,5 +106,6 @@ CardModalWindow.propTypes = {
   handleToggleModal: PropTypes.func,
   id: PropTypes.func,
   description: PropTypes.string,
-  activeColor: PropTypes.string,
+  date: PropTypes.string,
+  color: PropTypes.string,
 };

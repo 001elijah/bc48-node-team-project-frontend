@@ -21,7 +21,6 @@ export const BoxRadioIconGroup = ({ valueChange, activeIcon }) => {
 
   const handleChange = e => {
     setIcon(e.target.value);
-    console.log(e.target.value);
     // onValue(icon);
   };
 

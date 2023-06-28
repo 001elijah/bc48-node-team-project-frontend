@@ -8,15 +8,10 @@ import { currentBoard } from '../../redux/Boards/boardsSelectors';
 
 export const BoxRadioBackgroundGroup = ({ valueChange }) => {
   const board = useSelector(currentBoard);
-  const currentBackgroud = board.background;
+  const currentBackgroud = board?.background;
   const theme = useSelector(selectorTheme);
 
-  const [background, setBackground] = useState(currentBackgroud);
-  // const handleChange = e => {
-  //   setColor(e.target.value);
-  //   valueColor(color);
-  //   console.log(color);
-  // };
+  const [background, setBackground] = useState(currentBackgroud || '');
 
   const handleCheked = e => {
     setBackground(e.target.value);
