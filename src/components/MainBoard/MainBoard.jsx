@@ -23,7 +23,6 @@ export const MainBoard = () => {
   const [showModalWindow, setShowModalWindow] = useState(false);
   const handleModalWindowOpen = () => setShowModalWindow(true);
   const handleModalWindowClose = () => setShowModalWindow(false);
-  
 
   let curTheme = '';
   switch (theme) {
@@ -42,13 +41,10 @@ export const MainBoard = () => {
 
   const board = useSelector(currentBoard);
   if (!board) return null;
-  console.log(board)
+  console.log(board);
   return (
     <>
-      <Wrapper
-        imgurl={board.background}
-        colorbg={curTheme}
-      >
+      <Wrapper imgurl={board.background} colorbg={curTheme}>
         <HeaderDashBoard title={board.title} />
         <ContentBoard>
           <ColumnsList>

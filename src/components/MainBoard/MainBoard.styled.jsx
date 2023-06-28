@@ -14,10 +14,7 @@ export const Wrapper = styled.div`
     background-image: url(${props => props.imgurl.mobileUrl_1x});
   }
 
-  @media
-    screen
-    and (min-width: 375px)
-    and (-webkit-min-device-pixel-ratio: 2),
+  @media screen and (min-width: 375px) and (-webkit-min-device-pixel-ratio: 2),
     (min-resolution: 192dpi) {
     background-image: url(${props => props.imgurl.mobileUrl_2x});
   }
@@ -29,10 +26,7 @@ export const Wrapper = styled.div`
     background-image: url(${props => props.imgurl.tabletUrl_1x});
   }
 
-  @media
-    screen
-    and (min-width: 768px)
-    and (-webkit-min-device-pixel-ratio: 2),
+  @media screen and (min-width: 768px) and (-webkit-min-device-pixel-ratio: 2),
     (min-resolution: 192dpi) {
     background-image: url(${props => props.imgurl.tabletUrl_2x});
   }
@@ -45,15 +39,11 @@ export const Wrapper = styled.div`
     background-image: url(${props => props.imgurl.desktopUrl_1x});
   }
 
-  @media
-    screen
-    and (min-width: 1280px)
-    and (-webkit-min-device-pixel-ratio: 2),
+  @media screen and (min-width: 1280px) and (-webkit-min-device-pixel-ratio: 2),
     (min-resolution: 192dpi) {
     background-image: url(${props => props.imgurl.desktopUrl_2x});
   }
 `;
-
 
 export const ColumnsList = styled.ul`
   display: flex;
