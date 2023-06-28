@@ -44,6 +44,7 @@ export const MainBoard = () => {
   const imgid = board.background;
   const BASE_URL_IMG =
     'https://res.cloudinary.com/dblzpxfzb/image/upload/v1687449642/background/';
+
   return (
     <>
       <Wrapper

@@ -7,11 +7,16 @@ import s from './BoxRadioBackgroundGroup.module.scss';
 import { currentBoard } from '../../redux/Boards/boardsSelectors';
 
 export const BoxRadioBackgroundGroup = ({ valueChange }) => {
-  const board = useSelector(currentBoard);
-  const currentBackgroud = board.background;
   const theme = useSelector(selectorTheme);
 
-  const [background, setBackground] = useState(currentBackgroud);
+  const board = useSelector(currentBoard);
+  const bckgrd = ()=>{
+    if (!board?.background){
+      return ''
+    }return board.background
+  }
+
+  const [background, setBackground] = useState(bckgrd);
   // const handleChange = e => {
   //   setColor(e.target.value);
   //   valueColor(color);
@@ -35,7 +40,7 @@ export const BoxRadioBackgroundGroup = ({ valueChange }) => {
             className={s.radioInput1}
             type="radio"
             onChange={handleCheked}
-            value=""
+            value="one"
             name="background"
             id="one"
             checked={background === 'one'}
