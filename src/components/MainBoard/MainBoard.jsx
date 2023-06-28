@@ -41,7 +41,7 @@ export const MainBoard = () => {
 
   const board = useSelector(currentBoard);
   if (!board) return null;
-  console.log(board);
+
   return (
     <>
       <Wrapper imgurl={board.background} colorbg={curTheme}>

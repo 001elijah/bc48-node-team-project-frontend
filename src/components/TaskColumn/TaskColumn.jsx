@@ -59,7 +59,7 @@ export const TaskColumn = ({ columnId }) => {
       }),
     );
   };
-  if (cards?.length === 0) return;
+
   return (
     <>
       <ul

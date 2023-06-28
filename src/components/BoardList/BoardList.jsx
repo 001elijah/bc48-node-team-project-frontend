@@ -6,7 +6,6 @@ import s from './BoardList.module.scss';
 
 export const BoardList = ({ onCLose, theme, boards, currentBoard }) => {
   const [current, setCurrent] = useState(currentBoard?._id);
-  console.log(currentBoard);
 
   const onClick = id => {
     setCurrent(id);
@@ -25,7 +24,7 @@ export const BoardList = ({ onCLose, theme, boards, currentBoard }) => {
           icon={`${sprite}#${icon}`}
           theme={theme}
           id={_id}
-          onClick={() => onClick(_id)}
+          onClick={onClick}
           isCurrent={current === _id && true}
         />
       ))}
