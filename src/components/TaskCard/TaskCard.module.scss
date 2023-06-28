@@ -19,10 +19,6 @@
     margin-bottom: 8px;
   }
 
-  &:last-child {
-    margin-bottom: 14px;
-  }
-
   &.dark {
     background-color: $black-color;
   }
@@ -34,7 +30,10 @@
   left: 0;
   width: 4px;
   height: 100%;
-  background-color: $icon-secondary-color;
+
+  &.dark {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
 }
 
 .title {
@@ -61,10 +60,6 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-
-  &.dark {
-    color: $icon-secondary-color;
-  }
 }
 
 .controlPanel {
@@ -109,17 +104,33 @@
   height: 12px;
   margin-right: 4px;
   border-radius: 50%;
-  background-color: $icon-secondary-color;
 }
 
 .bg_low {
   background-color: $priority-low-color;
+  &.dark {
+    background-color: $priority-low-color;
+  }
 }
 .bg_medium {
   background-color: $priority-medium-color;
+  &.dark {
+    background-color: $priority-medium-color;
+  }
 }
 .bg_high {
   background-color: $priority-high-color;
+  &.dark {
+    background-color: $priority-high-color;
+  }
+}
+
+.bg_without {
+  background-color: $priority-without-color;
+
+  &.dark {
+    background-color: $priority-without-dark-theme-color;
+  }
 }
 
 .text {

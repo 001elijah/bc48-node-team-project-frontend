@@ -29,9 +29,11 @@ export const TaskCard = ({
 
   const currentDate = new Date().toLocaleDateString('en-GB');
   const endDate = new Date(deadline).toLocaleDateString('en-GB');
-
   const isDeadline = endDate === currentDate;
 
+  let labelCapitalizeFirstLetter =
+    label.charAt(0).toUpperCase() + label.slice(1);
+  console.log(labelCapitalizeFirstLetter);
   const openModalChangeColumn = () => {
     setIsModalChangeOpen(true);
   };
@@ -66,6 +68,8 @@ export const TaskCard = ({
           label === 'medium' && s.bg_medium,
           label === 'high' && s.bg_high,
           label === 'low' && s.bg_low,
+          label === 'without' && s.bg_without,
+          s[theme],
         )}
       ></div>
       <div className={s.infoWrapper}>
@@ -83,9 +87,13 @@ export const TaskCard = ({
                   label === 'low' && s.bg_low,
                   label === 'medium' && s.bg_medium,
                   label === 'high' && s.bg_high,
+                  label === 'without' && s.bg_without,
+                  s[theme],
                 )}
               ></div>
-              <p className={clsx(s.text, s[theme])}>{label}</p>
+              <p className={clsx(s.text, s[theme])}>
+                {labelCapitalizeFirstLetter}
+              </p>
             </div>
           </div>
           <div>
