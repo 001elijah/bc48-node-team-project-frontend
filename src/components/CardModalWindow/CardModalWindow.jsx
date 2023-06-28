@@ -17,22 +17,23 @@ export const CardModalWindow = ({
   titleModalButton,
   onSubmit,
   handleToggleModal,
+  date,
+  color,
 }) => {
   const theme = useSelector(selectorTheme);
 
   const [isValid, setIsValid] = useState(false);
   const [value, setValue] = useState(inputTitle);
   const [coment, setComent] = useState(description);
-  const [color, setColor] = useState('dark');
-  const [date, setDate] = useState('');
+  const [priorityColor, setPriorityColorColor] = useState(color);
+  const [deadline, setDeadline] = useState(date);
 
   const handleChangeColor = value => {
-    setColor(value);
+    setPriorityColorColor(value);
   };
 
   const handleSubmit = e => {
     e.preventDefault();
-
     if (value === '') {
       setIsValid(true);
       setTimeout(() => setIsValid(false), 2500);
@@ -40,10 +41,9 @@ export const CardModalWindow = ({
       const newCard = {
         value,
         coment,
-        color,
-        date,
+        color: priorityColor,
+        date: new Date(deadline).toISOString(),
       };
-
       onSubmit(newCard);
       handleToggleModal();
     }
@@ -67,10 +67,19 @@ export const CardModalWindow = ({
           placeholder="Description"
           value={coment}
         ></textarea>
-        {theme === 'dark' && <CalendarDark onDate={setDate} />}
-        {theme === 'light' && <CalendarLight onDate={setDate} />}
-        {theme === 'colorful' && <CalendarColorful onDate={setDate} />}
-        <BoxRadioColorGroup valueChange={handleChangeColor} />
+        {theme === 'dark' && (
+          <CalendarDark onDate={setDeadline} deadline={deadline} />
+        )}
+        {theme === 'light' && (
+          <CalendarLight onDate={setDeadline} deadline={deadline} />
+        )}
+        {theme === 'colorful' && (
+          <CalendarColorful onDate={setDeadline} deadline={deadline} />
+        )}
+        <BoxRadioColorGroup
+          valueChange={handleChangeColor}
+          deadline={priorityColor}
+        />
         <button className={`${s.buttonModal} ${s[theme]}`} type="submit">
           <span className={`${s.iconButtonModalWrapper} ${s[theme]}`}>
             <svg
@@ -96,4 +105,6 @@ CardModalWindow.propTypes = {
   handleToggleModal: PropTypes.func,
   id: PropTypes.func,
   description: PropTypes.string,
+  date: PropTypes.string,
+  color: PropTypes.string,
 };
