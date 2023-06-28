@@ -40,7 +40,6 @@ export const TaskCard = ({
 
   const handleEditCard = dataForm => {
     const { value, coment, color, date } = dataForm;
-
     dispatch(
       updateCard({
         id,
@@ -139,8 +138,9 @@ export const TaskCard = ({
       {isModalEditOpen && (
         <CardModalWindow
           modalTitle="Edit card"
-          inputTitle="Edit card"
-          titleModalButton="Edit card"
+          inputTitle={title}
+          description={description}
+          titleModalButton="Edit"
           handleToggleModal={closeModalEditCard}
           // value={title}
           // coment={description}

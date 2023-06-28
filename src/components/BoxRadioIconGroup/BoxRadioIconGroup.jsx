@@ -5,8 +5,8 @@ import { selectorTheme } from 'redux/Auth/authSelectors';
 import sprite from '../../assets/icons/sprite.svg';
 import s from './BoxRadioIconGroup.module.scss';
 
-export const BoxRadioIconGroup = ({ valueChange }) => {
-  const [icon, setIcon] = useState('icon-project');
+export const BoxRadioIconGroup = ({ valueChange, activeIcon }) => {
+  const [icon, setIcon] = useState(activeIcon);
   const theme = useSelector(selectorTheme);
   const arrayIcon = [
     'icon-project',
@@ -26,6 +26,7 @@ export const BoxRadioIconGroup = ({ valueChange }) => {
   };
 
   useEffect(() => {
+    // setIcon(activeIcon);
     valueChange(icon);
   }, [valueChange, icon]);
 
@@ -63,4 +64,5 @@ export const BoxRadioIconGroup = ({ valueChange }) => {
 
 BoxRadioIconGroup.propTypes = {
   valueChange: PropTypes.func.isRequired,
+  activeIcon: PropTypes.string.isRequired,
 };

@@ -11,12 +11,12 @@ export const Wrapper = styled.div`
   @media screen and (min-width: 375px) {
     padding-left: 0px;
     background-image: url(${props =>
-      props.BASE_URL + 'mobile/x1/' + props.imgid});
+      props.imgurl + 'mobile/x1/' + props.imgid});
     @media (min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
       background-image: url(${props =>
-        props.BASE_URL + 'mobile/x2/' + props.imgid});
+        props.imgurl + 'mobile/x2/' + props.imgid});
     }
   }
   @media screen and (min-width: 768px) {
@@ -29,7 +29,7 @@ export const Wrapper = styled.div`
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
       background-image: url(${props =>
-        props.BASE_URL + 'mobile/x2/' + props.imgid});
+        props.imgurl + 'mobile/x2/' + props.imgid});
     }
   }
   @media screen and (min-width: 1280px) {
@@ -44,11 +44,10 @@ export const Wrapper = styled.div`
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
       background-image: url(${props =>
-        props.BASE_URL + 'mobile/x2/' + props.imgid});
+        props.imgurl + 'mobile/x2/' + props.imgid});
     }
   }
 `;
-
 export const ColumnsList = styled.ul`
   display: flex;
 `;

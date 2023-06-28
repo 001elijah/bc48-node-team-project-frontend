@@ -1,8 +1,11 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { Notify } from 'notiflix';
 
 import {
   getListOfBoardsApi,
   addBoardApi,
+  editBoardApi,
+  removeBoardApi,
   getBoardByIdApi,
   updateBoardApi,
 } from '../../services/backendAPI';
@@ -17,6 +20,33 @@ export const addNewBoard = createAsyncThunk(
       return newBoard;
     } catch (error) {
       console.log('error', error);
+      rejectWithValue(error.message);
+    }
+  },
+);
+
+export const editBoard = createAsyncThunk(
+  'boards/editBoard',
+  async ({ dataBoard, id }, { getState, rejectWithValue }) => {
+    const { token } = getState().auth;
+    try {
+      const editedBoard = await editBoardApi({ dataBoard, id }, token);
+      return editedBoard;
+    } catch (error) {
+      rejectWithValue(error.message);
+    }
+  },
+);
+
+export const removeBoard = createAsyncThunk(
+  'boards/removeBoard',
+  async (id, { getState, rejectWithValue }) => {
+    const { token } = getState().auth;
+    try {
+      await removeBoardApi(id, token);
+      Notify.success('Board successfully deleted');
+      return id;
+    } catch (error) {
       rejectWithValue(error.message);
     }
   },

@@ -60,8 +60,7 @@ export const TaskColumn = ({ columnId }) => {
       {modalOpen && (
         <CardModalWindow
           modalTitle="Add card"
-          inputTitle="Add card"
-          titleModalButton="Add card"
+          titleModalButton="Add"
           handleToggleModal={modalWindowClose}
           onSubmit={handleAddCard}
           // handleToggleModal={ModalWindowClose}

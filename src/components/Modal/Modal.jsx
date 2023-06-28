@@ -39,7 +39,7 @@ export const Modal = ({ title, onClose, children }) => {
         <div className={`${s.modalHeader} ${s[theme]}`}>
           <h3 className={`${s.title} ${s[theme]}`}>{title}</h3>
           <div onClick={handleClose} className={`${s.close} ${s[theme]}`}>
-            <svg width="18" height="18" className={`${s.closeSvg} ${s[theme]}`}>
+            <svg className={`${s.closeSvg} ${s[theme]}`}>
               <use xlinkHref={`${svg}#icon-x-close`} />
             </svg>
           </div>

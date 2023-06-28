@@ -9,14 +9,15 @@ import { Modal } from 'components/Modal/Modal';
 import s from './BoardModalWindow.module.scss';
 
 export const BoardModalWindow = ({
-  inputTitle,
+  inputTitle = '',
   modalTitle,
   titleModalButton,
   onSubmit,
   handleToggleModal,
+  activeIcon = 'icon-project',
 }) => {
   const theme = useSelector(selectorTheme);
-  const [title, setTitle] = useState('');
+  const [title, setTitle] = useState(inputTitle);
   const [background, setBackground] = useState('dark');
   const [icon, setIcon] = useState('');
 
@@ -27,7 +28,6 @@ export const BoardModalWindow = ({
       icon,
       background,
     };
-    console.log(newCard);
     onSubmit(newCard);
     handleToggleModal();
   };
@@ -38,10 +38,10 @@ export const BoardModalWindow = ({
         <input
           className={`${s.inputModal} ${s[theme]}`}
           value={title}
-          placeholder={inputTitle}
+          placeholder={'Title'}
           onChange={e => setTitle(e.target.value)}
         />
-        <BoxRadioIconGroup valueChange={setIcon} />
+        <BoxRadioIconGroup valueChange={setIcon} activeIcon={activeIcon} />
         <BoxRadioBackgroundGroup valueChange={setBackground} />
         <button className={`${s.buttonModal} ${s[theme]}`} type="submit">
           <span className={`${s.iconButtonModalWrapper} ${s[theme]}`}>
@@ -67,4 +67,5 @@ BoardModalWindow.propTypes = {
   onSubmit: PropTypes.func,
   handleToggleModal: PropTypes.func,
   id: PropTypes.func,
+  activeIcon: PropTypes.string.isRequired,
 };
