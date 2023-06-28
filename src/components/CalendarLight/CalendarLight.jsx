@@ -29,7 +29,7 @@ export const CalendarLight = ({ onDate }) => {
 
   return (
     <DatePicker
-      dateFormat=", yy, MMMM d"
+      dateFormat="yyyy, MMMM ,d"
       selected={startDate}
       calendarClassName={s.calendarConatiner}
       popperClassName={s.popperCustomClass}

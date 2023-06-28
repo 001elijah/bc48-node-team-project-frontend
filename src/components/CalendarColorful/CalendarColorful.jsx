@@ -8,7 +8,8 @@ import { CalendarButton } from '../CalendarButton/CalendarButton';
 import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 
 export const CalendarColorful = ({ onDate }) => {
-  const [startDate, setStartDate] = useState(new Date());
+  const [startDate, setStartDate] = useState(Date.now());
+  console.log(startDate);
   const months = [
     'January',
     'February',
@@ -29,13 +30,14 @@ export const CalendarColorful = ({ onDate }) => {
 
   return (
     <DatePicker
-      dateFormat=", yy, MMMM d"
+      dateFormat="yyyy, MMMM ,d"
       selected={startDate}
       calendarClassName={s.calendarConatiner}
       popperClassName={s.popperCustomClass}
       // formatWeekDay={day => day.substr(0, 2)}
       customInput={
         <CalendarButton
+          value={startDate}
           onClick={e => {
             console.log(e.target);
           }}

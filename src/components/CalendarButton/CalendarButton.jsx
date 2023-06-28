@@ -3,15 +3,20 @@ import PropTypes from 'prop-types';
 import { selectorTheme } from 'redux/Auth/authSelectors';
 import { useSelector } from 'react-redux';
 import s from './CalendarButton.module.scss';
-import moment from 'moment/moment';
+
 import IconCalendar from 'components/IconCalendar/IconCalendar';
 
 export const CalendarButton = forwardRef(({ value, onClick }, ref) => {
   const theme = useSelector(selectorTheme);
 
-  const curentDays = moment(value).format('LLLL');
+  const curentDays = new Date(value).toLocaleDateString('en-us', {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+  });
   const valueDay = curentDays.split(',');
-  const result = valueDay[0] + ',' + valueDay[1];
+  const result = valueDay[0] + ',' + value.split(',')[1] + value.split(',')[2];
 
   return (
     <div className={s.container}>

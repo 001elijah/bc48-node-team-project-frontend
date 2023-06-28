@@ -30,13 +30,14 @@ export const CalendarDark = ({ onDate }) => {
 
   return (
     <DatePicker
-      dateFormat=", yy, MMMM d"
+      dateFormat="yyyy, MMMM ,d"
       selected={startDate}
       calendarClassName={s.calendarConatiner}
       popperClassName={s.popperCustomClass}
       // formatWeekDay={day => day.substr(0, 2)}
       customInput={
         <CalendarButton
+          value={startDate}
           onClick={e => {
             console.log(e.target);
           }}

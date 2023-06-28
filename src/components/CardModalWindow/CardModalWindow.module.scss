@@ -59,14 +59,6 @@
       opacity: initial;
       outline: none;
     }
-
-    @include tablet {
-      max-width: 302px;
-    }
-
-    @include desktop {
-      max-width: 302px;
-    }
   }
 
   &.light {
@@ -84,14 +76,21 @@
       outline: none;
     }
   }
+
+  @include tablet {
+    max-width: 302px;
+    width: 100%;
+  }
+
+  @include desktop {
+    max-width: 302px;
+    width: 100%;
+  }
 }
 
 .textAreaStyle:focus {
   opacity: initial;
 }
-
-@import '../../assets/styles/vars';
-@import '../../assets/styles/mixins';
 
 .inputModal {
   width: 287px;
@@ -214,10 +213,12 @@
 
   @include tablet {
     max-width: 302px;
+    width: 100%;
   }
 
   @include desktop {
     max-width: 302px;
+    width: 100%;
   }
 }
 
