@@ -6,16 +6,18 @@ import { BoardList } from '../BoardList/BoardList';
 import { HelpWindow } from '../HelpWindow/HelpWindow';
 import { Logout } from '../Logout/Logout';
 import { selectorTheme } from 'redux/Auth/authSelectors';
-import { selectBoards } from 'redux/Boards/boardsSelectors';
+import { selectBoards, currentBoard } from 'redux/Boards/boardsSelectors';
 import { useDispatch, useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 import { BoardModalWindow } from '../BoardModalWindow/BoardModalWindow';
 import { useState } from 'react';
 import { addNewBoard } from 'redux/Boards/boardsOperations';
 
-export const Sidebar = () => {
+export const Sidebar = ({ toggleSidebar }) => {
   const boards = useSelector(selectBoards);
-  const dispatch = useDispatch();
+  const activeBoard = useSelector(currentBoard);
   const theme = useSelector(selectorTheme);
+  const dispatch = useDispatch();
 
   const [showModalWindow, setShowModalWindow] = useState(false);
   const handleModalWindowOpen = () => setShowModalWindow(true);
@@ -31,7 +33,12 @@ export const Sidebar = () => {
       <Logo theme={theme} />
       <p className={clsx(s.text, s[theme])}>My boards</p>
       <NewBoardButton theme={theme} onClick={handleModalWindowOpen} />
-      <BoardList theme={theme} boards={boards} />
+      <BoardList
+        onCLose={toggleSidebar}
+        theme={theme}
+        boards={boards}
+        currentBoard={activeBoard}
+      />
 
       <HelpWindow theme={theme} />
       <Logout theme={theme} />
@@ -45,4 +52,8 @@ export const Sidebar = () => {
       )}
     </div>
   );
+};
+
+Sidebar.propTypes = {
+  toggleSidebar: PropTypes.func,
 };

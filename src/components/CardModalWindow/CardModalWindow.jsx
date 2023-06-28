@@ -15,7 +15,6 @@ export const CardModalWindow = ({
   inputTitle = '',
   description = '',
   titleModalButton,
-  activeColor = 'without',
   onSubmit,
   handleToggleModal,
   date,
