@@ -1,6 +1,18 @@
 @import '../../assets/styles/vars';
 @import '../../assets/styles/mixins';
 
+.errorTitle {
+  position: absolute;
+  top: 150px;
+  left: 30px;
+  font-size: 10px;
+  font-family: Poppins-Regular;
+  font-weight: 400;
+  letter-spacing: -0.24px;
+
+  color: red;
+}
+
 .inputModal {
   width: 287px;
   height: 49px;
