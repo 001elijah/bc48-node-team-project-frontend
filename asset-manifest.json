@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/bc48-node-team-project-frontend/static/css/main.9d9e0c8f.css",
-    "main.js": "/bc48-node-team-project-frontend/static/js/main.43677ecd.js",
+    "main.css": "/bc48-node-team-project-frontend/static/css/main.52579f9a.css",
+    "main.js": "/bc48-node-team-project-frontend/static/js/main.0000df86.js",
     "static/media/Poppins-Regular.ttf": "/bc48-node-team-project-frontend/static/media/Poppins-Regular.35d26b781dc5fda684cc.ttf",
     "static/media/Poppins-Medium.ttf": "/bc48-node-team-project-frontend/static/media/Poppins-Medium.673ed42382ab264e0bf5.ttf",
     "static/media/Poppins-SemiBold.ttf": "/bc48-node-team-project-frontend/static/media/Poppins-SemiBold.ac8d04b620e54be9b0f0.ttf",
@@ -9,11 +9,11 @@
     "static/media/welcome-page-1x.png": "/bc48-node-team-project-frontend/static/media/welcome-page-1x.abcacf1d2213219c6bdf.png",
     "static/media/welcome-page-mob-1x.png": "/bc48-node-team-project-frontend/static/media/welcome-page-mob-1x.170ac35e3bc68fd8ecd2.png",
     "index.html": "/bc48-node-team-project-frontend/index.html",
-    "main.9d9e0c8f.css.map": "/bc48-node-team-project-frontend/static/css/main.9d9e0c8f.css.map",
-    "main.43677ecd.js.map": "/bc48-node-team-project-frontend/static/js/main.43677ecd.js.map"
+    "main.52579f9a.css.map": "/bc48-node-team-project-frontend/static/css/main.52579f9a.css.map",
+    "main.0000df86.js.map": "/bc48-node-team-project-frontend/static/js/main.0000df86.js.map"
   },
   "entrypoints": [
-    "static/css/main.9d9e0c8f.css",
-    "static/js/main.43677ecd.js"
+    "static/css/main.52579f9a.css",
+    "static/js/main.0000df86.js"
   ]
 }
