@@ -8,16 +8,16 @@ import {
 import { getListOfThumbnails } from '../../redux/Background/backgroundOperations';
 import { selectorTheme } from '../../redux/Auth/authSelectors';
 import { Loader } from 'components/Loader/Loader';
-
 import s from './BoxRadioBackgroundGroup.module.scss';
+import { currentBoard } from 'redux/Boards/boardsSelectors';
 
 export const BoxRadioBackgroundGroup = ({ valueChange }) => {
   const thumbnails = useSelector(selectBackgroundThumbnails);
   const loading = useSelector(selectBackgroundLoading);
   const theme = useSelector(selectorTheme);
-
   const dispatch = useDispatch();
-  const [background, setBackground] = useState(null);
+  const board = useSelector(currentBoard);
+  const [background, setBackground] = useState(board.background);
 
 const handleChange = (e) => {
   const selectedBackground = e.target.value;
@@ -33,7 +33,6 @@ const handleChange = (e) => {
   useEffect(() => {
     setBackground(null);
   }, []);
-
   return (
     <div className={s.backgroundGroupWrapper}>
       <h1 className={`${s.label} ${s[theme]}`}>Background</h1>
@@ -47,6 +46,7 @@ const handleChange = (e) => {
           <input
             className={`${s.radioInput} ${s[theme]}`}
             type="radio"
+            onClick={handleChange}
             onChange={handleChange}
             value={null}
             name="background"

@@ -1,11 +1,18 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { BoardItem } from '../BoardItem/BoardItem';
 import sprite from 'assets/icons/sprite.svg';
 import s from './BoardList.module.scss';
 
-export const BoardList = ({ theme, boards }) => {
-  const [current, setCurrent] = useState(null);
+export const BoardList = ({ theme, boards, currentBoard }) => {
+  const [current, setCurrent] = useState(currentBoard?._id);
+
+  const onClick = id => {
+    setCurrent(id);
+  };
+  useEffect(() => {
+    setCurrent(currentBoard?._id);
+  }, [currentBoard?._id]);
 
   return (
     <ul className={s.list}>
@@ -16,7 +23,7 @@ export const BoardList = ({ theme, boards }) => {
           icon={`${sprite}#${icon}`}
           theme={theme}
           id={_id}
-          onClick={() => setCurrent(_id)}
+          onClick={onClick}
           isCurrent={current === _id && true}
         />
       ))}
@@ -27,4 +34,5 @@ export const BoardList = ({ theme, boards }) => {
 BoardList.propTypes = {
   theme: PropTypes.string.isRequired,
   boards: PropTypes.array,
+  currentBoard: PropTypes.object,
 };

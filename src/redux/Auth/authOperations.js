@@ -38,10 +38,13 @@ export const registerUser = createAsyncThunk(
 
 export const loginUser = createAsyncThunk(
   'auth/login',
-  async (dataUser, { rejectWithValue }) => {
+  async (dataUser, { rejectWithValue, dispatch }) => {
     try {
       const userData = await loginUserApi(dataUser);
       Notify.success('Welcome');
+      setTimeout(() => {
+        dispatch(getListOfBoards());
+      }, 0);
       return userData;
     } catch (error) {
       const { status } = error.response.request;
