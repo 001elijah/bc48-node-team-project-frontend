@@ -37,15 +37,15 @@ export const HeaderDashBoard = ({ title }) => {
   }, [color]);
 
   useEffect(() => {
-  const updateBoardAndFetch = async () => {
-    if (showModalWindow && icon) {
-      await dispatch(updateBoard({ back: icon, board }));
-      dispatch(getBoardById(board._id));
-    }
-  };
+    const updateBoardAndFetch = async () => {
+      if (showModalWindow && icon) {
+        await dispatch(updateBoard({ back: icon, board }));
+        dispatch(getBoardById(board._id));
+      }
+    };
 
-  updateBoardAndFetch();
-}, [icon, showModalWindow]);
+    updateBoardAndFetch();
+  }, [icon, showModalWindow]);
 
   return (
     <>
