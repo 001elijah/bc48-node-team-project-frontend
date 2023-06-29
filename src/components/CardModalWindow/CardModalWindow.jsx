@@ -60,7 +60,7 @@ export const CardModalWindow = ({
   };
 
   const handleChange = e => {
-    const cyrillicRegex = /^[a-zA-Z]+$/;
+    const cyrillicRegex = /^[^\u0400-\u04FF]+$/;
     setValue(e.target.value);
 
     if (e.target.value.length > 0 && !cyrillicRegex.test(e.target.value)) {
@@ -77,7 +77,7 @@ export const CardModalWindow = ({
   };
 
   const handleChangeDescription = e => {
-    const cyrillicRegex = /^[a-zA-Z]+$/;
+    const cyrillicRegex = /^[^\u0400-\u04FF]+$/;
     setComent(e.target.value);
 
     if (e.target.value.length > 0 && !cyrillicRegex.test(e.target.value)) {

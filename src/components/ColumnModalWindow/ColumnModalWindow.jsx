@@ -22,6 +22,7 @@ export const ColumnModalWindow = ({
   const theme = useSelector(selectorTheme);
   const [isValid, setIsValid] = useState(false);
   const [errorCirillicaTitle, setErrorCirillicaTitle] = useState(false);
+  const [errorTitleMaxLength, setErrorTitleMaxLength] = useState(false);
 
   // const updateBoard = ()=>{
   //   setTimeout(()=>{dispatch(getBoardById(boardId)),0 })
@@ -55,7 +56,7 @@ export const ColumnModalWindow = ({
   };
 
   const handleChange = e => {
-    const cyrillicRegex = /^[a-zA-Z]+$/;
+    const cyrillicRegex = /^[^\u0400-\u04FF]+$/;
 
     if (e.target.value.length > 0 && !cyrillicRegex.test(e.target.value)) {
       setErrorCirillicaTitle(true);
@@ -63,6 +64,13 @@ export const ColumnModalWindow = ({
     } else {
       setErrorCirillicaTitle(false);
     }
+
+    if (e.target.value.length === 64) {
+      setErrorTitleMaxLength(true);
+    } else {
+      setErrorTitleMaxLength(false);
+    }
+
     setValue(e.target.value);
   };
   return (
@@ -72,10 +80,16 @@ export const ColumnModalWindow = ({
           className={`${s.inputModal} ${s[theme]}`}
           value={value}
           placeholder="Title"
+          maxLength="64"
           onChange={handleChange}
         />
         {isValid && <p className={s.errorTitle}>required field</p>}
-        {errorCirillicaTitle && (
+        {errorTitleMaxLength && (
+          <p className={s.errorTitleMaxLength}>
+            you have reached the symbols limit
+          </p>
+        )}
+        {errorCirillicaTitle && !errorTitleMaxLength && (
           <p className={s.errorCirillicaTitle}>
             invalid characters (latin alphabet only)
           </p>
