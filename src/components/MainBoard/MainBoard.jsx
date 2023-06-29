@@ -1,4 +1,4 @@
-import { Wrapper, ColumnsList, ContentBoard,  } from './MainBoard.styled';
+import { Wrapper, ColumnsList, ContentBoard } from './MainBoard.styled';
 import PropTypes from 'prop-types';
 import { HeaderDashBoard } from '../HeaderDashBoard/HeaderDashBoard';
 import { AddButton } from '../ButtonAddColumn/ButtonAddColumn';
@@ -44,8 +44,11 @@ export const MainBoard = () => {
   return (
     <>
       {/* <Wrapper isExpanded={typeof(board.background)==='object'? true:false} imgurl={board.background} colorbg={curTheme}> */}
-      <Wrapper isExpanded={(!board.background)? false:true} imgurl={board.background} colorbg={curTheme}>
-       
+      <Wrapper
+        isExpanded={!board.background ? false : true}
+        imgurl={board.background}
+        colorbg={curTheme}
+      >
         <HeaderDashBoard title={board.title} />
         <ContentBoard>
           <ColumnsList>

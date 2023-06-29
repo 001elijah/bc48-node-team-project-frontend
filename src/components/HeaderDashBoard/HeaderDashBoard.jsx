@@ -21,7 +21,7 @@ export const HeaderDashBoard = ({ title }) => {
     if (!board) {
       Notify.failure('You need to create or select a board');
       return;
-    };
+    }
     setShowModalWindow(true);
   };
   const handleModalWindowClose = () => {

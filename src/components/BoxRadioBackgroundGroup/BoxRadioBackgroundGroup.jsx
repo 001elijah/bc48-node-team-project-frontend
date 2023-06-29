@@ -19,12 +19,11 @@ export const BoxRadioBackgroundGroup = ({ valueChange }) => {
   const board = useSelector(currentBoard);
   const [background, setBackground] = useState(board.background);
 
-const handleChange = (e) => {
-  const selectedBackground = e.target.value;
-  setBackground(selectedBackground);
-  valueChange(selectedBackground);
-};
-
+  const handleChange = e => {
+    const selectedBackground = e.target.value;
+    setBackground(selectedBackground);
+    valueChange(selectedBackground);
+  };
 
   useEffect(() => {
     dispatch(getListOfThumbnails());
@@ -48,7 +47,7 @@ const handleChange = (e) => {
             type="radio"
             onClick={handleChange}
             onChange={handleChange}
-            value='null'
+            value="null"
             name="background"
             id="radio-default"
             checked={background === 'null'}
