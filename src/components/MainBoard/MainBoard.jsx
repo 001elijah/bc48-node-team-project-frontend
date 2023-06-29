@@ -40,11 +40,12 @@ export const MainBoard = () => {
   }
 
   const board = useSelector(currentBoard);
-
   if (!board) return null;
   return (
     <>
-      <Wrapper isExpanded={typeof(board.background)==='object'? true:false} imgurl={board.background} colorbg={curTheme}>
+      {/* <Wrapper isExpanded={typeof(board.background)==='object'? true:false} imgurl={board.background} colorbg={curTheme}> */}
+      <Wrapper isExpanded={(!board.background)? false:true} imgurl={board.background} colorbg={curTheme}>
+       
         <HeaderDashBoard title={board.title} />
         <ContentBoard>
           <ColumnsList>

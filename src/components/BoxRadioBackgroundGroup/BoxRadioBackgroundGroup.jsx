@@ -47,7 +47,7 @@ export const BoxRadioBackgroundGroup = ({ valueChange }) => {
             type="radio"
             onClick={handleChange}
             onChange={handleChange}
-            value="null"
+            value="dark"
             name="background"
             id="radio-default"
             checked={background === 'default'}
