@@ -30,7 +30,7 @@ export const MainBoard = () => {
       curTheme = '#1F1F1F';
       break;
     case 'light':
-      curTheme = '##F6F6F7';
+      curTheme = '#F6F6F7';
       break;
     case 'colorful':
       curTheme = '#ECEDFD';
