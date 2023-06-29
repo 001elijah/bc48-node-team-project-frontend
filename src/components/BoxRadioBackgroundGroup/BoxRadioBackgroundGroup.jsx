@@ -30,7 +30,7 @@ export const BoxRadioBackgroundGroup = ({ valueChange }) => {
   useEffect(() => {
     dispatch(getListOfThumbnails());
   }, [dispatch]);
-  
+
   return (
     <div className={s.backgroundGroupWrapper}>
       <h1 className={`${s.label} ${s[theme]}`}>Background</h1>
@@ -38,7 +38,7 @@ export const BoxRadioBackgroundGroup = ({ valueChange }) => {
         {/* Default Background */}
         <div
           className={`${s.radioContainer} ${s[theme]} ${
-            background === "default" ? s.selected : ''
+            background === 'default' ? s.selected : ''
           }`}
         >
           <input
