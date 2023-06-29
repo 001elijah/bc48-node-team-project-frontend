@@ -1,6 +1,6 @@
 import s from './HeaderDashBoard.module.scss';
 import svg from '../../assets/icons/sprite.svg';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ModalFilter } from '../ModalFilter/ModalFilter';
 import { selectorTheme } from 'redux/Auth/authSelectors';
 import { useDispatch, useSelector } from 'react-redux';
@@ -10,6 +10,7 @@ import { BackdropModal } from '../BackdropMain/BackdropMain';
 import { addFilters } from '../../redux/Filter/filterOperation';
 import { updateBoard, getBoardById } from '../../redux/Boards/boardsOperations';
 import { currentBoard } from '../../redux/Boards/boardsSelectors';
+import { Notify } from 'notiflix';
 
 export const HeaderDashBoard = ({ title }) => {
   const dispatch = useDispatch();
@@ -17,22 +18,27 @@ export const HeaderDashBoard = ({ title }) => {
   const board = useSelector(currentBoard);
   const [showModalWindow, setShowModalWindow] = useState(false);
   const handleModalWindowOpen = () => {
-    if (!board) return;
+    if (!board) {
+      Notify.failure('You need to create or select a board');
+      return;
+    };
     setShowModalWindow(true);
   };
   const handleModalWindowClose = () => {
     setShowModalWindow(false);
-    change();
+    dispatch(getBoardById(board._id));
   };
 
   const [color, setColor] = useState('');
   const [icon, setIcon] = useState('');
 
-  const change = async () => {
-    await dispatch(addFilters(color));
-    await dispatch(updateBoard({ back: icon, board }));
-    await dispatch(getBoardById(board._id));
-  };
+  useEffect(() => {
+    showModalWindow && dispatch(addFilters(color));
+  }, [color]);
+  useEffect(() => {
+    showModalWindow && icon && dispatch(updateBoard({ back: icon, board }));
+  }, [icon]);
+
   return (
     <>
       <div className={clsx(s.HeaderDash, s[theme])}>
