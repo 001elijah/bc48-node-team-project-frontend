@@ -12,9 +12,10 @@ export const Wrapper = styled.div(props => {
       background-size: cover;
       background-position: center;
       height: calc(100vh - 61px);
+      padding-left: 20px;
 
       @media screen and (min-width: 375px) {
-        padding-left: 0px;
+        padding-left: 20px;
         background-image: url(${props.imgurl?.mobileUrl_1x});
       }
     
