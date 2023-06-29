@@ -1,18 +1,14 @@
 import styled from 'styled-components';
 
-
-export const Wrapper = styled.div
-  (props => {
-    const expandedStyles =
-      `
+export const Wrapper = styled.div(props => {
+  const expandedStyles = `
       padding-left: 20px;
       padding-right: 20px;
       height: calc(100vh - 61px);
       height: calc(100vh - 61px);
       background-color: ${props.colorbg};
       `;
-    const notExpandedStyles =
-      `
+  const notExpandedStyles = `
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
@@ -54,12 +50,12 @@ export const Wrapper = styled.div
       }
     `;
 
-    if (props.isExpanded) {
-      return notExpandedStyles;
-    } else {
-      return expandedStyles;
-    }
-  });
+  if (props.isExpanded) {
+    return notExpandedStyles;
+  } else {
+    return expandedStyles;
+  }
+});
 
 export const Wrappers = styled.div`
   padding-left: 20px;
