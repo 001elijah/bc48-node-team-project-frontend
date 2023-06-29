@@ -21,7 +21,7 @@ export const BoardList = ({ theme, boards, currentBoard }) => {
           key={shortid.generate()}
           boardName={title}
           icon={`${sprite}#${icon}`}
-          background={background ? background : "default"}
+          background={background ? background : 'default'}
           theme={theme}
           id={_id}
           onClick={onClick}

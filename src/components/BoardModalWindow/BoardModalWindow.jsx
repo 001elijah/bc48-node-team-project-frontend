@@ -11,7 +11,7 @@ import s from './BoardModalWindow.module.scss';
 export const BoardModalWindow = ({
   inputTitle = '',
   activeIcon = 'icon-project',
-  activeBackground = "default",
+  activeBackground = 'default',
   modalTitle,
   titleModalButton,
   onSubmit,
@@ -86,7 +86,10 @@ export const BoardModalWindow = ({
           </p>
         )}
         <BoxRadioIconGroup valueChange={setIcon} activeIcon={activeIcon} />
-        <BoxRadioBackgroundGroup valueChange={setBackground} activeBackground={activeBackground}/>
+        <BoxRadioBackgroundGroup
+          valueChange={setBackground}
+          activeBackground={activeBackground}
+        />
         <button className={`${s.buttonModal} ${s[theme]}`} type="submit">
           <span className={`${s.iconButtonModalWrapper} ${s[theme]}`}>
             <svg
