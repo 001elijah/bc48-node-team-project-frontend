@@ -1,7 +1,7 @@
 @import '../../assets/styles/vars';
 
 .modalWrapper {
-  max-width: max-content;
+  max-width: 350px;
   min-height: 86px;
   padding: 18px;
   border-radius: 8px;
@@ -57,10 +57,21 @@
   }
 }
 
+.title {
+  text-align: left;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .icon {
   width: 16px;
   height: 16px;
   margin-left: 8px;
+  flex-shrink: 0;
   stroke: $black-text-color;
 
   &.current {
