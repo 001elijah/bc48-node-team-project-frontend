@@ -43,6 +43,9 @@
   line-height: 1.5;
   color: $black-text-color;
 
+  overflow: hidden;
+  text-overflow: ellipsis;
+
   &.dark {
     color: $white-text-color;
   }

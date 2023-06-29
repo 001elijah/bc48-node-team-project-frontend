@@ -1,9 +1,10 @@
 @import '../../assets/styles/vars';
 @import '../../assets/styles/mixins';
 
+.errorCirillicaTitle,
 .errorTitle {
   position: absolute;
-  top: 150px;
+  top: 128px;
   left: 30px;
   font-size: 10px;
   font-family: Poppins-Regular;
