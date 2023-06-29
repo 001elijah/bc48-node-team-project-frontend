@@ -71,6 +71,7 @@ export const getBoardByIdApi = async (boardName, userToken) => {
 };
 export const updateBoardApi = async ({ board, back }, userToken) => {
   token.set(userToken);
+  console.log('boardId', board._id, 'background', back)
   const { data } = await axios.patch(`/board/${board._id}`, {
     background: back,
   });

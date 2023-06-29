@@ -10,6 +10,7 @@ import { BackdropModal } from '../BackdropMain/BackdropMain';
 import { addFilters } from '../../redux/Filter/filterOperation';
 import { updateBoard, getBoardById } from '../../redux/Boards/boardsOperations';
 import { currentBoard } from '../../redux/Boards/boardsSelectors';
+import { Notify } from 'notiflix';
 
 export const HeaderDashBoard = ({ title }) => {
   const dispatch = useDispatch();
@@ -17,7 +18,10 @@ export const HeaderDashBoard = ({ title }) => {
   const board = useSelector(currentBoard);
   const [showModalWindow, setShowModalWindow] = useState(false);
   const handleModalWindowOpen = () => {
-    if (!board) return;
+    if (!board) {
+      Notify.failure('You need to create or select a board');
+      return;
+    };
     setShowModalWindow(true);
   };
   const handleModalWindowClose = () => {
