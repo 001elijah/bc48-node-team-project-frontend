@@ -53,6 +53,10 @@
   letter-spacing: -0.02em;
   color: #ffffff80;
 
+  width: 135px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
   &.light {
     color: #16161680;
   }
