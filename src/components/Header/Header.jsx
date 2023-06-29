@@ -71,7 +71,7 @@ export const Header = () => {
       </header>
       {showSidebar && (
         <SideBarBackDrop toggleSidebar={toggleSidebar}>
-          <Sidebar toggleSidebar={toggleSidebar} />
+          <Sidebar />
         </SideBarBackDrop>
       )}
     </>

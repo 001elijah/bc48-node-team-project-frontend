@@ -25,9 +25,10 @@
 }
 
 body {
+  background-color: $dark-color;
   margin: 0;
   height: 100vh;
-  overflow: hidden;
+  // overflow: hidden;
   font-family: 'Poppins-Regular', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

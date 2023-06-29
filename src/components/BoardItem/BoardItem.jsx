@@ -5,10 +5,13 @@ import sprite from 'assets/icons/sprite.svg';
 import { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { editBoard } from 'redux/Boards/boardsOperations';
+import {
+  editBoard,
+  removeBoard,
+  getBoardById,
+} from 'redux/Boards/boardsOperations';
 import { BoardModalWindow } from '../BoardModalWindow/BoardModalWindow';
 import { Modal } from '../Modal/Modal';
-import { removeBoard, getBoardById } from 'redux/Boards/boardsOperations';
 
 export const BoardItem = ({
   boardName,
@@ -25,6 +28,7 @@ export const BoardItem = ({
 
   const editSubmit = dataBoard => {
     dispatch(editBoard({ dataBoard, id }));
+    dispatch(getBoardById(id));
   };
 
   const handleOpenEditModal = e => {
@@ -34,7 +38,6 @@ export const BoardItem = ({
   };
   const handleCloseEditModal = () => {
     setIsOpenEditModal(false);
-    // onClick();
   };
 
   const handleOpenRemoveModal = e => {

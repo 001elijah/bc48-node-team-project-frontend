@@ -4,12 +4,11 @@ import { BoardItem } from '../BoardItem/BoardItem';
 import sprite from 'assets/icons/sprite.svg';
 import s from './BoardList.module.scss';
 
-export const BoardList = ({ onCLose, theme, boards, currentBoard }) => {
+export const BoardList = ({ theme, boards, currentBoard }) => {
   const [current, setCurrent] = useState(currentBoard?._id);
 
   const onClick = id => {
     setCurrent(id);
-    if (onCLose) onCLose();
   };
   useEffect(() => {
     setCurrent(currentBoard?._id);
@@ -35,6 +34,5 @@ export const BoardList = ({ onCLose, theme, boards, currentBoard }) => {
 BoardList.propTypes = {
   theme: PropTypes.string.isRequired,
   boards: PropTypes.array,
-  onCLose: PropTypes.func,
   currentBoard: PropTypes.object,
 };

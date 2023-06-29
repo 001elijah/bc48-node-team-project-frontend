@@ -45,7 +45,7 @@ const boardsSlice = createSlice({
         state.currentboard = payload;
       })
       .addCase(updateBoard.fulfilled, (state, { payload }) => {
-        state = payload;
+        state.currentboard = payload;
       })
       .addCase(logoutUser.fulfilled, state => {
         state.allboards = [];
