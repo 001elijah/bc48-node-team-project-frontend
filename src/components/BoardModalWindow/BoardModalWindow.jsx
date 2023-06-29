@@ -68,7 +68,9 @@ export const BoardModalWindow = ({
         />
         {isValid && <p className={s.errorTitle}>required field</p>}
         {errorCirillicaTitle && (
-          <p className={s.errorCirillicaTitle}>Unavailable characters</p>
+          <p className={s.errorCirillicaTitle}>
+            invalid characters (latin alphabet only)
+          </p>
         )}
         <BoxRadioIconGroup valueChange={setIcon} activeIcon={activeIcon} />
         <BoxRadioBackgroundGroup valueChange={setBackground} />

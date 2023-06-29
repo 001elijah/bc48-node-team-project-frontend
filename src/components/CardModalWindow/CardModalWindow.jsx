@@ -106,10 +106,14 @@ export const CardModalWindow = ({
         />
         {isValid && <p className={s.errorTitle}>required field</p>}
         {errorTitleMaxLength && (
-          <p className={s.errorTitleMaxLength}>Maximum number of characters</p>
+          <p className={s.errorTitleMaxLength}>
+            you have reached the symbols limit
+          </p>
         )}
         {errorCirillicaTitle && !errorTitleMaxLength && (
-          <p className={s.errorCirillicaTitle}>Unavailable characters</p>
+          <p className={s.errorCirillicaTitle}>
+            invalid characters (latin alphabet only)
+          </p>
         )}
         <textarea
           onChange={handleChangeDescription}
@@ -122,11 +126,13 @@ export const CardModalWindow = ({
         ></textarea>
         {errorMaxLengthDescription && (
           <p className={s.errortextAreaMaxLength}>
-            Maximum number of characters
+            you have reached the symbols limit
           </p>
         )}
         {errorCirillicaDescription && !errorMaxLengthDescription && (
-          <p className={s.errortextAreaCirillica}>Unavailable characters</p>
+          <p className={s.errortextAreaCirillica}>
+            invalid characters (latin alphabet only)
+          </p>
         )}
         <BoxRadioColorGroup
           valueChange={handleChangeColor}
