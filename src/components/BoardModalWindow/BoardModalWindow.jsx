@@ -21,9 +21,15 @@ export const BoardModalWindow = ({
   const [background, setBackground] = useState('dark');
   const [icon, setIcon] = useState('');
   const [isValid, setIsValid] = useState(false);
+  // const [errorTitleMaxLength, setErrorTitleMaxLength] = useState(false);
+  const [errorCirillicaTitle, setErrorCirillicaTitle] = useState(false);
 
   const handleSubmit = e => {
     e.preventDefault();
+
+    if (errorCirillicaTitle) {
+      return;
+    }
 
     if (title === '') {
       setIsValid(true);
@@ -39,6 +45,18 @@ export const BoardModalWindow = ({
     }
   };
 
+  const handleChange = e => {
+    const cyrillicRegex = /^[a-zA-Z]+$/;
+    setTitle(e.target.value);
+
+    if (e.target.value.length > 0 && !cyrillicRegex.test(e.target.value)) {
+      setErrorCirillicaTitle(true);
+      e.preventDefault();
+    } else {
+      setErrorCirillicaTitle(false);
+    }
+  };
+
   return (
     <Modal title={modalTitle} onClose={handleToggleModal}>
       <form onSubmit={handleSubmit}>
@@ -46,10 +64,12 @@ export const BoardModalWindow = ({
           className={`${s.inputModal} ${s[theme]}`}
           value={title}
           placeholder={'Title'}
-          onChange={e => setTitle(e.target.value)}
+          onChange={handleChange}
         />
         {isValid && <p className={s.errorTitle}>required field</p>}
-
+        {errorCirillicaTitle && (
+          <p className={s.errorCirillicaTitle}>Unavailable characters</p>
+        )}
         <BoxRadioIconGroup valueChange={setIcon} activeIcon={activeIcon} />
         <BoxRadioBackgroundGroup valueChange={setBackground} />
         <button className={`${s.buttonModal} ${s[theme]}`} type="submit">

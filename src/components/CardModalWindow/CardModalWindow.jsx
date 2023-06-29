@@ -23,6 +23,12 @@ export const CardModalWindow = ({
   const theme = useSelector(selectorTheme);
 
   const [isValid, setIsValid] = useState(false);
+  const [errorTitleMaxLength, setErrorTitleMaxLength] = useState(false);
+  const [errorCirillicaTitle, setErrorCirillicaTitle] = useState(false);
+  const [errorMaxLengthDescription, setErrorMaxLengthDescription] =
+    useState(false);
+  const [errorCirillicaDescription, setErrorCirillicaDescription] =
+    useState(false);
   const [value, setValue] = useState(inputTitle);
   const [coment, setComent] = useState(description);
   const [priorityColor, setPriorityColorColor] = useState(color);
@@ -34,9 +40,13 @@ export const CardModalWindow = ({
 
   const handleSubmit = e => {
     e.preventDefault();
+
+    if (errorCirillicaDescription || errorCirillicaTitle) {
+      return;
+    }
     if (value === '') {
       setIsValid(true);
-      setTimeout(() => setIsValid(false), 2500);
+      setTimeout(() => setIsValid(false), 3500);
     } else {
       const newCard = {
         value,
@@ -49,6 +59,41 @@ export const CardModalWindow = ({
     }
   };
 
+  const handleChange = e => {
+    const cyrillicRegex = /^[a-zA-Z]+$/;
+    setValue(e.target.value);
+
+    if (e.target.value.length > 0 && !cyrillicRegex.test(e.target.value)) {
+      setErrorCirillicaTitle(true);
+      e.preventDefault();
+    } else {
+      setErrorCirillicaTitle(false);
+    }
+    if (e.target.value.length === 64) {
+      setErrorTitleMaxLength(true);
+    } else {
+      setErrorTitleMaxLength(false);
+    }
+  };
+
+  const handleChangeDescription = e => {
+    const cyrillicRegex = /^[a-zA-Z]+$/;
+    setComent(e.target.value);
+
+    if (e.target.value.length > 0 && !cyrillicRegex.test(e.target.value)) {
+      setErrorCirillicaDescription(true);
+      e.preventDefault();
+    } else {
+      setErrorCirillicaDescription(false);
+    }
+
+    if (e.target.value.length === 200) {
+      setErrorMaxLengthDescription(true);
+    } else {
+      setErrorMaxLengthDescription(false);
+    }
+  };
+
   return (
     <Modal title={modalTitle} onClose={handleToggleModal}>
       <form onSubmit={handleSubmit}>
@@ -56,17 +101,37 @@ export const CardModalWindow = ({
           className={`${s.inputModal} ${s[theme]}`}
           value={value}
           placeholder={'Title'}
-          onChange={e => setValue(e.target.value)}
+          maxLength="64"
+          onChange={handleChange}
         />
         {isValid && <p className={s.errorTitle}>required field</p>}
+        {errorTitleMaxLength && (
+          <p className={s.errorTitleMaxLength}>Maximum number of characters</p>
+        )}
+        {errorCirillicaTitle && !errorTitleMaxLength && (
+          <p className={s.errorCirillicaTitle}>Unavailable characters</p>
+        )}
         <textarea
-          onChange={e => setComent(e.target.value)}
+          onChange={handleChangeDescription}
           className={`${s.textAreaStyle} ${s[theme]}`}
           name="coments"
           id="coments"
           placeholder="Description"
           value={coment}
+          maxLength="200"
         ></textarea>
+        {errorMaxLengthDescription && (
+          <p className={s.errortextAreaMaxLength}>
+            Maximum number of characters
+          </p>
+        )}
+        {errorCirillicaDescription && !errorMaxLengthDescription && (
+          <p className={s.errortextAreaCirillica}>Unavailable characters</p>
+        )}
+        <BoxRadioColorGroup
+          valueChange={handleChangeColor}
+          deadline={priorityColor}
+        />
         {theme === 'dark' && (
           <CalendarDark onDate={setDeadline} deadline={deadline} />
         )}
@@ -76,10 +141,6 @@ export const CardModalWindow = ({
         {theme === 'colorful' && (
           <CalendarColorful onDate={setDeadline} deadline={deadline} />
         )}
-        <BoxRadioColorGroup
-          valueChange={handleChangeColor}
-          deadline={priorityColor}
-        />
         <button className={`${s.buttonModal} ${s[theme]}`} type="submit">
           <span className={`${s.iconButtonModalWrapper} ${s[theme]}`}>
             <svg

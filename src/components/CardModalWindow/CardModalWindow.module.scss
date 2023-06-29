@@ -9,6 +9,7 @@
   height: 154px;
   margin-bottom: 24px;
   padding: 14px 18px;
+  position: relative;
 
   resize: none;
 
@@ -90,6 +91,18 @@
 
 .textAreaStyle:focus {
   opacity: initial;
+}
+.errortextAreaCirillica,
+.errortextAreaMaxLength {
+  position: absolute;
+  top: 330px;
+  left: 30px;
+  font-size: 10px;
+  font-family: Poppins-Regular;
+  font-weight: 400;
+  letter-spacing: -0.24px;
+
+  color: red;
 }
 
 .inputModal {
@@ -175,6 +188,19 @@
 }
 
 .errorTitle {
+  position: absolute;
+  top: 150px;
+  left: 30px;
+  font-size: 10px;
+  font-family: Poppins-Regular;
+  font-weight: 400;
+  letter-spacing: -0.24px;
+
+  color: red;
+}
+
+.errorTitleMaxLength,
+.errorCirillicaTitle {
   position: absolute;
   top: 150px;
   left: 30px;
