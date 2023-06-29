@@ -38,7 +38,7 @@ export const BoxRadioBackgroundGroup = ({ valueChange }) => {
         {/* Default Background */}
         <div
           className={`${s.radioContainer} ${s[theme]} ${
-            background === null ? s.selected : ''
+            background === "default" ? s.selected : ''
           }`}
         >
           <input
@@ -46,10 +46,10 @@ export const BoxRadioBackgroundGroup = ({ valueChange }) => {
             type="radio"
             onClick={handleChange}
             onChange={handleChange}
-            value="null"
+            value="default"
             name="background"
             id="radio-default"
-            checked={background === 'null'}
+            checked={background === 'default'}
           />
           <label
             htmlFor="radio-default"
