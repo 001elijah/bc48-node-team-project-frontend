@@ -14,27 +14,28 @@ import { BoardModalWindow } from '../BoardModalWindow/BoardModalWindow';
 import { Modal } from '../Modal/Modal';
 
 export const BoardItem = ({
+  id,
   boardName,
   icon,
+  background = "default",
   theme,
   onClick,
   isCurrent,
-  id,
 }) => {
   const [isOpenEditModal, setIsOpenEditModal] = useState(false);
   const [isOpenRemoveModal, setIsOpenRemoveModal] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const editSubmit = dataBoard => {
-    dispatch(editBoard({ dataBoard, id }));
-    dispatch(getBoardById(id));
+  const editSubmit = async dataBoard => {
+        await dispatch(editBoard({ dataBoard, id }));
+        dispatch(getBoardById(id));
   };
 
   const handleOpenEditModal = e => {
     e.stopPropagation();
     setIsOpenEditModal(true);
-    // dispatch(getBoardById(id));
+
   };
   const handleCloseEditModal = () => {
     setIsOpenEditModal(false);
@@ -99,11 +100,12 @@ export const BoardItem = ({
       {isOpenEditModal && (
         <BoardModalWindow
           inputTitle={boardName}
+          activeIcon={icon.slice(icon.indexOf('#') + 1, icon.length)}
+          activeBackground={background}
           modalTitle={'Edit board'}
           titleModalButton={'Edit'}
           handleToggleModal={handleCloseEditModal}
           onSubmit={editSubmit}
-          activeIcon={icon.slice(icon.indexOf('#') + 1, icon.length)}
         />
       )}
       {isOpenRemoveModal && (
@@ -140,6 +142,7 @@ export const BoardItem = ({
 BoardItem.propTypes = {
   boardName: PropTypes.string.isRequired,
   icon: PropTypes.string.isRequired,
+  background: PropTypes.string.isRequired,
   theme: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
   isCurrent: PropTypes.bool.isRequired,
