@@ -16,11 +16,12 @@ export const BoardList = ({ theme, boards, currentBoard }) => {
   }, [currentBoard?._id]);
   return (
     <ul className={s.list}>
-      {boards.map(({ title, icon, _id }) => (
+      {boards.map(({ title, icon, _id, background }) => (
         <BoardItem
           key={shortid.generate()}
           boardName={title}
           icon={`${sprite}#${icon}`}
+          background={background ? background : "default"}
           theme={theme}
           id={_id}
           onClick={onClick}

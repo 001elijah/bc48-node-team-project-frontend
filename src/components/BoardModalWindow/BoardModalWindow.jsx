@@ -10,15 +10,16 @@ import s from './BoardModalWindow.module.scss';
 
 export const BoardModalWindow = ({
   inputTitle = '',
+  activeIcon = 'icon-project',
+  activeBackground = "default",
   modalTitle,
   titleModalButton,
   onSubmit,
   handleToggleModal,
-  activeIcon = 'icon-project',
 }) => {
   const theme = useSelector(selectorTheme);
   const [title, setTitle] = useState(inputTitle);
-  const [background, setBackground] = useState();
+  const [background, setBackground] = useState(activeBackground);
   const [icon, setIcon] = useState('');
   const [isValid, setIsValid] = useState(false);
   const [errorTitleMaxLength, setErrorTitleMaxLength] = useState(false);
@@ -85,7 +86,7 @@ export const BoardModalWindow = ({
           </p>
         )}
         <BoxRadioIconGroup valueChange={setIcon} activeIcon={activeIcon} />
-        <BoxRadioBackgroundGroup valueChange={setBackground} />
+        <BoxRadioBackgroundGroup valueChange={setBackground} activeBackground={activeBackground}/>
         <button className={`${s.buttonModal} ${s[theme]}`} type="submit">
           <span className={`${s.iconButtonModalWrapper} ${s[theme]}`}>
             <svg
@@ -105,10 +106,10 @@ export const BoardModalWindow = ({
 
 BoardModalWindow.propTypes = {
   modalTitle: PropTypes.string.isRequired,
-  inputTitle: PropTypes.string,
+  inputTitle: PropTypes.string.isRequired,
+  activeIcon: PropTypes.string.isRequired,
+  activeBackground: PropTypes.string.isRequired,
   titleModalButton: PropTypes.string.isRequired,
-  onSubmit: PropTypes.func,
-  handleToggleModal: PropTypes.func,
-  id: PropTypes.func,
-  activeIcon: PropTypes.string,
+  onSubmit: PropTypes.func.isRequired,
+  handleToggleModal: PropTypes.func.isRequired,
 };

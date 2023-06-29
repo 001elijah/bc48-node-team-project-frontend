@@ -9,17 +9,15 @@ import { getListOfThumbnails } from '../../redux/Background/backgroundOperations
 import { selectorTheme } from '../../redux/Auth/authSelectors';
 import { Loader } from 'components/Loader/Loader';
 import s from './BoxRadioBackgroundGroup.module.scss';
-import { currentBoard } from 'redux/Boards/boardsSelectors';
 
-export const BoxRadioBackgroundGroup = ({ valueChange }) => {
+export const BoxRadioBackgroundGroup = ({ valueChange, activeBackground = "default" }) => {
   const dispatch = useDispatch();
 
   const thumbnails = useSelector(selectBackgroundThumbnails);
   const loading = useSelector(selectBackgroundLoading);
   const theme = useSelector(selectorTheme);
-  const board = useSelector(currentBoard);
 
-  const [background, setBackground] = useState(board?.background);
+  const [background, setBackground] = useState(activeBackground);
 
   const handleChange = e => {
     const selectedBackground = e.target.value;
@@ -94,4 +92,5 @@ export const BoxRadioBackgroundGroup = ({ valueChange }) => {
 
 BoxRadioBackgroundGroup.propTypes = {
   valueChange: PropTypes.func.isRequired,
+  activeBackground: PropTypes.string
 };
