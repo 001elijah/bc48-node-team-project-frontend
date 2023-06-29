@@ -73,7 +73,6 @@ export const Wrappers = styled.div`
   background-position: center;
 
   @media screen and (min-width: 375px) {
-    padding-left: 0px;
     background-image: url(${props => props.imgurl.mobileUrl_1x});
   }
 
@@ -96,10 +95,11 @@ export const Wrappers = styled.div`
 
   @media screen and (min-width: 1280px) {
     width: calc(100vw - 260px);
-    height: calc(100% - 76px);
+    height: calc(100vh - 76px);
     padding-left: 24px;
     padding-right: 24px;
     background-image: url(${props => props.imgurl.desktopUrl_1x});
+    height: calc(100vh - 68px);
   }
 
   @media screen and (min-width: 1280px) and (-webkit-min-device-pixel-ratio: 2),

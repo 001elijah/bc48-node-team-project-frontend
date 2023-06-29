@@ -3,7 +3,11 @@
 
 .item {
   width: 100%;
+  position: relative;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+
   &:hover .iconProject {
     transform: rotate(1turn);
     transition: all 1.5s;
@@ -11,15 +15,12 @@
 }
 
 .link {
-  padding: 20px 14px;
+  width: 100%;
+  padding: 20px 0 20px 14px;
 
   @include tablet {
-    padding: 20px 24px;
+    padding: 20px 0 20px 24px;
   }
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
 
 .projectNameWrapper {
@@ -64,7 +65,15 @@
 
 .iconList {
   display: none;
+  position: absolute;
+  // width: 40px;
   gap: 8px;
+  top: 23px;
+  right: 18px;
+
+  @include tablet {
+    right: 24px;
+  }
 
   & li {
     pointer-events: none;

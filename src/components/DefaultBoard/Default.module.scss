@@ -1,7 +1,7 @@
 @import '../../assets/styles/vars';
 @import '../../assets/styles/mixins';
 
-.BackGround {
+.backGround {
   height: calc(100vh - 60px);
   position: relative;
 
@@ -14,48 +14,43 @@
   &.colorful {
     background-color: #ecedfd;
   }
-}
-// .Wrapper {
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   // height: 100%
-// }
-.DefaultTitle {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 1.29;
-  text-align: center;
-  letter-spacing: -0.02em;
-  max-height: min-content;
-  // margin-left: auto;
-  // margin-right: auto;
 
-  @include mobileSmall {
-    max-width: 335px;
-  }
-  @include mobile {
-    width: 335px;
-  }
   @include tablet {
-    width: 486px;
-    .BackGround {
-      height: calc(100vh - 68px);
+    height: calc(100vh - 68px);
+  }
+
+  .defaultTitle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.29;
+    text-align: center;
+    letter-spacing: -0.02em;
+    max-height: min-content;
+
+    @include mobileSmall {
+      max-width: 335px;
+    }
+    @include mobile {
+      width: 335px;
+    }
+    @include tablet {
+      width: 486px;
+    }
+    &.dark {
+      color: #ffffff80;
+    }
+    &.light,
+    &.colorful {
+      color: #161616;
     }
   }
-  &.dark {
-    color: #ffffff80;
-  }
-  &.light,
-  &.colorful {
-    color: #161616;
-  }
 }
-.DefaultLink {
+
+.defaultLink {
   &.dark,
   &.light {
     color: #bedbb0;
