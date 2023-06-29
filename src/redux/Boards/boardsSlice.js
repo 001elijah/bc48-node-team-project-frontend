@@ -35,6 +35,7 @@ const boardsSlice = createSlice({
         const index = state.allboards.findIndex(({ _id }) => _id === boardId);
         if (index !== -1) {
           state.allboards.splice(index, 1);
+          state.currentboard = null;
         }
       })
       // .addCase(getBoardById.fulfilled, (state, { payload }) => {

@@ -119,6 +119,7 @@ export const updateUser = createAsyncThunk(
 
       return data;
     } catch (error) {
+      Notify.failure('Invalid editing');
       return rejectWithValue(error.message);
     }
   },

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { Notify } from 'notiflix';
 
 import { ButtonAuth } from '../ButtonAuth/ButtonAuth';
-import { validationSchemaEditProfile } from '../SchemaValidation/schemaValidation';
+import { validationSchemaRegister } from '../SchemaValidation/schemaValidation';
 import { updateUser } from 'redux/Auth/authOperations';
 import {
   selectorTheme,
@@ -36,9 +36,8 @@ export const ModalEditProfile = ({ onClose }) => {
       userName: name,
       email: email,
       password: '',
-      // avatarUrl: avatar,
     },
-    validationSchema: validationSchemaEditProfile,
+    validationSchema: validationSchemaRegister,
     onSubmit: values => {
       onClose();
 
