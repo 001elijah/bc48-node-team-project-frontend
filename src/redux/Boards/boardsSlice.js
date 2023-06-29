@@ -7,6 +7,7 @@ import {
   getBoardById,
   updateBoard,
 } from './boardsOperations';
+import { logoutUser } from '../Auth/authOperations';
 
 const boardsSlice = createSlice({
   name: 'boards',
@@ -44,7 +45,11 @@ const boardsSlice = createSlice({
         state.currentboard = payload;
       })
       .addCase(updateBoard.fulfilled, (state, { payload }) => {
-        state = payload;
+        state.currentboard = payload;
+      })
+      .addCase(logoutUser.fulfilled, state => {
+        state.allboards = [];
+        state.currentboard = null;
       });
   },
 });

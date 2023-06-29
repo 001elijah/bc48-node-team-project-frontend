@@ -8,16 +8,18 @@ import {
 import { getListOfThumbnails } from '../../redux/Background/backgroundOperations';
 import { selectorTheme } from '../../redux/Auth/authSelectors';
 import { Loader } from 'components/Loader/Loader';
-
 import s from './BoxRadioBackgroundGroup.module.scss';
+import { currentBoard } from 'redux/Boards/boardsSelectors';
 
 export const BoxRadioBackgroundGroup = ({ valueChange }) => {
+  const dispatch = useDispatch();
+
   const thumbnails = useSelector(selectBackgroundThumbnails);
   const loading = useSelector(selectBackgroundLoading);
   const theme = useSelector(selectorTheme);
+  const board = useSelector(currentBoard);
 
-  const dispatch = useDispatch();
-  const [background, setBackground] = useState(null);
+  const [background, setBackground] = useState(board?.background);
 
   const handleChange = e => {
     const selectedBackground = e.target.value;
@@ -28,11 +30,7 @@ export const BoxRadioBackgroundGroup = ({ valueChange }) => {
   useEffect(() => {
     dispatch(getListOfThumbnails());
   }, [dispatch]);
-
-  useEffect(() => {
-    setBackground('default');
-  }, []);
-
+  
   return (
     <div className={s.backgroundGroupWrapper}>
       <h1 className={`${s.label} ${s[theme]}`}>Background</h1>
@@ -40,14 +38,15 @@ export const BoxRadioBackgroundGroup = ({ valueChange }) => {
         {/* Default Background */}
         <div
           className={`${s.radioContainer} ${s[theme]} ${
-            background === 'default' ? s.selected : ''
+            background === "default" ? s.selected : ''
           }`}
         >
           <input
             className={`${s.radioInput} ${s[theme]}`}
             type="radio"
+            onClick={handleChange}
             onChange={handleChange}
-            value="null"
+            value="default"
             name="background"
             id="radio-default"
             checked={background === 'default'}
