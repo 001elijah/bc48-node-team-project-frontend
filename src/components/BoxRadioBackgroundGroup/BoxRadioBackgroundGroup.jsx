@@ -12,12 +12,14 @@ import s from './BoxRadioBackgroundGroup.module.scss';
 import { currentBoard } from 'redux/Boards/boardsSelectors';
 
 export const BoxRadioBackgroundGroup = ({ valueChange }) => {
+  const dispatch = useDispatch();
+
   const thumbnails = useSelector(selectBackgroundThumbnails);
   const loading = useSelector(selectBackgroundLoading);
   const theme = useSelector(selectorTheme);
-  const dispatch = useDispatch();
   const board = useSelector(currentBoard);
-  const [background, setBackground] = useState(board.background);
+
+  const [background, setBackground] = useState(board?.background);
 
   const handleChange = e => {
     const selectedBackground = e.target.value;
@@ -28,10 +30,7 @@ export const BoxRadioBackgroundGroup = ({ valueChange }) => {
   useEffect(() => {
     dispatch(getListOfThumbnails());
   }, [dispatch]);
-
-  useEffect(() => {
-    setBackground('default');
-  }, []);
+  
   return (
     <div className={s.backgroundGroupWrapper}>
       <h1 className={`${s.label} ${s[theme]}`}>Background</h1>
