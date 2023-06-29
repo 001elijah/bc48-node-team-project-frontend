@@ -8,29 +8,15 @@
   width: 100%;
   margin-top: 40px;
   margin-bottom: 40px;
-  overflow-y: auto;
+  overflow-x: auto;
   scrollbar-width: thin;
-
   display: flex;
   flex-direction: column;
-  gap: 4px;
-
-  &::-webkit-scrollbar {
-    width: 0.5em;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 0, 0, 0);
-  }
-
-  &::-webkit-scrollbar-track {
-    background-color: rgba(0, 0, 0, 0);
-  }
 
   @include tablet {
-    height: calc(100vh - 655px);
+    max-height: calc(100vh - 655px);
   }
   @include desktop {
-    height: calc(100vh - 646px);
+    max-height: calc(100vh - 654px);
   }
 }
