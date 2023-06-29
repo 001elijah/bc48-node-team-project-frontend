@@ -11,7 +11,7 @@ import clsx from 'clsx';
 export const ModalFilter = ({ closeModal, colorNew, iconNew }) => {
   const [colorFilter, setColorFilter] = useState('');
   const theme = useSelector(selectorTheme);
-  const [icon, setIcon] = useState('');
+  const [icon, setIcon] = useState();
 
   useEffect(() => {
     colorNew(colorFilter), iconNew(icon);

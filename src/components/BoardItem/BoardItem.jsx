@@ -34,7 +34,7 @@ export const BoardItem = ({
   const handleOpenEditModal = e => {
     e.stopPropagation();
     setIsOpenEditModal(true);
-    dispatch(getBoardById(id));
+    // dispatch(getBoardById(id));
   };
   const handleCloseEditModal = () => {
     setIsOpenEditModal(false);
