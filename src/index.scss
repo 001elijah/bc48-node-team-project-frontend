@@ -25,9 +25,11 @@
 }
 
 body {
+  background-color: $dark-color;
   margin: 0;
   height: 100vh;
-  overflow: hidden;
+  //width: 100vw;
+  // overflow: hidden;
   font-family: 'Poppins-Regular', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -56,11 +58,11 @@ code {
 // }
 
 // ::-webkit-scrollbar-thumb {
-//   background-color: $dark-color;
+//   // background-color: $dark-color;
 //   border-radius: 100vw;
 // }
 
 // ::-webkit-scrollbar-track {
-//   background-color: $background-color;
+//   // background-color: $background-color;
 //   border-radius: 100vw;
 // }
