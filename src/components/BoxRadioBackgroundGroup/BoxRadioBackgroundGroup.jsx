@@ -10,7 +10,10 @@ import { selectorTheme } from '../../redux/Auth/authSelectors';
 import { Loader } from 'components/Loader/Loader';
 import s from './BoxRadioBackgroundGroup.module.scss';
 
-export const BoxRadioBackgroundGroup = ({ valueChange, activeBackground = "default" }) => {
+export const BoxRadioBackgroundGroup = ({
+  valueChange,
+  activeBackground = 'default',
+}) => {
   const dispatch = useDispatch();
 
   const thumbnails = useSelector(selectBackgroundThumbnails);
@@ -92,5 +95,5 @@ export const BoxRadioBackgroundGroup = ({ valueChange, activeBackground = "defau
 
 BoxRadioBackgroundGroup.propTypes = {
   valueChange: PropTypes.func.isRequired,
-  activeBackground: PropTypes.string
+  activeBackground: PropTypes.string,
 };

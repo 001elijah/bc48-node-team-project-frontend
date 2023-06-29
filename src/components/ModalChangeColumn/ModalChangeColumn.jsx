@@ -28,7 +28,7 @@ export const ModalChangeColumn = ({ closeModal, columnId, cardId }) => {
               }}
               type="button"
             >
-             <span className={s.title}> {title}</span>
+              <span className={s.title}> {title}</span>
               <svg
                 className={clsx(s.icon, s[theme], id === columnId && s.current)}
               >

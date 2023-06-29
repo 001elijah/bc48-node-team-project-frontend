@@ -17,7 +17,7 @@ export const BoardItem = ({
   id,
   boardName,
   icon,
-  background = "default",
+  background = 'default',
   theme,
   onClick,
   isCurrent,
@@ -28,14 +28,13 @@ export const BoardItem = ({
   const navigate = useNavigate();
 
   const editSubmit = async dataBoard => {
-        await dispatch(editBoard({ dataBoard, id }));
-        dispatch(getBoardById(id));
+    await dispatch(editBoard({ dataBoard, id }));
+    dispatch(getBoardById(id));
   };
 
   const handleOpenEditModal = e => {
     e.stopPropagation();
     setIsOpenEditModal(true);
-
   };
   const handleCloseEditModal = () => {
     setIsOpenEditModal(false);
