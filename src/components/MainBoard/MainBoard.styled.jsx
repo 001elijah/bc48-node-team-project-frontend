@@ -5,7 +5,6 @@ export const Wrapper = styled.div(props => {
       padding-left: 20px;
       padding-right: 20px;
       height: calc(100vh - 61px);
-      height: calc(100vh - 61px);
       background-color: ${props.colorbg};
       `;
   const notExpandedStyles = `
@@ -38,7 +37,7 @@ export const Wrapper = styled.div(props => {
     
       @media screen and (min-width: 1280px) {
         width: calc(100vw - 260px);
-        height: calc(100% - 76px);
+        height: calc(100% - 68px);
         padding-left: 24px;
         padding-right: 24px;
         background-image: url(${props.imgurl?.desktopUrl_1x});
@@ -102,7 +101,6 @@ export const Wrappers = styled.div`
 
   @media screen and (min-width: 1280px) {
     width: calc(100vw - 260px);
-    height: calc(100vh - 76px);
     padding-left: 24px;
     padding-right: 24px;
     ${props =>
