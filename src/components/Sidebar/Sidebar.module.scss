@@ -1,5 +1,6 @@
 @import '../../assets/styles/vars';
 @import '../../assets/styles/mixins';
+
 .container {
   width: 225px;
   max-height: 100%;
@@ -44,30 +45,30 @@
   // &>div>div{
   //   height: 100%;
   // }
-}
 
-.text {
-  margin-top: 70px;
-  width: 197px;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 1.5;
-  letter-spacing: -0.02em;
-  color: #16161680;
+  .text {
+    margin-top: 70px;
+    width: 197px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.5;
+    letter-spacing: -0.02em;
+    color: hsla(0, 0%, 9%, 0.502);
 
-  @include tablet {
-    width: 212px;
-  }
+    @include tablet {
+      width: 212px;
+    }
 
-  &.light {
-    color: #16161680;
-  }
+    &.light {
+      color: #16161680;
+    }
 
-  &.dark {
-    color: rgba(255, 255, 255, 0.5);
-  }
+    &.dark {
+      color: rgba(255, 255, 255, 0.5);
+    }
 
-  &.colorful {
-    color: rgba(255, 255, 255, 0.5);
+    &.colorful {
+      color: rgba(255, 255, 255, 0.5);
+    }
   }
 }

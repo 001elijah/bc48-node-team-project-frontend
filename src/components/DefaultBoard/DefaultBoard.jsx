@@ -2,19 +2,19 @@ import { selectorTheme } from 'redux/Auth/authSelectors';
 import { useSelector } from 'react-redux';
 import clsx from 'clsx';
 import React from 'react';
-import s from './Default.module.scss';
 import { HeaderDashBoard } from 'components/HeaderDashBoard/HeaderDashBoard';
+import s from './Default.module.scss';
 
 export const DefaultDashBoard = () => {
   const theme = useSelector(selectorTheme);
   return (
     <>
-      <div className={clsx(s.BackGround, s[theme])}>
+      <div className={clsx(s.backGround, s[theme])}>
         <HeaderDashBoard />
-        {/* <div className={s.Wrapper}> */}
-        <p className={clsx(s.DefaultTitle, s[theme])}>
+
+        <p className={clsx(s.defaultTitle, s[theme])}>
           Before starting your project, it is essential
-          <span className={clsx(s.DefaultLink, s[theme])}>
+          <span className={clsx(s.defaultLink, s[theme])}>
             {' '}
             to create a board{' '}
           </span>
@@ -23,7 +23,6 @@ export const DefaultDashBoard = () => {
           effective collaboration among team members.
         </p>
       </div>
-      {/* </div> */}
     </>
   );
 };
