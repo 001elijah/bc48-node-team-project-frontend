@@ -31,7 +31,7 @@ const handleChange = (e) => {
   }, [dispatch]);
 
   useEffect(() => {
-    setBackground(null);
+    setBackground('null');
   }, []);
   return (
     <div className={s.backgroundGroupWrapper}>
@@ -48,10 +48,10 @@ const handleChange = (e) => {
             type="radio"
             onClick={handleChange}
             onChange={handleChange}
-            value={null}
+            value='null'
             name="background"
             id="radio-default"
-            checked={background === null}
+            checked={background === 'null'}
           />
           <label
             htmlFor="radio-default"
