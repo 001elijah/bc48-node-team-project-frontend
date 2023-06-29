@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   background-size: cover;
   background-position: center center;
   background-color: ${props => props.colorbg};
-  height: calc(100vh - 61px);
+  height: calc(100vh - 60px);
 
   @media screen and (min-width: 375px) {
     background-image: url(${props => props.imgurl.mobileUrl_1x});
