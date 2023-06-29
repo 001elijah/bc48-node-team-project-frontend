@@ -18,7 +18,7 @@ export const BoardModalWindow = ({
 }) => {
   const theme = useSelector(selectorTheme);
   const [title, setTitle] = useState(inputTitle);
-  const [background, setBackground] = useState('dark');
+  const [background, setBackground] = useState();
   const [icon, setIcon] = useState('');
   const [isValid, setIsValid] = useState(false);
 

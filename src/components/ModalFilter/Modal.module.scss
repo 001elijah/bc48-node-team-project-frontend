@@ -22,7 +22,8 @@
   }
 }
 .TitleBlock {
-  height: 41px;
+  padding-bottom: 14px;
+  margin-bottom: 14px;
 
   &.dark {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -95,8 +96,15 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  margin-top: 24px;
+  padding-top: 24px;
   margin-bottom: 14px;
+  &.dark {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  &.light,
+  &.colorful {
+    border-top: 1px solid rgba(22, 22, 22, 0.1);
+  }
 }
 .Button {
   position: absolute;
@@ -117,7 +125,7 @@
   }
 }
 .InputBlock {
-  margin-bottom: 12px;
+  margin-bottom: 6px;
 }
 .LabelField {
   font-weight: 400;

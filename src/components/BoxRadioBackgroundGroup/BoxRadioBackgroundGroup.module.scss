@@ -3,7 +3,7 @@
 
 .backgroundGroupWrapper {
   display: block;
-  margin-bottom: 40px;
+  margin-bottom: 14px;
 }
 
 .label {
@@ -24,31 +24,27 @@
   }
 }
 
-.backgroundGroupWrapper {
-  display: block;
-  margin-bottom: 40px;
-}
-
 .radioWrapper {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  margin-top: 4px;
+  // margin-top: 4px;
+  gap: 4px;
   &:not(:last-child) {
     margin-right: 4px;
   }
   @include mobile {
-    width: 300px;
+    width: 252px;
   }
 }
 
 .radioContainer {
   position: relative;
-  margin-right: 4px;
-  margin-bottom: 4px;
+  // margin-right: 4px;
+  // margin-bottom: 4px;
   background: inherit;
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
 
   &.selected {
     border-radius: 6px;

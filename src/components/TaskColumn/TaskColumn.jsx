@@ -47,7 +47,7 @@ export const TaskColumn = ({ columnId }) => {
   }
 
   const handleAddCard = dataForm => {
-    const { value, coment, color, date } = dataForm;
+    const { value, coment, color = 'without', date } = dataForm;
     dispatch(
       addCard({
         title: value,
@@ -59,7 +59,6 @@ export const TaskColumn = ({ columnId }) => {
       }),
     );
   };
-  // if (cards?.length === 0) return;
   return (
     <>
       <ul

@@ -2,7 +2,6 @@ import s from './Modal.module.scss';
 import svg from '../../assets/icons/sprite.svg';
 import PropTypes from 'prop-types';
 import { LabelBlock } from './LabelBlock';
-// import { BackgroundBlock } from './BackgroundBlock';
 import { useEffect, useState } from 'react';
 import { selectorTheme } from 'redux/Auth/authSelectors';
 import { useSelector } from 'react-redux';
@@ -12,7 +11,7 @@ import clsx from 'clsx';
 export const ModalFilter = ({ closeModal, colorNew, iconNew }) => {
   const [colorFilter, setColorFilter] = useState('');
   const theme = useSelector(selectorTheme);
-  const [icon, setIcon] = useState('');
+  const [icon, setIcon] = useState();
 
   useEffect(() => {
     colorNew(colorFilter), iconNew(icon);

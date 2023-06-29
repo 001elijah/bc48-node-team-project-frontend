@@ -11,12 +11,12 @@
   overflow: hidden;
   list-style: none;
 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
   &:not(:last-child) {
     margin-bottom: 8px;
-  }
-
-  &:last-child {
-    margin-bottom: 14px;
   }
 
   &.dark {
@@ -30,7 +30,10 @@
   left: 0;
   width: 4px;
   height: 100%;
-  background-color: $icon-secondary-color;
+
+  &.dark {
+    background-color: $priority-without-dark-theme-color;
+  }
 }
 
 .title {
@@ -105,17 +108,33 @@
   height: 12px;
   margin-right: 4px;
   border-radius: 50%;
-  background-color: $icon-secondary-color;
 }
 
 .bg_low {
   background-color: $priority-low-color;
+  &.dark {
+    background-color: $priority-low-color;
+  }
 }
 .bg_medium {
   background-color: $priority-medium-color;
+  &.dark {
+    background-color: $priority-medium-color;
+  }
 }
 .bg_high {
   background-color: $priority-high-color;
+  &.dark {
+    background-color: $priority-high-color;
+  }
+}
+
+.bg_without {
+  background-color: $priority-without-color;
+
+  &.dark {
+    background-color: $priority-without-dark-theme-color;
+  }
 }
 
 .text {
