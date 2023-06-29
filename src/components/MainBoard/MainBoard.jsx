@@ -30,7 +30,7 @@ export const MainBoard = () => {
       curTheme = '#1F1F1F';
       break;
     case 'light':
-      curTheme = '##F6F6F7';
+      curTheme = '#F6F6F7';
       break;
     case 'colorful':
       curTheme = '#ECEDFD';
@@ -43,7 +43,12 @@ export const MainBoard = () => {
   if (!board) return null;
   return (
     <>
-      <Wrapper imgurl={board.background} colorbg={curTheme}>
+      {/* <Wrapper isExpanded={typeof(board.background)==='object'? true:false} imgurl={board.background} colorbg={curTheme}> */}
+      <Wrapper
+        isExpanded={!board.background ? false : true}
+        imgurl={board.background}
+        colorbg={curTheme}
+      >
         <HeaderDashBoard title={board.title} />
         <ContentBoard>
           <ColumnsList>

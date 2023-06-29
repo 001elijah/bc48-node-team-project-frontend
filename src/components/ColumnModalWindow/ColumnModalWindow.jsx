@@ -21,6 +21,7 @@ export const ColumnModalWindow = ({
   const [value, setValue] = useState(inputTitle);
   const theme = useSelector(selectorTheme);
   const [isValid, setIsValid] = useState(false);
+  const [errorCirillicaTitle, setErrorCirillicaTitle] = useState(false);
 
   // const updateBoard = ()=>{
   //   setTimeout(()=>{dispatch(getBoardById(boardId)),0 })
@@ -28,7 +29,7 @@ export const ColumnModalWindow = ({
 
   const handleSubmit = async e => {
     e.preventDefault();
-
+    if (errorCirillicaTitle) return;
     if (value === '') {
       setIsValid(true);
       setTimeout(() => setIsValid(false), 2500);
@@ -53,6 +54,17 @@ export const ColumnModalWindow = ({
     }
   };
 
+  const handleChange = e => {
+    const cyrillicRegex = /^[a-zA-Z]+$/;
+
+    if (e.target.value.length > 0 && !cyrillicRegex.test(e.target.value)) {
+      setErrorCirillicaTitle(true);
+      e.preventDefault();
+    } else {
+      setErrorCirillicaTitle(false);
+    }
+    setValue(e.target.value);
+  };
   return (
     <Modal title={modalTitle} onClose={onClick}>
       <form onSubmit={handleSubmit}>
@@ -60,9 +72,14 @@ export const ColumnModalWindow = ({
           className={`${s.inputModal} ${s[theme]}`}
           value={value}
           placeholder="Title"
-          onChange={e => setValue(e.target.value)}
+          onChange={handleChange}
         />
         {isValid && <p className={s.errorTitle}>required field</p>}
+        {errorCirillicaTitle && (
+          <p className={s.errorCirillicaTitle}>
+            invalid characters (latin alphabet only)
+          </p>
+        )}
         <button className={`${s.buttonModal} ${s[theme]}`} type="submit">
           <span className={`${s.iconButtonModalWrapper} ${s[theme]}`}>
             <svg
