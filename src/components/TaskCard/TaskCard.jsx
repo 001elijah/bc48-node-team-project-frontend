@@ -33,7 +33,7 @@ export const TaskCard = ({
 
   let labelCapitalizeFirstLetter =
     label.charAt(0).toUpperCase() + label.slice(1);
-  console.log(labelCapitalizeFirstLetter);
+
   const openModalChangeColumn = () => {
     setIsModalChangeOpen(true);
   };

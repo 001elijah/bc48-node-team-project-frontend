@@ -32,7 +32,7 @@
   height: 100%;
 
   &.dark {
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: $priority-without-dark-theme-color;
   }
 }
 
@@ -60,6 +60,10 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+
+  &.dark {
+    color: $icon-secondary-color;
+  }
 }
 
 .controlPanel {
