@@ -172,7 +172,10 @@
 }
 .InputField {
   &[id='without']::before {
-    background-color: #ffffff4d;
+    background-color: $priority-without-color;
+  }
+  &[id='without'].dark::before {
+    background-color: $priority-without-dark-theme-color;
   }
   &[id='low']::before {
     background-color: $priority-low-color;

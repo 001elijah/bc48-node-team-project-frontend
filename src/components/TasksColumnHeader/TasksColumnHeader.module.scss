@@ -17,10 +17,17 @@
 }
 
 .title {
+  margin-right: 10px;
   font-weight: 500;
   font-size: 14px;
   line-height: 1.5;
   color: $black-text-color;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
   &.dark {
     color: $white-color;
