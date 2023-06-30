@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import clsx from 'clsx';
 import shortid from 'shortid';
 import PropTypes from 'prop-types';
+import ShowMoreText from 'react-show-more-text';
 
 import sprite from '../../assets/icons/sprite.svg';
 import { removeCard, updateCard } from 'redux/Cards/cardsOperations';
@@ -74,7 +75,18 @@ export const TaskCard = ({
       ></div>
       <div className={s.infoWrapper}>
         <h4 className={clsx(s.title, s[theme])}>{title}</h4>
-        <p className={clsx(s.description, s[theme])}>{description}</p>
+
+        <ShowMoreText
+          lines={2}
+          more="more"
+          less="less"
+          anchorClass={clsx(s.showMoreAnchor, s[theme])}
+          expanded={false}
+          truncatedEndingComponent={'... '}
+          className={clsx(s.description, s[theme])}
+        >
+          {description}
+        </ShowMoreText>
       </div>
       <div className={clsx(s.controlPanel, s[theme])}>
         <div className={s.statusInfo}>
