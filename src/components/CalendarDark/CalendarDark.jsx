@@ -33,6 +33,7 @@ export const CalendarDark = ({ onDate, deadline = String(new Date()) }) => {
       selected={Date.parse(startDate)}
       calendarClassName={s.calendarConatiner}
       popperClassName={s.popperCustomClass}
+      calendarStartDay={1}
       // formatWeekDay={day => day.substr(0, 2)}
       customInput={
         <CalendarButton
