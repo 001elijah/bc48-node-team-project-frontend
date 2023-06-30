@@ -121,8 +121,73 @@ export const Wrappers = styled.div`
 export const ColumnsList = styled.ul`
   display: flex;
 `;
-export const ContentBoard = styled.div`
+export const ContentBoard = styled.div(props => {
+  const lightTheme = `
   display: flex;
   wrap: nowrap;
   overflow: auto;
-`;
+  &::-webkit-scrollbar {
+        height: 12px;
+        margin-top: 16px;
+        margin-left: 8px;
+        margin-right: 2px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: rgba(22, 22, 22, 0.1);
+        border-radius: 100vw;
+      }
+
+      &::-webkit-scrollbar-track {
+        background-color: #e6e6e6;
+        border-radius: 100vw;
+      }`;
+  const darkTheme = `
+  display: flex;
+  wrap: nowrap;
+  overflow: auto;
+  &::-webkit-scrollbar {
+        height: 12px;
+        margin-top: 16px;
+        margin-left: 8px;
+        margin-right: 2px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: rgba(18, 18, 18, 1);
+        border-radius: 100vw;
+      }
+
+      &::-webkit-scrollbar-track {
+        background-color: #e6e6e6;
+        border-radius: 100vw;
+      }`;
+  const colorfulTheme = `
+  display: flex;
+  wrap: nowrap;
+  overflow: auto;
+  &::-webkit-scrollbar {
+        height: 12px;
+        margin-top: 16px;
+        margin-left: 8px;
+        margin-right: 2px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: rgba(184, 188, 253, 1);
+        border-radius: 100vw;
+      }
+
+      &::-webkit-scrollbar-track {
+        background-color: #e6e6e6;
+        border-radius: 100vw;
+      }`;
+
+  if (props.currentTheme === "#F6F6F7") {
+      return lightTheme;
+  } else if (props.currentTheme === "#1F1F1F") {
+      return darkTheme;
+  } else {
+      return colorfulTheme;
+    }
+});

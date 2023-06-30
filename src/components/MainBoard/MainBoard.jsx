@@ -50,7 +50,7 @@ export const MainBoard = () => {
         colorbg={curTheme}
       >
         <HeaderDashBoard title={board.title} />
-        <ContentBoard>
+        <ContentBoard currentTheme={curTheme}>
           <ColumnsList>
             {board.columns.map(item => (
               <TasksColumnHeader
