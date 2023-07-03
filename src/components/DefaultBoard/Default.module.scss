@@ -51,11 +51,19 @@
 }
 
 .defaultLink {
+  cursor: pointer;
   &.dark,
   &.light {
     color: #bedbb0;
+    &:hover{
+      color: #5255bc;
+    }
   }
   &.colorful {
     color: #5255bc;
+
+  &:hover{
+    color: #bedbb0;
   }
+}
 }

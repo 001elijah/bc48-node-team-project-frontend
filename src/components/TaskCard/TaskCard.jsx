@@ -31,7 +31,6 @@ export const TaskCard = ({
   const currentDate = new Date().toLocaleDateString('en-GB');
   const endDate = new Date(deadline).toLocaleDateString('en-GB');
   const isDeadline = endDate === currentDate;
-
   let labelCapitalizeFirstLetter =
     label.charAt(0).toUpperCase() + label.slice(1);
 
