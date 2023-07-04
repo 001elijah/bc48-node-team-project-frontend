@@ -59,6 +59,8 @@ export const TaskColumn = ({ columnId }) => {
       }),
     );
   };
+
+  console.log(cards);
   return (
     <>
       <ul

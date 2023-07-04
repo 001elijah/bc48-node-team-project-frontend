@@ -38,10 +38,13 @@ export const Sidebar = () => {
       <Logout theme={theme} />
       {showModalWindow && (
         <BoardModalWindow
+        inputTitle=''
           titleModalButton="Create"
           modalTitle="New board"
           handleToggleModal={handleModalWindowClose}
           onSubmit={handleAddBoard}
+          activeIcon=''
+          activeBackground=''
         />
       )}
     </div>
